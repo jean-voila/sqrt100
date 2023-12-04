@@ -16,15 +16,21 @@ _________                  __  .__           ________   _____  ________         
 - [x] Création du *README.md*
 - [x] Créer salle de débug - ***Paul***
 - [x] Gérer les mouvements du joueur - ***Paul <3***
+- [x] Créer des skins de tests (buissons, arbres, rochers) - **Paul**
+- [x] Créer le HUD de debug - **Amadéo / Jean**
+- [x] Ajouter le respawn quand saut dans le vide - **Jean**
 
-## À faire 📋
-- [ ] Designer le Menu Principal du Jeu - ***Paul* / Jean**
-- [ ] Établir le Level-Design - ***Paul* / Roni**
-- [ ] Modélisation graphique - ***Roni* / Paul**
-- [ ] Intégration de l’IA - ***Jean* / Amadéo**
-- [ ] Prise en charge du réseau - ***Amadéo* / Jean**
-- [ ] Développer le site Web - ***Clément* / Roni**
+## À faire ⏰
+- [ ] Designer le Menu Principal du Jeu - ***Amadéo* / Jean**
+- [ ] Intégrer les skins de tests dans la salle debug - **Jean**
+- [ ] Créer un mob d'ennemi chacun - **Roni / Amadéo / Clément**
+      <br>*on peut s'aider de l'IA, bien penser à respecter les dimensions 75x125*
+- [ ] Commencer le développement du site Web (bootstrap) - ***Clément* / Roni**
+- [ ] Régler le problème de la caméra qui ne se bloque pas en levant la tête - **Paul ? <3**
+
+## Plus tard (moins urgent) 📋
 - [ ] Créer la bande-son - ***Jean* / Clément**
 - [ ] Écrire le Lore - ***Roni* / Amadéo**
-- [ ] Tuer Roni
-- [ ] Effacer la ligne du dessus
+- [ ] Établir le Level-Design - ***Paul* / Roni**
+- [ ] Intégration de l’IA - ***Jean* / Amadéo**
+- [ ] Prise en charge du réseau - ***Amadéo* / Jean**
