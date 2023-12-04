@@ -1,0 +1,109 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Mobs/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Textures/imageonline-co-pixelated2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/imageonline-co-pixelated3.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/imageonline-co-pixelated1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/imageonline-co-pixelated4.png" type="Texture" id=5]
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 4 )
+uv1_scale = Vector3( 2, 4, 1.466 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_texture = ExtResource( 5 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_texture = ExtResource( 5 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_texture = ExtResource( 5 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 2 )
+
+[node name="DebugMap" type="Spatial"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.311138, 1.31148, 0.583661 )
+accelerationSpeed = 5.0
+maxSpeed = 16.0
+jumpSpeed = 25.0
+
+[node name="wall1" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07258, 8.5129 )
+use_collision = true
+height = 6.95414
+depth = 5.32256
+material = SubResource( 4 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.932683, 0.360697, 0, -0.360697, 0.932683, 0, 123.565, 93.937 )
+light_color = Color( 0.992157, 0.717647, 0.0705882, 1 )
+shadow_enabled = true
+
+[node name="Sol" type="Spatial" parent="."]
+
+[node name="sol" type="CSGBox" parent="Sol"]
+use_collision = true
+width = 36.1643
+height = 0.121397
+depth = 39.0209
+material = SubResource( 1 )
+
+[node name="sol2" type="CSGBox" parent="Sol"]
+transform = Transform( 1, 0, 0, 0, 0.9391, 0.343643, 0, -0.343643, 0.9391, 0, 6.21905, 35.3237 )
+use_collision = true
+width = 36.1643
+height = 0.121397
+depth = 39.0209
+material = SubResource( 1 )
+
+[node name="sol3" type="CSGBox" parent="Sol"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.7316, 72.5843 )
+use_collision = true
+width = 36.1643
+height = 0.121397
+depth = 39.0209
+material = SubResource( 1 )
+
+[node name="parcour" type="Spatial" parent="."]
+
+[node name="CSGBox" type="CSGBox" parent="parcour"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.3683, 75.4297 )
+use_collision = true
+material = SubResource( 5 )
+
+[node name="CSGBox2" type="CSGBox" parent="parcour"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.01962, 16.0599, 71.1844 )
+use_collision = true
+material = SubResource( 6 )
+
+[node name="CSGBox3" type="CSGBox" parent="parcour"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.278392, 18.9269, 66.3393 )
+use_collision = true
+material = SubResource( 7 )
+
+[node name="rampe3" type="Spatial" parent="."]
+
+[node name="rampe" type="CSGBox" parent="rampe3"]
+transform = Transform( 0.862249, 0.158235, 0.481133, 0, 0.949945, -0.312418, -0.506485, 0.269382, 0.819089, 8.26765, 1.08547, 0 )
+use_collision = true
+width = 6.76224
+height = 0.372073
+depth = 11.6501
+material = SubResource( 2 )
+
+[node name="rampe2" type="CSGBox" parent="rampe3"]
+transform = Transform( -0.870037, -0.154017, -0.468309, 0, 0.949945, -0.312418, 0.492986, -0.271815, -0.826488, 5.90736, 1.08547, -11.1999 )
+use_collision = true
+width = 6.76224
+height = 0.372073
+depth = 11.6501
+material = SubResource( 3 )
