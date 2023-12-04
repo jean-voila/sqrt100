@@ -66,6 +66,8 @@ public class Player : KinematicBody{
 			inputMouvementVector.x += 1;
 		}
 
+		
+
 		//adapte the mouvement to the camera orientation
 		direction += -GlobalTransform.basis.z * inputMouvementVector.y;//transphorm 2d direction into 3d so "y" becomes "z"
 		direction += GlobalTransform.basis.x * inputMouvementVector.x;//and "x" stays "x"
@@ -98,23 +100,30 @@ public class Player : KinematicBody{
 		velocity.x = horizontalVelocity.x;
 		velocity.z = horizontalVelocity.z;
 
+		
 		velocity = MoveAndSlide(velocity, Vector3.Up);
 		
 		Transform transformeeGlobale = GlobalTransform;
         Vector3 position = transformeeGlobale.origin;
-		var accel = position;
-		float accelX=accel.x;
-		float accelY=accel.y;
-		float accelZ=accel.z;
-		Update(accelX, accelY, accelZ);
+		var pos = position;
+		float posiX=pos.x;
+		float posiY=pos.y;
+		float posiZ=pos.z;
+
+		var accel = velocity;
+		float accX=accel.x;
+		float accY=accel.y;
+		float accZ=accel.z;
+
+		Update(posiX, posiY, posiZ, accX, accY, accZ);
 
 
 
-		if (accelY<-90){
+
+		if (posiY<-90){
 			Vector3 nouvellesCoordonnees = new Vector3(0.0f, 6.0f, 0.0f);
 			Teleporter(nouvellesCoordonnees);
 		}
-		
 		
 		
 		
@@ -123,17 +132,23 @@ public class Player : KinematicBody{
     {
         Transform nouvelleTransformee = Transform.Identity;
         nouvelleTransformee.origin = nouvellePosition;
-
         GlobalTransform = nouvelleTransformee;
     }
 
-	public void Update(float aX, float aY, float aZ){
+	public void Update(float posX, float posY, float posZ, float accX, float accY, float accZ){
 		var texteHUD = GetNode<RichTextLabel>("CanvasLayer/Control/RichTextLabel");
 		var texte="";
 		
-		texte+=$"accelX: {aX}\n";
-		texte+=$"accelY: {aY}\n";
-		texte+=$"accelZ: {aZ}";
+		texte+=$"|=======POSITION=======|\n";
+		texte+=$"x: {posX}\n";
+		texte+=$"y: {posY}\n";
+		texte+=$"z: {posZ}\n";
+
+
+		texte+=$"\n|=========ACCEL========|\n";
+		texte+=$"accX: {accX}\n";
+		texte+=$"accY: {accY}\n";
+		texte+=$"accZ: {accZ}";
 		
 		
 		texte+="\n";

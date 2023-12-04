@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Mobs/Player/Player.cs" type="Script" id=1]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Textures/imageonline-co-pixelated.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -15,6 +16,9 @@ radius = 0.5
 mid_height = 1.5
 
 [sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_texture = ExtResource( 3 )
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -37,9 +41,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.952763, 0 )
 current = true
 fov = 110.0
 
-[node name="CSGMesh" type="CSGMesh" parent="Head"]
+[node name="Bras" type="CSGMesh" parent="Head"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.5, 0.477267, -0.570388, -0.495418 )
 mesh = SubResource( 3 )
+material = SubResource( 5 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
