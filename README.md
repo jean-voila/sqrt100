@@ -21,6 +21,7 @@ _________                  __  .__           ________   _____  ________         
 - [x] Ajouter le respawn quand saut dans le vide - **Jean**
 
 ## À faire ⏰
+- [ ] Faire le menu pause - **Paul ? / Jean**
 - [ ] Designer le Menu Principal du Jeu - ***Amadéo* / Jean**
 - [ ] Intégrer les skins de tests dans la salle debug - **Jean**
 - [ ] Créer un mob d'ennemi chacun - **Roni / Amadéo / Clément**
