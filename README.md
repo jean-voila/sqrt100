@@ -19,6 +19,7 @@ _________                  __  .__           ________   _____  ________         
 - [x] Créer des skins de tests (buissons, arbres, rochers) - **Paul**
 - [x] Créer le HUD de debug - **Amadéo / Jean**
 - [x] Ajouter le respawn quand saut dans le vide - **Jean**
+- [x] f3 pour afficher/cacher le HUD
 
 ## À faire ⏰
 - [ ] Faire le menu pause - **Paul ? / Jean**

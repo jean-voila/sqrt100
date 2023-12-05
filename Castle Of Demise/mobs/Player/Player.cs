@@ -101,6 +101,11 @@ public class Player : KinematicBody{
 		velocity.z = horizontalVelocity.z;
 
 		
+		var camera = GetNode<Camera>("Head/Camera");
+		Transform cameraTransform = camera.GlobalTransform;
+		Basis cameraBasis = cameraTransform.basis;
+		Vector3 cameraEulerAngles = cameraBasis.GetEuler();
+
 		velocity = MoveAndSlide(velocity, Vector3.Up);
 		
 		Transform transformeeGlobale = GlobalTransform;
@@ -115,7 +120,13 @@ public class Player : KinematicBody{
 		float accY=accel.y;
 		float accZ=accel.z;
 
-		Update(posiX, posiY, posiZ, accX, accY, accZ);
+		var angleCam = cameraEulerAngles;
+		float oriX = angleCam.x;
+		float oriY = angleCam.y;
+		float oriZ = angleCam.z;
+
+		
+		Update(posiX, posiY, posiZ, accX, accY, accZ, oriX, oriY, oriZ);
 
 
 
@@ -124,6 +135,7 @@ public class Player : KinematicBody{
 			Vector3 nouvellesCoordonnees = new Vector3(0.0f, 6.0f, 0.0f);
 			Teleporter(nouvellesCoordonnees);
 		}
+
 		
 		
 		
@@ -135,7 +147,7 @@ public class Player : KinematicBody{
         GlobalTransform = nouvelleTransformee;
     }
 
-	public void Update(float posX, float posY, float posZ, float accX, float accY, float accZ){
+	public void Update(float posX, float posY, float posZ, float accX, float accY, float accZ, float oriX, float oriY, float oriZ){
 		var texteHUD = GetNode<RichTextLabel>("CanvasLayer/Control/RichTextLabel");
 		var texte="";
 		
@@ -148,7 +160,12 @@ public class Player : KinematicBody{
 		texte+=$"\n|=========ACCEL========|\n";
 		texte+=$"accX: {accX}\n";
 		texte+=$"accY: {accY}\n";
-		texte+=$"accZ: {accZ}";
+		texte+=$"accZ: {accZ}\n";
+
+		texte+=$"\n|========ORIENT=======|\n";
+		texte+=$"orientX: {oriX}\n";
+		texte+=$"orientY: {oriY}\n";
+		texte+=$"orientZ: {oriZ}";
 		
 		
 		texte+="\n";
