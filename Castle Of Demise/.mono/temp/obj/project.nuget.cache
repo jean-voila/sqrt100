@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "hzhD2THCaFWkfHZmGhw4I3EMSnNYspDwHp79RNNAgBJXv1xGQYEJ5knb1xYPRKU0maPm8lO1kvGnGPPl7kfvfQ==",
+  "dgSpecHash": "RkGXG4ZXyWU8LGJW8ZMbWjUI1NvpOdS7G7N75zp0kZ6bbSqojZDKLRD3d55Q0ykEO1mnhDJuMjnMs2QV4F7bNw==",
   "success": true,
-  "projectFilePath": "/Users/jeanherail/Documents/sqrt100/sqrt100/Castle Of Demise/Castle Of Demise.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\placa\\OneDrive\\Bureau\\project jeu\\sqrt100\\Castle Of Demise\\Castle Of Demise.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\placa\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.3\\microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
+    "C:\\Users\\placa\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.3\\microsoft.netframework.referenceassemblies.net472.1.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
