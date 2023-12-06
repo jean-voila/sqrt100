@@ -163,12 +163,24 @@ height = 0.121397
 depth = 39.0209
 material = SubResource( 1 )
 
-[node name="tree01" type="Sprite3D" parent="Sol/sol4"]
+[node name="Spatial2" type="Spatial" parent="Sol/sol4"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, -12.1427, 2.68132, -10.751 )
+
+[node name="tree02" type="Sprite3D" parent="Sol/sol4/Spatial2"]
+transform = Transform( 0.0522139, 0, -0.199727, 0, 1, 0, 4.99318, 0, 0.052214, -0.0230522, 0, 9.53674e-07 )
 texture = ExtResource( 4 )
 
-[node name="tree02" type="Sprite3D" parent="Sol/sol4"]
+[node name="tree01" type="Sprite3D" parent="Sol/sol4/Spatial2"]
+texture = ExtResource( 4 )
+
+[node name="Spatial" type="Spatial" parent="Sol/sol4"]
 transform = Transform( 5, 0, 0, 0, 7, 0, 0, 0, 1, -8.16547, 3.68236, -10.751 )
+
+[node name="tree03" type="Sprite3D" parent="Sol/sol4/Spatial"]
+transform = Transform( -0.0326668, 0, -0.199893, 0, 1, 0, 4.99733, 0, -0.0326668, -0.0478296, 0, 0.193196 )
+texture = ExtResource( 5 )
+
+[node name="tree02" type="Sprite3D" parent="Sol/sol4/Spatial"]
 texture = ExtResource( 5 )
 
 [node name="rock 01" type="Sprite3D" parent="Sol/sol4"]

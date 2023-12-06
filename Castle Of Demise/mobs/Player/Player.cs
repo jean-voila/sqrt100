@@ -123,10 +123,9 @@ public class Player : KinematicBody{
 		var angleCam = cameraEulerAngles;
 		float oriX = angleCam.x;
 		float oriY = angleCam.y;
-		float oriZ = angleCam.z;
 
 		
-		Update(posiX, posiY, posiZ, accX, accY, accZ, oriX, oriY, oriZ);
+		Update(posiX, posiY, posiZ, accX, accY, accZ, oriX, oriY);
 
 
 
@@ -147,28 +146,48 @@ public class Player : KinematicBody{
         GlobalTransform = nouvelleTransformee;
     }
 
-	public void Update(float posX, float posY, float posZ, float accX, float accY, float accZ, float oriX, float oriY, float oriZ){
+public string red(string texte) {
+		return $"[color=red]{texte}[/color]";
+	}
+	public string bold(string texte) {
+		return $"[b]{texte}[/b]";
+	}
+
+	public int longueurLigne=22;
+	public string Data(string nom, object valeur, bool retourLigne=true){
+		
+		string retour= retourLigne ? "\n" : "";
+		string espacesVides=new string (' ', longueurLigne-nom.Length-($"{valeur}".Length)-3);
+		return $" {red(nom)}{espacesVides}{valeur} {retour}";
+	}
+
+	public string Titre(string nom){
+		var egals=new string ('=', ((longueurLigne-nom.Length)/2)+1);
+		return $"|{egals} {nom.ToUpper()} {egals}|\n";
+	}
+
+
+	public void Update(float posX, float posY, float posZ, float accX, float accY, float accZ, float oriX, float oriY){
 		var texteHUD = GetNode<RichTextLabel>("CanvasLayer/Control/RichTextLabel");
 		var texte="";
 		
-		texte+=$"|=======POSITION=======|\n";
-		texte+=$"x: {posX}\n";
-		texte+=$"y: {posY}\n";
-		texte+=$"z: {posZ}\n";
+
+		texte+= Titre("Position");
+		texte+= Data("posX", posX);
+		texte+= Data("posY", posY);
+		texte+= Data("posZ", posZ);
+
+		texte+= Titre("Accéleration");
+		texte+= Data("accX", accX);
+		texte+= Data("accY", accY);
+		texte+= Data("accZ", accZ);
 
 
-		texte+=$"\n|=========ACCEL========|\n";
-		texte+=$"accX: {accX}\n";
-		texte+=$"accY: {accY}\n";
-		texte+=$"accZ: {accZ}\n";
-
-		texte+=$"\n|========ORIENT=======|\n";
-		texte+=$"orientX: {oriX}\n";
-		texte+=$"orientY: {oriY}\n";
-		texte+=$"orientZ: {oriZ}";
-		
+		texte+= Titre("Orientation");
+		texte+= Data("oriX", oriX);
+		texte+= Data("oriY", oriY);
 		
 		texte+="\n";
-		texteHUD.SetText(texte);
+		texteHUD.SetBbcode(texte);
 	}
 }

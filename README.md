@@ -19,7 +19,8 @@ _________                  __  .__           ________   _____  ________         
 - [x] Créer des skins de tests (buissons, arbres, rochers) - **Paul**
 - [x] Créer le HUD de debug - **Amadéo / Jean**
 - [x] Ajouter le respawn quand saut dans le vide - **Jean**
-- [x] f3 pour afficher/cacher le HUD
+- [x] f3 pour afficher/cacher le HUD - **Jean**
+- [x] Aligner les variables pour le HUD - **Jean**
 
 ## À faire ⏰
 - [ ] Faire le menu pause - **Paul ? / Jean**
@@ -29,6 +30,8 @@ _________                  __  .__           ________   _____  ________         
       <br>*on peut s'aider de l'IA, bien penser à respecter les dimensions 75x125*
 - [ ] Commencer le développement du site Web (bootstrap) - ***Clément* / Roni**
 - [ ] Régler le problème de la caméra qui ne se bloque pas en levant la tête - **Paul ? <3**
+- [ ] Tuer Roni
+
 
 ## Plus tard (moins urgent) 📋
 - [ ] Créer la bande-son - ***Jean* / Clément**
