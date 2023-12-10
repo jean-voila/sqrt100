@@ -3,6 +3,22 @@ using System;
 using System.Runtime.Remoting.Messaging;
 
 public class Player : KinematicBody{
+
+		
+		public float posiX;
+		public float posiY;
+		public float posiZ;
+
+		public float accX;
+		public float accY;
+		public float accZ;
+
+		public float oriX;
+		public float oriY;
+		
+	[Export]
+	string version = "1.0.0";
+
 	[Export]
 	float accelerationSpeed = 4.5f;
 	[Export]
@@ -33,6 +49,7 @@ public class Player : KinematicBody{
 		Head = GetNode<Spatial>(HeadNodePath);
 		Camera = GetNode<Spatial>(CameraNodePath);
 		Input.MouseMode = Input.MouseModeEnum.Captured;
+
 	}
 
 	public override void _Input(InputEvent @event){
@@ -42,9 +59,13 @@ public class Player : KinematicBody{
 			Head.RotateX(-mouseImput.Relative.y * mouse_sensitivity);//rotate the head and not the entire body to avoid wrong rotations
 		}
 
-		if (Input.IsActionPressed("key_escape")){ //temporaire pour fermer le jeu proprement
+
+
+
+
+		/*if (Input.IsActionPressed("key_escape")){ //temporaire pour fermer le jeu proprement
 			GetTree().Quit();
-		}
+		}*/
 	}
 
 	public override void _PhysicsProcess(float delta){
@@ -65,7 +86,6 @@ public class Player : KinematicBody{
 		if (Input.IsActionPressed("key_d")){
 			inputMouvementVector.x += 1;
 		}
-
 		
 
 		//adapte the mouvement to the camera orientation
@@ -80,7 +100,6 @@ public class Player : KinematicBody{
 			velocity.y = jumpSpeed;
 		}
 
-		//process that direction into actual in game mouvement
 
 		var horizontalVelocity = velocity;
 		horizontalVelocity.y = 0;
@@ -111,32 +130,27 @@ public class Player : KinematicBody{
 		Transform transformeeGlobale = GlobalTransform;
         Vector3 position = transformeeGlobale.origin;
 		var pos = position;
-		float posiX=pos.x;
-		float posiY=pos.y;
-		float posiZ=pos.z;
+		 posiX=pos.x;
+		 posiY=pos.y;
+		 posiZ=pos.z;
 
 		var accel = velocity;
-		float accX=accel.x;
-		float accY=accel.y;
-		float accZ=accel.z;
+		 accX=accel.x;
+		 accY=accel.y;
+		 accZ=accel.z;
 
 		var angleCam = cameraEulerAngles;
-		float oriX = angleCam.x;
-		float oriY = angleCam.y;
-
-		
-		Update(posiX, posiY, posiZ, accX, accY, accZ, oriX, oriY);
-
-
-
+		 oriX = angleCam.x;
+		 oriY = angleCam.y;
 
 		if (posiY<-90){
 			Vector3 nouvellesCoordonnees = new Vector3(0.0f, 6.0f, 0.0f);
 			Teleporter(nouvellesCoordonnees);
-		}
+		} // Si le joueur est tombé, le faire re-spawn
 
-		
-		
+
+		Update();
+
 		
 	}
 	private void Teleporter(Vector3 nouvellePosition)
@@ -146,7 +160,17 @@ public class Player : KinematicBody{
         GlobalTransform = nouvelleTransformee;
     }
 
-public string red(string texte) {
+	public void Pause() {
+		GetTree().Paused = true;
+		
+	}
+
+	public void UnPause() {
+		GetTree().Paused = false;
+
+	}
+
+	public string red(string texte) {
 		return $"[color=red]{texte}[/color]";
 	}
 	public string bold(string texte) {
@@ -157,7 +181,7 @@ public string red(string texte) {
 	public string Data(string nom, object valeur, bool retourLigne=true){
 		
 		string retour= retourLigne ? "\n" : "";
-		string espacesVides=new string (' ', longueurLigne-nom.Length-($"{valeur}".Length)-3);
+		string espacesVides=new string (' ', longueurLigne-nom.Length-($"{valeur}".Length)-2);
 		return $" {red(nom)}{espacesVides}{valeur} {retour}";
 	}
 
@@ -167,27 +191,34 @@ public string red(string texte) {
 	}
 
 
-	public void Update(float posX, float posY, float posZ, float accX, float accY, float accZ, float oriX, float oriY){
-		var texteHUD = GetNode<RichTextLabel>("CanvasLayer/Control/RichTextLabel");
-		var texte="";
-		
+	public void Update(){
+		var texteGaucheHUD = GetNode<RichTextLabel>("CanvasLayer/HUD/Textes/HUDGauche");
+		var texteDroiteHUD = GetNode<RichTextLabel>("CanvasLayer/HUD/Textes/HUDDroite");
 
-		texte+= Titre("Position");
-		texte+= Data("posX", posX);
-		texte+= Data("posY", posY);
-		texte+= Data("posZ", posZ);
+		var texteGauche="";
 
-		texte+= Titre("Accéleration");
-		texte+= Data("accX", accX);
-		texte+= Data("accY", accY);
-		texte+= Data("accZ", accZ);
+		texteGauche+= Titre("Position");
+		texteGauche+= Data("posX", posiX);
+		texteGauche+= Data("posY", posiY);
+		texteGauche+= Data("posZ", posiZ);
+
+		texteGauche+= Titre("Accéleration");
+		texteGauche+= Data("accX", accX);
+		texteGauche+= Data("accY", accY);
+		texteGauche+= Data("accZ", accZ);
+
+		texteGauche+= Titre("Orientation");
+		texteGauche+= Data("oriX", oriX);
+		texteGauche+= Data("oriY", oriY);
+
+		texteGaucheHUD.SetBbcode(texteGauche);
 
 
-		texte+= Titre("Orientation");
-		texte+= Data("oriX", oriX);
-		texte+= Data("oriY", oriY);
-		
-		texte+="\n";
-		texteHUD.SetBbcode(texte);
+		var texteDroite="";
+
+		texteDroite+= Titre("Version du jeu");
+		texteDroite+= Data("CoDem", version);
+
+		texteDroiteHUD.SetBbcode(texteDroite);
 	}
 }

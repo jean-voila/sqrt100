@@ -39,7 +39,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.952763, 0 )
 
 [node name="Camera" type="Camera" parent="Head"]
 current = true
-fov = 110.0
+fov = 102.1
 
 [node name="Bras" type="CSGMesh" parent="Head"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.5, 0.477267, -0.570388, -0.495418 )
@@ -48,4 +48,4 @@ material = SubResource( 5 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" parent="CanvasLayer" instance=ExtResource( 2 )]
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 2 )]
