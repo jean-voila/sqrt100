@@ -1,4 +1,5 @@
 using Godot;
+
 using System;
 using System.Runtime.Remoting.Messaging;
 
@@ -45,6 +46,8 @@ public class Player : KinematicBody{
 	NodePath CameraNodePath;
 	Spatial Camera;
 
+	public float fps;
+
 	public override void _Ready(){
 		Head = GetNode<Spatial>(HeadNodePath);
 		Camera = GetNode<Spatial>(CameraNodePath);
@@ -69,6 +72,7 @@ public class Player : KinematicBody{
 	}
 
 	public override void _PhysicsProcess(float delta){
+		fps = 1/delta;
 
 		// get the current direction in wich we want to move
 		direction = new Vector3();
@@ -138,6 +142,7 @@ public class Player : KinematicBody{
 		 accX=accel.x;
 		 accY=accel.y;
 		 accZ=accel.z;
+		 
 
 		var angleCam = cameraEulerAngles;
 		 oriX = angleCam.x;
@@ -218,6 +223,9 @@ public class Player : KinematicBody{
 
 		texteDroite+= Titre("Version du jeu");
 		texteDroite+= Data("CoDem", version);
+
+		texteDroite+= Titre("Infos execution");
+		texteDroite+= Data("FPS", fps);
 
 		texteDroiteHUD.SetBbcode(texteDroite);
 	}
