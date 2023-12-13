@@ -27,12 +27,9 @@ custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 
 [node name="HUDDroite" type="RichTextLabel" parent="Textes"]
-anchor_left = 18.858
-anchor_top = 0.5
-anchor_right = 25.625
+anchor_left = 24.825
+anchor_top = 0.1
+anchor_right = 31.925
 anchor_bottom = 14.95
-margin_left = -13.3201
-margin_top = -16.0
-margin_right = -0.00012207
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true

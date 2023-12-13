@@ -20,10 +20,10 @@ margin_bottom = 40.0
 script = ExtResource( 2 )
 
 [node name="Panneau" type="Panel" parent="."]
-margin_left = 360.0
-margin_top = 116.0
-margin_right = 660.0
-margin_bottom = 491.0
+margin_left = 486.975
+margin_top = 172.974
+margin_right = 786.975
+margin_bottom = 547.974
 
 [node name="Elements" type="VBoxContainer" parent="Panneau"]
 margin_left = 34.0
