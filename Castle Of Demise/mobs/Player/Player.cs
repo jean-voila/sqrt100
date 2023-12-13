@@ -3,19 +3,21 @@ using Godot;
 using System;
 using System.Runtime.Remoting.Messaging;
 
-public class Player : KinematicBody{
+public class Player : KinematicBody
+{
+	private RayCast rayCastShoot;
+	private PackedScene bulletHoleScene;
+	
+	public float posiX;
+	public float posiY;
+	public float posiZ;
 
-		
-		public float posiX;
-		public float posiY;
-		public float posiZ;
+	public float accX;
+	public float accY;
+	public float accZ;
 
-		public float accX;
-		public float accY;
-		public float accZ;
-
-		public float oriX;
-		public float oriY;
+	public float oriX;
+	public float oriY;
 		
 	[Export]
 	string version = "1.0.0";
@@ -48,11 +50,12 @@ public class Player : KinematicBody{
 
 	public float fps;
 
-	public override void _Ready(){
+	public override void _Ready()
+	{
+		rayCastShoot = GetNode<RayCast>("Head/Camera/RayCast");
 		Head = GetNode<Spatial>(HeadNodePath);
 		Camera = GetNode<Spatial>(CameraNodePath);
 		Input.MouseMode = Input.MouseModeEnum.Captured;
-
 	}
 
 	public override void _Input(InputEvent @event){
@@ -62,10 +65,27 @@ public class Player : KinematicBody{
 			Head.RotateX(-mouseImput.Relative.y * mouse_sensitivity);//rotate the head and not the entire body to avoid wrong rotations
 		}
 
-
-
-
-
+		if (@event.IsActionPressed("mouse_left_click"))
+		{
+			var rayEnd = rayCastShoot.GetCollisionPoint();
+			GD.Print(rayCastShoot.GetCollider());
+			
+			
+			PackedScene bulletHoleScene = GD.Load<PackedScene>("res://Assets/Effects/BulletHole/BulletHoleScene.tscn");
+			var newBulletHoleDecal = bulletHoleScene.Instance();
+			if (rayCastShoot.IsColliding())
+			{
+				Spatial bulletHole = (Spatial)bulletHoleScene.Instance();
+				Spatial hitObject = rayCastShoot.GetCollider() as Spatial;
+				if (hitObject != null)
+				{
+					hitObject.AddChild(bulletHole);
+					bulletHole.GlobalTransform = new Transform(bulletHole.GlobalTransform.basis, rayEnd);
+					bulletHole.LookAt(rayCastShoot.GetCollisionPoint() + rayCastShoot.GetCollisionNormal() + new Vector3(0.01f,0.01f,0.01f),
+						Vector3.Up);
+				}
+			}
+		}
 		/*if (Input.IsActionPressed("key_escape")){ //temporaire pour fermer le jeu proprement
 			GetTree().Quit();
 		}*/
@@ -153,6 +173,8 @@ public class Player : KinematicBody{
 			Teleporter(nouvellesCoordonnees);
 		} // Si le joueur est tombé, le faire re-spawn
 
+
+		
 
 		Update();
 
