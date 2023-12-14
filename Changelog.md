@@ -1,6 +1,14 @@
 # Changelog
 ## Castle Of Demise
 
+### V1.0.2
+- Possibilité de tirer
+- Textures de balles sur les objects impactés par le tir
+- Animations d'explosion par impact de balles
+- Bruit de tirs de balles
+- Affichage du nombre d'impacts rendus sur le HUD de debug
+- Changement de l'éditeur principal de code par Rider
+
 ### V1.0.1
 - Renommage propre des éléments de décor
 - Changement de la couleur directionnelle dans un rouge plus chaud (ambiance doom, merde)
