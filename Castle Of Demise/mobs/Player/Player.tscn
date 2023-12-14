@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Mobs/Player/Player.cs" type="Script" id=1]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=2]
@@ -7,6 +7,14 @@
 [ext_resource path="res://Assets/SoundEffects/gunShot01.wav" type="AudioStream" id=5]
 [ext_resource path="res://Assets/SoundEffects/gunShot02.wav" type="AudioStream" id=6]
 [ext_resource path="res://Assets/SoundEffects/gunShot03.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/SoundEffects/Step02.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/SoundEffects/Step04.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/SoundEffects/Step03.wav" type="AudioStream" id=10]
+[ext_resource path="res://Assets/SoundEffects/Step05.wav" type="AudioStream" id=11]
+[ext_resource path="res://Assets/SoundEffects/Step01.wav" type="AudioStream" id=12]
+[ext_resource path="res://Assets/SoundEffects/Land.wav" type="AudioStream" id=13]
+[ext_resource path="res://Assets/SoundEffects/Jump.wav" type="AudioStream" id=14]
+[ext_resource path="res://Assets/Textures/imageonline-co-pixelated(2).png" type="Texture" id=15]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -19,6 +27,9 @@ material = SubResource( 4 )
 radius = 0.5
 mid_height = 1.5
 
+[sub_resource type="SpatialMaterial" id=6]
+albedo_texture = ExtResource( 15 )
+
 [sub_resource type="CubeMesh" id=3]
 
 [sub_resource type="SpatialMaterial" id=5]
@@ -30,6 +41,18 @@ decelerationSpeed = 10.0
 HeadNodePath = NodePath("Head")
 CameraNodePath = NodePath("Head/Camera")
 
+[node name="GunShotSoundsEffects" type="Spatial" parent="."]
+
+[node name="GunShot01" type="AudioStreamPlayer3D" parent="GunShotSoundsEffects"]
+stream = ExtResource( 5 )
+
+[node name="GunShot02" type="AudioStreamPlayer3D" parent="GunShotSoundsEffects"]
+stream = ExtResource( 6 )
+pitch_scale = 2.27
+
+[node name="GunShot03" type="AudioStreamPlayer3D" parent="GunShotSoundsEffects"]
+stream = ExtResource( 7 )
+
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 1 )
@@ -37,6 +60,7 @@ shape = SubResource( 1 )
 [node name="CSGMesh" type="CSGMesh" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 mesh = SubResource( 2 )
+material = SubResource( 6 )
 
 [node name="Head" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.952763, 0 )
@@ -69,12 +93,35 @@ material = SubResource( 5 )
 margin_right = -1280.0
 margin_bottom = -720.0
 
-[node name="GunShot01" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 5 )
+[node name="StepSoundsEffetcs" type="Spatial" parent="."]
 
-[node name="GunShot02" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 6 )
-pitch_scale = 2.27
+[node name="Step01" type="AudioStreamPlayer3D" parent="StepSoundsEffetcs"]
+stream = ExtResource( 12 )
 
-[node name="GunShot03" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 7 )
+[node name="Step02" type="AudioStreamPlayer3D" parent="StepSoundsEffetcs"]
+stream = ExtResource( 8 )
+
+[node name="Step03" type="AudioStreamPlayer3D" parent="StepSoundsEffetcs"]
+stream = ExtResource( 10 )
+
+[node name="Step04" type="AudioStreamPlayer3D" parent="StepSoundsEffetcs"]
+stream = ExtResource( 9 )
+
+[node name="Step05" type="AudioStreamPlayer3D" parent="StepSoundsEffetcs"]
+stream = ExtResource( 11 )
+
+[node name="TimerBetweenStep" type="Timer" parent="StepSoundsEffetcs"]
+wait_time = 0.2
+one_shot = true
+
+[node name="jumpAndLandSoundEffect" type="Spatial" parent="."]
+
+[node name="jump" type="AudioStreamPlayer3D" parent="jumpAndLandSoundEffect"]
+stream = ExtResource( 14 )
+
+[node name="Land" type="AudioStreamPlayer3D" parent="jumpAndLandSoundEffect"]
+stream = ExtResource( 13 )
+
+[node name="checkFloor" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.304532, 0 )
+enabled = true

@@ -8,9 +8,23 @@ public class Player : KinematicBody
 {
 	private RayCast rayCastShoot;
 	private PackedScene bulletHoleScene;
+	
 	private AudioStreamPlayer3D gunShot01;
 	private AudioStreamPlayer3D gunShot02;
 	private AudioStreamPlayer3D gunShot03;
+	
+	private AudioStreamPlayer3D Step01;
+	private AudioStreamPlayer3D Step02;
+	private AudioStreamPlayer3D Step03;
+	private AudioStreamPlayer3D Step04;
+	private AudioStreamPlayer3D Step05;
+
+	private AudioStreamPlayer3D jumpSE;
+	private AudioStreamPlayer3D landSE;
+
+	private RayCast checkFloor;
+	
+	private Timer timerBetweenStep;
 	
 	public float posiX;
 	public float posiY;
@@ -59,14 +73,26 @@ public class Player : KinematicBody
 	{
 		rayCastShoot = GetNode<RayCast>("Head/Camera/RayCast");
 		
-		gunShot01 = GetNode<AudioStreamPlayer3D>("GunShot01");
-		gunShot02 = GetNode<AudioStreamPlayer3D>("GunShot02");
-		gunShot03 = GetNode<AudioStreamPlayer3D>("GunShot03");
+		gunShot01 = GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/GunShot01");
+		gunShot02 = GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/GunShot02");
+		gunShot03 = GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/GunShot03");
+
+		Step01 = GetNode<AudioStreamPlayer3D>("StepSoundsEffetcs/Step01");
+		Step02 = GetNode<AudioStreamPlayer3D>("StepSoundsEffetcs/Step02");
+		Step03 = GetNode<AudioStreamPlayer3D>("StepSoundsEffetcs/Step03");
+		Step04 = GetNode<AudioStreamPlayer3D>("StepSoundsEffetcs/Step04");
+		Step05 = GetNode<AudioStreamPlayer3D>("StepSoundsEffetcs/Step05");
+
+		timerBetweenStep = GetNode<Timer>("StepSoundsEffetcs/TimerBetweenStep");
+
+		jumpSE = GetNode<AudioStreamPlayer3D>("jumpAndLandSoundEffect/jump");
+		landSE = GetNode<AudioStreamPlayer3D>("jumpAndLandSoundEffect/Land");
+
+		checkFloor = GetNode<RayCast>("checkFloor");
 		
 		Head = GetNode<Spatial>(HeadNodePath);
 		Camera = GetNode<Spatial>(CameraNodePath);
 		Input.MouseMode = Input.MouseModeEnum.Captured;
-
 	}
 
 	public override void _Input(InputEvent @event){
@@ -98,8 +124,8 @@ public class Player : KinematicBody
 			}
 
 			var gunShotList = new List<AudioStreamPlayer3D>{gunShot01, gunShot02, gunShot03};//play random gun shot sound effect
-			Random random = new Random();
-			int randomGunShot = random.Next(0, 3);
+			int randomGunShot = new Random().Next(0, 3);
+			gunShotList[randomGunShot].PitchScale = new Random().Next(1, 2);
 			gunShotList[randomGunShot].Play();//end
 			
 			
@@ -116,33 +142,52 @@ public class Player : KinematicBody
 		direction = new Vector3();
 		var inputMouvementVector = new Vector2();
 
+		bool isMoving = false;
 		if (Input.IsActionPressed("key_z")){
 			inputMouvementVector.y += 1;
+			isMoving = true;
 		}
 		if (Input.IsActionPressed("key_s")){
 			inputMouvementVector.y -= 1;
+			isMoving = true;
 		}
 		if (Input.IsActionPressed("key_q")){
 			inputMouvementVector.x -= 1;
+			isMoving = true;
 		}
 		if (Input.IsActionPressed("key_d")){
 			inputMouvementVector.x += 1;
+			isMoving = true;
 		}
 		
-
+		// GD.Print(isMoving);
+		List<AudioStreamPlayer3D> stepList = new List<AudioStreamPlayer3D> { Step01, Step02, Step03, Step04, Step05};
+		if (isMoving && checkFloor.GetCollider() != null)
+		{
+			if (timerBetweenStep.TimeLeft <= 0)
+			{
+				int randomStep = new Random().Next(0, 5);
+				stepList[randomStep].PitchScale = new Random().Next(1, 5);
+				stepList[randomStep].Play();
+				timerBetweenStep.Start(0.2f);
+			}
+		}
+		
 		//adapte the mouvement to the camera orientation
 		direction += -GlobalTransform.basis.z * inputMouvementVector.y;//transphorm 2d direction into 3d so "y" becomes "z"
 		direction += GlobalTransform.basis.x * inputMouvementVector.x;//and "x" stays "x"
 		
-		if (! IsOnFloor()){
+		if (checkFloor.GetCollider() == null)
+		{
 			velocity.y -= delta * gravity;
 		}
-			
-		if (IsOnFloor() && Input.IsActionPressed("key_space")){
+		
+		if (checkFloor.GetCollider() != null && Input.IsActionPressed("key_space"))
+		{
 			velocity.y = jumpSpeed;
+			jumpSE.Play();
 		}
-
-
+		
 		var horizontalVelocity = velocity;
 		horizontalVelocity.y = 0;
 

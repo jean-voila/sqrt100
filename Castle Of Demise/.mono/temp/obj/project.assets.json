@@ -8,19 +8,19 @@
     ".NETFramework,Version=v4.7.2": []
   },
   "packageFolders": {
-    "/Users/jeanherail/.nuget/packages/": {}
+    "C:\\Users\\placa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/jeanherail/Documents/sqrt100/sqrt100/Castle Of Demise/Castle Of Demise.csproj",
+      "projectUniqueName": "C:\\Users\\placa\\OneDrive\\Bureau\\project jeu\\sqrt100\\Castle Of Demise\\Castle Of Demise.csproj",
       "projectName": "Castle Of Demise",
-      "projectPath": "/Users/jeanherail/Documents/sqrt100/sqrt100/Castle Of Demise/Castle Of Demise.csproj",
-      "packagesPath": "/Users/jeanherail/.nuget/packages/",
-      "outputPath": "/Users/jeanherail/Documents/sqrt100/sqrt100/Castle Of Demise/.mono/temp/obj/",
+      "projectPath": "C:\\Users\\placa\\OneDrive\\Bureau\\project jeu\\sqrt100\\Castle Of Demise\\Castle Of Demise.csproj",
+      "packagesPath": "C:\\Users\\placa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\placa\\OneDrive\\Bureau\\project jeu\\sqrt100\\Castle Of Demise\\.mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/jeanherail/.config/NuGet/NuGet.Config"
+        "C:\\Users\\placa\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net472"
@@ -43,7 +43,7 @@
     "frameworks": {
       "net472": {
         "targetAlias": "net472",
-        "runtimeIdentifierGraphPath": "/Library/Frameworks/Mono.framework/Versions/6.12.0/lib/mono/msbuild/Current/bin/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   }
