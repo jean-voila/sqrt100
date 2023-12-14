@@ -43,6 +43,7 @@ public class Player : KinematicBody
 	Vector3 direction = new Vector3();
 	Vector3 velocity = new Vector3();
 
+	public int nombreBullets = 0;
 
 	[Export]
 	NodePath HeadNodePath;
@@ -65,6 +66,7 @@ public class Player : KinematicBody
 		Head = GetNode<Spatial>(HeadNodePath);
 		Camera = GetNode<Spatial>(CameraNodePath);
 		Input.MouseMode = Input.MouseModeEnum.Captured;
+
 	}
 
 	public override void _Input(InputEvent @event){
@@ -91,6 +93,7 @@ public class Player : KinematicBody
 					bulletHole.LookAt(rayCastShoot.GetCollisionPoint() + rayCastShoot.GetCollisionNormal() + new Vector3(0.01f,0.01f,0.01f),
 						Vector3.Up);
 					bulletHole.GetNode<CPUParticles>("CPUParticles").Restart();
+					nombreBullets++;
 				}
 			}
 
@@ -252,6 +255,9 @@ public class Player : KinematicBody
 		texteGauche+= Titre("Orientation");
 		texteGauche+= Data("oriX", oriX);
 		texteGauche+= Data("oriY", oriY);
+		
+		texteGauche+= Titre("Autres");
+		texteGauche+= Data("Nb impacts", nombreBullets);
 
 		texteGaucheHUD.SetBbcode(texteGauche);
 
