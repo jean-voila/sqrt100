@@ -1,12 +1,16 @@
 using Godot;
 
 using System;
+using System.Collections.Generic;
 using System.Runtime.Remoting.Messaging;
 
 public class Player : KinematicBody
 {
 	private RayCast rayCastShoot;
 	private PackedScene bulletHoleScene;
+	private AudioStreamPlayer3D gunShot01;
+	private AudioStreamPlayer3D gunShot02;
+	private AudioStreamPlayer3D gunShot03;
 	
 	public float posiX;
 	public float posiY;
@@ -53,6 +57,11 @@ public class Player : KinematicBody
 	public override void _Ready()
 	{
 		rayCastShoot = GetNode<RayCast>("Head/Camera/RayCast");
+		
+		gunShot01 = GetNode<AudioStreamPlayer3D>("GunShot01");
+		gunShot02 = GetNode<AudioStreamPlayer3D>("GunShot02");
+		gunShot03 = GetNode<AudioStreamPlayer3D>("GunShot03");
+		
 		Head = GetNode<Spatial>(HeadNodePath);
 		Camera = GetNode<Spatial>(CameraNodePath);
 		Input.MouseMode = Input.MouseModeEnum.Captured;
@@ -68,8 +77,6 @@ public class Player : KinematicBody
 		if (@event.IsActionPressed("mouse_left_click"))
 		{
 			var rayEnd = rayCastShoot.GetCollisionPoint();
-			GD.Print(rayCastShoot.GetCollider());
-			
 			
 			PackedScene bulletHoleScene = GD.Load<PackedScene>("res://Assets/Effects/BulletHole/BulletHoleScene.tscn");
 			var newBulletHoleDecal = bulletHoleScene.Instance();
@@ -83,8 +90,16 @@ public class Player : KinematicBody
 					bulletHole.GlobalTransform = new Transform(bulletHole.GlobalTransform.basis, rayEnd);
 					bulletHole.LookAt(rayCastShoot.GetCollisionPoint() + rayCastShoot.GetCollisionNormal() + new Vector3(0.01f,0.01f,0.01f),
 						Vector3.Up);
+					bulletHole.GetNode<CPUParticles>("CPUParticles").Restart();
 				}
 			}
+
+			var gunShotList = new List<AudioStreamPlayer3D>{gunShot01, gunShot02, gunShot03};//play random gun shot sound effect
+			Random random = new Random();
+			int randomGunShot = random.Next(0, 3);
+			gunShotList[randomGunShot].Play();//end
+			
+			
 		}
 		/*if (Input.IsActionPressed("key_escape")){ //temporaire pour fermer le jeu proprement
 			GetTree().Quit();
