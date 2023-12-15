@@ -1,320 +1,373 @@
 using Godot;
-
 using System;
 using System.Collections.Generic;
-using System.Runtime.Remoting.Messaging;
 
 public class Player : KinematicBody
 {
-	private RayCast rayCastShoot;
-	private PackedScene bulletHoleScene;
+	private RayCast _shootRayCast;
+	private PackedScene _bulletHoleScene;
 	
-	private AudioStreamPlayer3D gunShot01;
-	private AudioStreamPlayer3D gunShot02;
-	private AudioStreamPlayer3D gunShot03;
+	private List<AudioStreamPlayer3D> _gunShotSounds;
+	private List<AudioStreamPlayer3D> _stepSounds;
+
+	private AudioStreamPlayer3D _jumpSound;
+	private AudioStreamPlayer3D _landSound;
+	private RayCast _floorRayCast;
+	private Timer _stepTimer;
 	
-	private AudioStreamPlayer3D Step01;
-	private AudioStreamPlayer3D Step02;
-	private AudioStreamPlayer3D Step03;
-	private AudioStreamPlayer3D Step04;
-	private AudioStreamPlayer3D Step05;
+	private float _originalFOV;
+	private float _targetFOV;
 
-	private AudioStreamPlayer3D jumpSE;
-	private AudioStreamPlayer3D landSE;
+	public float PositionX;
+	public float PositionY;
+	public float PositionZ;
 
-	private RayCast checkFloor;
+	public float AccelerationX;
+	public float AccelerationY;
+	public float AccelerationZ;
+
+	public float OrientationX;
+	public float OrientationY;
+
+	[Export]
+	private string _version = "1.0.3";
+	[Export]
+	public float CamRotationAmount = 0.1f;
+	[Export]
+	private float _accelerationSpeed = 4.5f;
+	[Export]
+	private float _decelerationSpeed = 4.5f;
+	[Export]
+	private float _maxSpeed = 20f;
+	[Export]
+	private float _gravity = 60f;
+	[Export]
+	private float _jumpSpeed = 20f;
+	[Export]
+	private float _mouseSensitivity = 0.005f;
+	[Export] 
+	private float _maxFov = 1.15f;
+	[Export]
+	private float _FOVChangeSpeed = 9.0f;
+
+
+	private Vector3 _direction = new Vector3();
+	private Vector3 _velocity = new Vector3();
+
+	public int BulletCount = 0;
+
+	[Export]
+	private NodePath _headNodePath;
+	private Spatial _head;
+
+	[Export]
+	private NodePath _cameraNodePath;
+	private Spatial _camera;
+	private Camera _cameraForFOV;
+
+	public float Fps;
+	public ulong LastJumpTime = Time.GetTicksUsec();
+	public bool Landed = true;
 	
-	private Timer timerBetweenStep;
-	
-	public float posiX;
-	public float posiY;
-	public float posiZ;
 
-	public float accX;
-	public float accY;
-	public float accZ;
 
-	public float oriX;
-	public float oriY;
-		
-	[Export]
-	string version = "1.0.0";
+	private void RotateCamera(float inputX, float delta)
+	{
+		if (_camera != null)
+		{
 
-	[Export]
-	float accelerationSpeed = 4.5f;
-	[Export]
-	float decelerationSpeed = 4.5f;
-	[Export]
-	float maxSpeed = 30f;
-	[Export]
-	float gravity = 60f;
-	[Export]
-	float jumpSpeed = 20f;
-
-	[Export]
-	float mouse_sensitivity = 0.005f;
-
-	Vector3 direction = new Vector3();
-	Vector3 velocity = new Vector3();
-
-	public int nombreBullets = 0;
-
-	[Export]
-	NodePath HeadNodePath;
-	Spatial Head;
-
-	[Export]
-	NodePath CameraNodePath;
-	Spatial Camera;
-
-	public float fps;
+			_camera.Rotation = new Vector3(
+				_camera.Rotation.x,
+				_camera.Rotation.y,
+				Mathf.Lerp(_camera.Rotation.z, -inputX * CamRotationAmount, 10 * delta)
+			);
+		}
+	}
 
 	public override void _Ready()
 	{
-		rayCastShoot = GetNode<RayCast>("Head/Camera/RayCast");
-		
-		gunShot01 = GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/GunShot01");
-		gunShot02 = GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/GunShot02");
-		gunShot03 = GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/GunShot03");
+		_shootRayCast = GetNode<RayCast>("Head/Camera/RayCast");
 
-		Step01 = GetNode<AudioStreamPlayer3D>("StepSoundsEffetcs/Step01");
-		Step02 = GetNode<AudioStreamPlayer3D>("StepSoundsEffetcs/Step02");
-		Step03 = GetNode<AudioStreamPlayer3D>("StepSoundsEffetcs/Step03");
-		Step04 = GetNode<AudioStreamPlayer3D>("StepSoundsEffetcs/Step04");
-		Step05 = GetNode<AudioStreamPlayer3D>("StepSoundsEffetcs/Step05");
+		_gunShotSounds = new List<AudioStreamPlayer3D>
+		{
+			GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/GunShot01"),
+			GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/GunShot02"),
+			GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/GunShot03")
+		};
 
-		timerBetweenStep = GetNode<Timer>("StepSoundsEffetcs/TimerBetweenStep");
+		_stepSounds = new List<AudioStreamPlayer3D>
+		{
+			GetNode<AudioStreamPlayer3D>("StepSoundsEffetcs/Step01"),
+			GetNode<AudioStreamPlayer3D>("StepSoundsEffetcs/Step02"),
+			GetNode<AudioStreamPlayer3D>("StepSoundsEffetcs/Step03"),
+			GetNode<AudioStreamPlayer3D>("StepSoundsEffetcs/Step04"),
+			GetNode<AudioStreamPlayer3D>("StepSoundsEffetcs/Step05")
+		};
 
-		jumpSE = GetNode<AudioStreamPlayer3D>("jumpAndLandSoundEffect/jump");
-		landSE = GetNode<AudioStreamPlayer3D>("jumpAndLandSoundEffect/Land");
+		_stepTimer = GetNode<Timer>("StepSoundsEffetcs/TimerBetweenStep");
 
-		checkFloor = GetNode<RayCast>("checkFloor");
-		
-		Head = GetNode<Spatial>(HeadNodePath);
-		Camera = GetNode<Spatial>(CameraNodePath);
+		_jumpSound = GetNode<AudioStreamPlayer3D>("jumpAndLandSoundEffect/jump");
+		_landSound = GetNode<AudioStreamPlayer3D>("jumpAndLandSoundEffect/Land");
+
+		_floorRayCast = GetNode<RayCast>("checkFloor");
+
+		_head = GetNode<Spatial>("Head");
+		_camera = GetNode<Spatial>(_cameraNodePath);
+		_cameraForFOV = GetNode<Camera>(_cameraNodePath);
+		_originalFOV = _cameraForFOV.Fov;
+		_targetFOV = _originalFOV;
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 	}
 
-	public override void _Input(InputEvent @event){
-		if (@event is InputEventMouseMotion){
-			InputEventMouseMotion mouseImput = (InputEventMouseMotion) @event;
-			RotateY(-mouseImput.Relative.x * mouse_sensitivity);
-			Head.RotateX(-mouseImput.Relative.y * mouse_sensitivity);//rotate the head and not the entire body to avoid wrong rotations
+	public override void _Input(InputEvent @event)
+	{
+		if (@event is InputEventMouseMotion)
+		{
+			InputEventMouseMotion mouseInput = (InputEventMouseMotion) @event;
+			RotateY(-mouseInput.Relative.x * _mouseSensitivity);
+			_head.RotateX(-mouseInput.Relative.y * _mouseSensitivity);
 		}
 
 		if (@event.IsActionPressed("mouse_left_click"))
 		{
-			var rayEnd = rayCastShoot.GetCollisionPoint();
-			
-			PackedScene bulletHoleScene = GD.Load<PackedScene>("res://Assets/Effects/BulletHole/BulletHoleScene.tscn");
-			var newBulletHoleDecal = bulletHoleScene.Instance();
-			if (rayCastShoot.IsColliding())
-			{
-				Spatial bulletHole = (Spatial)bulletHoleScene.Instance();
-				Spatial hitObject = rayCastShoot.GetCollider() as Spatial;
-				if (hitObject != null)
-				{
-					hitObject.AddChild(bulletHole);
-					bulletHole.GlobalTransform = new Transform(bulletHole.GlobalTransform.basis, rayEnd);
-					bulletHole.LookAt(rayCastShoot.GetCollisionPoint() + rayCastShoot.GetCollisionNormal() + new Vector3(0.01f,0.01f,0.01f),
-						Vector3.Up);
-					bulletHole.GetNode<CPUParticles>("CPUParticles").Restart();
-					nombreBullets++;
-				}
-			}
-
-			var gunShotList = new List<AudioStreamPlayer3D>{gunShot01, gunShot02, gunShot03};//play random gun shot sound effect
-			int randomGunShot = new Random().Next(0, 3);
-			gunShotList[randomGunShot].PitchScale = new Random().Next(1, 2);
-			gunShotList[randomGunShot].Play();//end
-			
-			
+			Shoot();
 		}
-		/*if (Input.IsActionPressed("key_escape")){ //temporaire pour fermer le jeu proprement
-			GetTree().Quit();
-		}*/
 	}
 
-	public override void _PhysicsProcess(float delta){
-		fps = 1/delta;
+	private void Shoot()
+	{
+		var rayEnd = _shootRayCast.GetCollisionPoint();
+		_bulletHoleScene = GD.Load<PackedScene>("res://Assets/Effects/BulletHole/BulletHoleScene.tscn");
 
-		// get the current direction in wich we want to move
-		direction = new Vector3();
-		var inputMouvementVector = new Vector2();
-
-		bool isMoving = false;
-		if (Input.IsActionPressed("key_z")){
-			inputMouvementVector.y += 1;
-			isMoving = true;
-		}
-		if (Input.IsActionPressed("key_s")){
-			inputMouvementVector.y -= 1;
-			isMoving = true;
-		}
-		if (Input.IsActionPressed("key_q")){
-			inputMouvementVector.x -= 1;
-			isMoving = true;
-		}
-		if (Input.IsActionPressed("key_d")){
-			inputMouvementVector.x += 1;
-			isMoving = true;
-		}
-		
-		// GD.Print(isMoving);
-		List<AudioStreamPlayer3D> stepList = new List<AudioStreamPlayer3D> { Step01, Step02, Step03, Step04, Step05};
-		if (isMoving && checkFloor.GetCollider() != null)
+		if (_shootRayCast.IsColliding())
 		{
-			if (timerBetweenStep.TimeLeft <= 0)
+			var bulletHole = (Spatial)_bulletHoleScene.Instance();
+			var hitObject = _shootRayCast.GetCollider() as Spatial;
+
+			if (hitObject != null)
 			{
-				int randomStep = new Random().Next(0, 5);
-				stepList[randomStep].PitchScale = new Random().Next(1, 5);
-				stepList[randomStep].Play();
-				timerBetweenStep.Start(0.2f);
+				hitObject.AddChild(bulletHole);
+				bulletHole.GlobalTransform = new Transform(bulletHole.GlobalTransform.basis, rayEnd);
+				bulletHole.LookAt(rayEnd + _shootRayCast.GetCollisionNormal() + new Vector3(0.01f, 0.01f, 0.01f), Vector3.Up);
+				bulletHole.GetNode<CPUParticles>("CPUParticles").Restart();
+				BulletCount++;
 			}
 		}
+
+		var randomGunShot = new Random().Next(0, _gunShotSounds.Count);
+		_gunShotSounds[randomGunShot].PitchScale = new Random().Next(1, 2);
+		_gunShotSounds[randomGunShot].Play();
+	}
+
+	public override void _PhysicsProcess(float delta)
+	{
+		Fps = 1 / delta;
+
+		var inputMovementVector = new Vector2();
+		bool isMoving = false;
 		
-		//adapte the mouvement to the camera orientation
-		direction += -GlobalTransform.basis.z * inputMouvementVector.y;//transphorm 2d direction into 3d so "y" becomes "z"
-		direction += GlobalTransform.basis.x * inputMouvementVector.x;//and "x" stays "x"
-		
-		if (checkFloor.GetCollider() == null)
+
+		if (Input.IsActionPressed("key_z"))
 		{
-			velocity.y -= delta * gravity;
+			inputMovementVector.y += 1;
+			isMoving = true;
 		}
-		
-		if (checkFloor.GetCollider() != null && Input.IsActionPressed("key_space"))
+
+		if (Input.IsActionPressed("key_s"))
 		{
-			velocity.y = jumpSpeed;
-			jumpSE.Play();
+			inputMovementVector.y -= 1;
+			isMoving = true;
 		}
-		
-		var horizontalVelocity = velocity;
+
+		if (Input.IsActionPressed("key_q"))
+		{
+			inputMovementVector.x -= 1;
+			isMoving = true;
+		}
+
+		if (Input.IsActionPressed("key_d"))
+		{
+			inputMovementVector.x += 1;
+			isMoving = true;
+		}
+
+		HandleStepSounds(isMoving);
+
+		_direction = new Vector3();
+		_direction += -GlobalTransform.basis.z * inputMovementVector.y;
+		_direction += GlobalTransform.basis.x * inputMovementVector.x;
+
+		HandleJump();
+
+		var horizontalVelocity = _velocity;
 		horizontalVelocity.y = 0;
 
-		var target = direction;
-		target *= maxSpeed;
-
-		float acceleration;
-		if (direction.Dot(horizontalVelocity) > 0){
-			acceleration = accelerationSpeed;
-		} else {
-			acceleration = decelerationSpeed;
-		}
+		var target = _direction * _maxSpeed;
+		var acceleration = (_direction.Dot(horizontalVelocity) > 0) ? _accelerationSpeed : _decelerationSpeed;
 
 		horizontalVelocity = horizontalVelocity.LinearInterpolate(target, acceleration * delta);
 
-		velocity.x = horizontalVelocity.x;
-		velocity.z = horizontalVelocity.z;
+		_velocity.x = horizontalVelocity.x;
+		_velocity.z = horizontalVelocity.z;
 
+		_velocity.y -= delta * _gravity;
+
+		_velocity = MoveAndSlide(_velocity, Vector3.Up);
+		RotateCamera(inputMovementVector.x, delta);
+		AdjustFOV(isMoving, delta);
 		
-		var camera = GetNode<Camera>("Head/Camera");
-		Transform cameraTransform = camera.GlobalTransform;
-		Basis cameraBasis = cameraTransform.basis;
-		Vector3 cameraEulerAngles = cameraBasis.GetEuler();
-
-		velocity = MoveAndSlide(velocity, Vector3.Up);
-		
-		Transform transformeeGlobale = GlobalTransform;
-        Vector3 position = transformeeGlobale.origin;
-		var pos = position;
-		 posiX=pos.x;
-		 posiY=pos.y;
-		 posiZ=pos.z;
-
-		var accel = velocity;
-		 accX=accel.x;
-		 accY=accel.y;
-		 accZ=accel.z;
-		 
-
-		var angleCam = cameraEulerAngles;
-		 oriX = angleCam.x;
-		 oriY = angleCam.y;
-
-		if (posiY<-90){
-			Vector3 nouvellesCoordonnees = new Vector3(0.0f, 6.0f, 0.0f);
-			Teleporter(nouvellesCoordonnees);
-		} // Si le joueur est tombé, le faire re-spawn
-
-
-		
-
-		Update();
-
-		
+		if (PositionY < -90)
+		{
+			Vector3 newCoordinates = new Vector3(0.0f, 6.0f, 0.0f);
+			Teleport(newCoordinates);
+		}
+		UpdatePlayerInfo();
 	}
-	private void Teleporter(Vector3 nouvellePosition)
-    {
-        Transform nouvelleTransformee = Transform.Identity;
-        nouvelleTransformee.origin = nouvellePosition;
-        GlobalTransform = nouvelleTransformee;
-    }
 
-	public void Pause() {
+	private void HandleStepSounds(bool isMoving)
+	{
+		if (isMoving && _floorRayCast.GetCollider() != null && _stepTimer.TimeLeft <= 0)
+		{
+			var randomStep = new Random().Next(0, _stepSounds.Count);
+			_stepSounds[randomStep].PitchScale = new Random().Next(1, 5);
+			_stepSounds[randomStep].Play();
+			_stepTimer.Start(0.2f);
+		}
+	}
+
+	private void HandleJump()
+	{
+		if (_floorRayCast.GetCollider() == null) return;
+
+		if (!Landed && Time.GetTicksUsec() - LastJumpTime > 10)
+		{
+			Landed = true;
+			_landSound.Play();
+		}
+
+		if (_floorRayCast.GetCollider() != null && Input.IsActionPressed("key_space"))
+		{
+			LastJumpTime = Time.GetTicksUsec();
+			_velocity.y = _jumpSpeed;
+			_jumpSound.Play();
+			Landed = false;
+		}
+	}
+
+
+	private void UpdatePlayerInfo()
+	{
+		var textLeftHUD = GetNode<RichTextLabel>("CanvasLayer/HUD/Textes/HUDGauche");
+		var textRightHUD = GetNode<RichTextLabel>("CanvasLayer/HUD/Textes/HUDDroite");
+		
+		var transform = GlobalTransform;
+		var position = transform.origin;
+		PositionX = position.x;
+		PositionY = position.y;
+		PositionZ = position.z;
+
+		var acceleration = _velocity;
+		AccelerationX = acceleration.x;
+		AccelerationY = acceleration.y;
+		AccelerationZ = acceleration.z;
+
+
+		var cameraTransform = _cameraForFOV.GlobalTransform;
+		var cameraBasis = cameraTransform.basis;
+		var cameraEulerAngles = cameraBasis.GetEuler();
+
+		OrientationX = cameraEulerAngles.x;
+		OrientationY = cameraEulerAngles.y;
+
+		var leftText = GenerateLeftHUDText();
+		textLeftHUD.BbcodeText = leftText;
+
+		var rightText = GenerateRightHUDText();
+		textRightHUD.BbcodeText = rightText;
+	}
+
+	private string GenerateLeftHUDText()
+	{
+		return
+			$"{Title("Position")}" +
+			$"{HUDData("posX", PositionX)}" +
+			$"{HUDData("posY", PositionY)}" +
+			$"{HUDData("posZ", PositionZ)}" +
+
+			$"{Title("Acceleration")}" +
+			$"{HUDData("accX", AccelerationX)}" +
+			$"{HUDData("accY", AccelerationY)}" +
+			$"{HUDData("accZ", AccelerationZ)}" +
+
+			$"{Title("Orientation")}" +
+			$"{HUDData("oriX", OrientationX)}" +
+			$"{HUDData("oriY", OrientationY)}" +
+
+			$"{Title("Other")}" +
+			$"{HUDData("Bullet Count", BulletCount)}";
+	}
+
+	private string GenerateRightHUDText()
+	{
+		return
+			$"{Title("Game Version")}" +
+			$"{HUDData("CoDem", _version)}" +
+
+			$"{Title("Execution Info")}" +
+			$"{HUDData("FPS", Fps)}";
+	}
+
+	private string HUDData(string name, object value, bool newLine = true)
+	{
+		var newLineStr = newLine ? "\n" : "";
+		var space = new string(' ', 22 - name.Length - $"{value}".Length - 2);
+		return $" {Red(name)}{space}{value} {newLineStr}";
+	}
+
+	private string Title(string name)
+	{
+		var equals = new string('=', ((22 - name.Length) / 2) + 1);
+		return $"|{equals} {name.ToUpper()} {equals}|\n";
+	}
+
+	private string Red(string text)
+	{
+		return $"[color=red]{text}[/color]";
+	}
+
+	public void Pause()
+	{
 		GetTree().Paused = true;
-		
 	}
 
-	public void UnPause() {
+	public void UnPause()
+	{
 		GetTree().Paused = false;
-
 	}
-
-	public string red(string texte) {
-		return $"[color=red]{texte}[/color]";
+	
+	private void Teleport(Vector3 newPosition)
+	{
+		Transform newTransform = Transform.Identity;
+		newTransform.origin = newPosition;
+		GlobalTransform = newTransform;
 	}
-	public string bold(string texte) {
-		return $"[b]{texte}[/b]";
+	
+	private void AdjustFOV(bool isMoving, float delta)
+	{
+		if (Input.IsActionPressed("key_z") && _floorRayCast.GetCollider() != null)
+		{
+			_targetFOV = Mathf.Lerp(_targetFOV, _originalFOV * _maxFov, _FOVChangeSpeed * delta);
+		}
+		else
+		{
+			_targetFOV = Mathf.Lerp(_targetFOV, _originalFOV, _FOVChangeSpeed * delta);
+		}
+
+		_cameraForFOV.Fov = _targetFOV;
 	}
-
-	public int longueurLigne=22;
-	public string Data(string nom, object valeur, bool retourLigne=true){
-		
-		string retour= retourLigne ? "\n" : "";
-		string espacesVides=new string (' ', longueurLigne-nom.Length-($"{valeur}".Length)-2);
-		return $" {red(nom)}{espacesVides}{valeur} {retour}";
-	}
-
-	public string Titre(string nom){
-		var egals=new string ('=', ((longueurLigne-nom.Length)/2)+1);
-		return $"|{egals} {nom.ToUpper()} {egals}|\n";
-	}
+	
 
 
-	public void Update(){
-		var texteGaucheHUD = GetNode<RichTextLabel>("CanvasLayer/HUD/Textes/HUDGauche");
-		var texteDroiteHUD = GetNode<RichTextLabel>("CanvasLayer/HUD/Textes/HUDDroite");
+	
 
-		var texteGauche="";
-
-		texteGauche+= Titre("Position");
-		texteGauche+= Data("posX", posiX);
-		texteGauche+= Data("posY", posiY);
-		texteGauche+= Data("posZ", posiZ);
-
-		texteGauche+= Titre("Accéleration");
-		texteGauche+= Data("accX", accX);
-		texteGauche+= Data("accY", accY);
-		texteGauche+= Data("accZ", accZ);
-
-		texteGauche+= Titre("Orientation");
-		texteGauche+= Data("oriX", oriX);
-		texteGauche+= Data("oriY", oriY);
-		
-		texteGauche+= Titre("Autres");
-		texteGauche+= Data("Nb impacts", nombreBullets);
-
-		texteGaucheHUD.SetBbcode(texteGauche);
-
-
-		var texteDroite="";
-
-		texteDroite+= Titre("Version du jeu");
-		texteDroite+= Data("CoDem", version);
-
-		texteDroite+= Titre("Infos execution");
-		texteDroite+= Data("FPS", fps);
-
-		texteDroiteHUD.SetBbcode(texteDroite);
-	}
 }

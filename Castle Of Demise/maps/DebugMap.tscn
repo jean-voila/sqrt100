@@ -85,50 +85,90 @@ script = ExtResource( 22 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.311138, 1.31148, 0.583661 )
-accelerationSpeed = 5.0
-maxSpeed = 16.0
-jumpSpeed = 25.0
+_headNodePath = NodePath("")
 
 [node name="Walls" type="Spatial" parent="."]
 transform = Transform( -0.00158827, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00158827, 2.7067, 1.07258, 8.5129 )
 
 [node name="wall1" type="CSGBox" parent="Walls"]
-transform = Transform( 1, 0, -1.16415e-10, 0, 1, 0, 1.16415e-10, 0, 1, 0, 0, 0 )
+transform = Transform( 0.0639227, 0, -0.997955, 0, 1, 0, 0.997955, 0, 0.0639227, -8.15128, 0, 9.36728 )
+use_collision = true
+height = 6.95414
+depth = 5.32256
+material = SubResource( 4 )
+
+[node name="wall1" type="CSGBox" parent="Walls/wall1"]
+transform = Transform( -0.99997, 0, 0.00787131, 0, 1, 0, -0.00787131, 0, -0.99997, 0.0369654, 0, -6.61622 )
 use_collision = true
 height = 6.95414
 depth = 5.32256
 material = SubResource( 4 )
 
 [node name="wall2" type="CSGBox" parent="Walls"]
-transform = Transform( -0.999991, 0, 0.00404908, 0, 1, 0, -0.00404908, 0, -0.999991, 0.0105476, 0, 6.64098 )
+transform = Transform( -0.999991, 0, 0.00404908, 0, 1, 0, -0.00404908, 0, -0.999991, -12.2885, 0, 6.66051 )
+use_collision = true
+height = 6.95414
+depth = 5.32256
+material = SubResource( 12 )
+
+[node name="wall2" type="CSGBox" parent="Walls/wall2"]
+transform = Transform( 0.121142, 0, 0.992635, 0, 1, 0, -0.992635, 0, 0.121142, -10.437, 0, 6.65008 )
 use_collision = true
 height = 6.95414
 depth = 5.32256
 material = SubResource( 12 )
 
 [node name="wall3" type="CSGBox" parent="Walls"]
-transform = Transform( -0.999931, 0.00158827, 0.0116578, 0.0116585, 0.000418934, 0.999932, 0.00158328, 0.999999, -0.000437422, 0.0208292, 0.02144, 13.1142 )
+transform = Transform( 0.107216, -0.994236, -0.000833515, 0.0116585, 0.000418934, 0.999932, -0.994168, -0.107219, 0.0116362, -8.71222, 0.02144, 15.391 )
 use_collision = true
 height = 5.52462
 depth = 6.82189
 material = SubResource( 13 )
 
 [node name="wall4" type="CSGBox" parent="Walls"]
-transform = Transform( -0.999955, 0, 0.00945951, 0, 1, 0, -0.00945951, 0, -0.999955, 0.0312262, 0, 19.6602 )
+transform = Transform( -0.999955, 0, 0.00945951, 0, 1, 0, -0.00945951, 0, -0.999955, -10.3478, 0, 19.6767 )
+use_collision = true
+height = 6.95414
+depth = 5.32256
+material = SubResource( 14 )
+
+[node name="wall4" type="CSGBox" parent="Walls/wall4"]
+transform = Transform( 0.107028, 0, -0.994256, 0, 1, 0, 0.994256, 0, 0.107028, -13.2401, 0, -0.421906 )
+use_collision = true
+height = 6.95414
+depth = 5.32256
+material = SubResource( 14 )
+
+[node name="wall5" type="CSGBox" parent="Walls/wall4"]
+transform = Transform( -0.999955, 0, 0.00945951, 0, 1, 0, -0.00945951, 0, -0.999955, -5.70415, 0, 14.6491 )
+use_collision = true
+height = 6.95414
+depth = 5.32256
+material = SubResource( 14 )
+
+[node name="wall4" type="CSGBox" parent="Walls/wall4/wall5"]
+transform = Transform( 0.107028, 0, -0.994256, 0, 1, 0, 0.994256, 0, 0.107028, -13.2401, 0, -0.421906 )
 use_collision = true
 height = 6.95414
 depth = 5.32256
 material = SubResource( 14 )
 
 [node name="wall5" type="CSGBox" parent="Walls"]
-transform = Transform( -0.999897, 0.00158784, 0.0142742, 0.0143074, 0.0233503, 0.999625, 0.00125393, 0.999726, -0.0233706, 0.0410252, 0, 25.8302 )
+transform = Transform( -0.999897, 0.00158784, 0.0142742, 0.0143074, 0.0233503, 0.999625, 0.00125393, 0.999726, -0.0233706, -10.5727, 0, 25.8471 )
 use_collision = true
 height = 5.51465
 depth = 7.02482
 material = SubResource( 15 )
 
 [node name="wall6" type="CSGBox" parent="Walls"]
-transform = Transform( -0.999839, 0, -0.017941, 0, 1, 0, 0.017941, 0, -0.999839, 0.0522499, 0.14251, 32.8969 )
+transform = Transform( -0.999839, 0, -0.017941, 0, 1, 0, 0.017941, 0, -0.999839, -4.62009, 0.14251, 13.7273 )
+use_collision = true
+height = 6.95414
+depth = 5.48792
+material = SubResource( 16 )
+
+[node name="wall6" type="CSGBox" parent="Walls/wall6"]
+transform = Transform( -0.999839, 0, -0.017941, 0, 1, 0, 0.017941, 0, -0.999839, -5.13318, 0.14251, 0.218811 )
 use_collision = true
 height = 6.95414
 depth = 5.48792
@@ -136,9 +176,7 @@ material = SubResource( 16 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.932683, 0.360697, 0, -0.360697, 0.932683, 0, 123.565, 93.937 )
-light_color = Color( 0.796078, 0.176471, 0.12549, 1 )
-light_energy = 2.028
-light_specular = 0.647
+light_energy = 1.514
 shadow_enabled = true
 
 [node name="Sol" type="Spatial" parent="."]

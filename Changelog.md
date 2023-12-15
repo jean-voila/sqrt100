@@ -1,6 +1,11 @@
 # Changelog
 ## Castle Of Demise
 
+### V1.0.3
+- Nervosité améliorée : camera bending, changement du FOV en accélération
+- Petit Easter Egg
+- Labyrinthe fancy
+
 ### V1.0.2
 - Possibilité de tirer
 - Textures de balles sur les objects impactés par le tir

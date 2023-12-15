@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Mobs/Player/Player.cs" type="Script" id=1]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Assets/SoundEffects/Land.wav" type="AudioStream" id=13]
 [ext_resource path="res://Assets/SoundEffects/Jump.wav" type="AudioStream" id=14]
 [ext_resource path="res://Assets/Textures/imageonline-co-pixelated(2).png" type="Texture" id=15]
+[ext_resource path="res://Assets/SoundEffects/8b.mp3" type="AudioStream" id=16]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -37,9 +38,17 @@ albedo_texture = ExtResource( 3 )
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
-decelerationSpeed = 10.0
-HeadNodePath = NodePath("Head")
-CameraNodePath = NodePath("Head/Camera")
+CamRotationAmount = 0.05
+_accelerationSpeed = 9.0
+_decelerationSpeed = 12.0
+_maxSpeed = 17.0
+_jumpSpeed = 28.0
+_headNodePath = NodePath("Head")
+_cameraNodePath = NodePath("Head/Camera")
+
+[node name="EasterEgg" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 16 )
+autoplay = true
 
 [node name="GunShotSoundsEffects" type="Spatial" parent="."]
 
