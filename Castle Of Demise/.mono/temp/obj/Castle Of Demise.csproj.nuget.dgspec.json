@@ -1,0 +1,45 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/jeanherail/Documents/sqrt100/sqrt100/Castle Of Demise/Castle Of Demise.csproj": {}
+  },
+  "projects": {
+    "/Users/jeanherail/Documents/sqrt100/sqrt100/Castle Of Demise/Castle Of Demise.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/jeanherail/Documents/sqrt100/sqrt100/Castle Of Demise/Castle Of Demise.csproj",
+        "projectName": "Castle Of Demise",
+        "projectPath": "/Users/jeanherail/Documents/sqrt100/sqrt100/Castle Of Demise/Castle Of Demise.csproj",
+        "packagesPath": "/Users/jeanherail/.nuget/packages/",
+        "outputPath": "/Users/jeanherail/Documents/sqrt100/sqrt100/Castle Of Demise/.mono/temp/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/jeanherail/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "runtimeIdentifierGraphPath": "/Library/Frameworks/Mono.framework/Versions/6.12.0/lib/mono/msbuild/Current/bin/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Fonts/firacode.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://MenuPause.cs" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=20]
+size = 28
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 18
+font_data = ExtResource( 1 )
+
+[node name="MenuPause" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+
+[node name="Panneau" type="Panel" parent="."]
+margin_left = 486.975
+margin_top = 172.974
+margin_right = 786.975
+margin_bottom = 547.974
+
+[node name="Elements" type="VBoxContainer" parent="Panneau"]
+margin_left = 34.0
+margin_top = 27.0
+margin_right = 269.0
+margin_bottom = 343.0
+
+[node name="TitreMenu" type="Label" parent="Panneau/Elements"]
+margin_right = 235.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 20 )
+text = "Pause"
+align = 1
+
+[node name="Resume" type="Button" parent="Panneau/Elements"]
+pause_mode = 2
+margin_top = 39.0
+margin_right = 235.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 21 )
+text = "Resume"
+
+[node name="FOV" type="Label" parent="Panneau/Elements"]
+margin_top = 72.0
+margin_right = 235.0
+margin_bottom = 86.0
+text = "FOV"
+align = 1
+
+[node name="FOVSlider" type="HSlider" parent="Panneau/Elements"]
+margin_top = 90.0
+margin_right = 235.0
+margin_bottom = 106.0
+__meta__ = {
+"_editor_description_": ""
+}
+
+[connection signal="pressed" from="Panneau/Elements/Resume" to="." method="_on_Resume_pressed"]
