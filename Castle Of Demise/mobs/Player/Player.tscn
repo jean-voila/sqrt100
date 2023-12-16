@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Mobs/Player/Player.cs" type="Script" id=1]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=2]
@@ -18,6 +18,9 @@
 [ext_resource path="res://Assets/SoundEffects/8b.mp3" type="AudioStream" id=16]
 [ext_resource path="res://Scripts/Resume.cs" type="Script" id=17]
 [ext_resource path="res://Assets/Fonts/firacode.ttf" type="DynamicFontData" id=18]
+[ext_resource path="res://Assets/Styles/redButton.tres" type="StyleBox" id=19]
+[ext_resource path="res://Assets/Styles/blueButton.tres" type="StyleBox" id=20]
+[ext_resource path="res://Assets/SoundEffects/alternativeGunShot.wav" type="AudioStream" id=21]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -316,16 +319,47 @@ shader_param/clip_warp = false
 shader_param/vignette_intensity = 0.3
 shader_param/vignette_opacity = 0.5
 
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 0, 0, 0, 0.627451 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
 [sub_resource type="DynamicFont" id=20]
 size = 28
 font_data = ExtResource( 18 )
+
+[sub_resource type="StyleBoxFlat" id=23]
+bg_color = Color( 0.482353, 0.482353, 0.482353, 0.345098 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 50.0
+expand_margin_right = 50.0
+expand_margin_top = 1.0
+
+[sub_resource type="DynamicFont" id=24]
+font_data = ExtResource( 18 )
+
+[sub_resource type="StyleBoxFlat" id=25]
+bg_color = Color( 0.0509804, 0.458824, 0.490196, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
 
 [sub_resource type="DynamicFont" id=21]
 size = 18
 font_data = ExtResource( 18 )
 
+[sub_resource type="StyleBoxFlat" id=26]
+bg_color = Color( 0.54902, 0.054902, 0.054902, 1 )
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
+_version = "1.0.5"
 CamRotationAmount = 0.05
 _accelerationSpeed = 9.0
 _decelerationSpeed = 12.0
@@ -335,8 +369,8 @@ _headNodePath = NodePath("Head")
 _cameraNodePath = NodePath("Head/Camera")
 
 [node name="EasterEgg" type="AudioStreamPlayer2D" parent="."]
+pause_mode = 2
 stream = ExtResource( 16 )
-autoplay = true
 
 [node name="GunShotSoundsEffects" type="Spatial" parent="."]
 
@@ -349,6 +383,9 @@ pitch_scale = 2.27
 
 [node name="GunShot03" type="AudioStreamPlayer3D" parent="GunShotSoundsEffects"]
 stream = ExtResource( 7 )
+
+[node name="JeansMod" type="AudioStreamPlayer3D" parent="GunShotSoundsEffects"]
+stream = ExtResource( 21 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -446,10 +483,13 @@ margin_right = -40.0
 margin_bottom = -40.0
 
 [node name="Panneau" type="Panel" parent="CanvasLayer2/MenuPause"]
-margin_left = 486.975
-margin_top = 172.974
-margin_right = 786.975
-margin_bottom = 547.974
+anchor_left = 0.376
+anchor_right = 0.5
+margin_left = -11.32
+margin_top = 129.0
+margin_right = 121.0
+margin_bottom = 554.0
+custom_styles/panel = SubResource( 22 )
 
 [node name="Elements" type="VBoxContainer" parent="CanvasLayer2/MenuPause/Panneau"]
 margin_left = 34.0
@@ -464,51 +504,118 @@ custom_fonts/font = SubResource( 20 )
 text = "Pause"
 align = 1
 
-[node name="Resume" type="Button" parent="CanvasLayer2/MenuPause/Panneau/Elements"]
-pause_mode = 2
+[node name="PixelEffectToggle" type="CheckButton" parent="CanvasLayer2/MenuPause/Panneau/Elements"]
 margin_top = 39.0
 margin_right = 235.0
-margin_bottom = 68.0
-custom_fonts/font = SubResource( 21 )
+margin_bottom = 79.0
+pressed = true
+text = "Pixel Effect"
+
+[node name="Separator" type="VSeparator" parent="CanvasLayer2/MenuPause/Panneau/Elements"]
+margin_top = 83.0
+margin_right = 235.0
+margin_bottom = 86.0
+custom_styles/separator = SubResource( 23 )
+
+[node name="Music" type="VBoxContainer" parent="CanvasLayer2/MenuPause/Panneau/Elements"]
+margin_top = 90.0
+margin_right = 235.0
+margin_bottom = 168.0
+
+[node name="MusicLabel" type="Label" parent="CanvasLayer2/MenuPause/Panneau/Elements/Music"]
+margin_right = 235.0
+margin_bottom = 14.0
+text = "Music"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer2/MenuPause/Panneau/Elements/Music"]
+margin_top = 18.0
+margin_right = 235.0
+margin_bottom = 34.0
+value = 100.0
+
+[node name="MusicToggle" type="CheckButton" parent="CanvasLayer2/MenuPause/Panneau/Elements/Music"]
+margin_top = 38.0
+margin_right = 235.0
+margin_bottom = 78.0
+
+[node name="Separator2" type="VSeparator" parent="CanvasLayer2/MenuPause/Panneau/Elements"]
+margin_top = 172.0
+margin_right = 235.0
+margin_bottom = 175.0
+custom_styles/separator = SubResource( 23 )
+
+[node name="SoundEffects" type="VBoxContainer" parent="CanvasLayer2/MenuPause/Panneau/Elements"]
+margin_top = 179.0
+margin_right = 235.0
+margin_bottom = 257.0
+
+[node name="SELabel" type="Label" parent="CanvasLayer2/MenuPause/Panneau/Elements/SoundEffects"]
+margin_right = 235.0
+margin_bottom = 14.0
+text = "Sound Effets Volume :"
+
+[node name="Slider" type="HSlider" parent="CanvasLayer2/MenuPause/Panneau/Elements/SoundEffects"]
+margin_top = 18.0
+margin_right = 235.0
+margin_bottom = 34.0
+value = 100.0
+
+[node name="SEToggle" type="CheckButton" parent="CanvasLayer2/MenuPause/Panneau/Elements/SoundEffects"]
+margin_top = 38.0
+margin_right = 235.0
+margin_bottom = 78.0
+pressed = true
+
+[node name="Separator3" type="VSeparator" parent="CanvasLayer2/MenuPause/Panneau/Elements"]
+margin_top = 261.0
+margin_right = 235.0
+margin_bottom = 264.0
+custom_styles/separator = SubResource( 23 )
+
+[node name="Boutons" type="VBoxContainer" parent="CanvasLayer2/MenuPause/Panneau/Elements"]
+margin_top = 268.0
+margin_right = 235.0
+margin_bottom = 315.0
+
+[node name="Resume" type="Button" parent="CanvasLayer2/MenuPause/Panneau/Elements/Boutons"]
+pause_mode = 2
+margin_right = 235.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 24 )
+custom_styles/hover = SubResource( 25 )
+custom_styles/normal = ExtResource( 20 )
 action_mode = 0
 text = "Resume"
 script = ExtResource( 17 )
 
-[node name="PixelEffectToggle" type="CheckButton" parent="CanvasLayer2/MenuPause/Panneau/Elements"]
-margin_top = 72.0
+[node name="Exit" type="Button" parent="CanvasLayer2/MenuPause/Panneau/Elements/Boutons"]
+pause_mode = 2
+margin_top = 24.0
 margin_right = 235.0
-margin_bottom = 112.0
-pressed = true
-text = "Pixel Effect"
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 21 )
+custom_styles/hover = SubResource( 26 )
+custom_styles/normal = ExtResource( 19 )
+action_mode = 0
+text = "Exit"
 
-[node name="MusicPlayingToggle" type="CheckButton" parent="CanvasLayer2/MenuPause/Panneau/Elements"]
-margin_top = 116.0
+[node name="Separator4" type="VSeparator" parent="CanvasLayer2/MenuPause/Panneau/Elements"]
+margin_top = 319.0
 margin_right = 235.0
-margin_bottom = 156.0
-pressed = true
-text = "Music"
+margin_bottom = 322.0
+custom_styles/separator = SubResource( 23 )
 
-[node name="FOV" type="Control" parent="CanvasLayer2/MenuPause/Panneau/Elements"]
-margin_top = 160.0
+[node name="CheckButton" type="CheckButton" parent="CanvasLayer2/MenuPause/Panneau/Elements"]
+margin_top = 326.0
 margin_right = 235.0
-margin_bottom = 160.0
+margin_bottom = 366.0
+text = "Jean's Mod"
 
-[node name="FOV" type="Label" parent="CanvasLayer2/MenuPause/Panneau/Elements/FOV"]
-visible = false
-margin_right = 235.0
-margin_bottom = 14.0
-text = "FOV"
-align = 1
-
-[node name="FOVSlider" type="HSlider" parent="CanvasLayer2/MenuPause/Panneau/Elements/FOV"]
-visible = false
-margin_top = 18.0
-margin_right = 235.0
-margin_bottom = 34.0
-__meta__ = {
-"_editor_description_": ""
-}
-
-[connection signal="pressed" from="CanvasLayer2/MenuPause/Panneau/Elements/Resume" to="." method="UnPause"]
 [connection signal="pressed" from="CanvasLayer2/MenuPause/Panneau/Elements/PixelEffectToggle" to="." method="SwitchPixelShader"]
-[connection signal="pressed" from="CanvasLayer2/MenuPause/Panneau/Elements/MusicPlayingToggle" to="." method="SwitchMusicPlayer"]
+[connection signal="value_changed" from="CanvasLayer2/MenuPause/Panneau/Elements/Music/HSlider" to="." method="ChangeMusicVolume"]
+[connection signal="toggled" from="CanvasLayer2/MenuPause/Panneau/Elements/Music/MusicToggle" to="." method="SwitchMusicPlayer"]
+[connection signal="value_changed" from="CanvasLayer2/MenuPause/Panneau/Elements/SoundEffects/Slider" to="." method="ChangeSoundEffectsVolume"]
+[connection signal="toggled" from="CanvasLayer2/MenuPause/Panneau/Elements/SoundEffects/SEToggle" to="." method="SwitchSEPlayer"]
+[connection signal="pressed" from="CanvasLayer2/MenuPause/Panneau/Elements/Boutons/Resume" to="." method="UnPause"]
+[connection signal="pressed" from="CanvasLayer2/MenuPause/Panneau/Elements/Boutons/Exit" to="." method="QuitGame"]
+[connection signal="toggled" from="CanvasLayer2/MenuPause/Panneau/Elements/CheckButton" to="." method="SwitchJeansMod"]

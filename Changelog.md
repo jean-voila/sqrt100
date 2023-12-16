@@ -1,6 +1,10 @@
 # Changelog
 ## Castle Of Demise
 
+### V1.0.5
+- Amélioration du style du menu pause
+- Contrôle du volume et de l'activation pour les effets sonores et la musique
+- Ajout du **Jean's Mod** 🤯
 ### V1.0.4
 - Menu Pause 100% fonctionnel 🥳
 - Pixel effect par shader (désactivable depuis le menu pause)

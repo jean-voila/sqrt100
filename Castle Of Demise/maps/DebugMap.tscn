@@ -82,6 +82,7 @@ albedo_texture = SubResource( 11 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.311138, 1.31148, 0.583661 )
+_version = "1.0.5"
 _headNodePath = NodePath("")
 
 [node name="Walls" type="Spatial" parent="."]

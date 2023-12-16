@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+
 public class Player : KinematicBody
 {
 	private RayCast _shootRayCast;
@@ -9,8 +10,10 @@ public class Player : KinematicBody
 	
 	private List<AudioStreamPlayer3D> _gunShotSounds;
 	private List<AudioStreamPlayer3D> _stepSounds;
+	private List<AudioStreamPlayer3D> _allSoundEffects;
 
 	private AudioStreamPlayer3D _jumpSound;
+	private AudioStreamPlayer3D _alternateShotSound;
 	private AudioStreamPlayer3D _landSound;
 	private RayCast _floorRayCast;
 	private Timer _stepTimer;
@@ -31,6 +34,11 @@ public class Player : KinematicBody
 
 	[Export]
 	private string _version = "1.0.3";
+
+	[Export] private bool _jeansModEnabled = false;
+
+	[Export] 
+	private bool _musicPlayingByDefault = false;
 	[Export]
 	public float CamRotationAmount = 0.1f;
 	[Export]
@@ -82,6 +90,9 @@ public class Player : KinematicBody
 	public ulong _lastPauseTime;
 	public bool _pixelShaderEnabled;
 	public bool _musicPlaying;
+
+	private float _lastMusicDb;
+	
 	
 
 	private void RotateCamera(float inputX, float delta)
@@ -108,6 +119,8 @@ public class Player : KinematicBody
 			GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/GunShot03")
 		};
 
+		_alternateShotSound = GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/JeansMod");
+
 		_stepSounds = new List<AudioStreamPlayer3D>
 		{
 			GetNode<AudioStreamPlayer3D>("StepSoundsEffetcs/Step01"),
@@ -121,6 +134,15 @@ public class Player : KinematicBody
 
 		_jumpSound = GetNode<AudioStreamPlayer3D>("jumpAndLandSoundEffect/jump");
 		_landSound = GetNode<AudioStreamPlayer3D>("jumpAndLandSoundEffect/Land");
+		
+		_allSoundEffects = new List<AudioStreamPlayer3D>();
+		
+		_allSoundEffects.AddRange(_gunShotSounds);
+		_allSoundEffects.AddRange(_stepSounds);
+		_allSoundEffects.Add(_jumpSound);
+		_allSoundEffects.Add(_landSound);
+
+
 
 		_floorRayCast = GetNode<RayCast>("checkFloor");
 
@@ -136,7 +158,7 @@ public class Player : KinematicBody
 		_pixelShaderEnabled = true;
 		_pixelShaderPath = "Head/Camera/PixeliseShader";
 		_pixelShader = GetNode<MeshInstance>(_pixelShaderPath);
-		_musicPlaying = true;
+		_musicPlaying = _musicPlayingByDefault;
 		_musicPlayerPath = "EasterEgg";
 		_musicPlayer = GetNode<AudioStreamPlayer2D>(_musicPlayerPath);
 		Input.MouseMode = Input.MouseModeEnum.Captured;
@@ -182,9 +204,18 @@ public class Player : KinematicBody
 			}
 		}
 
-		var randomGunShot = new Random().Next(0, _gunShotSounds.Count);
-		_gunShotSounds[randomGunShot].PitchScale = new Random().Next(1, 2);
-		_gunShotSounds[randomGunShot].Play();
+		if (!_jeansModEnabled)
+		{
+			var randomGunShot = new Random().Next(0, _gunShotSounds.Count);
+			_gunShotSounds[randomGunShot].PitchScale = new Random().Next(1, 2);
+			_gunShotSounds[randomGunShot].Play();
+		}
+		else
+		{
+			_alternateShotSound.Play();
+		}
+
+		
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -388,10 +419,37 @@ public class Player : KinematicBody
 		_pixelShader.Visible = _pixelShaderEnabled;
 	}
 
-	public void SwitchMusicPlayer()
+	public void SwitchMusicPlayer(bool playingButton)
 	{
-		_musicPlaying = !_musicPlaying;
-		_musicPlayer.Playing = _musicPlaying;
+		_musicPlayer.Playing = playingButton;
+
+	}
+	
+	public void SwitchSEPlayer(bool playingButton)
+	{
+		foreach (var soundEffect in _allSoundEffects)
+		{
+			soundEffect.Playing = playingButton;
+		}
+
+	}
+
+	public void ChangeSoundEffectsVolume(float percentage)
+	{
+		percentage = Mathf.Clamp(percentage, 0, 100);
+		float volumeDb = Mathf.Lerp(-40, 0, percentage / 100.0f);
+		foreach (var soundEffect in _allSoundEffects)
+		{
+			soundEffect.MaxDb = volumeDb;
+		}
+	}
+	
+	public void ChangeMusicVolume(float percentage)
+	{
+
+		percentage = Mathf.Clamp(percentage, 0, 100);
+		float volumeDb = Mathf.Lerp(-40, 0, percentage / 100.0f);
+		_musicPlayer.VolumeDb = volumeDb;
 	}
 	
 	
@@ -415,6 +473,18 @@ public class Player : KinematicBody
 
 		_cameraForFOV.Fov = _targetFOV;
 	}
+
+	public void SwitchJeansMod(bool value)
+	{
+		_jeansModEnabled = value;
+	}
+
+	private void QuitGame()
+	{
+		GetTree().Quit();
+	}
+	
+	
 	
 
 
