@@ -92,6 +92,7 @@ public class Player : KinematicBody
 	public bool _musicPlaying;
 
 	private float _lastMusicDb;
+	private bool _SEEnabled;
 	
 	
 
@@ -141,6 +142,7 @@ public class Player : KinematicBody
 		_allSoundEffects.AddRange(_stepSounds);
 		_allSoundEffects.Add(_jumpSound);
 		_allSoundEffects.Add(_landSound);
+		_allSoundEffects.Add(_alternateShotSound);
 
 
 
@@ -161,6 +163,7 @@ public class Player : KinematicBody
 		_musicPlaying = _musicPlayingByDefault;
 		_musicPlayerPath = "EasterEgg";
 		_musicPlayer = GetNode<AudioStreamPlayer2D>(_musicPlayerPath);
+		_SEEnabled = true;
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 	}
 
@@ -204,18 +207,21 @@ public class Player : KinematicBody
 			}
 		}
 
-		if (!_jeansModEnabled)
+		if (_SEEnabled)
 		{
-			var randomGunShot = new Random().Next(0, _gunShotSounds.Count);
-			_gunShotSounds[randomGunShot].PitchScale = new Random().Next(1, 2);
-			_gunShotSounds[randomGunShot].Play();
-		}
-		else
-		{
-			_alternateShotSound.Play();
+			if (!_jeansModEnabled)
+			{
+				var randomGunShot = new Random().Next(0, _gunShotSounds.Count);
+				_gunShotSounds[randomGunShot].PitchScale = new Random().Next(1, 2);
+				_gunShotSounds[randomGunShot].Play();
+			}
+			else
+			{
+				_alternateShotSound.Play();
+			}
 		}
 
-		
+
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -285,7 +291,7 @@ public class Player : KinematicBody
 
 	private void HandleStepSounds(bool isMoving)
 	{
-		if (isMoving && _floorRayCast.GetCollider() != null && _stepTimer.TimeLeft <= 0)
+		if (isMoving && _SEEnabled && _floorRayCast.GetCollider() != null && _stepTimer.TimeLeft <= 0)
 		{
 			var randomStep = new Random().Next(0, _stepSounds.Count);
 			_stepSounds[randomStep].PitchScale = new Random().Next(1, 5);
@@ -301,14 +307,15 @@ public class Player : KinematicBody
 		if (!Landed && Time.GetTicksUsec() - LastJumpTime > 10)
 		{
 			Landed = true;
-			_landSound.Play();
+			if (_SEEnabled) _landSound.Play();
 		}
 
 		if (_floorRayCast.GetCollider() != null && Input.IsActionPressed("key_space"))
 		{
 			LastJumpTime = Time.GetTicksUsec();
 			_velocity.y = _jumpSpeed;
-			_jumpSound.Play();
+			
+			if (_SEEnabled) _jumpSound.Play();
 			Landed = false;
 		}
 	}
@@ -427,10 +434,7 @@ public class Player : KinematicBody
 	
 	public void SwitchSEPlayer(bool playingButton)
 	{
-		foreach (var soundEffect in _allSoundEffects)
-		{
-			soundEffect.Playing = playingButton;
-		}
+		_SEEnabled = playingButton;
 
 	}
 
