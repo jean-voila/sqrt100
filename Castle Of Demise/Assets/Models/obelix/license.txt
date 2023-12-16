@@ -1,0 +1,11 @@
+Model Information:
+* title:	Obelix
+* source:	https://sketchfab.com/3d-models/obelix-604bd43dd0ac406db33dd9ec1c0e86d1
+* author:	3D Model Dump (https://sketchfab.com/merterzene)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Obelix" (https://sketchfab.com/3d-models/obelix-604bd43dd0ac406db33dd9ec1c0e86d1) by 3D Model Dump (https://sketchfab.com/merterzene) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

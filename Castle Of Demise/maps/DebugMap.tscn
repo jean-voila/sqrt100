@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Mobs/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Props/grass02.png" type="Texture" id=2]
@@ -21,6 +21,8 @@
 [ext_resource path="res://Assets/Textures/imageonline-co-pixelated(4).png" type="Texture" id=19]
 [ext_resource path="res://Assets/Textures/imageonline-co-pixelated(1).png" type="Texture" id=20]
 [ext_resource path="res://Assets/Textures/imageonline-co-pixelated.png" type="Texture" id=21]
+[ext_resource path="res://Assets/SoundEffects/ahCaNon.wav" type="AudioStream" id=22]
+[ext_resource path="res://Assets/Models/obelix/obelix.gltf" type="PackedScene" id=24]
 
 [sub_resource type="StreamTexture" id=8]
 flags = 23
@@ -44,16 +46,23 @@ albedo_texture = ExtResource( 17 )
 [sub_resource type="SpatialMaterial" id=16]
 albedo_texture = ExtResource( 20 )
 
-[sub_resource type="StreamTexture" id=9]
+[sub_resource type="StreamTexture" id=18]
 flags = 23
 load_path = "res://.import/imageonline-co-pixelated1.png-5a13d11bc7acc9200dbf72393b38eadc.s3tc.stex"
 
 [sub_resource type="SpatialMaterial" id=1]
-albedo_texture = SubResource( 9 )
+albedo_texture = SubResource( 18 )
 uv1_scale = Vector3( 2, 4, 1.466 )
 
 [sub_resource type="BoxShape" id=17]
 extents = Vector3( 0.281531, 0.319793, 0.161273 )
+
+[sub_resource type="BoxShape" id=19]
+extents = Vector3( 0.219307, 0.22544, 0.138813 )
+
+[sub_resource type="CapsuleShape" id=20]
+radius = 0.641582
+height = 0.002
 
 [sub_resource type="StreamTexture" id=10]
 flags = 23
@@ -87,15 +96,22 @@ _headNodePath = NodePath("")
 [node name="Walls" type="Spatial" parent="."]
 transform = Transform( -0.00158827, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00158827, 2.7067, 1.07258, 8.5129 )
 
-[node name="wall1" type="CSGBox" parent="Walls"]
-transform = Transform( 0.0639227, 0, -0.997955, 0, 1, 0, 0.997955, 0, 0.0639227, -8.10956, 0, 35.6345 )
+[node name="wall11" type="CSGBox" parent="Walls"]
+transform = Transform( -0.0560656, 0, 0.998428, 0, 1, 0, -0.998428, 0, -0.0560656, -1.50451, 0, 35.2485 )
 use_collision = true
 height = 6.95414
 depth = 5.32256
 material = SubResource( 4 )
 
-[node name="wall1" type="CSGBox" parent="Walls/wall1"]
-transform = Transform( -0.99997, 0, 0.00787131, 0, 1, 0, -0.00787131, 0, -0.99997, 0.0369654, 0, -6.61622 )
+[node name="wall12" type="CSGBox" parent="Walls"]
+transform = Transform( -0.12516, 0, -0.992136, 0, 1, 0, 0.992136, 0, -0.12516, 0.499284, 1.17851, 41.2032 )
+use_collision = true
+height = 6.95414
+depth = 5.32256
+material = SubResource( 12 )
+
+[node name="wall1" type="CSGBox" parent="Walls"]
+transform = Transform( 0.0639227, 0, -0.997955, 0, 1, 0, 0.997955, 0, 0.0639227, -8.10956, 0, 35.6345 )
 use_collision = true
 height = 6.95414
 depth = 5.32256
@@ -108,13 +124,6 @@ height = 6.95414
 depth = 5.32256
 material = SubResource( 12 )
 
-[node name="wall2" type="CSGBox" parent="Walls/wall2"]
-transform = Transform( 0.121142, 0, 0.992635, 0, 1, 0, -0.992635, 0, 0.121142, -10.437, 0, 6.65008 )
-use_collision = true
-height = 6.95414
-depth = 5.32256
-material = SubResource( 12 )
-
 [node name="wall3" type="CSGBox" parent="Walls"]
 transform = Transform( 0.107216, -0.994236, -0.000833515, 0.0116585, 0.000418934, 0.999932, -0.994168, -0.107219, 0.0116362, -8.71985, 0.02144, 10.586 )
 use_collision = true
@@ -122,29 +131,29 @@ height = 5.52462
 depth = 6.82189
 material = SubResource( 13 )
 
+[node name="wall8" type="CSGBox" parent="Walls"]
+transform = Transform( -0.097618, 0, 0.995224, 0, 1, 0, -0.995224, 0, -0.097618, 2.88771, 0, 20.2238 )
+use_collision = true
+height = 6.95414
+depth = 5.32256
+material = SubResource( 14 )
+
+[node name="wall9" type="CSGBox" parent="Walls"]
+transform = Transform( 0.0881993, 0, -0.996102, 0, 1, 0, 0.996102, 0, 0.0881993, -17.7351, 0, 4.40991 )
+use_collision = true
+height = 6.95414
+depth = 5.32256
+material = SubResource( 14 )
+
+[node name="wall10" type="CSGBox" parent="Walls"]
+transform = Transform( 0.999821, 0, -0.0189182, 0, 1, 0, 0.0189182, 0, 0.999821, -4.50533, 0, 5.08222 )
+use_collision = true
+height = 6.95414
+depth = 5.32256
+material = SubResource( 14 )
+
 [node name="wall4" type="CSGBox" parent="Walls"]
 transform = Transform( -0.999955, 0, 0.00945951, 0, 1, 0, -0.00945951, 0, -0.999955, -10.3478, 0, 19.6767 )
-use_collision = true
-height = 6.95414
-depth = 5.32256
-material = SubResource( 14 )
-
-[node name="wall4" type="CSGBox" parent="Walls/wall4"]
-transform = Transform( 0.107028, 0, -0.994256, 0, 1, 0, 0.994256, 0, 0.107028, -13.2401, 0, -0.421906 )
-use_collision = true
-height = 6.95414
-depth = 5.32256
-material = SubResource( 14 )
-
-[node name="wall5" type="CSGBox" parent="Walls/wall4"]
-transform = Transform( -0.999955, 0, 0.00945951, 0, 1, 0, -0.00945951, 0, -0.999955, -5.70415, 0, 14.6491 )
-use_collision = true
-height = 6.95414
-depth = 5.32256
-material = SubResource( 14 )
-
-[node name="wall4" type="CSGBox" parent="Walls/wall4/wall5"]
-transform = Transform( 0.107028, 0, -0.994256, 0, 1, 0, 0.994256, 0, 0.107028, -13.2401, 0, -0.421906 )
 use_collision = true
 height = 6.95414
 depth = 5.32256
@@ -157,15 +166,15 @@ height = 5.51465
 depth = 7.02482
 material = SubResource( 15 )
 
-[node name="wall6" type="CSGBox" parent="Walls"]
-transform = Transform( -0.999839, 0, -0.017941, 0, 1, 0, 0.017941, 0, -0.999839, -20.6366, 0.14251, 13.7527 )
+[node name="wall7" type="CSGBox" parent="Walls"]
+transform = Transform( 0.999356, 0, 0.0358762, 0, 1, 0, -0.0358762, 0, 0.999356, -15.5082, 0.28502, 13.4418 )
 use_collision = true
 height = 6.95414
 depth = 5.48792
 material = SubResource( 16 )
 
-[node name="wall6" type="CSGBox" parent="Walls/wall6"]
-transform = Transform( -0.999839, 0, -0.017941, 0, 1, 0, 0.017941, 0, -0.999839, -5.13318, 0.14251, 0.218811 )
+[node name="wall6" type="CSGBox" parent="Walls"]
+transform = Transform( -0.999839, 0, -0.017941, 0, 1, 0, 0.017941, 0, -0.999839, -20.6366, 0.14251, 13.7527 )
 use_collision = true
 height = 6.95414
 depth = 5.48792
@@ -178,7 +187,7 @@ shadow_enabled = true
 
 [node name="Sol" type="Spatial" parent="."]
 
-[node name="sol" type="CSGBox" parent="Sol"]
+[node name="sol5" type="CSGBox" parent="Sol"]
 use_collision = true
 width = 36.1643
 height = 0.121397
@@ -267,6 +276,27 @@ texture = ExtResource( 16 )
 [node name="chain3" type="Sprite3D" parent="Sol/sol4"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 1.41291, 2.03024, -3.54352 )
 texture = ExtResource( 13 )
+
+[node name="obelix" parent="Sol/sol4" instance=ExtResource( 24 )]
+transform = Transform( -3.8293, 0, -1.15606, 0, 4, 0, 1.15606, 0, -3.8293, 10.6511, 0.319904, 7.97236 )
+visible = false
+
+[node name="AhCaNon" type="AudioStreamPlayer3D" parent="Sol/sol4/obelix"]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0 )
+stream = ExtResource( 22 )
+attenuation_model = 3
+
+[node name="StaticBody" type="StaticBody" parent="Sol/sol4/obelix"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Sol/sol4/obelix/StaticBody"]
+transform = Transform( 0.999191, -0.0402221, -0.000244319, 0.0402221, 0.999117, 0.012143, -0.000244319, -0.012143, 0.999926, -0.0507946, 1.90054, 0.036026 )
+shape = SubResource( 19 )
+disabled = true
+
+[node name="CollisionShape2" type="CollisionShape" parent="Sol/sol4/obelix/StaticBody"]
+transform = Transform( 0.999189, -0.0402221, -0.000244319, 0.0402221, 0.999117, 0.012143, -0.000244051, -0.012143, 0.999926, -0.0261559, 1.03835, 0.0613804 )
+shape = SubResource( 20 )
+disabled = true
 
 [node name="chandelier" type="Sprite3D" parent="Sol/sol4"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.27499, 3.04891, -3.54352 )

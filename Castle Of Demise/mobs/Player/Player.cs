@@ -82,6 +82,9 @@ public class Player : KinematicBody
 
 	private String _musicPlayerPath;
 	private AudioStreamPlayer2D _musicPlayer;
+	
+	[Signal]
+	public delegate void Touched();
 
 	public float Fps;
 	public ulong LastJumpTime = Time.GetTicksUsec();
@@ -199,6 +202,15 @@ public class Player : KinematicBody
 
 			if (hitObject != null)
 			{
+				if (hitObject == GetNode<StaticBody>("../Sol/sol4/barrel/StaticBody"))
+				{
+					GetNode<Spatial>("../Sol/sol4/obelix").Visible = true;
+					GetNode<CollisionShape>("../Sol/sol4/obelix/StaticBody/CollisionShape").Disabled = false;
+					GetNode<CollisionShape>("../Sol/sol4/obelix/StaticBody/CollisionShape2").Disabled = false;
+				} else if (hitObject == GetNode<StaticBody>("../Sol/sol4/obelix/StaticBody"))
+				{
+					GetNode<AudioStreamPlayer3D>("../Sol/sol4/obelix/AhCaNon").Play();
+				}
 				hitObject.AddChild(bulletHole);
 				bulletHole.GlobalTransform = new Transform(bulletHole.GlobalTransform.basis, rayEnd);
 				bulletHole.LookAt(rayEnd + _shootRayCast.GetCollisionNormal() + new Vector3(0.01f, 0.01f, 0.01f), Vector3.Up);
