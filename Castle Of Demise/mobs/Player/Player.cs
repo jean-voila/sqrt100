@@ -127,7 +127,7 @@ public class Player : KinematicBody
 		_head = GetNode<Spatial>("Head");
 		_camera = GetNode<Spatial>(_cameraNodePath);
 		_cameraForFOV = GetNode<Camera>(_cameraNodePath);
-		_pauseMenuPath = "../CanvasLayer/MenuPause";
+		_pauseMenuPath = "CanvasLayer2/MenuPause";
 		_pauseMenu = GetNode<Control>(_pauseMenuPath);
 		_originalFOV = _cameraForFOV.Fov;
 		_targetFOV = _originalFOV;
