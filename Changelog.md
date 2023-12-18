@@ -1,6 +1,12 @@
 # Changelog
 ## Castle Of Demise
 
+### V1.0.7 - On rigole plus
+- Premier mob ennemi - Bat
+- Affichage du nombre de munitions restantes
+- Son de clic quand le joueur n'a plus de munitions
+- Activation et désactivation du plein écran par **F11** et un bouton dédié dans le menu pause
+- **Restructuration *COMPLÈTE* de l'arborescence de fichiers !!** : les fonctions du player sont réparties dans plusieurs fichiers individuels, assurant une meilleure lsiiblité du code et une modularité accrue 🤌
 ### V1.0.6 - Paul's version
 - Environnement jauni dans le style du jeu
 - Bloquage du salto caméra 🍾
@@ -17,7 +23,7 @@
 
 ### V1.0.3
 - Nervosité améliorée : camera bending, changement du FOV en accélération
-- Petit Easter Egg
+- Easter Egg
 - Labyrinthe fancy
 
 ### V1.0.2
