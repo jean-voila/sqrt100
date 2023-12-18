@@ -259,7 +259,8 @@ public class Player : KinematicBody
 
 	public override void _PhysicsProcess(float delta)
 	{
-		Fps = 1 / delta;
+		Fps = Engine.GetFramesPerSecond();
+			
 
 		var inputMovementVector = new Vector2();
 		bool isMoving = false;
@@ -308,10 +309,10 @@ public class Player : KinematicBody
 		_velocity.x = horizontalVelocity.x;
 		_velocity.z = horizontalVelocity.z;
 
-		if (_floorRayCast.GetCollider() == null)
-		{
+		 if (_floorRayCast.GetCollider() == null)
+		 {
 			_velocity.y -= delta * _gravity;
-		}
+		 }
 		
 		_velocity = MoveAndSlide(_velocity, Vector3.Up);
 		RotateCamera(inputMovementVector.x, delta);

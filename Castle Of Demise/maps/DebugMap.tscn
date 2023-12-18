@@ -219,6 +219,7 @@ ambient_light_color = Color( 1, 0, 0, 1 )
 fog_enabled = true
 fog_color = Color( 1, 0.270588, 0.270588, 1 )
 fog_sun_color = Color( 1, 0, 0, 1 )
+dof_blur_far_distance = 5.95
 dof_blur_near_enabled = true
 
 [node name="DebugMap" type="Spatial"]
@@ -469,6 +470,134 @@ transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 1.62379, 1.29711, 1.57196 )
 billboard = 2
 shaded = true
 frames = SubResource( 38 )
+
+[node name="sol5" type="CSGBox" parent="Sol/sol4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -72.3177, 0, 0 )
+use_collision = true
+width = 36.1643
+height = 0.121397
+depth = 39.0209
+material = SubResource( 1 )
+
+[node name="sol4" type="CSGBox" parent="Sol/sol4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.1589, 0, 0 )
+use_collision = true
+width = 36.1643
+height = 0.121397
+depth = 39.0209
+material = SubResource( 1 )
+
+[node name="sol6" type="CSGBox" parent="Sol/sol4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -144.635, 0, 0 )
+use_collision = true
+width = 36.1643
+height = 0.121397
+depth = 39.0209
+material = SubResource( 1 )
+
+[node name="sol7" type="CSGBox" parent="Sol/sol4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -108.477, 0, 0 )
+use_collision = true
+width = 36.1643
+height = 0.121397
+depth = 39.0209
+material = SubResource( 1 )
+
+[node name="sol8" type="CSGBox" parent="Sol/sol4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -144.635, 0, 0 )
+use_collision = true
+width = 36.1643
+height = 0.121397
+depth = 39.0209
+material = SubResource( 1 )
+
+[node name="sol9" type="CSGBox" parent="Sol/sol4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -108.477, 0, 0 )
+use_collision = true
+width = 36.1643
+height = 0.121397
+depth = 39.0209
+material = SubResource( 1 )
+
+[node name="sol10" type="CSGBox" parent="Sol/sol4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -216.953, 0, 0 )
+use_collision = true
+width = 36.1643
+height = 0.121397
+depth = 39.0209
+material = SubResource( 1 )
+
+[node name="sol11" type="CSGBox" parent="Sol/sol4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -180.794, 0, 0 )
+use_collision = true
+width = 36.1643
+height = 0.121397
+depth = 39.0209
+material = SubResource( 1 )
+
+[node name="sol5" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -108.738, 0, -39.0644 )
+use_collision = true
+width = 36.1643
+height = 0.121397
+depth = 39.0209
+material = SubResource( 1 )
+
+[node name="sol4" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -72.5796, 0, -39.0644 )
+use_collision = true
+width = 36.1643
+height = 0.121397
+depth = 39.0209
+material = SubResource( 1 )
+
+[node name="sol6" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -181.056, 0, -39.0644 )
+use_collision = true
+width = 36.1643
+height = 0.121397
+depth = 39.0209
+material = SubResource( 1 )
+
+[node name="sol7" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -144.897, 0, -39.0644 )
+use_collision = true
+width = 36.1643
+height = 0.121397
+depth = 39.0209
+material = SubResource( 1 )
+
+[node name="sol8" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -181.056, 0, -39.0644 )
+use_collision = true
+width = 36.1643
+height = 0.121397
+depth = 39.0209
+material = SubResource( 1 )
+
+[node name="sol9" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -144.897, 0, -39.0644 )
+use_collision = true
+width = 36.1643
+height = 0.121397
+depth = 39.0209
+material = SubResource( 1 )
+
+[node name="sol10" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -253.374, 0, -39.0644 )
+use_collision = true
+width = 36.1643
+height = 0.121397
+depth = 39.0209
+material = SubResource( 1 )
+
+[node name="sol11" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -217.215, 0, -39.0644 )
+use_collision = true
+width = 36.1643
+height = 0.121397
+depth = 39.0209
+material = SubResource( 1 )
 
 [node name="Parcours" type="Spatial" parent="."]
 
