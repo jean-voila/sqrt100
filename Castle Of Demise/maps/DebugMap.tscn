@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://Mobs/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Props/grass02.png" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Assets/Textures/imageonline-co-pixelated(1).png" type="Texture" id=20]
 [ext_resource path="res://Assets/Textures/imageonline-co-pixelated.png" type="Texture" id=21]
 [ext_resource path="res://Assets/SoundEffects/ahCaNon.wav" type="AudioStream" id=22]
+[ext_resource path="res://Assets/Textures/SunsetSky.png" type="Texture" id=23]
 [ext_resource path="res://Assets/Models/obelix/obelix.gltf" type="PackedScene" id=24]
 
 [sub_resource type="StreamTexture" id=8]
@@ -54,8 +55,88 @@ load_path = "res://.import/imageonline-co-pixelated1.png-5a13d11bc7acc9200dbf723
 albedo_texture = SubResource( 18 )
 uv1_scale = Vector3( 2, 4, 1.466 )
 
-[sub_resource type="BoxShape" id=17]
-extents = Vector3( 0.281531, 0.319793, 0.161273 )
+[sub_resource type="SpriteFrames" id=25]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=39]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=27]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=24]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=28]
+animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="BoxShape" id=40]
+extents = Vector3( 0.101773, 0.367333, 0.362852 )
+
+[sub_resource type="SpriteFrames" id=29]
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=30]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=31]
+animations = [ {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=32]
+animations = [ {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=33]
+animations = [ {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="BoxShape" id=19]
 extents = Vector3( 0.219307, 0.22544, 0.138813 )
@@ -63,6 +144,46 @@ extents = Vector3( 0.219307, 0.22544, 0.138813 )
 [sub_resource type="CapsuleShape" id=20]
 radius = 0.641582
 height = 0.002
+
+[sub_resource type="SpriteFrames" id=34]
+animations = [ {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=35]
+animations = [ {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=36]
+animations = [ {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=37]
+animations = [ {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=38]
+animations = [ {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="StreamTexture" id=10]
 flags = 23
@@ -86,6 +207,19 @@ albedo_texture = SubResource( 11 )
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_texture = SubResource( 11 )
+
+[sub_resource type="PanoramaSky" id=23]
+panorama = ExtResource( 23 )
+
+[sub_resource type="Environment" id=22]
+resource_local_to_scene = true
+background_mode = 2
+background_sky = SubResource( 23 )
+ambient_light_color = Color( 1, 0, 0, 1 )
+fog_enabled = true
+fog_color = Color( 1, 0.270588, 0.270588, 1 )
+fog_sun_color = Color( 1, 0, 0, 1 )
+dof_blur_near_enabled = true
 
 [node name="DebugMap" type="Spatial"]
 
@@ -111,14 +245,14 @@ depth = 5.32256
 material = SubResource( 12 )
 
 [node name="wall1" type="CSGBox" parent="Walls"]
-transform = Transform( 0.0639227, 0, -0.997955, 0, 1, 0, 0.997955, 0, 0.0639227, -8.10956, 0, 35.6345 )
+transform = Transform( 0.0639227, 0, -0.997955, 0, 1, 0, 0.997955, 0, 0.0639227, -8.11773, 0, 30.4879 )
 use_collision = true
 height = 6.95414
 depth = 5.32256
 material = SubResource( 4 )
 
 [node name="wall2" type="CSGBox" parent="Walls"]
-transform = Transform( -0.999991, 0, 0.00404908, 0, 1, 0, -0.00404908, 0, -0.999991, -9.96455, 1.17851, 47.811 )
+transform = Transform( -0.999991, 0, 0.00404908, 0, 1, 0, -0.00404908, 0, -0.999991, 0.392234, 1.17851, 47.7945 )
 use_collision = true
 height = 6.95414
 depth = 5.32256
@@ -182,6 +316,7 @@ material = SubResource( 16 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.932683, 0.360697, 0, -0.360697, 0.932683, 0, 123.565, 93.937 )
+light_color = Color( 1, 0.815686, 0.815686, 1 )
 light_energy = 1.514
 shadow_enabled = true
 
@@ -218,64 +353,71 @@ height = 0.121397
 depth = 39.0209
 material = SubResource( 1 )
 
-[node name="Arbre2" type="Spatial" parent="Sol/sol4"]
-transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, -12.1427, 2.68132, -10.751 )
+[node name="Texture1" type="AnimatedSprite3D" parent="Sol/sol4"]
+transform = Transform( 0.26107, 0, -0.998635, 0, 5, 0, 4.99318, 0, 0.052214, -12.258, 2.68132, -10.751 )
+billboard = 2
+shaded = true
+frames = SubResource( 25 )
 
-[node name="Texture1" type="Sprite3D" parent="Sol/sol4/Arbre2"]
-transform = Transform( 0.0522139, 0, -0.199727, 0, 1, 0, 4.99318, 0, 0.052214, -0.0230522, 0, 9.53674e-07 )
-texture = ExtResource( 4 )
+[node name="Texture2" type="AnimatedSprite3D" parent="Sol/sol4"]
+transform = Transform( -0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, -8.40462, 3.68236, -10.5578 )
+billboard = 2
+shaded = true
+frames = SubResource( 39 )
 
-[node name="Texture2" type="Sprite3D" parent="Sol/sol4/Arbre2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.251854 )
-texture = ExtResource( 4 )
-
-[node name="Arbre1" type="Spatial" parent="Sol/sol4"]
-transform = Transform( 5, 0, 0, 0, 7, 0, 0, 0, 1, -8.16547, 3.68236, -10.751 )
-
-[node name="Texture1" type="Sprite3D" parent="Sol/sol4/Arbre1"]
-transform = Transform( -0.0326668, 0, -0.199893, 0, 1, 0, 4.99733, 0, -0.0326668, -0.0478296, 0, 0.193196 )
-texture = ExtResource( 5 )
-
-[node name="Texture2" type="Sprite3D" parent="Sol/sol4/Arbre1"]
-texture = ExtResource( 5 )
-
-[node name="rock 01" type="Sprite3D" parent="Sol/sol4"]
+[node name="rock 01" type="AnimatedSprite3D" parent="Sol/sol4"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, -4.03173, 1.15222, -10.751 )
-texture = ExtResource( 6 )
+billboard = 2
+shaded = true
+frames = SubResource( 27 )
 
-[node name="rock 02" type="Sprite3D" parent="Sol/sol4"]
+[node name="rock 02" type="AnimatedSprite3D" parent="Sol/sol4"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.234135, 1.2335, -10.751 )
-texture = ExtResource( 3 )
+billboard = 2
+shaded = true
+frames = SubResource( 24 )
 
-[node name="barrel" type="Sprite3D" parent="Sol/sol4"]
+[node name="barrel" type="AnimatedSprite3D" parent="Sol/sol4"]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 1, 5.4439, 1.55758, -10.751 )
-texture = ExtResource( 7 )
+billboard = 2
+shaded = true
+frames = SubResource( 28 )
 
 [node name="StaticBody" type="StaticBody" parent="Sol/sol4/barrel"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Sol/sol4/barrel/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.178143, 0 )
-shape = SubResource( 17 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.237141, 0 )
+shape = SubResource( 40 )
 
-[node name="grass" type="Sprite3D" parent="Sol/sol4"]
+[node name="grass" type="AnimatedSprite3D" parent="Sol/sol4"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, -12.3161, 0.327365, -3.54352 )
-texture = ExtResource( 8 )
+billboard = 2
+shaded = true
+frames = SubResource( 29 )
 
-[node name="grass2" type="Sprite3D" parent="Sol/sol4"]
+[node name="grass2" type="AnimatedSprite3D" parent="Sol/sol4"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, -8.52204, 0.327365, -3.54352 )
-texture = ExtResource( 2 )
+billboard = 2
+shaded = true
+frames = SubResource( 30 )
 
-[node name="chain" type="Sprite3D" parent="Sol/sol4"]
+[node name="chain" type="AnimatedSprite3D" parent="Sol/sol4"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, -5.5658, 2.78265, -3.54352 )
-texture = ExtResource( 15 )
+billboard = 2
+shaded = true
+frames = SubResource( 31 )
 
-[node name="chain2" type="Sprite3D" parent="Sol/sol4"]
+[node name="chain2" type="AnimatedSprite3D" parent="Sol/sol4"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, -1.7737, 1.87245, -3.54352 )
-texture = ExtResource( 16 )
+billboard = 2
+shaded = true
+frames = SubResource( 32 )
 
-[node name="chain3" type="Sprite3D" parent="Sol/sol4"]
+[node name="chain3" type="AnimatedSprite3D" parent="Sol/sol4"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 1.41291, 2.03024, -3.54352 )
-texture = ExtResource( 13 )
+billboard = 2
+shaded = true
+frames = SubResource( 33 )
 
 [node name="obelix" parent="Sol/sol4" instance=ExtResource( 24 )]
 transform = Transform( -3.8293, 0, -1.15606, 0, 4, 0, 1.15606, 0, -3.8293, 10.6511, 0.319904, 7.97236 )
@@ -298,25 +440,35 @@ transform = Transform( 0.999189, -0.0402221, -0.000244319, 0.0402221, 0.999117, 
 shape = SubResource( 20 )
 disabled = true
 
-[node name="chandelier" type="Sprite3D" parent="Sol/sol4"]
+[node name="chandelier" type="AnimatedSprite3D" parent="Sol/sol4"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.27499, 3.04891, -3.54352 )
-texture = ExtResource( 11 )
+billboard = 2
+shaded = true
+frames = SubResource( 34 )
 
-[node name="chandelier02" type="Sprite3D" parent="Sol/sol4"]
+[node name="chandelier02" type="AnimatedSprite3D" parent="Sol/sol4"]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 1, -12.3161, 1.6543, 1.63597 )
-texture = ExtResource( 12 )
+billboard = 2
+shaded = true
+frames = SubResource( 35 )
 
-[node name="explosiveBarrel" type="Sprite3D" parent="Sol/sol4"]
+[node name="explosiveBarrel" type="AnimatedSprite3D" parent="Sol/sol4"]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 1, -8.27085, 1.55655, 1.55083 )
-texture = ExtResource( 9 )
+billboard = 2
+shaded = true
+frames = SubResource( 36 )
 
-[node name="bush" type="Sprite3D" parent="Sol/sol4"]
+[node name="bush" type="AnimatedSprite3D" parent="Sol/sol4"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, -2.98522, 1.2775, 1.57196 )
-texture = ExtResource( 14 )
+billboard = 2
+shaded = true
+frames = SubResource( 37 )
 
-[node name="bush02" type="Sprite3D" parent="Sol/sol4"]
+[node name="bush02" type="AnimatedSprite3D" parent="Sol/sol4"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 1.62379, 1.29711, 1.57196 )
-texture = ExtResource( 10 )
+billboard = 2
+shaded = true
+frames = SubResource( 38 )
 
 [node name="Parcours" type="Spatial" parent="."]
 
@@ -362,3 +514,6 @@ width = 6.76224
 height = 0.372073
 depth = 11.6501
 material = SubResource( 3 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 22 )

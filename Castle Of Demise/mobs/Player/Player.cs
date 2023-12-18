@@ -172,12 +172,32 @@ public class Player : KinematicBody
 
 	public override void _Input(InputEvent @event)
 	{
-		if (@event is InputEventMouseMotion)
+		if (@event is InputEventMouseMotion mouseInput)
 		{
-			InputEventMouseMotion mouseInput = (InputEventMouseMotion) @event;
+			// Adjust the Y rotation (Yaw)
 			RotateY(-mouseInput.Relative.x * _mouseSensitivity);
+
+			// Adjust the X rotation (Pitch)
 			_head.RotateX(-mouseInput.Relative.y * _mouseSensitivity);
+
+			// Define your minimum and maximum pitch angles (in degrees)
+			float minPitch = -90.0f;
+			float maxPitch = 90.0f;
+
+			// Clamp the X rotation within the specified range
+			var currentRotation = _head.RotationDegrees;
+			currentRotation.x = Mathf.Clamp(currentRotation.x, minPitch, maxPitch);
+
+			// Apply the new rotation to the camera
+			_head.RotationDegrees = currentRotation;
 		}
+		// if (@event is InputEventMouseMotion)
+		// {
+		// 	InputEventMouseMotion mouseInput = (InputEventMouseMotion) @event;
+		// 	RotateY(-mouseInput.Relative.x * _mouseSensitivity);
+		// 	GD.Print(_head.GlobalRotation.x);
+		// 	_head.RotateX(-mouseInput.Relative.y * _mouseSensitivity);
+		// }
 
 		if (@event.IsActionPressed("mouse_left_click"))
 		{
@@ -232,8 +252,6 @@ public class Player : KinematicBody
 				_alternateShotSound.Play();
 			}
 		}
-
-
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -287,8 +305,11 @@ public class Player : KinematicBody
 		_velocity.x = horizontalVelocity.x;
 		_velocity.z = horizontalVelocity.z;
 
-		_velocity.y -= delta * _gravity;
-
+		if (_floorRayCast.GetCollider() == null)
+		{
+			_velocity.y -= delta * _gravity;
+		}
+		
 		_velocity = MoveAndSlide(_velocity, Vector3.Up);
 		RotateCamera(inputMovementVector.x, delta);
 		AdjustFOV(isMoving, delta);
