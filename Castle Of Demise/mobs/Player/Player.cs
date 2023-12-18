@@ -96,6 +96,7 @@ public class Player : KinematicBody
 
 	private float _lastMusicDb;
 	private bool _SEEnabled;
+	private int _ammo;
 	
 	
 
@@ -167,6 +168,7 @@ public class Player : KinematicBody
 		_musicPlayerPath = "EasterEgg";
 		_musicPlayer = GetNode<AudioStreamPlayer2D>(_musicPlayerPath);
 		_SEEnabled = true;
+		_ammo = 100;
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 	}
 
@@ -201,7 +203,7 @@ public class Player : KinematicBody
 
 		if (@event.IsActionPressed("mouse_left_click"))
 		{
-			Shoot();
+			if (_ammo>0) Shoot();
 		}
 		
 		if (Input.IsActionJustPressed("key_escape"))
@@ -212,6 +214,7 @@ public class Player : KinematicBody
 
 	private void Shoot()
 	{
+		_ammo--;
 		var rayEnd = _shootRayCast.GetCollisionPoint();
 		_bulletHoleScene = GD.Load<PackedScene>("res://Assets/Effects/BulletHole/BulletHoleScene.tscn");
 
@@ -319,6 +322,7 @@ public class Player : KinematicBody
 			Vector3 newCoordinates = new Vector3(0.0f, 6.0f, 0.0f);
 			Teleport(newCoordinates);
 		}
+		UpdateDebugInfo();
 		UpdatePlayerInfo();
 	}
 
@@ -354,10 +358,10 @@ public class Player : KinematicBody
 	}
 
 
-	private void UpdatePlayerInfo()
+	private void UpdateDebugInfo()
 	{
-		var textLeftHUD = GetNode<RichTextLabel>("CanvasLayer/HUD/Textes/HUDGauche");
-		var textRightHUD = GetNode<RichTextLabel>("CanvasLayer/HUD/Textes/HUDDroite");
+		var textLeftHUD = GetNode<RichTextLabel>("HUD/Debug/Textes/HUDGauche");
+		var textRightHUD = GetNode<RichTextLabel>("HUD/Debug/Textes/HUDDroite");
 		
 		var transform = GlobalTransform;
 		var position = transform.origin;
@@ -383,6 +387,14 @@ public class Player : KinematicBody
 
 		var rightText = GenerateRightHUDText();
 		textRightHUD.BbcodeText = rightText;
+	}
+	
+	private void UpdatePlayerInfo()
+	{
+		var texteAmmo = GetNode<RichTextLabel>("HUD/PlayerInfos/Ammo");
+		var valeurTexteAmmo = $"[right]{_ammo}[/right] ";
+		texteAmmo.BbcodeText = valeurTexteAmmo;
+		
 	}
 
 	private string GenerateLeftHUDText()
@@ -519,6 +531,11 @@ public class Player : KinematicBody
 	private void QuitGame()
 	{
 		GetTree().Quit();
+	}
+
+	private void ToggleFullscreen(bool fullscreen)
+	{
+		OS.WindowFullscreen = fullscreen;
 	}
 	
 	
