@@ -33,7 +33,7 @@ public class Player : KinematicBody
 	public float OrientationY;
 
 	[Export]
-	private string _version = "1.0.3";
+	private string _version = "1.0.6";
 
 	[Export] private bool _jeansModEnabled = false;
 

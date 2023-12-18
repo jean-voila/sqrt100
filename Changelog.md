@@ -1,6 +1,10 @@
 # Changelog
 ## Castle Of Demise
 
+### V1.0.6 - Paul's version
+- Environnement jauni dans le style du jeu
+- Bloquage du salto caméra 🍾
+- Sprites 2D qui s'orientent vers la caméra du joueur !!
 ### V1.0.5
 - Amélioration du style du menu pause
 - Contrôle du volume et de l'activation pour les effets sonores et la musique
