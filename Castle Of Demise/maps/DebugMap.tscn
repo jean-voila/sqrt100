@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Mobs/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Props/grass02.png" type="Texture" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Props/tree01.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Props/tree02.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Props/rock01.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Props/Barrel.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Props/barrel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Props/grass.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Props/explosiveBarrel.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Props/Bush02.png" type="Texture" id=10]
@@ -21,9 +21,8 @@
 [ext_resource path="res://Assets/Textures/imageonline-co-pixelated(4).png" type="Texture" id=19]
 [ext_resource path="res://Assets/Textures/imageonline-co-pixelated(1).png" type="Texture" id=20]
 [ext_resource path="res://Assets/Textures/imageonline-co-pixelated.png" type="Texture" id=21]
-[ext_resource path="res://Assets/SoundEffects/ahCaNon.wav" type="AudioStream" id=22]
 [ext_resource path="res://Assets/Textures/SunsetSky.png" type="Texture" id=23]
-[ext_resource path="res://Assets/Models/obelix/obelix.gltf" type="PackedScene" id=24]
+[ext_resource path="res://mobs/Bat/Bat.tscn" type="PackedScene" id=25]
 
 [sub_resource type="StreamTexture" id=8]
 flags = 23
@@ -87,17 +86,6 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=28]
-animations = [ {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="BoxShape" id=40]
-extents = Vector3( 0.101773, 0.367333, 0.362852 )
-
 [sub_resource type="SpriteFrames" id=29]
 animations = [ {
 "frames": [ ExtResource( 8 ) ],
@@ -137,13 +125,6 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
-
-[sub_resource type="BoxShape" id=19]
-extents = Vector3( 0.219307, 0.22544, 0.138813 )
-
-[sub_resource type="CapsuleShape" id=20]
-radius = 0.641582
-height = 0.002
 
 [sub_resource type="SpriteFrames" id=34]
 animations = [ {
@@ -226,7 +207,9 @@ dof_blur_near_enabled = true
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.311138, 10.3601, 0.583661 )
-_headNodePath = NodePath("")
+
+[node name="Bat" parent="." groups=["ennemies"] instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.8325, 3.49293, 0 )
 
 [node name="Walls" type="Spatial" parent="."]
 transform = Transform( -0.00158827, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00158827, 2.7067, 1.07258, 8.5129 )
@@ -378,17 +361,7 @@ billboard = 2
 shaded = true
 frames = SubResource( 24 )
 
-[node name="barrel" type="AnimatedSprite3D" parent="Sol/sol4"]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 1, 5.4439, 1.55758, -10.751 )
-billboard = 2
-shaded = true
-frames = SubResource( 28 )
-
-[node name="StaticBody" type="StaticBody" parent="Sol/sol4/barrel"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Sol/sol4/barrel/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.237141, 0 )
-shape = SubResource( 40 )
+[node name="barrel" parent="Sol/sol4" instance=ExtResource( 7 )]
 
 [node name="grass" type="AnimatedSprite3D" parent="Sol/sol4"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, -12.3161, 0.327365, -3.54352 )
@@ -419,27 +392,6 @@ transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 1.41291, 2.03024, -3.54352 )
 billboard = 2
 shaded = true
 frames = SubResource( 33 )
-
-[node name="obelix" parent="Sol/sol4" instance=ExtResource( 24 )]
-transform = Transform( -3.8293, 0, -1.15606, 0, 4, 0, 1.15606, 0, -3.8293, 10.6511, 0.319904, 7.97236 )
-visible = false
-
-[node name="AhCaNon" type="AudioStreamPlayer3D" parent="Sol/sol4/obelix"]
-transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0 )
-stream = ExtResource( 22 )
-attenuation_model = 3
-
-[node name="StaticBody" type="StaticBody" parent="Sol/sol4/obelix"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Sol/sol4/obelix/StaticBody"]
-transform = Transform( 0.999191, -0.0402221, -0.000244319, 0.0402221, 0.999117, 0.012143, -0.000244319, -0.012143, 0.999926, -0.0507946, 1.90054, 0.036026 )
-shape = SubResource( 19 )
-disabled = true
-
-[node name="CollisionShape2" type="CollisionShape" parent="Sol/sol4/obelix/StaticBody"]
-transform = Transform( 0.999189, -0.0402221, -0.000244319, 0.0402221, 0.999117, 0.012143, -0.000244051, -0.012143, 0.999926, -0.0261559, 1.03835, 0.0613804 )
-shape = SubResource( 20 )
-disabled = true
 
 [node name="chandelier" type="AnimatedSprite3D" parent="Sol/sol4"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.27499, 3.04891, -3.54352 )

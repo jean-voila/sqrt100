@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/Fonts/pixel.ttf" type="DynamicFontData" id=1]
 
 [sub_resource type="DynamicFont" id=1]
-size = 60
+size = 45
 font_data = ExtResource( 1 )
 
 [node name="PlayerInfos" type="Control"]
@@ -13,11 +13,12 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Ammo" type="RichTextLabel" parent="."]
-margin_left = 804.0
-margin_top = 660.0
-margin_right = 1277.04
-margin_bottom = 723.0
+modulate = Color( 1, 1, 1, 0.631373 )
+margin_left = 935.0
+margin_top = 568.0
+margin_right = 1244.0
+margin_bottom = 719.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[right]98[/right] "
-text = "98 "
+bbcode_text = "[right]30[/right]"
+text = "30"

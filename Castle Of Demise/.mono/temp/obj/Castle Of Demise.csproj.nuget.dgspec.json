@@ -14,7 +14,7 @@
         "outputPath": "/Users/jeanherail/Documents/sqrt100/sqrt100/Castle Of Demise/.mono/temp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/jeanherail/.nuget/NuGet/NuGet.Config"
+          "/Users/jeanherail/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net472"
@@ -37,15 +37,7 @@
       "frameworks": {
         "net472": {
           "targetAlias": "net472",
-          "dependencies": {
-            "Microsoft.NETFramework.ReferenceAssemblies": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[1.0.3, )",
-              "autoReferenced": true
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.404/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/Library/Frameworks/Mono.framework/Versions/6.12.0/lib/mono/msbuild/Current/bin/RuntimeIdentifierGraph.json"
         }
       }
     }
