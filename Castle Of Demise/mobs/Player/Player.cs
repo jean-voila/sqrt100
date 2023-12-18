@@ -14,6 +14,7 @@ public class Player : KinematicBody
 
 	private AudioStreamPlayer3D _jumpSound;
 	private AudioStreamPlayer3D _alternateShotSound;
+	private AudioStreamPlayer3D _cantShootSound;
 	private AudioStreamPlayer3D _landSound;
 	private RayCast _floorRayCast;
 	private Timer _stepTimer;
@@ -121,10 +122,11 @@ public class Player : KinematicBody
 		{
 			GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/GunShot01"),
 			GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/GunShot02"),
-			GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/GunShot03")
+			GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/GunShot03"),
 		};
 
 		_alternateShotSound = GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/JeansMod");
+		_cantShootSound = GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/CantShoot");
 
 		_stepSounds = new List<AudioStreamPlayer3D>
 		{
@@ -168,7 +170,7 @@ public class Player : KinematicBody
 		_musicPlayerPath = "EasterEgg";
 		_musicPlayer = GetNode<AudioStreamPlayer2D>(_musicPlayerPath);
 		_SEEnabled = true;
-		_ammo = 100;
+		_ammo = 30;
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 	}
 
@@ -203,7 +205,8 @@ public class Player : KinematicBody
 
 		if (@event.IsActionPressed("mouse_left_click"))
 		{
-			if (_ammo>0) Shoot();
+			if (_ammo > 0) Shoot();
+			else _cantShootSound.Play();
 		}
 		
 		if (Input.IsActionJustPressed("key_escape"))

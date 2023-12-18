@@ -15,3 +15,4 @@ C:/Users/placa/OneDrive/Bureau/project jeu/sqrt100/Castle Of Demise/.mono/temp/o
 /Users/jeanherail/Documents/sqrt100/sqrt100/Castle Of Demise/.mono/temp/obj/Debug/Castle Of Demise.csproj.CoreCompileInputs.cache
 /Users/jeanherail/Documents/sqrt100/sqrt100/Castle Of Demise/.mono/temp/obj/Debug/Castle Of Demise.dll
 /Users/jeanherail/Documents/sqrt100/sqrt100/Castle Of Demise/.mono/temp/obj/Debug/Castle Of Demise.pdb
+/Users/jeanherail/Documents/sqrt100/sqrt100/Castle Of Demise/.mono/temp/obj/Debug/Castle Of Demise.GeneratedMSBuildEditorConfig.editorconfig
