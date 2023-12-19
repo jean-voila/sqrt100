@@ -6,4 +6,7 @@
   <ItemGroup>
     <Folder Include="maps\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="mobs\Ennemies\Bat\Bat.tscn" />
+  </ItemGroup>
 </Project>

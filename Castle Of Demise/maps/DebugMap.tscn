@@ -21,8 +21,8 @@
 [ext_resource path="res://Assets/Textures/imageonline-co-pixelated(4).png" type="Texture" id=19]
 [ext_resource path="res://Assets/Textures/imageonline-co-pixelated(1).png" type="Texture" id=20]
 [ext_resource path="res://Assets/Textures/imageonline-co-pixelated.png" type="Texture" id=21]
+[ext_resource path="res://mobs/Ennemies/Bat/Bat.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Assets/Textures/SunsetSky.png" type="Texture" id=23]
-[ext_resource path="res://mobs/Bat/Bat.tscn" type="PackedScene" id=25]
 
 [sub_resource type="StreamTexture" id=8]
 flags = 23
@@ -209,8 +209,22 @@ dof_blur_near_enabled = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.311138, 10.3601, 0.583661 )
 _version = "1.0.7"
 
-[node name="Bat" parent="." groups=["ennemies"] instance=ExtResource( 25 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.8325, 3.49293, 0 )
+[node name="Bats" type="Spatial" parent="."]
+
+[node name="Bat1" parent="Bats" groups=["ennemies"] instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.9349, 3.49293, 0 )
+
+[node name="Bat2" parent="Bats" groups=["ennemies"] instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.9695, 3.95124, 0 )
+
+[node name="Bat3" parent="Bats" groups=["ennemies"] instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.4279, 4.31698, -1.44011 )
+
+[node name="Bat4" parent="Bats" groups=["ennemies"] instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.4449, 4.81336, 1.59518 )
+
+[node name="Bat5" parent="Bats" groups=["ennemies"] instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.273, 4.94218, 0 )
 
 [node name="Walls" type="Spatial" parent="."]
 transform = Transform( -0.00158827, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00158827, 2.7067, 1.07258, 8.5129 )

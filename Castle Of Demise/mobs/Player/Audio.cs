@@ -7,7 +7,7 @@ public partial class Player
     private List<AudioStreamPlayer3D> _gunShotSounds;
     private List<AudioStreamPlayer3D> _stepSounds;
     private List<AudioStreamPlayer3D> _allSoundEffects;
-    private AudioStreamPlayer3D _killedSound;
+    private AudioStreamPlayer3D _hitSound;
     private AudioStreamPlayer3D _jumpSound;
     private AudioStreamPlayer3D _alternateShotSound;
     private AudioStreamPlayer3D _cantShootSound;
@@ -21,7 +21,7 @@ public partial class Player
         
         _alternateShotSound = GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/JeansMod");
         _cantShootSound = GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/CantShoot");
-        _killedSound = GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/Killed");
+        _hitSound = GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/Killed");
         _gunShotSounds = new List<AudioStreamPlayer3D>
         {
             GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/GunShot01"),
@@ -44,7 +44,7 @@ public partial class Player
         _allSoundEffects.Add(_jumpSound);
         _allSoundEffects.Add(_landSound);
         _allSoundEffects.Add(_alternateShotSound);
-        _allSoundEffects.Add(_killedSound);
+        _allSoundEffects.Add(_hitSound);
         _musicPlayerPath = "BackGroundMusic";
         _musicPlayer = GetNode<AudioStreamPlayer2D>(_musicPlayerPath);
         _SEEnabled = true;

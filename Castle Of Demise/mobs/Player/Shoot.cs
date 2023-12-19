@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using CastleOfDemise.mobs.Ennemies;
 
 
 public partial class Player
@@ -8,15 +9,22 @@ public partial class Player
     private PackedScene _bulletHoleScene;
     private int _ammoAvailable;
     private int _ammoShooted;
+    private int _strength;
+    private int _killedEnemmies;
+    
+    [Signal]
+    public delegate bool kill_signal();
 
 
     public void _shootInit()
     {
         _shootRayCast = GetNode<RayCast>("Head/Camera/RayCast");
-        _ammoAvailable = 30;
+        _ammoAvailable = 100;
         _ammoShooted = 0;
+        _strength = 10;
+        _killedEnemmies = 0;
         _bulletHoleScene = GD.Load<PackedScene>("res://Assets/Effects/BulletHole/BulletHoleScene.tscn");
-
+        
     }
     
     public void Shoot()
@@ -34,7 +42,7 @@ public partial class Player
                 Node mobTouche = hitObject.GetParent<Node>();
                 isEnnemiTouched = mobTouche.IsInGroup("ennemies");
                 if (isEnnemiTouched)
-                    Kill(mobTouche);
+                    Kill((Ennemy)hitObject);
                 else
                 {
                     hitObject.AddChild(bulletHole);
@@ -57,10 +65,16 @@ public partial class Player
         }
     }
     
-    private void Kill(Node mobTouche)
+    private void Kill(Ennemy mobTouche)
     {
-        if (_SEEnabled) _killedSound.Play();
-		mobTouche.QueueFree();
+        if (!mobTouche._isDead)
+        {
+            if (_SEEnabled) _hitSound.Play();
+            mobTouche.EmitSignal("hit_signal", _strength);
+            if (mobTouche._isDead) _killedEnemmies++;
+        }
+
+
     }
 
 }

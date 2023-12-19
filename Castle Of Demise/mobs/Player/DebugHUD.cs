@@ -56,7 +56,9 @@ public partial class Player
     			$"{HUDData("oriY", OrientationY)}" +
     
     			$"{Title("Other")}" +
-    			$"{HUDData("Bullet Count", _ammoShooted)}";
+    			$"{HUDData("Bullet Count", _ammoShooted)}"+
+			    $"{HUDData("Strength", _strength)}" +
+			    $"{HUDData("Killed", _killedEnemmies)}";
     	}
     
     	private string GenerateRightHUDText()
