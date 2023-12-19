@@ -14,8 +14,6 @@ public partial class Player
     
     [Signal]
     public delegate bool kill_signal();
-
-
     public void _shootInit()
     {
         _shootRayCast = GetNode<RayCast>("Head/Camera/RayCast");
@@ -24,7 +22,6 @@ public partial class Player
         _strength = 10;
         _killedEnemmies = 0;
         _bulletHoleScene = GD.Load<PackedScene>("res://Assets/Effects/BulletHole/BulletHoleScene.tscn");
-        
     }
     
     public void Shoot()
@@ -42,7 +39,7 @@ public partial class Player
                 Node mobTouche = hitObject.GetParent<Node>();
                 isEnnemiTouched = mobTouche.IsInGroup("ennemies");
                 if (isEnnemiTouched)
-                    Kill((Ennemy)hitObject);
+                    Hit((Ennemy)hitObject);
                 else
                 {
                     hitObject.AddChild(bulletHole);
@@ -65,16 +62,14 @@ public partial class Player
         }
     }
     
-    private void Kill(Ennemy mobTouche)
+    private void Hit(Ennemy mobTouche)
     {
         if (!mobTouche._isDead)
         {
-            if (_SEEnabled) _hitSound.Play();
             mobTouche.EmitSignal("hit_signal", _strength);
-            if (mobTouche._isDead) _killedEnemmies++;
+            if (!mobTouche._isDead) _hitSound.Play();
+            else _killedEnemmies++;
+
         }
-
-
     }
-
 }

@@ -23,7 +23,7 @@
 [ext_resource path="res://Assets/SoundEffects/alternativeGunShot.wav" type="AudioStream" id=21]
 [ext_resource path="res://PlayerInfos.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Assets/SoundEffects/cantShoot.wav" type="AudioStream" id=23]
-[ext_resource path="res://Assets/SoundEffects/killed.wav" type="AudioStream" id=24]
+[ext_resource path="res://Assets/SoundEffects/hit.wav" type="AudioStream" id=24]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -393,7 +393,7 @@ stream = ExtResource( 21 )
 [node name="CantShoot" type="AudioStreamPlayer3D" parent="GunShotSoundsEffects"]
 stream = ExtResource( 23 )
 
-[node name="Killed" type="AudioStreamPlayer3D" parent="GunShotSoundsEffects"]
+[node name="Hit" type="AudioStreamPlayer3D" parent="GunShotSoundsEffects"]
 stream = ExtResource( 24 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
@@ -431,6 +431,7 @@ cast_to = Vector3( 0, 0, -2000 )
 
 [node name="Bras" type="CSGMesh" parent="Head"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.5, 0.477267, -0.570388, -0.495418 )
+visible = false
 mesh = SubResource( 3 )
 material = SubResource( 5 )
 

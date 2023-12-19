@@ -11,8 +11,11 @@ namespace CastleOfDemise.mobs.Ennemies
 
         private ulong _timeIsDead;
         private ulong _timeBeforeDisapp;
+        private AudioStreamPlayer2D _deathSound;
         public int _health { get; private set; }
         public bool _isDead { get; private set; }
+        
+
     
         public override void _Ready()
         {
@@ -21,6 +24,13 @@ namespace CastleOfDemise.mobs.Ennemies
             _timeIsDead = 0;
             _timeBeforeDisapp = 500;
             
+            _deathSound = new AudioStreamPlayer2D();
+            _deathSound.Stream = GD.Load<AudioStreamSample>("res://Assets/SoundEffects/death.wav");
+            AddChild(_deathSound);
+            
+
+            
+
             Connect("hit_signal", this, "Hit");
             
         }
@@ -38,6 +48,7 @@ namespace CastleOfDemise.mobs.Ennemies
                 _isDead = _health <= 0;
                 if (_isDead)
                 {
+                    _deathSound.Play();
                     GetChild<AnimatedSprite3D>(0).Animation = "dying";
                     _timeIsDead = Time.GetTicksMsec();
                 }

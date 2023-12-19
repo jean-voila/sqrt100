@@ -21,7 +21,7 @@ public partial class Player
         
         _alternateShotSound = GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/JeansMod");
         _cantShootSound = GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/CantShoot");
-        _hitSound = GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/Killed");
+        _hitSound = GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/Hit");
         _gunShotSounds = new List<AudioStreamPlayer3D>
         {
             GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/GunShot01"),

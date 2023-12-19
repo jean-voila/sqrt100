@@ -77,4 +77,6 @@ public partial class Player
     		var space = new string(' ', 22 - name.Length - $"{value}".Length - 2);
     		return $" {Red(name)}{space}{value} {newLineStr}";
     	}
+	    
+	    
 }
