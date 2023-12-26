@@ -1,6 +1,9 @@
 # Changelog
 ## Castle Of Demise
 
+### MAJ 26 Décembre 2023
+- Ajout du cahier des charges du projet dans le repository. Sa correction en prennant en compte la copie rendue pourra se faire progressivement et de manière suivie.
+
 ### V1.0.7 - On rigole plus
 - Premier mob ennemi - Bat
 - Affichage du nombre de munitions restantes
