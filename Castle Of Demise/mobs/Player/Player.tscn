@@ -622,7 +622,7 @@ custom_fonts/font = SubResource( 21 )
 custom_styles/hover = SubResource( 26 )
 custom_styles/normal = ExtResource( 19 )
 action_mode = 0
-text = "Exit"
+text = "Menu"
 
 [node name="Separator4" type="VSeparator" parent="CanvasLayer2/MenuPause/Panneau/Elements"]
 margin_top = 407.0

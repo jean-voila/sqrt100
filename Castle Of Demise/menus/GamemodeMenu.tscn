@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/Fonts/firacode.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Images/BackgroundMenu.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/GamemodeMenu.cs" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=3]
+size = 22
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 0.768627 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0, 0, 0.423529 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="GamemodeMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 640, 248 )
+scale = Vector2( 1.43701, 1.34091 )
+texture = ExtResource( 2 )
+
+[node name="BackButton" type="Button" parent="."]
+margin_left = 448.0
+margin_top = 448.0
+margin_right = 832.0
+margin_bottom = 498.0
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "Retour"
+
+[node name="singlePlayer" type="Button" parent="."]
+margin_left = 448.0
+margin_top = 320.0
+margin_right = 832.0
+margin_bottom = 424.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "Jouer Seul"
+
+[node name="Multiplayer" type="Button" parent="."]
+margin_left = 448.0
+margin_top = 192.0
+margin_right = 832.0
+margin_bottom = 296.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "Jouer à plusieurs"
+
+[connection signal="button_up" from="BackButton" to="." method="_Back"]
+[connection signal="button_up" from="singlePlayer" to="." method="_singlePlayer"]
+[connection signal="button_up" from="Multiplayer" to="." method="_multiplayerPressed"]

@@ -13,7 +13,7 @@ public partial class Player
     
     private void QuitGame()
     {
-        GetTree().Quit();
+        GetTree().ChangeScene("res://menus/TitleScreen.tscn");
     }
 
 }
