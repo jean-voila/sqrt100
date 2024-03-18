@@ -60,7 +60,7 @@ custom_styles/hover = SubResource( 2 )
 custom_styles/normal = SubResource( 3 )
 text = "Retour"
 
-[node name="HostButton" type="Button" parent="."]
+[node name="JoinButton" type="Button" parent="."]
 margin_left = 448.0
 margin_top = 320.0
 margin_right = 832.0
@@ -71,7 +71,7 @@ custom_styles/hover = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
 text = "Rejoindre"
 
-[node name="JoinButton" type="Button" parent="."]
+[node name="HostButton" type="Button" parent="."]
 margin_left = 448.0
 margin_top = 192.0
 margin_right = 832.0
@@ -82,4 +82,33 @@ custom_styles/hover = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
 text = "Heberger"
 
+[node name="JoinOptions" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="ServerIP" type="LineEdit" parent="JoinOptions"]
+margin_left = 865.0
+margin_top = 326.0
+margin_right = 1059.0
+margin_bottom = 361.0
+align = 1
+placeholder_text = "Adresse IP du serveur"
+
+[node name="ConnectButton" type="Button" parent="JoinOptions"]
+margin_left = 869.0
+margin_top = 373.0
+margin_right = 1054.0
+margin_bottom = 399.0
+text = "Se Connecter"
+
+[node name="ServerIsConnectedDebug" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+margin_left = 860.0
+margin_top = 248.0
+margin_right = 1087.0
+margin_bottom = 327.0
+text = "etat serveur"
+
 [connection signal="button_up" from="BackButton" to="." method="_back"]
+[connection signal="pressed" from="JoinButton" to="." method="_clientPressed"]
+[connection signal="text_changed" from="JoinOptions/ServerIP" to="." method="_server_IP_Input"]
+[connection signal="pressed" from="JoinOptions/ConnectButton" to="." method="_serverConnectPressed"]

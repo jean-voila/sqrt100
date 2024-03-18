@@ -93,7 +93,7 @@ size_flags_vertical = 3
 custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
-text = "Quiter"
+text = "Quitter"
 
 [node name="Title" type="Label" parent="."]
 margin_left = 384.0
