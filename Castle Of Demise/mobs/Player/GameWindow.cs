@@ -13,6 +13,8 @@ public partial class Player
     
     private void QuitGame()
     {
+        _pauseMenu.Visible = false;
+        GetTree().Paused = false;
         GetTree().ChangeScene("res://menus/TitleScreen.tscn");
     }
 
