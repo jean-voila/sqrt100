@@ -1,8 +1,8 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Mobs/Player/Player.cs" type="Script" id=1]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Textures/imageonline-co-pixelated.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Mesh/revolver.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://Assets/Textures/CrossHair.png" type="Texture" id=4]
 [ext_resource path="res://Assets/SoundEffects/gunShot01.wav" type="AudioStream" id=5]
 [ext_resource path="res://Assets/SoundEffects/gunShot02.wav" type="AudioStream" id=6]
@@ -63,10 +63,10 @@ shader = SubResource( 7 )
 material = SubResource( 8 )
 size = Vector2( 5, 5 )
 
-[sub_resource type="CubeMesh" id=3]
-
-[sub_resource type="SpatialMaterial" id=5]
-albedo_texture = ExtResource( 3 )
+[sub_resource type="SpatialMaterial" id=29]
+albedo_color = Color( 0.423529, 0.352941, 0.352941, 1 )
+metallic = 0.29
+metallic_specular = 0.6
 
 [sub_resource type="Shader" id=18]
 code = "/*
@@ -429,11 +429,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, -5.96046e-08, 0 )
 enabled = true
 cast_to = Vector3( 0, 0, -2000 )
 
-[node name="Bras" type="CSGMesh" parent="Head"]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.5, 0.477267, -0.570388, -0.495418 )
-visible = false
-mesh = SubResource( 3 )
-material = SubResource( 5 )
+[node name="Revolver" type="CSGMesh" parent="Head"]
+transform = Transform( -0.749011, -0.0151239, -0.0354177, -0.0324604, -0.123235, 0.739094, -0.0207236, 0.739652, 0.122417, 0.833908, -0.505598, -0.479439 )
+mesh = ExtResource( 3 )
+material = SubResource( 29 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
