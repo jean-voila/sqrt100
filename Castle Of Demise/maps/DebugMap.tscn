@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Mobs/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Props/grass02.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/Props/tree01.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Props/tree02.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Props/rock01.png" type="Texture" id=6]
+[ext_resource path="res://mobs/Ennemies/Zombie/Zombie.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Props/grass.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Props/explosiveBarrel.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Props/Bush02.png" type="Texture" id=10]
@@ -204,6 +205,9 @@ dof_blur_near_enabled = true
 dof_blur_near_distance = 0.06
 
 [node name="DebugMap" type="Spatial"]
+
+[node name="Zombie" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5916, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.311138, 10.3601, 0.583661 )
