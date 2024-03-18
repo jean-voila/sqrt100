@@ -206,8 +206,8 @@ dof_blur_near_distance = 0.06
 
 [node name="DebugMap" type="Spatial"]
 
-[node name="Zombie" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5916, 0 )
+[node name="Zombie" parent="." groups=["ennemies"] instance=ExtResource( 7 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0.000804901, 1.9809, -0.00948191 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.311138, 10.3601, 0.583661 )

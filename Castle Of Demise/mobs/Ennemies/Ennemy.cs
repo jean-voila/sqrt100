@@ -19,7 +19,7 @@ namespace CastleOfDemise.mobs.Ennemies
     
         public override void _Ready()
         {
-            _health = 100;
+            _health = 30;
             _isDead = false;
             _timeIsDead = 0;
             _timeBeforeDisapp = 500;
