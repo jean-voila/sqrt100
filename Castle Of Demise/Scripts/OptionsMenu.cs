@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class TitleScreen : Control
+public class OptionsMenu : Control
 {
     // Declare member variables here. Examples:
     // private int a = 2;
@@ -12,22 +12,11 @@ public class TitleScreen : Control
     {
         
     }
-    
-    private void _PlayButtonPressed()
-    {
-        GetTree().ChangeScene("res://menus/GamemodeMenu.tscn");
-    }
 
-    private void _Exit()
+    private void _back()
     {
-        GetTree().Quit();
+        GetTree().ChangeScene("res://menus/TitleScreen.tscn");
     }
-
-    private void _OptionButtonPressed()
-    {
-        GetTree().ChangeScene("res://menus/OptionsMenu.tscn");
-    }
-    
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 //  public override void _Process(float delta)
 //  {

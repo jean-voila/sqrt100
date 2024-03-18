@@ -22,7 +22,11 @@ public class GamemodeMenu : Control
     {
         GetTree().ChangeScene("res://maps/DebugMap.tscn");
     }
-    
+
+    private void _multiplayerPressed()
+    {
+        GetTree().ChangeScene("res://menus/MultiplayerMenu.tscn");
+    }
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 //  public override void _Process(float delta)
 //  {
