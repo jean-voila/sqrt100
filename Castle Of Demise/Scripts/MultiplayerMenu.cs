@@ -6,7 +6,8 @@ public class MultiplayerMenu : Control
 {
 
 
-    private NetworkedMultiplayerENet clientPeer = new NetworkedMultiplayerENet();
+    private NetworkedMultiplayerENet clientPeer;
+    private NetworkedMultiplayerENet serverPeer;
     private string serverIP = "";
     
     
@@ -22,7 +23,9 @@ public class MultiplayerMenu : Control
 
     private void _hostPressed()
     {
-        var serverPeer = new NetworkedMultiplayerENet();
+
+        serverPeer = new NetworkedMultiplayerENet();
+        
         serverPeer.CreateServer(8910, 2);
         GetTree().NetworkPeer = serverPeer;
 
@@ -41,15 +44,11 @@ public class MultiplayerMenu : Control
     // Bouton appuyé après avoir entré l'adresse IP du serveur
     private void _serverConnectPressed()
     {
-        
-        
+
+        clientPeer = new NetworkedMultiplayerENet();
         clientPeer.CreateClient(serverIP, 8910);
         GetTree().NetworkPeer = clientPeer;
-
         
-
-
-
     }
 
     private void _server_IP_Input(string ip)
@@ -65,18 +64,14 @@ public class MultiplayerMenu : Control
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
-      
-        if (clientPeer.GetConnectionStatus() == NetworkedMultiplayerPeer.ConnectionStatus.Connecting)
-        {
-            GetNode<RichTextLabel>("%ServerIsConnectedDebug").Text = "c en train d'être bon frerot";
-        } else if (clientPeer.GetConnectionStatus() == NetworkedMultiplayerPeer.ConnectionStatus.Connected)
-        {
-            GetNode<RichTextLabel>("%ServerIsConnectedDebug").Text = "c bon frerot";
 
-        }
-        else
+        if (clientPeer != null)
         {
-            GetNode<RichTextLabel>("%ServerIsConnectedDebug").Text = "c  pas bon frerot";
+            GetNode<RichTextLabel>("%ServerIsConnectedDebug").Text = clientPeer.GetConnectionStatus().ToString();
+        }
+        if (serverPeer!=null)
+        {
+            GetNode<RichTextLabel>("%ClientConnected").Text = serverPeer.GetPeerAddress(1);
         }
     }
 }

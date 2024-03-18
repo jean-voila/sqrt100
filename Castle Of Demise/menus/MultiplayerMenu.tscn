@@ -108,7 +108,16 @@ margin_right = 1087.0
 margin_bottom = 327.0
 text = "etat serveur"
 
+[node name="ClientConnected" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+margin_left = 848.0
+margin_top = 136.0
+margin_right = 1075.0
+margin_bottom = 215.0
+text = "clients connectés"
+
 [connection signal="button_up" from="BackButton" to="." method="_back"]
 [connection signal="pressed" from="JoinButton" to="." method="_clientPressed"]
+[connection signal="pressed" from="HostButton" to="." method="_hostPressed"]
 [connection signal="text_changed" from="JoinOptions/ServerIP" to="." method="_server_IP_Input"]
 [connection signal="pressed" from="JoinOptions/ConnectButton" to="." method="_serverConnectPressed"]
