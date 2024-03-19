@@ -39,7 +39,6 @@ public partial class Player
         {
             _animationPlayer.Play("shoot");
         }
-        GD.Print(_animationPlayer.CurrentAnimation);
         if (_shootRayCast.IsColliding())
         {
             var bulletHole = (Spatial)_bulletHoleScene.Instance();

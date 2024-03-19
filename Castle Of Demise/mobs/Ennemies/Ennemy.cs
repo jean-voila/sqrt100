@@ -23,7 +23,6 @@ namespace CastleOfDemise.mobs.Ennemies
             return deathSound;
         }
         
-        
         public override void _Ready()
         {
             AddChild(_deathSound);
@@ -49,7 +48,7 @@ namespace CastleOfDemise.mobs.Ennemies
                 if (ImDead)
                 {
                     _deathSound.Play();
-                    GetChild<AnimatedSprite3D>(0).Animation = "dying";
+                    GetChild<AnimatedSprite3D>(0).Play("dying");
                     _timeSinceImDead = Time.GetTicksMsec();
                 }
             }
