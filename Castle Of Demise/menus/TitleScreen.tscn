@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Scripts/TitleScreen.cs" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/SoundEffects/focused_button.wav" type="AudioStream" id=7]
 [ext_resource path="res://Assets/SoundEffects/pressed_button.wav" type="AudioStream" id=8]
 [ext_resource path="res://Scripts/MultiplayerMenu.cs" type="Script" id=9]
+[ext_resource path="res://Assets/Fonts/Seagram tfb.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Scripts/GamemodeMenu.cs" type="Script" id=12]
 
 [sub_resource type="DynamicFont" id=2]
@@ -48,7 +49,7 @@ size = 77
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
-font_data = ExtResource( 2 )
+font_data = ExtResource( 10 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 22

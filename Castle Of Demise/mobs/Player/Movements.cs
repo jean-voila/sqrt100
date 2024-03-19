@@ -65,7 +65,11 @@ public partial class Player
         if (!Landed && Time.GetTicksUsec() - LastJumpTime > 10)
         {
             Landed = true;
-            if (_SEEnabled) _landSound.Play();
+            if (_SEEnabled)
+            {
+                _landSound.Play();
+                cameraShake();
+            }
         }
 
         if (_floorRayCast.GetCollider() != null && Input.IsActionPressed("key_space"))

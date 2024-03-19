@@ -8,6 +8,7 @@ public partial class Player
     private RayCast _shootRayCast;
     private PackedScene _bulletHoleScene;
     private PackedScene _bloodHit;
+    private AnimationPlayer _animationPlayer;
     private int _ammoAvailable;
     private int _ammoShooted;
     private int _strength;
@@ -24,6 +25,7 @@ public partial class Player
         _killedEnemmies = 0;
         _bulletHoleScene = GD.Load<PackedScene>("res://Assets/Effects/BulletHole/BulletHoleScene.tscn");
         _bloodHit = GD.Load<PackedScene>("res://Assets/Effects/BloodHit/BloodHit.tscn");
+        _animationPlayer = GetNode<AnimationPlayer>("Head/RevolverAnimationPlayer");
     }
     
     public void Shoot()
@@ -32,6 +34,12 @@ public partial class Player
         _ammoShooted++;
         bool isEnnemiTouched = false;
         var rayEnd = _shootRayCast.GetCollisionPoint();
+        cameraShake();
+        if (!_animationPlayer.IsPlaying())
+        {
+            _animationPlayer.Play("shoot");
+        }
+        GD.Print(_animationPlayer.CurrentAnimation);
         if (_shootRayCast.IsColliding())
         {
             var bulletHole = (Spatial)_bulletHoleScene.Instance();

@@ -13,6 +13,11 @@ public partial class Player
         private float _FOVChangeSpeed = 9.0f;
         private float CamRotationAmount = 0.1f;
         private float _mouseSensitivity = 0.005f;
+        
+        private float _randomShakeStrenght = 0.5f;
+        private float _shakeDecay = 300.0f;
+        private RandomNumberGenerator _randShake = new RandomNumberGenerator();
+        private float _shakeStrenght = 0f;
 
         public void _cameraInit()
         {
@@ -22,6 +27,7 @@ public partial class Player
             _cameraForFOV = GetNode<Camera>(_cameraNodePath);
             _originalFOV = _cameraForFOV.Fov;
             _targetFOV = _originalFOV;
+            _randShake.Randomize();
         }
         public void HandleMouseMovement(InputEventMouseMotion mouseInput)
         {
@@ -65,6 +71,32 @@ public partial class Player
                 );
             }
         }
-        
+
+        public void applyShake()
+        {
+            _shakeStrenght = _randomShakeStrenght;
+        }
+
+        public Vector2 randomOffset()
+        {
+            return new Vector2(_randShake.RandfRange(-_shakeStrenght, _shakeStrenght),
+                _randShake.RandfRange(-_shakeStrenght, _shakeStrenght));
+        }
+
+        public void cameraShake()
+        {
+            applyShake();
+        }
+
+        public void cameraShakeProcess()
+        {
+            if (_shakeStrenght > 0)
+            {
+                _shakeStrenght = Mathf.Lerp(_shakeStrenght, 0, _shakeDecay * GetProcessDeltaTime());
+                Vector2 offset = randomOffset();
+                _cameraForFOV.HOffset = offset[0];
+                _cameraForFOV.VOffset = offset[1];
+            }
+        }
         
     }

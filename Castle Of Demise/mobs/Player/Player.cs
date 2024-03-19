@@ -12,6 +12,7 @@ public partial class Player : KinematicBody
 		_graphismsInit();
 		_gameWindowInit();
 		_jeansModInit();
+		
 	}
 	public override void _Input(InputEvent @event)
 	{
@@ -33,5 +34,6 @@ public partial class Player : KinematicBody
 		HandleRespawn();
 		UpdateDebugInfo();
 		UpdatePlayerInfo();
+		cameraShakeProcess();
 	}
 }
