@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://Mobs/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Props/grass02.png" type="Texture" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Assets/Textures/imageonline-co-pixelated.png" type="Texture" id=21]
 [ext_resource path="res://mobs/Ennemies/Bat/Bat.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Assets/Textures/SunsetSky.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Mesh/saddam_hussein/saddam.gltf" type="PackedScene" id=24]
 
 [sub_resource type="StreamTexture" id=8]
 flags = 23
@@ -52,7 +53,7 @@ load_path = "res://.import/imageonline-co-pixelated1.png-5a13d11bc7acc9200dbf723
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = SubResource( 18 )
-uv1_scale = Vector3( 2, 4, 1.466 )
+uv1_scale = Vector3( 2, 4, 2 )
 
 [sub_resource type="SpriteFrames" id=25]
 animations = [ {
@@ -189,29 +190,56 @@ albedo_texture = SubResource( 11 )
 [sub_resource type="SpatialMaterial" id=3]
 albedo_texture = SubResource( 11 )
 
-[sub_resource type="PanoramaSky" id=23]
+[sub_resource type="PanoramaSky" id=40]
 panorama = ExtResource( 23 )
 
 [sub_resource type="Environment" id=22]
 resource_local_to_scene = true
 background_mode = 2
-background_sky = SubResource( 23 )
-ambient_light_color = Color( 1, 0, 0, 1 )
+background_sky = SubResource( 40 )
+background_energy = 1.3
+ambient_light_color = Color( 0.760784, 0.760784, 0.760784, 1 )
+ambient_light_energy = 1.08
 fog_enabled = true
-fog_color = Color( 1, 0.270588, 0.270588, 1 )
-fog_sun_color = Color( 1, 0, 0, 1 )
+fog_color = Color( 0.309804, 0.376471, 0.443137, 1 )
+fog_sun_color = Color( 0.266667, 0.239216, 0.192157, 1 )
+fog_sun_amount = 0.48
+fog_depth_begin = 328.4
+fog_depth_end = 898.5
 dof_blur_far_distance = 5.95
 dof_blur_near_enabled = true
 dof_blur_near_distance = 0.06
+dof_blur_near_quality = 2
 
 [node name="DebugMap" type="Spatial"]
 
+[node name="saddam" parent="." instance=ExtResource( 24 )]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -41.8575, 0.254, 16.0781 )
+
 [node name="Zombie" parent="." groups=["ennemies"] instance=ExtResource( 7 )]
-transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0.000804901, 1.9809, -0.00948191 )
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 30.779, 1.9809, -0.00948191 )
+
+[node name="Zombie2" parent="." groups=["ennemies"] instance=ExtResource( 7 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 28.0444, 1.9809, -13.5419 )
+
+[node name="Zombie3" parent="." groups=["ennemies"] instance=ExtResource( 7 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 28.0444, 1.9809, -4.48718 )
+
+[node name="Zombie4" parent="." groups=["ennemies"] instance=ExtResource( 7 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 33.5506, 1.9809, -0.00948191 )
+
+[node name="Zombie5" parent="." groups=["ennemies"] instance=ExtResource( 7 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 28.0444, 1.9809, -9.0699 )
+
+[node name="Zombie6" parent="." groups=["ennemies"] instance=ExtResource( 7 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 28.3653, 1.9809, -0.00948191 )
+
+[node name="Zombie7" parent="." groups=["ennemies"] instance=ExtResource( 7 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 24.5554, 1.9809, -0.00948191 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.311138, 10.3601, 0.583661 )
-_version = "1.0.7"
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.311138, 19.7827, 59.2568 )
+_version = "3.0"
 
 [node name="Bats" type="Spatial" parent="."]
 
@@ -311,7 +339,35 @@ depth = 5.48792
 material = SubResource( 16 )
 
 [node name="wall6" type="CSGBox" parent="Walls"]
-transform = Transform( -0.999839, 0, -0.017941, 0, 1, 0, 0.017941, 0, -0.999839, -20.6366, 0.14251, 13.7527 )
+transform = Transform( -0.999839, 0, -0.017941, 0, 1, 0, 0.017941, 0, -0.999839, -27.0392, 0.14251, 13.7629 )
+use_collision = true
+height = 6.95414
+depth = 5.48792
+material = SubResource( 16 )
+
+[node name="wall13" type="CSGBox" parent="Walls"]
+transform = Transform( -0.999839, 0, -0.017941, 0, 1, 0, 0.017941, 0, -0.999839, -27.0305, 0.14251, 19.2705 )
+use_collision = true
+height = 6.95414
+depth = 5.48792
+material = SubResource( 16 )
+
+[node name="wall14" type="CSGBox" parent="Walls"]
+transform = Transform( -0.999839, 0, -0.017941, 0, 1, 0, 0.017941, 0, -0.999839, -27.0218, 0.14251, 24.7338 )
+use_collision = true
+height = 6.95414
+depth = 5.48792
+material = SubResource( 16 )
+
+[node name="wall15" type="CSGBox" parent="Walls"]
+transform = Transform( -0.999839, 0, -0.017941, 0, 1, 0, 0.017941, 0, -0.999839, -27.0131, 0.14251, 30.2342 )
+use_collision = true
+height = 6.95414
+depth = 5.48792
+material = SubResource( 16 )
+
+[node name="wall16" type="CSGBox" parent="Walls"]
+transform = Transform( -0.999839, 0, -0.017941, 0, 1, 0, 0.017941, 0, -0.999839, -27.0045, 0.14251, 35.6378 )
 use_collision = true
 height = 6.95414
 depth = 5.48792
@@ -325,7 +381,15 @@ shadow_enabled = true
 
 [node name="Sol" type="Spatial" parent="."]
 
-[node name="sol5" type="CSGBox" parent="Sol"]
+[node name="sol7" type="CSGBox" parent="Sol"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.1791, 0, 0 )
+use_collision = true
+width = 36.1643
+height = 0.121397
+depth = 39.0209
+material = SubResource( 1 )
+
+[node name="sol6" type="CSGBox" parent="Sol"]
 use_collision = true
 width = 36.1643
 height = 0.121397

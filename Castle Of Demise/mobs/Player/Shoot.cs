@@ -73,10 +73,10 @@ public partial class Player
     
     private void Hit(Ennemy mobTouche)
     {
-        if (!mobTouche._isDead)
+        if (!mobTouche.ImDead)
         {
-            mobTouche.EmitSignal("hit_signal", _strength);
-            if (!mobTouche._isDead) _hitSound.Play();
+            mobTouche.EmitSignal("HitSignal", _strength);
+            if (!mobTouche.ImDead) _hitSound.Play();
             else _killedEnemmies++;
 
         }

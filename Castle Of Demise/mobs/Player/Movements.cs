@@ -13,12 +13,12 @@ public partial class Player
     private Vector3 _direction;
     private Vector3 _velocity;
     private ulong LastJumpTime = Time.GetTicksUsec();
-    private bool Landed = true;
-    private float _accelerationSpeed = 9f;
-    private float _decelerationSpeed = 12f;
+    private bool Landed = false;
+    private float _accelerationSpeed = 6f;
+    private float _decelerationSpeed = 6f;
     private float _maxSpeed = 17f;
-    private float _gravity = 60f;
-    private float _jumpSpeed = 28f;
+    private float _gravity = 34f;
+    private float _jumpSpeed = 25f;
     
     
     private void HandleMouseMovementInputs(float delta)
@@ -108,10 +108,22 @@ public partial class Player
 
     private void HandleRespawn()
     {
-        if (PositionY < -90)
+        if (PositionY < -25)
         {
             Vector3 newCoordinates = new Vector3(0.0f, 6.0f, 0.0f);
-            Teleport(newCoordinates);
+            _gravity = -60f;
+            //Teleport(newCoordinates);
+        }
+        if (PositionY > 35)
+        {
+            Vector3 newCoordinates = new Vector3(0.0f, 6.0f, 0.0f);
+            _gravity = 75f;
+            //Teleport(newCoordinates);
+        } else if (PositionY > 0)
+        {
+            Vector3 newCoordinates = new Vector3(0.0f, 6.0f, 0.0f);
+            _gravity = 34f;
+            //Teleport(newCoordinates);
         }
     }
 

@@ -69,6 +69,7 @@ transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0 )
 billboard = 2
 frames = SubResource( 5 )
 animation = "flying"
+frame = 2
 playing = true
 
 [node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]

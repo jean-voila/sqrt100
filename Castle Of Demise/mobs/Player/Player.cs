@@ -1,7 +1,7 @@
 using Godot;
 public partial class Player : KinematicBody
 {
-	[Export] private string _version = "1.0.7";
+	[Export] private string _version = "3.0";
 	public override void _Ready()
 	{
 		_audioInit();

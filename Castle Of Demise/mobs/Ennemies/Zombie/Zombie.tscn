@@ -3,10 +3,6 @@
 [ext_resource path="res://Assets/Textures/ZombieFrames.png" type="Texture" id=1]
 [ext_resource path="res://mobs/Ennemies/Zombie/Zombie.cs" type="Script" id=2]
 
-[sub_resource type="CapsuleShape" id=1]
-radius = 0.763853
-height = 0.71531
-
 [sub_resource type="AtlasTexture" id=11]
 flags = 19
 atlas = ExtResource( 1 )
@@ -100,20 +96,24 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.763853
+height = 0.71531
+
 [node name="Zombie" type="Spatial"]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0 )
 
 [node name="KinematicBody" type="KinematicBody" parent="."]
 script = ExtResource( 2 )
 
-[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
-transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, -0.133596, 0 )
-shape = SubResource( 1 )
-
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="KinematicBody"]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 billboard = 2
 frames = SubResource( 10 )
 animation = "idle"
-frame = 1
+frame = 4
 playing = true
+
+[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
+transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, -0.133596, 0 )
+shape = SubResource( 1 )

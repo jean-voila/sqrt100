@@ -15,7 +15,11 @@ public class TitleScreen : Control
     
     private void _PlayButtonPressed()
     {
-        GetTree().ChangeScene("res://menus/GamemodeMenu.tscn");
+        GetNode<Control>("%TitleMenu").Hide();
+        GetNode<Control>("%MultiplayerMenu").Hide();
+        GetNode<Control>("%GamemodeMenu").Show();
+        
+        
     }
 
     private void _Exit()
@@ -25,7 +29,25 @@ public class TitleScreen : Control
 
     private void _OptionButtonPressed()
     {
-        GetTree().ChangeScene("res://menus/OptionsMenu.tscn");
+        GetNode<Control>("%TitleMenu").Hide();
+        GetNode<Control>("%OptionsMenu").Show();
+    }
+
+    private void _focused_button()
+    {
+        GetNode<AudioStreamPlayer2D>("%FocusedButtonSound").Play();
+    }
+
+    private void _pressed_button()
+    {
+        GetNode<AudioStreamPlayer2D>("%PressedButtonSound").Play();
+    }
+
+    private void _show_title_screen_()
+    {
+        GetNode<Control>("%GamemodeMenu").Hide();
+        GetNode<Control>("%OptionsMenu").Hide();
+        GetNode<Control>("%TitleMenu").Show();
     }
     
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.

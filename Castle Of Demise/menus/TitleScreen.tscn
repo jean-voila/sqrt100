@@ -1,13 +1,18 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scripts/TitleScreen.cs" type="Script" id=1]
-[ext_resource path="res://Assets/Fonts/Seagram tfb.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Assets/Fonts/firacode.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/Images/BackgroundMenu.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Fonts/Roboto-Italic.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Assets/Musics/time.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Assets/SoundEffects/focused_button.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/SoundEffects/pressed_button.wav" type="AudioStream" id=8]
+[ext_resource path="res://Scripts/MultiplayerMenu.cs" type="Script" id=9]
+[ext_resource path="res://Scripts/GamemodeMenu.cs" type="Script" id=12]
 
 [sub_resource type="DynamicFont" id=2]
-size = 32
-outline_size = 1
+size = 29
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
@@ -20,14 +25,60 @@ bg_color = Color( 0, 0, 0, 0.768627 )
 bg_color = Color( 0, 0, 0, 0.423529 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 32
-outline_size = 1
+size = 29
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
+size = 23
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 23
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 77
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 22
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0, 0, 0, 0.768627 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0, 0, 0, 0.423529 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 22
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0, 0, 0, 0.768627 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0, 0, 0, 0.423529 )
+
+[sub_resource type="DynamicFont" id=14]
 size = 32
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -35,13 +86,55 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=1]
-size = 64
-outline_size = 2
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0, 0, 0, 0.768627 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0, 0, 0, 0.423529 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 32
+outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=23]
 font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=24]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 22
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0, 0, 0, 0.768627 )
+
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0, 0, 0, 0.423529 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=22]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
 
 [node name="Titlescreen" type="Control"]
 anchor_left = 0.5
@@ -54,16 +147,20 @@ margin_right = 640.0
 margin_bottom = 360.0
 script = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2" type="Sprite" parent="."]
+modulate = Color( 0.45098, 0.45098, 0.45098, 1 )
 position = Vector2( 640, 248 )
 scale = Vector2( 1.43701, 1.34091 )
 texture = ExtResource( 4 )
 
-[node name="PlayButton" type="Button" parent="."]
+[node name="TitleMenu" type="Control" parent="."]
+unique_name_in_owner = true
+
+[node name="PlayButton" type="Button" parent="TitleMenu"]
 margin_left = 512.0
-margin_top = 256.0
+margin_top = 326.0
 margin_right = 768.0
-margin_bottom = 320.0
+margin_bottom = 390.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
@@ -71,11 +168,11 @@ custom_styles/hover = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
 text = "Jouer"
 
-[node name="OptionButton" type="Button" parent="."]
+[node name="OptionButton" type="Button" parent="TitleMenu"]
 margin_left = 512.0
-margin_top = 328.0
+margin_top = 398.0
 margin_right = 768.0
-margin_bottom = 392.0
+margin_bottom = 462.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
@@ -83,11 +180,11 @@ custom_styles/hover = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
 text = "Options"
 
-[node name="QuitButton" type="Button" parent="."]
-margin_left = 512.0
-margin_top = 400.0
-margin_right = 768.0
-margin_bottom = 464.0
+[node name="QuitButton" type="Button" parent="TitleMenu"]
+margin_left = 562.0
+margin_top = 495.0
+margin_right = 716.0
+margin_bottom = 559.0
 size_flags_horizontal = 6
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 4 )
@@ -95,11 +192,23 @@ custom_styles/hover = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
 text = "Quitter"
 
-[node name="Title" type="Label" parent="."]
-margin_left = 384.0
-margin_top = 64.0
-margin_right = 896.0
-margin_bottom = 192.0
+[node name="sqrt100" type="Label" parent="TitleMenu"]
+margin_left = 274.0
+margin_top = 660.0
+margin_right = 1016.0
+margin_bottom = 716.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 7 )
+text = "by sqrt(100)"
+align = 1
+valign = 1
+
+[node name="Title" type="Label" parent="TitleMenu"]
+margin_left = 274.0
+margin_top = 86.0
+margin_right = 1016.0
+margin_bottom = 216.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 custom_fonts/font = SubResource( 1 )
@@ -107,6 +216,187 @@ text = "Castle Of Demise"
 align = 1
 valign = 1
 
-[connection signal="button_up" from="PlayButton" to="." method="_PlayButtonPressed"]
-[connection signal="button_up" from="OptionButton" to="." method="_OptionButtonPressed"]
-[connection signal="button_up" from="QuitButton" to="." method="_Exit"]
+[node name="BackGroundMusic" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 652, 165 )
+stream = ExtResource( 6 )
+volume_db = 9.143
+autoplay = true
+
+[node name="PressedButtonSound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+position = Vector2( 653, 169 )
+stream = ExtResource( 8 )
+volume_db = -0.998
+
+[node name="FocusedButtonSound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+position = Vector2( 650, 170 )
+stream = ExtResource( 7 )
+volume_db = -9.738
+
+[node name="OptionsMenu" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -24, 40 )
+
+[node name="BackButton" type="Button" parent="OptionsMenu"]
+margin_left = 448.0
+margin_top = 448.0
+margin_right = 832.0
+margin_bottom = 498.0
+custom_fonts/font = SubResource( 8 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
+text = "Retour"
+
+[node name="MultiplayerMenu" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 9 )
+
+[node name="BackButton" type="Button" parent="MultiplayerMenu"]
+margin_left = 448.0
+margin_top = 448.0
+margin_right = 832.0
+margin_bottom = 498.0
+custom_fonts/font = SubResource( 11 )
+custom_styles/hover = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+text = "Retour"
+
+[node name="JoinButton" type="Button" parent="MultiplayerMenu"]
+margin_left = 448.0
+margin_top = 320.0
+margin_right = 832.0
+margin_bottom = 424.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 14 )
+custom_styles/hover = SubResource( 15 )
+custom_styles/normal = SubResource( 16 )
+text = "Rejoindre"
+
+[node name="HostButton" type="Button" parent="MultiplayerMenu"]
+margin_left = 448.0
+margin_top = 192.0
+margin_right = 832.0
+margin_bottom = 296.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 17 )
+custom_styles/hover = SubResource( 15 )
+custom_styles/normal = SubResource( 16 )
+text = "Heberger"
+
+[node name="JoinOptions" type="Node2D" parent="MultiplayerMenu"]
+unique_name_in_owner = true
+visible = false
+
+[node name="ServerIP" type="LineEdit" parent="MultiplayerMenu/JoinOptions"]
+margin_left = 865.0
+margin_top = 326.0
+margin_right = 1059.0
+margin_bottom = 361.0
+custom_fonts/font = SubResource( 23 )
+align = 1
+placeholder_text = "Adresse IP du serveur"
+
+[node name="ConnectButton" type="Button" parent="MultiplayerMenu/JoinOptions"]
+margin_left = 869.0
+margin_top = 373.0
+margin_right = 1054.0
+margin_bottom = 399.0
+custom_fonts/font = SubResource( 24 )
+text = "Se Connecter"
+
+[node name="ServerIsConnectedDebug" type="RichTextLabel" parent="MultiplayerMenu"]
+unique_name_in_owner = true
+margin_left = 860.0
+margin_top = 248.0
+margin_right = 1087.0
+margin_bottom = 327.0
+text = "etat serveur"
+
+[node name="ClientConnected" type="RichTextLabel" parent="MultiplayerMenu"]
+unique_name_in_owner = true
+margin_left = 848.0
+margin_top = 136.0
+margin_right = 1075.0
+margin_bottom = 215.0
+text = "clients connectés"
+
+[node name="GamemodeMenu" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 12 )
+
+[node name="BackButton" type="Button" parent="GamemodeMenu"]
+margin_left = 448.0
+margin_top = 448.0
+margin_right = 832.0
+margin_bottom = 498.0
+custom_fonts/font = SubResource( 18 )
+custom_styles/hover = SubResource( 19 )
+custom_styles/normal = SubResource( 20 )
+text = "Retour"
+
+[node name="singlePlayer" type="Button" parent="GamemodeMenu"]
+margin_left = 448.0
+margin_top = 320.0
+margin_right = 832.0
+margin_bottom = 424.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 21 )
+custom_styles/hover = SubResource( 19 )
+custom_styles/normal = SubResource( 20 )
+text = "Jouer Seul"
+
+[node name="Multiplayer" type="Button" parent="GamemodeMenu"]
+margin_left = 448.0
+margin_top = 192.0
+margin_right = 832.0
+margin_bottom = 296.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 22 )
+custom_styles/hover = SubResource( 19 )
+custom_styles/normal = SubResource( 20 )
+text = "Jouer à plusieurs"
+
+[connection signal="button_down" from="TitleMenu/PlayButton" to="." method="_pressed_button"]
+[connection signal="button_up" from="TitleMenu/PlayButton" to="." method="_PlayButtonPressed"]
+[connection signal="mouse_entered" from="TitleMenu/PlayButton" to="." method="_focused_button"]
+[connection signal="button_down" from="TitleMenu/OptionButton" to="." method="_pressed_button"]
+[connection signal="button_up" from="TitleMenu/OptionButton" to="." method="_OptionButtonPressed"]
+[connection signal="mouse_entered" from="TitleMenu/OptionButton" to="." method="_focused_button"]
+[connection signal="button_down" from="TitleMenu/QuitButton" to="." method="_pressed_button"]
+[connection signal="button_up" from="TitleMenu/QuitButton" to="." method="_Exit"]
+[connection signal="mouse_entered" from="TitleMenu/QuitButton" to="." method="_focused_button"]
+[connection signal="button_down" from="OptionsMenu/BackButton" to="." method="_pressed_button"]
+[connection signal="button_up" from="OptionsMenu/BackButton" to="." method="_show_title_screen_"]
+[connection signal="mouse_entered" from="OptionsMenu/BackButton" to="." method="_focused_button"]
+[connection signal="button_down" from="MultiplayerMenu/BackButton" to="." method="_pressed_button"]
+[connection signal="button_up" from="MultiplayerMenu/BackButton" to="." method="_PlayButtonPressed"]
+[connection signal="mouse_entered" from="MultiplayerMenu/BackButton" to="." method="_focused_button"]
+[connection signal="button_down" from="MultiplayerMenu/JoinButton" to="." method="_pressed_button"]
+[connection signal="mouse_entered" from="MultiplayerMenu/JoinButton" to="." method="_focused_button"]
+[connection signal="pressed" from="MultiplayerMenu/JoinButton" to="MultiplayerMenu" method="_clientPressed"]
+[connection signal="button_down" from="MultiplayerMenu/HostButton" to="." method="_pressed_button"]
+[connection signal="mouse_entered" from="MultiplayerMenu/HostButton" to="." method="_focused_button"]
+[connection signal="pressed" from="MultiplayerMenu/HostButton" to="MultiplayerMenu" method="_hostPressed"]
+[connection signal="text_changed" from="MultiplayerMenu/JoinOptions/ServerIP" to="MultiplayerMenu" method="_server_IP_Input"]
+[connection signal="button_down" from="MultiplayerMenu/JoinOptions/ConnectButton" to="." method="_pressed_button"]
+[connection signal="mouse_entered" from="MultiplayerMenu/JoinOptions/ConnectButton" to="." method="_focused_button"]
+[connection signal="pressed" from="MultiplayerMenu/JoinOptions/ConnectButton" to="MultiplayerMenu" method="_serverConnectPressed"]
+[connection signal="button_down" from="GamemodeMenu/BackButton" to="." method="_pressed_button"]
+[connection signal="button_up" from="GamemodeMenu/BackButton" to="." method="_show_title_screen_"]
+[connection signal="mouse_entered" from="GamemodeMenu/BackButton" to="." method="_focused_button"]
+[connection signal="button_down" from="GamemodeMenu/singlePlayer" to="." method="_pressed_button"]
+[connection signal="button_up" from="GamemodeMenu/singlePlayer" to="GamemodeMenu" method="_singlePlayer"]
+[connection signal="mouse_entered" from="GamemodeMenu/singlePlayer" to="." method="_focused_button"]
+[connection signal="button_down" from="GamemodeMenu/Multiplayer" to="." method="_pressed_button"]
+[connection signal="button_up" from="GamemodeMenu/Multiplayer" to="GamemodeMenu" method="_multiplayerPressed"]
+[connection signal="mouse_entered" from="GamemodeMenu/Multiplayer" to="." method="_focused_button"]

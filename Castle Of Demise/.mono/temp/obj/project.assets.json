@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/jean/Documents/sqrt100/Castle Of Demise/Castle Of Demise.csproj",
+      "projectUniqueName": "/Users/jean/sqrt100/Castle Of Demise/Castle Of Demise.csproj",
       "projectName": "Castle Of Demise",
-      "projectPath": "/Users/jean/Documents/sqrt100/Castle Of Demise/Castle Of Demise.csproj",
+      "projectPath": "/Users/jean/sqrt100/Castle Of Demise/Castle Of Demise.csproj",
       "packagesPath": "/Users/jean/.nuget/packages/",
-      "outputPath": "/Users/jean/Documents/sqrt100/Castle Of Demise/.mono/temp/obj/",
+      "outputPath": "/Users/jean/sqrt100/Castle Of Demise/.mono/temp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/jean/.config/NuGet/NuGet.Config"

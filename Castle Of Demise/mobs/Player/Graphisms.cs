@@ -9,7 +9,7 @@ public partial class Player
 
         public void _graphismsInit()
         {
-            _pixelShaderEnabled = true;
+            _pixelShaderEnabled = false;
             _pixelShaderPath = "Head/Camera/PixeliseShader";
             _pixelShader = GetNode<MeshInstance>(_pixelShaderPath);
         }

@@ -23,32 +23,24 @@ public class MultiplayerMenu : Control
 
     private void _hostPressed()
     {
-
         serverPeer = new NetworkedMultiplayerENet();
-        
         serverPeer.CreateServer(8910, 2);
         GetTree().NetworkPeer = serverPeer;
-
         
-
-
     }
 
     private void _clientPressed()
     {
         GetNode<Node2D>("%JoinOptions").Visible = !GetNode<Node2D>("%JoinOptions").Visible;
         
-
     }
 
     // Bouton appuyé après avoir entré l'adresse IP du serveur
     private void _serverConnectPressed()
     {
-
         clientPeer = new NetworkedMultiplayerENet();
         clientPeer.CreateClient(serverIP, 8910);
         GetTree().NetworkPeer = clientPeer;
-        
     }
 
     private void _server_IP_Input(string ip)
@@ -57,10 +49,7 @@ public class MultiplayerMenu : Control
     }
     
 
-    private void _back()
-    {
-        GetTree().ChangeScene("res://menus/GamemodeMenu.tscn");
-    }
+
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
@@ -71,7 +60,7 @@ public class MultiplayerMenu : Control
         }
         if (serverPeer!=null)
         {
-            GetNode<RichTextLabel>("%ClientConnected").Text = serverPeer.GetPeerAddress(1);
+            GetNode<RichTextLabel>("%ClientConnected").Text = serverPeer.GetConnectionStatus().ToString();
         }
     }
 }

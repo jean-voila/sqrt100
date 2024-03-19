@@ -3,66 +3,57 @@ using Godot.Collections;
 
 namespace CastleOfDemise.mobs.Ennemies
 {
-    public class Ennemy : KinematicBody
+    public abstract class Ennemy : KinematicBody
     {
-        [Signal]
-        public delegate void hit_signal(int strength);
-
-
-        private ulong _timeIsDead;
-        private ulong _timeBeforeDisapp;
-        private AudioStreamPlayer2D _deathSound;
-        public int _health { get; private set; }
-        public bool _isDead { get; private set; }
+        [Signal] 
+        public delegate void HitSignal(int strength);
         
-
-    
+        private readonly AudioStreamPlayer2D _deathSound = GetDeathSound();
+        public bool ImDead { get; private set; }
+        private ulong _timeSinceImDead;
+        
+        
+        private const ulong TimeBeforeDisappear = 500;
+        public virtual int Health { get; set; }
+        
+        private static AudioStreamPlayer2D GetDeathSound()
+        {
+            AudioStreamPlayer2D deathSound = new AudioStreamPlayer2D();
+            deathSound.Stream = GD.Load<AudioStreamSample>("res://Assets/SoundEffects/death.wav");
+            return deathSound;
+        }
+        
+        
         public override void _Ready()
         {
-            _health = 30;
-            _isDead = false;
-            _timeIsDead = 0;
-            _timeBeforeDisapp = 500;
-            
-            _deathSound = new AudioStreamPlayer2D();
-            _deathSound.Stream = GD.Load<AudioStreamSample>("res://Assets/SoundEffects/death.wav");
             AddChild(_deathSound);
-            
-
-            
-
-            Connect("hit_signal", this, "Hit");
-            
+            Connect("HitSignal", this, "Hit");
         }
 
         public override void _Process(float delta)
         {
-            HandleDie();
-        }
-
-        public void Hit(int strength)
-        {
-            if (!_isDead)
+            ulong timeNow = Time.GetTicksMsec();
+            if (ImDead && timeNow - _timeSinceImDead > TimeBeforeDisappear)
             {
-                _health -= strength;
-                _isDead = _health <= 0;
-                if (_isDead)
-                {
-                    _deathSound.Play();
-                    GetChild<AnimatedSprite3D>(0).Animation = "dying";
-                    _timeIsDead = Time.GetTicksMsec();
-                }
+                QueueFree();
             }
             
         }
 
-        private void HandleDie()
+        public void Hit(int strength)
         {
-            ulong timeNow = Time.GetTicksMsec();
-            if (_isDead && (timeNow - _timeIsDead > _timeBeforeDisapp))
-                QueueFree();
+            if (!ImDead)
+            {
+                Health -= strength;
+                ImDead = Health <= 0;
+                if (ImDead)
+                {
+                    _deathSound.Play();
+                    GetChild<AnimatedSprite3D>(0).Animation = "dying";
+                    _timeSinceImDead = Time.GetTicksMsec();
+                }
+            }
         }
-        
         
     }
 }

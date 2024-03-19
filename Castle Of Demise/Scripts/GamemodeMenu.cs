@@ -13,10 +13,7 @@ public class GamemodeMenu : Control
         
     }
 
-    private void _Back()
-    {
-        GetTree().ChangeScene("res://menus/TitleScreen.tscn");
-    }
+
 
     private void _singlePlayer()
     {
@@ -25,7 +22,8 @@ public class GamemodeMenu : Control
 
     private void _multiplayerPressed()
     {
-        GetTree().ChangeScene("res://menus/MultiplayerMenu.tscn");
+        GetNode<Control>("%GamemodeMenu").Hide();
+        GetNode<Control>("%MultiplayerMenu").Show();
     }
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 //  public override void _Process(float delta)

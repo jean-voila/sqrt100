@@ -4,5 +4,5 @@ using CastleOfDemise.mobs.Ennemies;
 
 public class Zombie : Ennemy
 {
-    
+    public override int Health { get; set; } = 50;
 }
