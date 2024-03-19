@@ -221,7 +221,6 @@ valign = 1
 position = Vector2( 652, 165 )
 stream = ExtResource( 6 )
 volume_db = 9.143
-autoplay = true
 
 [node name="PressedButtonSound" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
