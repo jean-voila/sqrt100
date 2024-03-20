@@ -1,5 +1,5 @@
 ul{
-    text-align: left;
+    text-align: justify;
     font-size: larger;
     font-weight: bold;
     text-decoration: underline;
@@ -11,14 +11,20 @@ body{
     height: fit-content;
 
 }
+
+
 h1{
+    
+    text-align: center;
+}
+
+h2{
     
     text-align: center;
 }
 
 div {
     width: 400px;
-    padding-left: 20px;
     height: 100vh;
     background-image: linear-gradient(#9198e5, #3b8782);
     border-top-right-radius: 20px;
@@ -36,3 +42,9 @@ p{
 h2{
     text-align: center;
    } 
+h3{
+    text-align: center;
+}
+li{
+    text-align: center;
+}
