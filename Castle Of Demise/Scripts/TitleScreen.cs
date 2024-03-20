@@ -50,9 +50,12 @@ public class TitleScreen : Control
         GetNode<Control>("%TitleMenu").Show();
     }
     
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+  // Called every frame. 'delta' is the elapsed time since the previous frame.
+  public override void _Process(float delta)
+  {
+      if (Input.IsActionPressed("key_f6"))
+      {
+          GetTree().ChangeScene("res://maps/mpMap01.tscn");
+      }
+  }
 }
