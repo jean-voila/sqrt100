@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/jean/sqrt100/Castle Of Demise/Castle Of Demise.csproj": {}
+    "C:\\Users\\IPI\\Desktop\\GODOT\\sqrt100\\Castle Of Demise\\Castle Of Demise.csproj": {}
   },
   "projects": {
-    "/Users/jean/sqrt100/Castle Of Demise/Castle Of Demise.csproj": {
+    "C:\\Users\\IPI\\Desktop\\GODOT\\sqrt100\\Castle Of Demise\\Castle Of Demise.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jean/sqrt100/Castle Of Demise/Castle Of Demise.csproj",
+        "projectUniqueName": "C:\\Users\\IPI\\Desktop\\GODOT\\sqrt100\\Castle Of Demise\\Castle Of Demise.csproj",
         "projectName": "Castle Of Demise",
-        "projectPath": "/Users/jean/sqrt100/Castle Of Demise/Castle Of Demise.csproj",
-        "packagesPath": "/Users/jean/.nuget/packages/",
-        "outputPath": "/Users/jean/sqrt100/Castle Of Demise/.mono/temp/obj/",
+        "projectPath": "C:\\Users\\IPI\\Desktop\\GODOT\\sqrt100\\Castle Of Demise\\Castle Of Demise.csproj",
+        "packagesPath": "C:\\Users\\IPI\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\IPI\\Desktop\\GODOT\\sqrt100\\Castle Of Demise\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/jean/.config/NuGet/NuGet.Config"
+          "C:\\Users\\IPI\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net472"
@@ -37,7 +37,7 @@
       "frameworks": {
         "net472": {
           "targetAlias": "net472",
-          "runtimeIdentifierGraphPath": "/Library/Frameworks/Mono.framework/Versions/6.12.0/lib/mono/msbuild/Current/bin/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

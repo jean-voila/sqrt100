@@ -40,3 +40,12 @@ C:/Users/PaulLacanette/Desktop/Castle Of Demise/sqrt100/Castle Of Demise/.mono/t
 /Users/jean/sqrt100/Castle Of Demise/.mono/temp/obj/Debug/Castle Of Demise.csproj.CoreCompileInputs.cache
 /Users/jean/sqrt100/Castle Of Demise/.mono/temp/obj/Debug/Castle Of Demise.dll
 /Users/jean/sqrt100/Castle Of Demise/.mono/temp/obj/Debug/Castle Of Demise.pdb
+C:\Users\IPI\Desktop\GODOT\sqrt100\Castle Of Demise\.mono\temp\bin\Debug\Castle Of Demise.dll
+C:\Users\IPI\Desktop\GODOT\sqrt100\Castle Of Demise\.mono\temp\bin\Debug\Castle Of Demise.pdb
+C:\Users\IPI\Desktop\GODOT\sqrt100\Castle Of Demise\.mono\temp\obj\Debug\Castle Of Demise.csproj.AssemblyReference.cache
+C:\Users\IPI\Desktop\GODOT\sqrt100\Castle Of Demise\.mono\temp\obj\Debug\Castle Of Demise.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\IPI\Desktop\GODOT\sqrt100\Castle Of Demise\.mono\temp\obj\Debug\Castle Of Demise.AssemblyInfoInputs.cache
+C:\Users\IPI\Desktop\GODOT\sqrt100\Castle Of Demise\.mono\temp\obj\Debug\Castle Of Demise.AssemblyInfo.cs
+C:\Users\IPI\Desktop\GODOT\sqrt100\Castle Of Demise\.mono\temp\obj\Debug\Castle Of Demise.csproj.CoreCompileInputs.cache
+C:\Users\IPI\Desktop\GODOT\sqrt100\Castle Of Demise\.mono\temp\obj\Debug\Castle Of Demise.dll
+C:\Users\IPI\Desktop\GODOT\sqrt100\Castle Of Demise\.mono\temp\obj\Debug\Castle Of Demise.pdb

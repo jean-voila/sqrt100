@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Mobs/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Props/grass02.png" type="Texture" id=2]
@@ -23,7 +23,6 @@
 [ext_resource path="res://Assets/Textures/imageonline-co-pixelated.png" type="Texture" id=21]
 [ext_resource path="res://mobs/Ennemies/Bat/Bat.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Assets/Textures/SunsetSky.png" type="Texture" id=23]
-[ext_resource path="res://Assets/Mesh/saddam_hussein/saddam.gltf" type="PackedScene" id=24]
 
 [sub_resource type="StreamTexture" id=8]
 flags = 23
@@ -212,9 +211,6 @@ dof_blur_near_distance = 0.06
 dof_blur_near_quality = 2
 
 [node name="DebugMap" type="Spatial"]
-
-[node name="saddam" parent="." instance=ExtResource( 24 )]
-transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -41.8575, 0.254, 16.0781 )
 
 [node name="Zombie" parent="." groups=["ennemies"] instance=ExtResource( 7 )]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 30.779, 1.9809, -0.00948191 )

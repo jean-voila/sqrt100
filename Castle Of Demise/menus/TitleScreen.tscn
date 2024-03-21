@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Scripts/TitleScreen.cs" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=2]
@@ -26,6 +26,13 @@ bg_color = Color( 0, 0, 0, 0.423529 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 29
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=25]
+size = 17
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
@@ -179,6 +186,18 @@ custom_fonts/font = SubResource( 3 )
 custom_styles/hover = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
 text = "Options"
+
+[node name="DebugButton" type="Button" parent="TitleMenu"]
+margin_left = 1175.0
+margin_top = 673.0
+margin_right = 1258.0
+margin_bottom = 700.0
+size_flags_horizontal = 4
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 25 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "Debug"
 
 [node name="QuitButton" type="Button" parent="TitleMenu"]
 margin_left = 562.0
@@ -366,6 +385,9 @@ text = "Jouer à plusieurs"
 [connection signal="button_down" from="TitleMenu/OptionButton" to="." method="_pressed_button"]
 [connection signal="button_up" from="TitleMenu/OptionButton" to="." method="_OptionButtonPressed"]
 [connection signal="mouse_entered" from="TitleMenu/OptionButton" to="." method="_focused_button"]
+[connection signal="button_down" from="TitleMenu/DebugButton" to="." method="_pressed_button"]
+[connection signal="button_up" from="TitleMenu/DebugButton" to="." method="_DebugButtonPressed"]
+[connection signal="mouse_entered" from="TitleMenu/DebugButton" to="." method="_focused_button"]
 [connection signal="button_down" from="TitleMenu/QuitButton" to="." method="_pressed_button"]
 [connection signal="button_up" from="TitleMenu/QuitButton" to="." method="_Exit"]
 [connection signal="mouse_entered" from="TitleMenu/QuitButton" to="." method="_focused_button"]
