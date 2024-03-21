@@ -1,11 +1,10 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scripts/TitleScreen.cs" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/Images/BackgroundMenu.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Fonts/Roboto-Italic.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://Assets/Musics/time.mp3" type="AudioStream" id=6]
 [ext_resource path="res://Assets/SoundEffects/focused_button.wav" type="AudioStream" id=7]
 [ext_resource path="res://Assets/SoundEffects/pressed_button.wav" type="AudioStream" id=8]
 [ext_resource path="res://Scripts/MultiplayerMenu.cs" type="Script" id=9]
@@ -216,11 +215,6 @@ custom_fonts/font = SubResource( 1 )
 text = "Castle Of Demise"
 align = 1
 valign = 1
-
-[node name="BackGroundMusic" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( 652, 165 )
-stream = ExtResource( 6 )
-volume_db = 9.143
 
 [node name="PressedButtonSound" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true

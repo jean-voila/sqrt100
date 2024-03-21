@@ -17,7 +17,7 @@ public class GamemodeMenu : Control
 
     private void _singlePlayer()
     {
-        GetTree().ChangeScene("res://maps/DebugMap.tscn");
+        GetTree().ChangeScene("res://maps/mpMap01.tscn");
     }
 
     private void _multiplayerPressed()

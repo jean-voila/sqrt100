@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Mobs/Player/Player.cs" type="Script" id=1]
 [ext_resource path="res://mobs/Player/HUD.tscn" type="PackedScene" id=2]
@@ -15,7 +15,6 @@
 [ext_resource path="res://Assets/SoundEffects/Land.wav" type="AudioStream" id=13]
 [ext_resource path="res://Assets/SoundEffects/Jump.wav" type="AudioStream" id=14]
 [ext_resource path="res://Assets/Textures/imageonline-co-pixelated(2).png" type="Texture" id=15]
-[ext_resource path="res://Assets/Musics/tggits.mp3" type="AudioStream" id=16]
 [ext_resource path="res://Scripts/Resume.cs" type="Script" id=17]
 [ext_resource path="res://Assets/Fonts/firacode.ttf" type="DynamicFontData" id=18]
 [ext_resource path="res://Assets/Styles/redButton.tres" type="StyleBox" id=19]
@@ -410,13 +409,6 @@ corner_radius_bottom_left = 10
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
 _version = "1.0.5"
-
-[node name="BackGroundMusic" type="AudioStreamPlayer2D" parent="."]
-pause_mode = 2
-position = Vector2( 641, 356 )
-stream = ExtResource( 16 )
-volume_db = 9.177
-autoplay = true
 
 [node name="GunShotSoundsEffects" type="Spatial" parent="."]
 

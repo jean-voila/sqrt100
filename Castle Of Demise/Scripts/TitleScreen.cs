@@ -55,7 +55,7 @@ public class TitleScreen : Control
   {
       if (Input.IsActionPressed("key_f6"))
       {
-          GetTree().ChangeScene("res://maps/mpMap01.tscn");
+          GetTree().ChangeScene("res://maps/DebugMap.tscn");
       }
   }
 }

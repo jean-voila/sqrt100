@@ -12,8 +12,8 @@ public partial class Player
     private AudioStreamPlayer3D _alternateShotSound;
     private AudioStreamPlayer3D _cantShootSound;
     private AudioStreamPlayer3D _landSound;
-    private String _musicPlayerPath;
-    private AudioStreamPlayer2D _musicPlayer;
+    // private String _musicPlayerPath;
+    // private AudioStreamPlayer2D _musicPlayer;
     private bool _SEEnabled;
 
     public void _audioInit()
@@ -45,20 +45,20 @@ public partial class Player
         _allSoundEffects.Add(_landSound);
         _allSoundEffects.Add(_alternateShotSound);
         _allSoundEffects.Add(_hitSound);
-        _musicPlayerPath = "BackGroundMusic";
-        _musicPlayer = GetNode<AudioStreamPlayer2D>(_musicPlayerPath);
+        // _musicPlayerPath = "BackGroundMusic";
+        // _musicPlayer = GetNode<AudioStreamPlayer2D>(_musicPlayerPath);
         _SEEnabled = true;
         
     }
     
     
-    public void ChangeMusicVolume(float percentage)
-    {
-
-        percentage = Mathf.Clamp(percentage, 0, 100);
-        float volumeDb = Mathf.Lerp(-40, 0, percentage / 100.0f);
-        _musicPlayer.VolumeDb = volumeDb;
-    }
+     public void ChangeMusicVolume(float percentage)
+     {
+    //
+    //     percentage = Mathf.Clamp(percentage, 0, 100);
+    //     float volumeDb = Mathf.Lerp(-40, 0, percentage / 100.0f);
+    //     _musicPlayer.VolumeDb = volumeDb;
+     }
     
     public void SwitchSEPlayer(bool playingButton)
     {
@@ -67,7 +67,7 @@ public partial class Player
     
     public void SwitchMusicPlayer(bool playingButton)
     {
-        _musicPlayer.Playing = playingButton;
+        // _musicPlayer.Playing = playingButton;
 
     }
     
