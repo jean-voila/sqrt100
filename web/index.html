@@ -1,35 +1,169 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <title>SQRT(100)</title>
-    <meta charset="utf-8" />
-    <link href="web/style.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/uikit.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/uikit.js"></script>
+    <script src="js/uikit-icons.js"></script>
+
+    <title>Castle Of Demise</title>
 </head>
-
 <body>
-    <h1>Bienvenue dans l'univers de Castle of Demise</h1>
-
-</body>
-
-<body>
-
-    <div>
-        <h2>Accueil</h2>
-        <nav>
-            <ul><a href="web/histo.html" title="Historique">Qui sommes nous ?</a> </ul>
-
-            <ul><a href="web/downl.html" title="page de téléchargement">Téléchargez Castle Of Demise</a> </ul>
-        </nav>
-        <nav>
-            <ul>Documentation</ul>
-            <li><a href="web/assets.html" title="page avec les assets">Bibliographie</a>
-            </li>
-            <li><a href="web/rapport.html" title="En collaboration avec FONTAINE Alexis">Rapport de
-                    Soutenance</a></li>
-            <li><a href="web/cdc.html" title=" les deux Cahier des charges">Cahier des charges </a></li>
-        </nav>
+<!-- Navigation Bar -->
+    <nav class="uk-navbar-container uk-margin-small-left uk-margin-small-right uk-visible@m uk-margin-xlarge-left uk-margin-xlarge-right" uk-navbar uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+    
+    <div class="uk-navbar-left">
+        <a href="" class="uk-navbar-item uk-logo uk-light">sqrt(100)</a>
     </div>
-</body>
 
+</nav>
+<!-- Navigation Bar Ends  -->
+
+<!-- Navigation Bar Mobile -->
+<nav class="uk-navbar-container uk-margin-small-left uk-margin-small-right uk-hidden@m uk-margin-xlarge-left uk-margin-xlarge-right" uk-navbar uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+    
+    <div class="uk-navbar-left">
+        <a href="" class="uk-navbar-item uk-logo uk-light">sqrt(100)</a>
+    </div>
+
+</nav>
+<!-- Change This -->
+
+
+<!-- Navigation Bar Mobile Ends -->
+<!-- Home -->
+<section class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top uk-margin-xlarge-bottom">
+    <h1 class="uk-margin-xlarge-left uk-light uk-text-left uk-margin-xlarge-right">Bienvenue dans l'univers de <i>Castle Of Demise</i></h1>
+    <a href="#presentation" class="uk-margin-xlarge-left uk-text-capitalize uk-button uk-button-secondary" uk-scroll>Présentation</a>
+    <a href="#membres" class="uk-margin-xlarge-left uk-text-capitalize uk-button uk-button-secondary" uk-scroll>Qui sommes-nous ?</a>
+    <a href="#downloads" class="uk-margin-xlarge-left uk-text-capitalize uk-button uk-button-secondary" uk-scroll>Téléchargements</a>
+
+
+
+
+
+</section>
+
+<!-- Home Ends -->
+<br>
+
+
+<hr class="uk-margin-xlarge-top uk-margin-xlarge-left uk-margin-xlarge-right">
+
+<!-- About Me -->
+<section id="presentation" class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top uk-margin-xlarge-bottom">
+<h3 class="uk-margin-xlarge-left uk-light">Présentation</h3>
+<!-- Change here to ur paragraph -->
+<p class="uk-margin-xlarge-left uk-margin-xlarge-right">Le projet Castle of Demise trouve ses racines dans la passion des membres du groupe pour les jeux vidéo, en particulier les FPS (First Person Shooter). Inspiré par des classiques tels que Doom, ce type de jeux se caractérise par un style graphique simple et rétro, mettant l’accent sur des textures pixelisées pour une expérience utilisateur simple et agréable.</p>
+<a href="https://github.com/jean-voila/sqrt100" class="uk-margin-xlarge-left uk-light uk-button-text" uk-icon="github"></a> 
+<!-- About Me Ends -->
+
+
+
+
+</section>
+
+<!-- Projects Section -->
+<hr class="uk-margin-xlarge-left uk-margin-xlarge-right">
+
+<section id="membres" class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top uk-margin-xlarge-bottom">
+<h3 class="uk-margin-xlarge-left uk-light">Qui sommes-nous ?</h3>
+<p class="uk-margin-xlarge-left">Présentation des membres de l'équipe</p>
+
+<div class="uk-margin-xlarge-left uk-margin-xlarge-right">
+    <!-- Change all of this to ur projects -->
+    <div class="uk-margin uk-card uk-card-secondary uk-card-body ">
+        <h4>Jean HERAIL</h4>
+        <p>Jean assume le rôle de chef d’équipe au sein du projet. Doté d’une solide expérience en programmation et d’une familiarité avec l’intelligence artificielle, il apporte une expertise technique essentielle pour la réalisation du jeu. De plus, Jean démontre un intérêt pour la musique, ce qui pourrait potentiellement enrichir l’aspect sonore du jeu. Son expérience passée dans la manipulation des modèles GPT d’OpenAI et des APIs correspondantes est un atout pour résoudre des problèmes techniques spécifiques. Ayant des bases de "prompt-engineering", il se chargera de l’intégration de l’IA dans le jeu, créant alors une interface OpenAI / CoD (Castle of Demise). En tant que chef d’équipe, il est en charge de coordonner les activités de l’équipe. Il assistera également Paul dans la réalisation de la partie LAN (multijoueur).</p>
+        </div>
+
+        <div class="uk-margin uk-card uk-card-secondary uk-card-body ">
+            <h4>Roni YILDIZ</h4>
+            <p>Roni, le consultant culturel vidéoludique, apporte une richesse de connaissances et une passion profonde pour les jeux vidéo au sein de l’équipe. Fortement imprégné de la culture du jeu vidéo depuis son plus jeune âge, il offre des références précieuses pour le projet Castle of Demise. Son rôle consiste également à développer l’aspect créatif du jeu, notamment en élaborant l’univers, le lore (univers virtuel dans lequel se passe le jeu), et en supervisant la modélisation des éléments du jeu. La contribution de Roni assure une profonde immersion dans le monde du jeu et garantit une expérience captivante pour les joueurs.</p>
+        </div>
+
+        <div class="uk-margin uk-card uk-card-secondary uk-card-body ">
+            <h4>Amadéo HÉAULME</h4>
+            <p>Amadéo, en tant que membre clé de l’équipe de développement du jeu, se distingue par son vif intérêt pour l’intelligence artificielle. Son rôle prépondérant est la programmation de l’IA des ennemis, une tâche cruciale pour garantir une expérience de jeu immersive et stimulante. Par ailleurs, Amadéo apportera une touche ludique au projet en insérant des artefacts "easter eggs", ajoutant des éléments surprenants et divertissants pour les joueurs. Il se chargera également de l’enrichissement du jeu en proposant des fonctionnalités additionnelles. En tant que gestionnaire du dépôt Github, Amadéo veillera à ce que toutes les mises à jour soient bien documentées et communiquent efficacement avec l’équipe via Discord, garantissant ainsi une collaboration fluide et transparente.</p>
+        </div>
+
+        <div class="uk-margin uk-card uk-card-secondary uk-card-body ">
+            <h4>Clément GRONDIN</h4>
+            <p>Amadéo, en tant que membre clé de l’équipe de développement du jeu, se distingue par son vif intérêt pour l’intelligence artificielle. Son rôle prépondérant est la programmation de l’IA des ennemis, une tâche cruciale pour garantir une expérience de jeu immersive et stimulante. Par ailleurs, Amadéo apportera une touche ludique au projet en insérant des artefacts "easter eggs", ajoutant des éléments surprenants et divertissants pour les joueurs. Il se chargera également de l’enrichissement du jeu en proposant des fonctionnalités additionnelles. En tant que gestionnaire du dépôt Github, Amadéo veillera à ce que toutes les mises à jour soient bien documentées et communiquent efficacement avec l’équipe via Discord, garantissant ainsi une collaboration fluide et transparente.</p>
+        </div>
+    <br>
+
+</section>
+<hr class="uk-margin-xlarge-left uk-margin-xlarge-right">
+
+<section id="downloads" class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top uk-margin-xlarge-bottom">
+    <h3 class="uk-margin-xlarge-left uk-light">Téléchargements</h3>
+    
+    <section>
+        <p class="uk-margin-xlarge-left">Cahier des Charges Octobre 2023</p>
+        <div class="uk-margin-xlarge-left uk-margin-xlarge-right">
+
+            <a href="assets/cdc_octobre_2023.pdf">
+            <div class="uk-margin uk-card uk-card-secondary uk-card-body ">
+                <h4>Cahier des charges fonctionnel (.pdf)</h4>
+                <p></p>
+                </div></a></div>
+        
+                <div class="uk-margin-xlarge-left uk-margin-xlarge-right">
+
+                    <a href="assets/cdct_octobre_2023.pdf">
+                    <div class="uk-margin uk-card uk-card-secondary uk-card-body ">
+                        <h4>Cahier des charges techniques (.pdf)</h4>
+                        <p></p>
+                        </div></a>
+        <br><br>
+        </div>
+        </section>
+
+
+    <section>
+    <p class="uk-margin-xlarge-left">Soutenance de Mars 2024</p>
+    <div class="uk-margin-xlarge-left uk-margin-xlarge-right">
+        <!-- Change all of this to ur projects -->
+
+        <div class="uk-margin uk-card uk-card-secondary uk-card-body ">
+            <h4>À venir : <i>Rapport de soutenance</i></h4>
+            <p></p>
+            </div>
+    
+        <div class="uk-margin uk-card uk-card-secondary uk-card-body ">
+            <h4>À venir : <i>Plan de soutenance</i></h4>
+            <p></p>
+            </div>
+    
+        <br><br>
+    </div>
+    </section>
+
+
+
+        <section>
+            <p class="uk-margin-xlarge-left">Soutenance de Juin 2024</p>
+            <div class="uk-margin-xlarge-left uk-margin-xlarge-right">
+                <!-- Change all of this to ur projects -->
+                <div class="uk-margin uk-card uk-card-secondary uk-card-body ">
+                    <h4></h4>
+                    <p></p>
+                    </div>
+            
+                <br>
+            </section>
+
+    </section>
+
+
+
+
+</div>
+<!-- Projects Section Ends -->
+    
+</body>
 </html>
