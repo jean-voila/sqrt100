@@ -35,10 +35,11 @@ public partial class Player
         bool isEnnemiTouched = false;
         var rayEnd = _shootRayCast.GetCollisionPoint();
         //cameraShake();
-        if (!_animationPlayer.IsPlaying())
-        {
-            _animationPlayer.Play("shoot");
-        }
+         if (!_animationPlayer.IsPlaying())
+         {
+             _animationPlayer.Play("shoot");
+         }
+
         if (_shootRayCast.IsColliding())
         {
             var bulletHole = (Spatial)_bulletHoleScene.Instance();
@@ -48,7 +49,7 @@ public partial class Player
             {
                 Node mobTouche = hitObject.GetParent<Node>();
                 isEnnemiTouched = mobTouche.IsInGroup("ennemies");
-                if (isEnnemiTouched)
+                if (isEnnemiTouched && !((Ennemy)hitObject).ImDead)
                 {
                     Hit((Ennemy)hitObject);
                     hitObject.AddChild(bloodHit);
@@ -56,7 +57,7 @@ public partial class Player
                     bloodHit.LookAt(rayEnd + _shootRayCast.GetCollisionNormal() + new Vector3(0.01f, 0.01f, 0.01f), Vector3.Up);
                     bloodHit.GetNode<CPUParticles>("CPUParticles").Restart();
                 }
-                else
+                else if (!isEnnemiTouched)
                 {
                     hitObject.AddChild(bulletHole);
                     bulletHole.GlobalTransform = new Transform(bulletHole.GlobalTransform.basis, rayEnd);

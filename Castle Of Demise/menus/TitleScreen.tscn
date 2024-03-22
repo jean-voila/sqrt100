@@ -1,15 +1,18 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Scripts/TitleScreen.cs" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/Images/BackgroundMenu.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Fonts/Roboto-Italic.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://menus/StandardButton.tres" type="StyleBox" id=5]
+[ext_resource path="res://menus/StandardHoverButton.tres" type="StyleBox" id=6]
 [ext_resource path="res://Assets/SoundEffects/focused_button.wav" type="AudioStream" id=7]
 [ext_resource path="res://Assets/SoundEffects/pressed_button.wav" type="AudioStream" id=8]
 [ext_resource path="res://Scripts/MultiplayerMenu.cs" type="Script" id=9]
-[ext_resource path="res://Assets/Fonts/Seagram tfb.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Assets/Fonts/PlayFair.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://menus/StandardPressedButton.tres" type="StyleBox" id=11]
 [ext_resource path="res://Scripts/GamemodeMenu.cs" type="Script" id=12]
+[ext_resource path="res://menus/StandardButtonFocused.tres" type="StyleBox" id=13]
 
 [sub_resource type="DynamicFont" id=2]
 size = 29
@@ -17,12 +20,6 @@ outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 3 )
-
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0, 0, 0, 0.768627 )
-
-[sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0, 0, 0, 0.423529 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 29
@@ -38,6 +35,18 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 3 )
 
+[sub_resource type="StyleBoxFlat" id=26]
+bg_color = Color( 0, 0, 0, 0.211765 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 0.25098 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="DynamicFont" id=4]
 size = 23
 outline_color = Color( 0, 0, 0, 1 )
@@ -48,7 +57,7 @@ font_data = ExtResource( 3 )
 [sub_resource type="DynamicFont" id=7]
 size = 23
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 5 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 77
@@ -56,6 +65,13 @@ outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=27]
+size = 57
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 22
@@ -65,25 +81,13 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 3 )
 
-[sub_resource type="StyleBoxFlat" id=9]
-bg_color = Color( 0, 0, 0, 0.768627 )
-
-[sub_resource type="StyleBoxFlat" id=10]
-bg_color = Color( 0, 0, 0, 0.423529 )
-
 [sub_resource type="DynamicFont" id=11]
-size = 22
+size = 18
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 3 )
-
-[sub_resource type="StyleBoxFlat" id=12]
-bg_color = Color( 0, 0, 0, 0.768627 )
-
-[sub_resource type="StyleBoxFlat" id=13]
-bg_color = Color( 0, 0, 0, 0.423529 )
 
 [sub_resource type="DynamicFont" id=14]
 size = 32
@@ -92,12 +96,6 @@ outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 3 )
-
-[sub_resource type="StyleBoxFlat" id=15]
-bg_color = Color( 0, 0, 0, 0.768627 )
-
-[sub_resource type="StyleBoxFlat" id=16]
-bg_color = Color( 0, 0, 0, 0.423529 )
 
 [sub_resource type="DynamicFont" id=17]
 size = 32
@@ -114,18 +112,12 @@ font_data = ExtResource( 2 )
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=18]
-size = 22
+size = 18
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 3 )
-
-[sub_resource type="StyleBoxFlat" id=19]
-bg_color = Color( 0, 0, 0, 0.768627 )
-
-[sub_resource type="StyleBoxFlat" id=20]
-bg_color = Color( 0, 0, 0, 0.423529 )
 
 [sub_resource type="DynamicFont" id=21]
 size = 32
@@ -170,9 +162,12 @@ margin_right = 768.0
 margin_bottom = 390.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
+custom_colors/font_color = Color( 1, 1, 1, 0.745098 )
 custom_fonts/font = SubResource( 2 )
-custom_styles/hover = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/focus = ExtResource( 13 )
+custom_styles/normal = ExtResource( 5 )
 text = "Jouer"
 
 [node name="OptionButton" type="Button" parent="TitleMenu"]
@@ -182,42 +177,51 @@ margin_right = 768.0
 margin_bottom = 462.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
+custom_colors/font_color = Color( 1, 1, 1, 0.745098 )
 custom_fonts/font = SubResource( 3 )
-custom_styles/hover = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/focus = ExtResource( 13 )
+custom_styles/normal = ExtResource( 5 )
 text = "Options"
 
 [node name="DebugButton" type="Button" parent="TitleMenu"]
-margin_left = 1175.0
-margin_top = 673.0
+margin_left = 1150.0
+margin_top = 658.0
 margin_right = 1258.0
-margin_bottom = 700.0
+margin_bottom = 704.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 25 )
-custom_styles/hover = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/focus = ExtResource( 13 )
+custom_styles/normal = SubResource( 26 )
 text = "Debug"
 
 [node name="QuitButton" type="Button" parent="TitleMenu"]
-margin_left = 562.0
-margin_top = 495.0
-margin_right = 716.0
-margin_bottom = 559.0
+margin_left = 579.0
+margin_top = 501.0
+margin_right = 703.0
+margin_bottom = 557.0
 size_flags_horizontal = 6
 size_flags_vertical = 3
+custom_colors/font_color = Color( 1, 1, 1, 0.745098 )
 custom_fonts/font = SubResource( 4 )
-custom_styles/hover = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/focus = ExtResource( 13 )
+custom_styles/normal = ExtResource( 5 )
 text = "Quitter"
 
 [node name="sqrt100" type="Label" parent="TitleMenu"]
-margin_left = 274.0
-margin_top = 660.0
-margin_right = 1016.0
-margin_bottom = 716.0
+margin_left = 2.0
+margin_top = 661.0
+margin_right = 180.0
+margin_bottom = 717.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
+custom_colors/font_color = Color( 0.447059, 0.447059, 0.447059, 1 )
 custom_fonts/font = SubResource( 7 )
 text = "by sqrt(100)"
 align = 1
@@ -225,11 +229,12 @@ valign = 1
 
 [node name="Title" type="Label" parent="TitleMenu"]
 margin_left = 274.0
-margin_top = 86.0
+margin_top = 96.0
 margin_right = 1016.0
-margin_bottom = 216.0
+margin_bottom = 226.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
+custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 0.807843 )
 custom_fonts/font = SubResource( 1 )
 text = "Castle Of Demise"
 align = 1
@@ -254,14 +259,28 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -24, 40 )
 
+[node name="Title" type="Label" parent="OptionsMenu"]
+margin_left = 272.0
+margin_top = 50.0
+margin_right = 1014.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 0.694118 )
+custom_fonts/font = SubResource( 27 )
+text = "Options"
+align = 1
+valign = 1
+
 [node name="BackButton" type="Button" parent="OptionsMenu"]
 margin_left = 448.0
 margin_top = 448.0
 margin_right = 832.0
 margin_bottom = 498.0
 custom_fonts/font = SubResource( 8 )
-custom_styles/hover = SubResource( 9 )
-custom_styles/normal = SubResource( 10 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/normal = ExtResource( 5 )
 text = "Retour"
 
 [node name="MultiplayerMenu" type="Control" parent="."]
@@ -271,36 +290,52 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 9 )
 
+[node name="Title" type="Label" parent="MultiplayerMenu"]
+margin_left = 272.0
+margin_top = 74.0
+margin_right = 1014.0
+margin_bottom = 204.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 0.694118 )
+custom_fonts/font = SubResource( 27 )
+text = "Multijoueur"
+align = 1
+valign = 1
+
 [node name="BackButton" type="Button" parent="MultiplayerMenu"]
-margin_left = 448.0
-margin_top = 448.0
-margin_right = 832.0
-margin_bottom = 498.0
+margin_left = 575.0
+margin_top = 521.0
+margin_right = 696.0
+margin_bottom = 571.0
 custom_fonts/font = SubResource( 11 )
-custom_styles/hover = SubResource( 12 )
-custom_styles/normal = SubResource( 13 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/normal = ExtResource( 5 )
 text = "Retour"
 
 [node name="JoinButton" type="Button" parent="MultiplayerMenu"]
-margin_left = 448.0
-margin_top = 320.0
-margin_right = 832.0
-margin_bottom = 424.0
+margin_left = 453.0
+margin_top = 372.0
+margin_right = 837.0
+margin_bottom = 476.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 14 )
-custom_styles/hover = SubResource( 15 )
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/normal = ExtResource( 5 )
 text = "Rejoindre"
 
 [node name="HostButton" type="Button" parent="MultiplayerMenu"]
-margin_left = 448.0
-margin_top = 192.0
-margin_right = 832.0
-margin_bottom = 296.0
+margin_left = 454.0
+margin_top = 242.0
+margin_right = 838.0
+margin_bottom = 346.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 17 )
-custom_styles/hover = SubResource( 15 )
-custom_styles/normal = SubResource( 16 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/normal = ExtResource( 5 )
 text = "Heberger"
 
 [node name="JoinOptions" type="Node2D" parent="MultiplayerMenu"]
@@ -326,19 +361,17 @@ text = "Se Connecter"
 
 [node name="ServerIsConnectedDebug" type="RichTextLabel" parent="MultiplayerMenu"]
 unique_name_in_owner = true
-margin_left = 860.0
-margin_top = 248.0
-margin_right = 1087.0
-margin_bottom = 327.0
-text = "etat serveur"
+margin_left = 846.0
+margin_top = 332.0
+margin_right = 1073.0
+margin_bottom = 411.0
 
 [node name="ClientConnected" type="RichTextLabel" parent="MultiplayerMenu"]
 unique_name_in_owner = true
-margin_left = 848.0
-margin_top = 136.0
-margin_right = 1075.0
-margin_bottom = 215.0
-text = "clients connectés"
+margin_left = 853.0
+margin_top = 203.0
+margin_right = 1080.0
+margin_bottom = 282.0
 
 [node name="GamemodeMenu" type="Control" parent="."]
 unique_name_in_owner = true
@@ -347,36 +380,52 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 12 )
 
+[node name="Title" type="Label" parent="GamemodeMenu"]
+margin_left = 274.0
+margin_top = 74.0
+margin_right = 1016.0
+margin_bottom = 204.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 0.694118 )
+custom_fonts/font = SubResource( 27 )
+text = "Mode de jeu"
+align = 1
+valign = 1
+
 [node name="BackButton" type="Button" parent="GamemodeMenu"]
-margin_left = 448.0
-margin_top = 448.0
-margin_right = 832.0
-margin_bottom = 498.0
+margin_left = 571.0
+margin_top = 520.0
+margin_right = 713.0
+margin_bottom = 577.0
 custom_fonts/font = SubResource( 18 )
-custom_styles/hover = SubResource( 19 )
-custom_styles/normal = SubResource( 20 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/normal = ExtResource( 5 )
 text = "Retour"
 
 [node name="singlePlayer" type="Button" parent="GamemodeMenu"]
-margin_left = 448.0
-margin_top = 320.0
-margin_right = 832.0
-margin_bottom = 424.0
+margin_left = 456.0
+margin_top = 374.0
+margin_right = 840.0
+margin_bottom = 478.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 21 )
-custom_styles/hover = SubResource( 19 )
-custom_styles/normal = SubResource( 20 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/normal = ExtResource( 5 )
 text = "Jouer Seul"
 
 [node name="Multiplayer" type="Button" parent="GamemodeMenu"]
-margin_left = 448.0
-margin_top = 192.0
-margin_right = 832.0
-margin_bottom = 296.0
+margin_left = 456.0
+margin_top = 246.0
+margin_right = 840.0
+margin_bottom = 350.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 22 )
-custom_styles/hover = SubResource( 19 )
-custom_styles/normal = SubResource( 20 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 11 )
+custom_styles/normal = ExtResource( 5 )
 text = "Jouer à plusieurs"
 
 [connection signal="button_down" from="TitleMenu/PlayButton" to="." method="_pressed_button"]

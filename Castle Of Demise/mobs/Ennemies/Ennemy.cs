@@ -36,7 +36,18 @@ namespace CastleOfDemise.mobs.Ennemies
             {
                 QueueFree();
             }
-            
+
+            if (!ImDead)
+            {
+                if (GetChild<AnimatedSprite3D>(0).Animation == "touched")
+                {
+                    if (GetChild<AnimatedSprite3D>(0).Frame == GetChild<AnimatedSprite3D>(0).Frames.GetFrameCount("touched")-1)
+                    {
+                        GetChild<AnimatedSprite3D>(0).Play("idle");
+                    }
+
+                }
+            }
         }
 
         public void Hit(int strength)
@@ -50,6 +61,11 @@ namespace CastleOfDemise.mobs.Ennemies
                     _deathSound.Play();
                     GetChild<AnimatedSprite3D>(0).Play("dying");
                     _timeSinceImDead = Time.GetTicksMsec();
+                }
+                else
+                {
+                    GetChild<AnimatedSprite3D>(0).Play("touched");
+                    
                 }
             }
         }

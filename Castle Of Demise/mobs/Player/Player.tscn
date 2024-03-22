@@ -92,7 +92,7 @@ surfaces/1 = {
 
 [sub_resource type="Animation" id=30]
 resource_name = "shoot"
-length = 0.1
+length = 0.2
 step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Head/Revolver:transform")
@@ -101,7 +101,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.02, 0.1 ),
+"times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Transform( -0.299978, 0, 0.00367431, 0, 0.3, 0, -0.00367431, 0, -0.299978, 0.677808, -0.635396, -1.09473 ), Transform( -0.3, 0, 0.004, 0, 0.3, 0, -0.004, 1, -0.3, 0.678, -0.635, -0.5 ), Transform( -0.299978, 0, 0.00367431, 0, 0.3, 0, -0.00367431, 0, -0.299978, 0.677808, -0.635396, -1.09473 ) ]
