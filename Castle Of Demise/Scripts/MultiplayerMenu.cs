@@ -6,12 +6,19 @@ public class MultiplayerMenu : Control
 {
 
 
-    private NetworkedMultiplayerENet _clientPeer;
-    private NetworkedMultiplayerENet _serverPeer;
-    private const int _port = 8910;
-    private string _serverIp = "";
-    
-    
+    private NetworkedMultiplayerENet _peer;
+    private Label _statusOk;
+    private Label _statusFail;
+    private const int DefaultPort = 8910;
+    private const int MaxNumberOfPeers = 2;
+    public string ServerIp;
+
+    public MultiplayerMenu(string serverIp)
+    {
+        ServerIp = serverIp;
+    }
+
+
     // Declare member variables here. Examples:
     // private int a = 2;
     // private string b = "text";
@@ -20,51 +27,62 @@ public class MultiplayerMenu : Control
     private void _return_pressed_button()
     {
         // Stop the server and client peers
-        _serverPeer?.CloseConnection();
-        _clientPeer?.CloseConnection();
+        _peer?.CloseConnection();
 
         // Disconnect them from the network
         GetTree().NetworkPeer = null;
 
-        GD.Print("Stopped everything");
-    }
-    
-    // Creates the server
-    private void _createServer()
-    {
-        _serverPeer = new NetworkedMultiplayerENet();
-        var error = _serverPeer.CreateServer(_port, 2);
-        if (error != Error.Ok)
-        {
-            GD.Print("Failed to create server: " + error);
-            return;
-        }
-        if (_serverPeer.GetConnectionStatus() != NetworkedMultiplayerPeer.ConnectionStatus.Connected &&
-            _serverPeer.GetConnectionStatus() != NetworkedMultiplayerPeer.ConnectionStatus.Connecting)
-        {
-            GD.Print("Server is not connecting or connected");
-            return;
-        }
-        GetTree().NetworkPeer = _serverPeer;
+        GD.Print("Stopped everything relating to network connections");
     }
     
     
-    // Joins the server
-    private void _joinServer()
-    {
-        _clientPeer = new NetworkedMultiplayerENet();
-        _clientPeer.CreateClient(_serverIp, _port);
-        GetTree().NetworkPeer = _clientPeer;
-    }
     
     private void _clientPressed()
     {
-        _createServer();
+        if (!ServerIp.IsValidIPAddress())
+        {
+            SetStatus("IP address is invalid", false);
+            return;
+        }
+
+        _peer = new NetworkedMultiplayerENet();
+        _peer.CompressionMode = NetworkedMultiplayerENet.CompressionModeEnum.RangeCoder;
+        _peer.CreateClient(ServerIp, DefaultPort);
+        GetTree().NetworkPeer = _peer;
+        SetStatus("Connecting...", true);    
     }
     
+    
+    
+    
+    private void SetStatus(string text, bool isOk)
+    {
+        // Simple way to show status.
+        if (isOk)
+        {
+            _statusOk.Text = text;
+            _statusFail.Text = "";
+        }
+        else
+        {
+            _statusOk.Text = "";
+            _statusFail.Text = text;
+        }
+    }
     private void _hostPressed()  
     {
-        _joinServer();
+        _peer = new NetworkedMultiplayerENet();
+        _peer.CompressionMode = NetworkedMultiplayerENet.CompressionModeEnum.RangeCoder;
+        Error err = _peer.CreateServer(DefaultPort, MaxNumberOfPeers);
+        if (err != Error.Ok)
+        {
+            // Is another server running?
+            SetStatus("Can't host, address in use.", false);
+            return;
+        }
+
+        GetTree().NetworkPeer = _peer;
+        SetStatus("Waiting for player...", true);
         
     }
 
@@ -85,50 +103,66 @@ public class MultiplayerMenu : Control
     
     public override void _Ready()
     {
-        // Make sure the node name matches exactly with the name in your scene
-        var serverIpNode = GetNodeOrNull<LineEdit>("ServerIp");
-        if (serverIpNode != null)
-        {
-            _serverIp = serverIpNode.Text;
-        }
-        else
-        {
-            GD.Print("ServerIp node not found");
-        }
+        // Get nodes - the generic is a class, argument is node path.
+        _statusOk = GetNode<Label>("StatusOk");
+        _statusFail = GetNode<Label>("StatusFail");
 
-        // Check that the signal and method names are spelled correctly
-        GetTree().Connect("connected_to_server", this, nameof(_PlayerConnected));
-        GetTree().Connect("server_disconnected", this, nameof(_PlayerDisconnected));
+        // Connect all callbacks related to networking.
+        // Note: Use snake_case when talking to engine API.
+        GetTree().Connect("network_peer_connected", this, nameof(PlayerConnected));
+        GetTree().Connect("network_peer_disconnected", this, nameof(PlayerDisconnected));
+        GetTree().Connect("connected_to_server", this, nameof(ConnectedOk));
+        GetTree().Connect("connection_failed", this, nameof(ConnectedFail));
+        GetTree().Connect("server_disconnected", this, nameof(ServerDisconnected));
     }
 
-    // 
-
-
-    private void _PlayerConnected(int id)
+    private void PlayerConnected(int id)
     {
-        GD.Print("Player with ID: " + id + " has connected.");
-        GetTree().ChangeScene("res://maps/mpMap01.tscn");
+        // Someone connected, start the game!
+        var pong = ResourceLoader.Load<PackedScene>("res://pong.tscn").Instance();
+
+        // Connect deferred so we can safely erase it from the callback.
+        pong.Connect("GameFinished", this, nameof(EndGame), new Godot.Collections.Array(), (int) ConnectFlags.Deferred);
+
+        GetTree().Root.AddChild(pong);
+        Hide();
     }
 
-    private void _PlayerDisconnected(int id)
+    private void EndGame(string withError = "")
     {
-        GD.Print("Player with ID: " + id + " has disconnected.");
+        if (HasNode("/root/Pong"))
+        {
+            // Erase immediately, otherwise network might show
+            // errors (this is why we connected deferred above).
+            GetNode("/root/Pong").Free();
+            Show();
+        }
+
+        GetTree().NetworkPeer = null; // Remove peer.
+        _hostButton.Disabled = false;
+        _joinButton.Disabled = false;
+
+        SetStatus(withError, false);
     }
-    
-    
 
-
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(float delta)
+    // Callback from SceneTree, only for clients (not server).
+    private void ConnectedOk()
     {
+        // This function is not needed for this project.
+    }
 
-        if (_clientPeer != null)
-        {
-            GetNode<RichTextLabel>("%ServerIsConnectedDebug").Text = _clientPeer.GetConnectionStatus().ToString();
-        }
-        if (_serverPeer!=null)
-        {
-            GetNode<RichTextLabel>("%ClientConnected").Text = _serverPeer.GetConnectionStatus().ToString();
-        }
+    // Callback from SceneTree, only for clients (not server).
+    private void ConnectedFail()
+    {
+        SetStatus("Couldn't connect", false);
+
+        GetTree().NetworkPeer = null; // Remove peer.
+        _hostButton.Disabled = false;
+        _joinButton.Disabled = false;
+    }
+
+    private void ServerDisconnected()
+    {
+        EndGame("Server disconnected");
     }
 }
