@@ -443,7 +443,7 @@ text = "Jouer à plusieurs"
 [connection signal="button_down" from="OptionsMenu/BackButton" to="." method="_pressed_button"]
 [connection signal="button_up" from="OptionsMenu/BackButton" to="." method="_show_title_screen_"]
 [connection signal="mouse_entered" from="OptionsMenu/BackButton" to="." method="_focused_button"]
-[connection signal="button_down" from="MultiplayerMenu/BackButton" to="." method="_pressed_button"]
+[connection signal="button_down" from="MultiplayerMenu/BackButton" to="." method="_return_pressed_button"]
 [connection signal="button_up" from="MultiplayerMenu/BackButton" to="." method="_PlayButtonPressed"]
 [connection signal="mouse_entered" from="MultiplayerMenu/BackButton" to="." method="_focused_button"]
 [connection signal="button_down" from="MultiplayerMenu/JoinButton" to="." method="_pressed_button"]

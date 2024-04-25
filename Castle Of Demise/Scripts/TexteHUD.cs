@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using CastleOfDemise.Scripts;
 
 public class TexteHUD : Control
 {
@@ -11,7 +12,7 @@ public class TexteHUD : Control
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-
+		// Get a reference to the label
 	}
 	
 
@@ -24,4 +25,12 @@ public class TexteHUD : Control
 		this.Visible = !hideHUDDefault;
 
 	}
+	
+	
+	
+	
+	
+	// Multiplayer part made for testing purposes, to be archived
+	
+	
 }

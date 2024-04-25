@@ -1,5 +1,9 @@
+using System.Collections.Generic;
+using Godot;
+
 namespace CastleOfDemise.Scripts
 {
+    /*
     public class MultiplayerCode
     {
 
@@ -97,12 +101,8 @@ namespace CastleOfDemise.Scripts
         }
 
     }
-}
-
-
-
-
-
+    */
+    /*
 public static class Base36Converter
 {
     public const int Base = 36;
@@ -114,13 +114,13 @@ public static class Base36Converter
 
         while (value > 0)
         {
-            result = Chars[(int)(value % Base)] + result; 
+            result = Chars[(int)(value % Base)] + result;
             value /= Base;
         }
 
         return result;
     }
-    
+
     public static long ConvertFrom(string value)
     {
         long result = 0;
@@ -132,4 +132,57 @@ public static class Base36Converter
         return result;
     }
 }
-    
+    */
+    // Malhereusement, le code est inutile vu que trop chiant
+
+
+    public class Player : Node2D
+    {
+        public int Id { get; set; }
+        public  Vector2 Position { get; set; }
+    }
+
+
+
+    public class MultiplayerSynchroniser : Control
+    {
+
+        Player hostPlayer;
+        Player clientPlayer;
+
+        public override void _Ready()
+        {
+            hostPlayer = new Player { Id = 1 };
+            clientPlayer = new Player { Id = 2 };
+        }
+
+
+        public override void _Process(float delta)
+        {
+            
+        }
+
+
+
+       
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+}
+

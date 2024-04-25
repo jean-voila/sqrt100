@@ -21,6 +21,7 @@ window/size/height=720
 window/size/fullscreen=true
 window/dpi/allow_hidpi=true
 window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [gui]
 

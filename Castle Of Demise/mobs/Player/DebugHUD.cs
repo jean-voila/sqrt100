@@ -34,6 +34,8 @@ public partial class Player
     
     		var rightText = GenerateRightHUDText();
     		textRightHUD.BbcodeText = rightText;
+		    
+
     	}
     	
     	
@@ -62,14 +64,15 @@ public partial class Player
     	}
     
     	private string GenerateRightHUDText()
-    	{
-    		return
-    			$"{Title("Game Version")}" +
-    			$"{HUDData("CoDem", _version)}" +
-    
-    			$"{Title("Execution Info")}" +
-    			$"{HUDData("FPS", Fps)}";
-    	}
+	    {
+		    return
+			    $"{Title("Game Version")}" +
+			    $"{HUDData("CoDem", _version)}" +
+
+			    $"{Title("Execution Info")}" +
+			    $"{HUDData("FPS", Fps)}";
+
+	    }
     
     	private string HUDData(string name, object value, bool newLine = true)
     	{

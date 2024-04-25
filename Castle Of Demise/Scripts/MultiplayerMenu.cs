@@ -8,6 +8,7 @@ public class MultiplayerMenu : Control
 
     private NetworkedMultiplayerENet _clientPeer;
     private NetworkedMultiplayerENet _serverPeer;
+    private const int _port = 8910;
     private string _serverIp = "";
     
     
@@ -16,21 +17,55 @@ public class MultiplayerMenu : Control
     // private string b = "text";
 
     
+    private void _return_pressed_button()
+    {
+        // Stop the server and client peers
+        _serverPeer?.CloseConnection();
+        _clientPeer?.CloseConnection();
 
-    private void _hostPressed()
+        // Disconnect them from the network
+        GetTree().NetworkPeer = null;
+
+        GD.Print("Stopped everything");
+    }
+    
+    // Creates the server
+    private void _createServer()
     {
         _serverPeer = new NetworkedMultiplayerENet();
-        _serverPeer.CreateServer(8910, 2);
+        var error = _serverPeer.CreateServer(_port, 2);
+        if (error != Error.Ok)
+        {
+            GD.Print("Failed to create server: " + error);
+            return;
+        }
+        if (_serverPeer.GetConnectionStatus() != NetworkedMultiplayerPeer.ConnectionStatus.Connected &&
+            _serverPeer.GetConnectionStatus() != NetworkedMultiplayerPeer.ConnectionStatus.Connecting)
+        {
+            GD.Print("Server is not connecting or connected");
+            return;
+        }
         GetTree().NetworkPeer = _serverPeer;
-        
     }
-
-    private void _clientPressed()
+    
+    
+    // Joins the server
+    private void _joinServer()
     {
         _clientPeer = new NetworkedMultiplayerENet();
-        _clientPeer.CreateClient(_serverIp, 8910);
+        _clientPeer.CreateClient(_serverIp, _port);
         GetTree().NetworkPeer = _clientPeer;
-        GetNode<Node2D>("%JoinOptions").Visible = !GetNode<Node2D>("%JoinOptions").Visible;
+    }
+    
+    private void _clientPressed()
+    {
+        _createServer();
+    }
+    
+    private void _hostPressed()  
+    {
+        _joinServer();
+        
     }
 
     /*
@@ -45,11 +80,28 @@ public class MultiplayerMenu : Control
     }
 
 */
+    
+    
+    
     public override void _Ready()
     {
-        GetTree().Connect("network_peer_connected", this, nameof(_PlayerConnected));
-        GetTree().Connect("network_peer_disconnected", this, nameof(_PlayerDisconnected));
+        // Make sure the node name matches exactly with the name in your scene
+        var serverIpNode = GetNodeOrNull<LineEdit>("ServerIp");
+        if (serverIpNode != null)
+        {
+            _serverIp = serverIpNode.Text;
+        }
+        else
+        {
+            GD.Print("ServerIp node not found");
+        }
+
+        // Check that the signal and method names are spelled correctly
+        GetTree().Connect("connected_to_server", this, nameof(_PlayerConnected));
+        GetTree().Connect("server_disconnected", this, nameof(_PlayerDisconnected));
     }
+
+    // 
 
 
     private void _PlayerConnected(int id)
@@ -60,12 +112,9 @@ public class MultiplayerMenu : Control
 
     private void _PlayerDisconnected(int id)
     {
-    GD.Print("Player with ID: " + id + " has disconnected.");
+        GD.Print("Player with ID: " + id + " has disconnected.");
     }
-    private void _server_IP_Input(string ip)
-    {
-        _serverIp = ip;
-    }
+    
     
 
 
