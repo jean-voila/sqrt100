@@ -282,6 +282,10 @@ text = "Retour"
 unique_name_in_owner = true
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 7.0
+margin_top = -3.0
+margin_right = 7.0
+margin_bottom = -3.0
 script = ExtResource( 9 )
 
 [node name="Title" type="Label" parent="MultiplayerMenu"]
@@ -308,11 +312,11 @@ custom_styles/pressed = ExtResource( 11 )
 custom_styles/normal = ExtResource( 5 )
 text = "Retour"
 
-[node name="Connections control" type="Control" parent="MultiplayerMenu"]
+[node name="ConnectionControl" type="Control" parent="MultiplayerMenu"]
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="HostButton" type="Button" parent="MultiplayerMenu/Connections control"]
+[node name="HostButton" type="Button" parent="MultiplayerMenu/ConnectionControl"]
 margin_left = 422.0
 margin_top = 384.0
 margin_right = 607.0
@@ -324,7 +328,7 @@ custom_styles/pressed = ExtResource( 11 )
 custom_styles/normal = ExtResource( 5 )
 text = "Heberger"
 
-[node name="JoinButton" type="Button" parent="MultiplayerMenu/Connections control"]
+[node name="JoinButton" type="Button" parent="MultiplayerMenu/ConnectionControl"]
 margin_left = 669.0
 margin_top = 387.0
 margin_right = 856.0
@@ -336,26 +340,26 @@ custom_styles/pressed = ExtResource( 11 )
 custom_styles/normal = ExtResource( 5 )
 text = "Rejoindre"
 
-[node name="Code presentation" type="Label" parent="MultiplayerMenu/Connections control"]
-margin_left = 514.0
-margin_top = 270.0
-margin_right = 675.0
-margin_bottom = 305.0
-rect_rotation = 0.873904
-rect_pivot_offset = Vector2( 1322.56, -255.647 )
-text = "Veuillez entrer le code"
-
-[node name="StatusOk" type="Label" parent="MultiplayerMenu/Connections control"]
+[node name="StatusOk" type="Label" parent="MultiplayerMenu/ConnectionControl"]
 margin_left = 418.0
 margin_top = 460.0
 margin_right = 854.0
 margin_bottom = 510.0
 
-[node name="StatusFail" type="Label" parent="MultiplayerMenu/Connections control"]
+[node name="StatusFail" type="Label" parent="MultiplayerMenu/ConnectionControl"]
 margin_left = 418.0
 margin_top = 460.0
 margin_right = 854.0
 margin_bottom = 510.0
+
+[node name="Address" type="LineEdit" parent="MultiplayerMenu/ConnectionControl"]
+margin_left = 423.0
+margin_top = 315.0
+margin_right = 854.0
+margin_bottom = 366.0
+text = "Enter your code"
+align = 1
+clear_button_enabled = true
 
 [node name="ServerIsConnectedDebug" type="RichTextLabel" parent="MultiplayerMenu"]
 unique_name_in_owner = true
@@ -371,12 +375,6 @@ margin_left = 853.0
 margin_top = 203.0
 margin_right = 1080.0
 margin_bottom = 282.0
-
-[node name="LineEdit" type="LineEdit" parent="MultiplayerMenu"]
-margin_left = 423.0
-margin_top = 315.0
-margin_right = 854.0
-margin_bottom = 366.0
 
 [node name="GamemodeMenu" type="Control" parent="."]
 unique_name_in_owner = true
@@ -451,12 +449,12 @@ text = "Jouer à plusieurs"
 [connection signal="button_down" from="MultiplayerMenu/BackButton" to="." method="_return_pressed_button"]
 [connection signal="button_up" from="MultiplayerMenu/BackButton" to="." method="_PlayButtonPressed"]
 [connection signal="mouse_entered" from="MultiplayerMenu/BackButton" to="." method="_focused_button"]
-[connection signal="button_down" from="MultiplayerMenu/Connections control/HostButton" to="." method="_pressed_button"]
-[connection signal="mouse_entered" from="MultiplayerMenu/Connections control/HostButton" to="." method="_focused_button"]
-[connection signal="pressed" from="MultiplayerMenu/Connections control/HostButton" to="MultiplayerMenu" method="_hostPressed"]
-[connection signal="button_down" from="MultiplayerMenu/Connections control/JoinButton" to="." method="_pressed_button"]
-[connection signal="mouse_entered" from="MultiplayerMenu/Connections control/JoinButton" to="." method="_focused_button"]
-[connection signal="pressed" from="MultiplayerMenu/Connections control/JoinButton" to="MultiplayerMenu" method="_clientPressed"]
+[connection signal="button_down" from="MultiplayerMenu/ConnectionControl/HostButton" to="." method="_pressed_button"]
+[connection signal="mouse_entered" from="MultiplayerMenu/ConnectionControl/HostButton" to="." method="_focused_button"]
+[connection signal="pressed" from="MultiplayerMenu/ConnectionControl/HostButton" to="MultiplayerMenu" method="_hostPressed"]
+[connection signal="button_down" from="MultiplayerMenu/ConnectionControl/JoinButton" to="." method="_pressed_button"]
+[connection signal="mouse_entered" from="MultiplayerMenu/ConnectionControl/JoinButton" to="." method="_focused_button"]
+[connection signal="pressed" from="MultiplayerMenu/ConnectionControl/JoinButton" to="MultiplayerMenu" method="_clientPressed"]
 [connection signal="button_down" from="GamemodeMenu/BackButton" to="." method="_pressed_button"]
 [connection signal="button_up" from="GamemodeMenu/BackButton" to="." method="_show_title_screen_"]
 [connection signal="mouse_entered" from="GamemodeMenu/BackButton" to="." method="_focused_button"]

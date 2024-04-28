@@ -18,8 +18,6 @@ public class TitleScreen : Control
 		GetNode<Control>("%TitleMenu").Hide();
 		GetNode<Control>("%MultiplayerMenu").Hide();
 		GetNode<Control>("%GamemodeMenu").Show();
-		
-		
 	}
 
 	
