@@ -476,6 +476,7 @@ skeleton = NodePath("../..")
 root_node = NodePath("../..")
 reset_on_save = false
 playback_process_mode = 0
+playback_speed = 2.0
 anims/shoot = SubResource( 30 )
 
 [node name="HUD" type="CanvasLayer" parent="."]

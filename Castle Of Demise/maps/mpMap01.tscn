@@ -216,7 +216,6 @@ material = SubResource( 5 )
 [node name="CSGBox4" type="CSGBox" parent="CSGCombiner/CSGBox3"]
 operation = 2
 width = 18.0
-height = 4.0
 material = SubResource( 6 )
 
 [node name="CSGBox4" type="CSGBox" parent="CSGCombiner"]
@@ -228,7 +227,6 @@ material = SubResource( 7 )
 [node name="CSGBox4" type="CSGBox" parent="CSGCombiner/CSGBox4"]
 operation = 2
 width = 18.0
-height = 4.0
 material = SubResource( 8 )
 
 [node name="CSGPolygon" type="CSGPolygon" parent="CSGCombiner"]
@@ -1169,3 +1167,75 @@ transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, -0.72501, 0.0489099, -0.54352 
 billboard = 2
 shaded = true
 frames = SubResource( 31 )
+
+[node name="CSGCylinder12" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49, -11, 0 )
+use_collision = true
+radius = 4.0
+height = 38.0
+material = SubResource( 22 )
+
+[node name="CSGCylinder13" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49, -11, 0 )
+use_collision = true
+radius = 4.0
+height = 38.0
+material = SubResource( 22 )
+
+[node name="CSGCylinder7" type="CSGCylinder" parent="."]
+transform = Transform( 7.54979e-08, -1, 0, 1, 7.54979e-08, 0, 0, 0, 1, 41.7156, -6.32035, 0 )
+use_collision = true
+height = 12.0
+sides = 24
+material = SubResource( 19 )
+
+[node name="CSGCylinder8" type="CSGCylinder" parent="."]
+transform = Transform( 7.54979e-08, -1, 0, 1, 7.54979e-08, 0, 0, 0, 1, -41.2844, -6.32035, 0 )
+use_collision = true
+height = 12.0
+sides = 24
+material = SubResource( 19 )
+
+[node name="CSGBox12" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18, -14, -34 )
+use_collision = true
+width = 12.0
+height = 10.0
+depth = 12.0
+material = SubResource( 21 )
+
+[node name="CSGBox13" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, -15, 32 )
+use_collision = true
+width = 12.0
+height = 12.0
+depth = 12.0
+material = SubResource( 21 )
+
+[node name="CSGBox14" type="CSGBox" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, -8.51061, 32 )
+use_collision = true
+width = 12.0
+height = 1.23646
+material = SubResource( 21 )
+
+[node name="CSGBox15" type="CSGBox" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13, -8.35839, -34 )
+use_collision = true
+width = 12.0
+height = 1.4342
+material = SubResource( 21 )
+
+[node name="CSGBox16" type="CSGBox" parent="."]
+transform = Transform( 0.998669, 0, -0.0515865, 0, 1, 0, 0.0515865, 0, 0.998669, -5.12363, -10.5106, 6 )
+use_collision = true
+width = 10.0
+height = 6.0
+material = SubResource( 21 )
+
+[node name="CSGBox17" type="CSGBox" parent="."]
+transform = Transform( 0.998669, 0, -0.0515865, 0, 1, 0, 0.0515865, 0, 0.998669, 5.87637, -10.5106, -5 )
+use_collision = true
+width = 10.0
+height = 6.0
+material = SubResource( 21 )

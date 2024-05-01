@@ -14,7 +14,7 @@ public partial class Player
         private float CamRotationAmount = 0.1f;
         private float _mouseSensitivity = 0.005f;
         
-        private float _randomShakeStrenght = 0.5f;
+        private float _randomShakeStrenght = 0.3f;
         private float _shakeDecay = 300.0f;
         private RandomNumberGenerator _randShake = new RandomNumberGenerator();
         private float _shakeStrenght = 0f;

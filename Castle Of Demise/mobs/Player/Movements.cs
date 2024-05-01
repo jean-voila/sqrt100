@@ -68,7 +68,7 @@ public partial class Player
             if (_SEEnabled)
             {
                 _landSound.Play();
-                //cameraShake();
+                // cameraShake();
             }
         }
 
