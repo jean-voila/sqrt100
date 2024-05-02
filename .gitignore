@@ -1,5 +1,5 @@
 .DS_Store
-.import/
+*.import
 .mono/
 .godot/
 .idea/
