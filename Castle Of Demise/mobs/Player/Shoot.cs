@@ -28,6 +28,11 @@ public partial class Player
         _animationPlayer = GetNode<AnimationPlayer>("Head/RevolverAnimationPlayer");
     }
     
+    public void SetAmmo(int ammo)
+    {
+        _ammoAvailable += ammo;
+    }
+    
     public void Shoot()
     {
         _ammoAvailable--;

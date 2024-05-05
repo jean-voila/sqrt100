@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://Mobs/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Props/grass02.png" type="Texture" id=2]
@@ -23,13 +23,11 @@
 [ext_resource path="res://Assets/Textures/imageonline-co-pixelated.png" type="Texture" id=21]
 [ext_resource path="res://mobs/Ennemies/Bat/Bat.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Assets/Textures/SunsetSky.png" type="Texture" id=23]
-
-[sub_resource type="StreamTexture" id=8]
-flags = 23
-load_path = "res://.import/imageonline-co-pixelated3.png-58753c56a6dfb4674cf93983074d68e4.s3tc.stex"
+[ext_resource path="res://Assets/Textures/imageonline-co-pixelated(3).png" type="Texture" id=24]
+[ext_resource path="res://Assets/Props/Ammo.tscn" type="PackedScene" id=25]
 
 [sub_resource type="SpatialMaterial" id=4]
-albedo_texture = SubResource( 8 )
+albedo_texture = ExtResource( 24 )
 
 [sub_resource type="SpatialMaterial" id=12]
 albedo_texture = ExtResource( 18 )
@@ -46,12 +44,8 @@ albedo_texture = ExtResource( 17 )
 [sub_resource type="SpatialMaterial" id=16]
 albedo_texture = ExtResource( 20 )
 
-[sub_resource type="StreamTexture" id=18]
-flags = 23
-load_path = "res://.import/imageonline-co-pixelated1.png-5a13d11bc7acc9200dbf72393b38eadc.s3tc.stex"
-
 [sub_resource type="SpatialMaterial" id=1]
-albedo_texture = SubResource( 18 )
+albedo_texture = ExtResource( 20 )
 uv1_scale = Vector3( 2, 4, 2 )
 
 [sub_resource type="SpriteFrames" id=25]
@@ -166,28 +160,20 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="StreamTexture" id=10]
-flags = 23
-load_path = "res://.import/imageonline-co-pixelated4.png-bd8b5b7240b6ff1701c8bed78faff24a.s3tc.stex"
-
 [sub_resource type="SpatialMaterial" id=5]
-albedo_texture = SubResource( 10 )
+albedo_texture = ExtResource( 19 )
 
 [sub_resource type="SpatialMaterial" id=6]
-albedo_texture = SubResource( 10 )
+albedo_texture = ExtResource( 19 )
 
 [sub_resource type="SpatialMaterial" id=7]
-albedo_texture = SubResource( 10 )
-
-[sub_resource type="StreamTexture" id=11]
-flags = 23
-load_path = "res://.import/imageonline-co-pixelated2.png-0acadaf5b1e3d762285d5c76a60d7ddc.s3tc.stex"
+albedo_texture = ExtResource( 19 )
 
 [sub_resource type="SpatialMaterial" id=2]
-albedo_texture = SubResource( 11 )
+albedo_texture = ExtResource( 21 )
 
 [sub_resource type="SpatialMaterial" id=3]
-albedo_texture = SubResource( 11 )
+albedo_texture = ExtResource( 24 )
 
 [sub_resource type="PanoramaSky" id=40]
 panorama = ExtResource( 23 )
@@ -547,3 +533,12 @@ material = SubResource( 3 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 22 )
+
+[node name="Ammo" parent="." instance=ExtResource( 25 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, -6.89932, 0.436093, 13.6838 )
+
+[node name="Ammo2" parent="." instance=ExtResource( 25 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, -11.1195, 0.543067, 13.4298 )
+
+[node name="Ammo3" parent="." instance=ExtResource( 25 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, -9.29979, 0.47855, 16.3669 )
