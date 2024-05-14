@@ -3,10 +3,10 @@ using Godot.Collections;
 
 namespace CastleOfDemise.mobs.Ennemies
 {
-    public abstract class Ennemy : KinematicBody
+    public abstract partial class Enemy : CharacterBody3D
     {
         [Signal] 
-        public delegate void HitSignal(int strength);
+        public delegate void HitSignalEventHandler(int strength);
         
         private readonly AudioStreamPlayer2D _deathSound = GetDeathSound();
         public bool ImDead { get; private set; }
@@ -19,17 +19,17 @@ namespace CastleOfDemise.mobs.Ennemies
         private static AudioStreamPlayer2D GetDeathSound()
         {
             AudioStreamPlayer2D deathSound = new AudioStreamPlayer2D();
-            deathSound.Stream = GD.Load<AudioStreamSample>("res://Assets/SoundEffects/death.wav");
+            deathSound.Stream = GD.Load<AudioStream>("res://Assets/SoundEffects/death.wav");
             return deathSound;
         }
         
         public override void _Ready()
         {
             AddChild(_deathSound);
-            Connect("HitSignal", this, "Hit");
+            Connect("HitSignal", new Callable(this, "Hit"));
         }
 
-        public override void _Process(float delta)
+        public void _Process(float delta)
         {
             ulong timeNow = Time.GetTicksMsec();
             if (ImDead && timeNow - _timeSinceImDead > TimeBeforeDisappear)
@@ -41,7 +41,7 @@ namespace CastleOfDemise.mobs.Ennemies
             {
                 if (GetChild<AnimatedSprite3D>(0).Animation == "touched")
                 {
-                    if (GetChild<AnimatedSprite3D>(0).Frame == GetChild<AnimatedSprite3D>(0).Frames.GetFrameCount("touched")-1)
+                    if (GetChild<AnimatedSprite3D>(0).Frame == GetChild<AnimatedSprite3D>(0).SpriteFrames.GetFrameCount("touched")-1)
                     {
                         GetChild<AnimatedSprite3D>(0).Play("idle");
                     }

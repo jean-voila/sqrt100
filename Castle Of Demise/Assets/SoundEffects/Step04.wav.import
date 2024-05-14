@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Step04.wav-45abbbd78b940d0d61e3777604b0fd28.sample"
+type="AudioStreamWAV"
+uid="uid://du5b7v34861fq"
+path="res://.godot/imported/Step04.wav-45abbbd78b940d0d61e3777604b0fd28.sample"
 
 [deps]
 
 source_file="res://Assets/SoundEffects/Step04.wav"
-dest_files=[ "res://.import/Step04.wav-45abbbd78b940d0d61e3777604b0fd28.sample" ]
+dest_files=["res://.godot/imported/Step04.wav-45abbbd78b940d0d61e3777604b0fd28.sample"]
 
 [params]
 

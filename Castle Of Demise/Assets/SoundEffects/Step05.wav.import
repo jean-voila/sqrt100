@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Step05.wav-6c7da1b97e7cf65719436a117ecf78ac.sample"
+type="AudioStreamWAV"
+uid="uid://bfem82bpgnmp8"
+path="res://.godot/imported/Step05.wav-6c7da1b97e7cf65719436a117ecf78ac.sample"
 
 [deps]
 
 source_file="res://Assets/SoundEffects/Step05.wav"
-dest_files=[ "res://.import/Step05.wav-6c7da1b97e7cf65719436a117ecf78ac.sample" ]
+dest_files=["res://.godot/imported/Step05.wav-6c7da1b97e7cf65719436a117ecf78ac.sample"]
 
 [params]
 

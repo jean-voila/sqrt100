@@ -1,5 +1,7 @@
 using Godot;
 
+namespace CastleOfDemise.mobs.Player;
+
 public partial class Player 
 {
     private float PositionX;
@@ -27,35 +29,35 @@ public partial class Player
         bool isMoving = false;
         if (Input.IsActionPressed("key_z"))
         {
-            inputMovementVector.y += 1;
+            inputMovementVector.Y += 1;
             isMoving = true;
         }
 
         if (Input.IsActionPressed("key_s"))
         {
-            inputMovementVector.y -= 1;
+            inputMovementVector.Y -= 1;
             isMoving = true;
         }
 
         if (Input.IsActionPressed("key_q"))
         {
-            inputMovementVector.x -= 1;
+            inputMovementVector.X -= 1;
             isMoving = true;
         }
 
         if (Input.IsActionPressed("key_d"))
         {
-            inputMovementVector.x += 1;
+            inputMovementVector.X += 1;
             isMoving = true;
         }
         
         _direction = new Vector3();
-        _direction += -GlobalTransform.basis.z * inputMovementVector.y;
-        _direction += GlobalTransform.basis.x * inputMovementVector.x;
+        _direction += -GlobalTransform.Basis.Z * inputMovementVector.Y;
+        _direction += GlobalTransform.Basis.X * inputMovementVector.X;
         HandleStepSounds(isMoving);
         
-        RotateCamera(inputMovementVector.x, delta);
-        AdjustFOV(delta);
+        RotateCamera(inputMovementVector.X, delta);
+        AdjustFov(delta);
     }
     
     private void HandleJump()
@@ -75,7 +77,7 @@ public partial class Player
         if (_floorRayCast.GetCollider() != null && Input.IsActionPressed("key_space"))
         {
             LastJumpTime = Time.GetTicksUsec();
-            _velocity.y = _jumpSpeed;
+            _velocity.Y = _jumpSpeed;
 			
             if (_SEEnabled) _jumpSound.Play();
             Landed = false;
@@ -84,29 +86,31 @@ public partial class Player
 
     public void HandleMovements(float delta)
     {
-        var horizontalVelocity = _velocity;
-        horizontalVelocity.y = 0;
+        var horizontalVelocity = Velocity;
+        
+        horizontalVelocity.Y = 0;
 
         var target = _direction * _maxSpeed;
         var acceleration = (_direction.Dot(horizontalVelocity) > 0) ? _accelerationSpeed : _decelerationSpeed;
 
-        horizontalVelocity = horizontalVelocity.LinearInterpolate(target, acceleration * delta);
-
-        _velocity.x = horizontalVelocity.x;
-        _velocity.z = horizontalVelocity.z;
+        horizontalVelocity = horizontalVelocity.Lerp(target, acceleration * delta);
+        
+        horizontalVelocity.X = horizontalVelocity.X;
+        horizontalVelocity.Z = horizontalVelocity.Z;
 
         if (_floorRayCast.GetCollider() == null)
         {
-            _velocity.y -= delta * _gravity;
+            horizontalVelocity.Y -= delta * _gravity;
         }
-		
-        _velocity = MoveAndSlide(_velocity, Vector3.Up);
+
+        Velocity = new Vector3(horizontalVelocity.X, horizontalVelocity.Y, horizontalVelocity.Z);
+        MoveAndSlide();
     }
     
     private void Teleport(Vector3 newPosition)
     {
-        Transform newTransform = Transform.Identity;
-        newTransform.origin = newPosition;
+        Transform3D newTransform = Transform3D.Identity;
+        newTransform.Origin = newPosition;
         GlobalTransform = newTransform;
     }
 

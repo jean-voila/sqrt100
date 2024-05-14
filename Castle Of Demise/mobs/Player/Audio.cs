@@ -1,6 +1,8 @@
-using Godot;
-using System;
 using System.Collections.Generic;
+using Godot;
+
+namespace CastleOfDemise.mobs.Player;
+
 public partial class Player
 {
 
@@ -52,13 +54,13 @@ public partial class Player
     }
     
     
-     public void ChangeMusicVolume(float percentage)
-     {
-    //
-    //     percentage = Mathf.Clamp(percentage, 0, 100);
-    //     float volumeDb = Mathf.Lerp(-40, 0, percentage / 100.0f);
-    //     _musicPlayer.VolumeDb = volumeDb;
-     }
+    public void ChangeMusicVolume(float percentage)
+    {
+        //
+        //     percentage = Mathf.Clamp(percentage, 0, 100);
+        //     float volumeDb = Mathf.Lerp(-40, 0, percentage / 100.0f);
+        //     _musicPlayer.VolumeDb = volumeDb;
+    }
     
     public void SwitchSEPlayer(bool playingButton)
     {

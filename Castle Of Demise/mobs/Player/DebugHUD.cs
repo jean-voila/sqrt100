@@ -1,85 +1,87 @@
 using Godot;
 
+namespace CastleOfDemise.mobs.Player;
+
 public partial class Player
 {
-	public float Fps;
+	private float _fps;
 	
-    private void UpdateDebugInfo()
-    	{
-		    Fps = Engine.GetFramesPerSecond();
-    		var textLeftHUD = GetNode<RichTextLabel>("HUD/Debug/Textes/HUDGauche");
-    		var textRightHUD = GetNode<RichTextLabel>("HUD/Debug/Textes/HUDDroite");
+	private void UpdateDebugInfo()
+	{
+		_fps = (float)Engine.GetFramesPerSecond();
+		var textLeftHud = GetNode<RichTextLabel>("HUD/Debug/Textes/HUDGauche");
+		var textRightHud = GetNode<RichTextLabel>("HUD/Debug/Textes/HUDDroite");
     		
-    		var transform = GlobalTransform;
-    		var position = transform.origin;
-    		PositionX = position.x;
-    		PositionY = position.y;
-    		PositionZ = position.z;
+		var transform = GlobalTransform;
+		var position = transform.Origin;
+		PositionX = position.X;
+		PositionY = position.Y;
+		PositionZ = position.Z;
     
-    		var acceleration = _velocity;
-    		AccelerationX = acceleration.x;
-    		AccelerationY = acceleration.y;
-    		AccelerationZ = acceleration.z;
+		var acceleration = _velocity;
+		AccelerationX = acceleration.X;
+		AccelerationY = acceleration.Y;
+		AccelerationZ = acceleration.Z;
     
     
-    		var cameraTransform = _cameraForFOV.GlobalTransform;
-    		var cameraBasis = cameraTransform.basis;
-    		var cameraEulerAngles = cameraBasis.GetEuler();
+		var cameraTransform = CameraForFov.GlobalTransform;
+		var cameraBasis = cameraTransform.Basis;
+		var cameraEulerAngles = cameraBasis.GetEuler();
     
-    		OrientationX = cameraEulerAngles.x;
-    		OrientationY = cameraEulerAngles.y;
+		OrientationX = cameraEulerAngles.X;
+		OrientationY = cameraEulerAngles.Y;
     
-    		var leftText = GenerateLeftHUDText();
-    		textLeftHUD.BbcodeText = leftText;
+		var leftText = GenerateLeftHudText();
+		textLeftHud.Text = leftText;
     
-    		var rightText = GenerateRightHUDText();
-    		textRightHUD.BbcodeText = rightText;
+		var rightText = GenerateRightHudText();
+		textRightHud.Text = rightText;
 		    
 
-    	}
+	}
     	
     	
     
-    	private string GenerateLeftHUDText()
-    	{
-    		return
-    			$"{Title("Position")}" +
-    			$"{HUDData("posX", PositionX)}" +
-    			$"{HUDData("posY", PositionY)}" +
-    			$"{HUDData("posZ", PositionZ)}" +
+	private string GenerateLeftHudText()
+	{
+		return
+			$"{Title("Position")}" +
+			$"{HudData("posX", PositionX)}" +
+			$"{HudData("posY", PositionY)}" +
+			$"{HudData("posZ", PositionZ)}" +
     
-    			$"{Title("Acceleration")}" +
-    			$"{HUDData("accX", AccelerationX)}" +
-    			$"{HUDData("accY", AccelerationY)}" +
-    			$"{HUDData("accZ", AccelerationZ)}" +
+			$"{Title("Acceleration")}" +
+			$"{HudData("accX", AccelerationX)}" +
+			$"{HudData("accY", AccelerationY)}" +
+			$"{HudData("accZ", AccelerationZ)}" +
     
-    			$"{Title("Orientation")}" +
-    			$"{HUDData("oriX", OrientationX)}" +
-    			$"{HUDData("oriY", OrientationY)}" +
+			$"{Title("Orientation")}" +
+			$"{HudData("oriX", OrientationX)}" +
+			$"{HudData("oriY", OrientationY)}" +
     
-    			$"{Title("Other")}" +
-    			$"{HUDData("Bullet Count", _ammoShooted)}"+
-			    $"{HUDData("Strength", _strength)}" +
-			    $"{HUDData("Killed", _killedEnemmies)}";
-    	}
+			$"{Title("Other")}" +
+			$"{HudData("Bullet Count", _ammoShooted)}"+
+			$"{HudData("Strength", _strength)}" +
+			$"{HudData("Killed", _killedEnemmies)}";
+	}
     
-    	private string GenerateRightHUDText()
-	    {
-		    return
-			    $"{Title("Game Version")}" +
-			    $"{HUDData("CoDem", _version)}" +
+	private string GenerateRightHudText()
+	{
+		return
+			$"{Title("Game Version")}" +
+			$"{HudData("CoDem", _version)}" +
 
-			    $"{Title("Execution Info")}" +
-			    $"{HUDData("FPS", Fps)}";
+			$"{Title("Execution Info")}" +
+			$"{HudData("FPS", _fps)}";
 
-	    }
+	}
     
-    	private string HUDData(string name, object value, bool newLine = true)
-    	{
-    		var newLineStr = newLine ? "\n" : "";
-    		var space = new string(' ', 22 - name.Length - $"{value}".Length - 2);
-    		return $" {Red(name)}{space}{value} {newLineStr}";
-    	}
+	private string HudData(string name, object value, bool newLine = true)
+	{
+		var newLineStr = newLine ? "\n" : "";
+		var space = new string(' ', 22 - name.Length - $"{value}".Length - 2);
+		return $" {Red(name)}{space}{value} {newLineStr}";
+	}
 	    
 	    
 }

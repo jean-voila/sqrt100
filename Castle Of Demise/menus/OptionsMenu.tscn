@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Assets/Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Fonts/Roboto-Regular.ttf" type="FontFile" id=1]
 [ext_resource path="res://Scripts/OptionsMenu.cs" type="Script" id=3]
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="FontFile" id=8]
 size = 22
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -20,17 +20,17 @@ bg_color = Color( 0, 0, 0, 0.423529 )
 [node name="OptionsMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( -24, 40 )
+pivot_offset = Vector2( -24, 40 )
 script = ExtResource( 3 )
 
 [node name="BackButton" type="Button" parent="."]
-margin_left = 448.0
-margin_top = 448.0
-margin_right = 832.0
-margin_bottom = 498.0
-custom_fonts/font = SubResource( 8 )
-custom_styles/hover = SubResource( 9 )
-custom_styles/normal = SubResource( 10 )
+offset_left = 448.0
+offset_top = 448.0
+offset_right = 832.0
+offset_bottom = 498.0
+theme_override_fonts/font = SubResource( 8 )
+theme_override_styles/hover = SubResource( 9 )
+theme_override_styles/normal = SubResource( 10 )
 text = "Retour"
 
 [connection signal="button_up" from="BackButton" to="." method="_back"]

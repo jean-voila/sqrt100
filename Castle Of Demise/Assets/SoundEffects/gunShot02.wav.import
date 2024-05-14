@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/gunShot02.wav-b66d0472127145429850b02f2029c9b9.sample"
+type="AudioStreamWAV"
+uid="uid://drv3snm38chb6"
+path="res://.godot/imported/gunShot02.wav-b66d0472127145429850b02f2029c9b9.sample"
 
 [deps]
 
 source_file="res://Assets/SoundEffects/gunShot02.wav"
-dest_files=[ "res://.import/gunShot02.wav-b66d0472127145429850b02f2029c9b9.sample" ]
+dest_files=["res://.godot/imported/gunShot02.wav-b66d0472127145429850b02f2029c9b9.sample"]
 
 [params]
 

@@ -1,11 +1,12 @@
-using Godot;
 using System;
 using CastleOfDemise.mobs.Ennemies;
+using Godot;
 
+namespace CastleOfDemise.mobs.Player;
 
 public partial class Player
 {
-    private RayCast _shootRayCast;
+    private RayCast3D _shootRayCast;
     private PackedScene _bulletHoleScene;
     private PackedScene _bloodHit;
     private AnimationPlayer _animationPlayer;
@@ -15,10 +16,10 @@ public partial class Player
     private int _killedEnemmies;
     
     [Signal]
-    public delegate bool kill_signal();
+    public delegate bool KillSignalEventHandler();
     public void _shootInit()
     {
-        _shootRayCast = GetNode<RayCast>("Head/Camera/RayCast");
+        _shootRayCast = GetNode<RayCast3D>("Head/Camera3D/RayCast3D");
         _ammoAvailable = 100;
         _ammoShooted = 0;
         _strength = 10;
@@ -40,34 +41,34 @@ public partial class Player
         bool isEnnemiTouched = false;
         var rayEnd = _shootRayCast.GetCollisionPoint();
         // cameraShake();
-         if (!_animationPlayer.IsPlaying())
-         {
-             _animationPlayer.Play("shoot");
-         }
+        if (!_animationPlayer.IsPlaying())
+        {
+            _animationPlayer.Play("shoot");
+        }
 
         if (_shootRayCast.IsColliding())
         {
-            var bulletHole = (Spatial)_bulletHoleScene.Instance();
-            var bloodHit = (Spatial)_bloodHit.Instance();
+            var bulletHole = (Node3D)_bulletHoleScene.Instantiate();
+            var bloodHit = (Node3D)_bloodHit.Instantiate();
             var hitObject = _shootRayCast.GetCollider() as Node;
             if (hitObject != null)
             {
                 Node mobTouche = hitObject.GetParent<Node>();
                 isEnnemiTouched = mobTouche.IsInGroup("ennemies");
-                if (isEnnemiTouched && !((Ennemy)hitObject).ImDead)
+                if (isEnnemiTouched && !((Enemy)hitObject).ImDead)
                 {
-                    Hit((Ennemy)hitObject);
+                    Hit((Enemy)hitObject);
                     hitObject.AddChild(bloodHit);
-                    bloodHit.GlobalTransform = new Transform(bloodHit.GlobalTransform.basis, rayEnd);
+                    bloodHit.GlobalTransform = new Transform3D(bloodHit.GlobalTransform.Basis, rayEnd);
                     bloodHit.LookAt(rayEnd + _shootRayCast.GetCollisionNormal() + new Vector3(0.01f, 0.01f, 0.01f), Vector3.Up);
-                    bloodHit.GetNode<CPUParticles>("CPUParticles").Restart();
+                    bloodHit.GetNode<CpuParticles3D>("CPUParticles3D").Restart();
                 }
                 else if (!isEnnemiTouched)
                 {
                     hitObject.AddChild(bulletHole);
-                    bulletHole.GlobalTransform = new Transform(bulletHole.GlobalTransform.basis, rayEnd);
+                    bulletHole.GlobalTransform = new Transform3D(bulletHole.GlobalTransform.Basis, rayEnd);
                     bulletHole.LookAt(rayEnd + _shootRayCast.GetCollisionNormal() + new Vector3(0.01f, 0.01f, 0.01f), Vector3.Up);
-                    bulletHole.GetNode<CPUParticles>("CPUParticles").Restart();
+                    bulletHole.GetNode<CpuParticles3D>("CPUParticles3D").Restart();
                 }
             }
         }
@@ -84,7 +85,7 @@ public partial class Player
         }
     }
     
-    private void Hit(Ennemy mobTouche)
+    private void Hit(Enemy mobTouche)
     {
         if (!mobTouche.ImDead)
         {

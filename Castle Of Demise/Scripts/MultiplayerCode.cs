@@ -8,7 +8,7 @@ namespace CastleOfDemise.Scripts
 
 
 
-    public class Player : Node2D
+    public partial class Player : Node2D
     {
         public int Id { get; set; }
         public  Vector2 Position { get; set; }
@@ -16,7 +16,7 @@ namespace CastleOfDemise.Scripts
 
 
 
-    public class MultiplayerSynchroniser : Control
+    public partial class MultiplayerSynchroniser : Control
     {
 
         Player hostPlayer;
@@ -29,7 +29,7 @@ namespace CastleOfDemise.Scripts
         }
 
 
-        public override void _Process(float delta)
+        public void _Process(float delta)
         {
             
         }

@@ -1,7 +1,8 @@
 using Godot;
-using System;
 
-public class GamemodeMenu : Control
+namespace CastleOfDemise.Scripts;
+
+public partial class GamemodeMenu : Control
 {
 	// Declare member variables here. Examples:
 	// private int a = 2;
@@ -17,7 +18,7 @@ public class GamemodeMenu : Control
 
 	private void _singlePlayer()
 	{
-		GetTree().ChangeScene("res://maps/mpMap01.tscn");
+		GetTree().ChangeSceneToFile("res://maps/mpMap01.tscn");
 	}
 
 	private void _multiplayerPressed()

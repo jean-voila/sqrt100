@@ -1,8 +1,8 @@
 using Godot;
-using System;
-using CastleOfDemise.Scripts;
 
-public class TexteHUD : Control
+namespace CastleOfDemise.Scripts;
+
+public partial class TexteHUD : Control
 {
 	// Declare member variables here. Examples:
 	// private int a = 2;
@@ -17,10 +17,10 @@ public class TexteHUD : Control
 	
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(float delta)
+	public void _Process(float delta)
 	{
 		if (Input.IsActionJustPressed("hideHUD")){
-			 hideHUDDefault = !hideHUDDefault;
+			hideHUDDefault = !hideHUDDefault;
 		}
 		this.Visible = !hideHUDDefault;
 

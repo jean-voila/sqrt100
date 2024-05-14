@@ -1,4 +1,6 @@
 
+namespace CastleOfDemise.mobs.Player;
+
 public partial class Player
 {
     private string Title(string name)

@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
-[sub_resource type="SpatialMaterial" id=1]
+[sub_resource type="StandardMaterial3D" id=1]
 albedo_color = Color( 1, 0.101961, 0.101961, 1 )
 
-[sub_resource type="CubeMesh" id=2]
+[sub_resource type="BoxMesh" id=2]
 material = SubResource( 1 )
 size = Vector3( 0.35, 0.35, 0.35 )
 
@@ -16,12 +16,12 @@ _data = [ Vector2( 0, 100 ), 0.0, -345.669, 0, 0, Vector2( 1, 27.2727 ), 0.0, 0.
 _data = [ Vector2( 0, 1 ), 0.0, 0.133554, 0, 0, Vector2( 1, 0 ), -2.36104, 0.0, 0, 0 ]
 
 [sub_resource type="Gradient" id=5]
-colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 0 )
+colors = PackedColorArray( 0, 0, 0, 1, 1, 1, 1, 0 )
 
-[node name="Spatial" type="Spatial"]
+[node name="Node3D" type="Node3D"]
 
-[node name="CPUParticles" type="CPUParticles" parent="."]
-transform = Transform( -0.06, 0, -9.05975e-09, 0, 0.06, 0, 9.05975e-09, 0, -0.06, 0, 0, 0 )
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D( -0.06, 0, -9.05975e-09, 0, 0.06, 0, 9.05975e-09, 0, -0.06, 0, 0, 0 )
 emitting = false
 amount = 88
 lifetime = 0.3

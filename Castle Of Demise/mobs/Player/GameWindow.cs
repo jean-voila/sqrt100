@@ -1,5 +1,7 @@
 using Godot;
 
+namespace CastleOfDemise.mobs.Player;
+
 public partial class Player
 {
     private void _gameWindowInit()
@@ -8,14 +10,14 @@ public partial class Player
     }
     private void ToggleFullscreen(bool fullscreen)
     {
-        OS.WindowFullscreen = fullscreen;
+        DisplayServer.WindowSetMode(fullscreen ? DisplayServer.WindowMode.Fullscreen : DisplayServer.WindowMode.Windowed);
     }
     
     private void QuitGame()
     {
         _pauseMenu.Visible = false;
         GetTree().Paused = false;
-        GetTree().ChangeScene("res://menus/TitleScreen.tscn");
+        GetTree().ChangeSceneToFile("res://menus/TitleScreen.tscn");
     }
 
 }

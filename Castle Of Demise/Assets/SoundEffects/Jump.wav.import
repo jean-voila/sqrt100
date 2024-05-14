@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Jump.wav-60fc6a2322808e2d13f637e05a330235.sample"
+type="AudioStreamWAV"
+uid="uid://c3tcksfrbvmu2"
+path="res://.godot/imported/Jump.wav-60fc6a2322808e2d13f637e05a330235.sample"
 
 [deps]
 
 source_file="res://Assets/SoundEffects/Jump.wav"
-dest_files=[ "res://.import/Jump.wav-60fc6a2322808e2d13f637e05a330235.sample" ]
+dest_files=["res://.godot/imported/Jump.wav-60fc6a2322808e2d13f637e05a330235.sample"]
 
 [params]
 

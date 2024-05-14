@@ -1,102 +1,82 @@
 using Godot;
 
+namespace CastleOfDemise.mobs.Player;
 
 public partial class Player
+{
+
+        
+    private readonly RandomNumberGenerator _randShake = new();
+        
+        
+    private float _targetFov = _originalFov;
+    static Camera3D CameraForFov => _camera as Camera3D;
+
+
+    public void HandleMouseMovement(InputEventMouseMotion mouseInput)
     {
-        private Spatial _head;
-        private NodePath _cameraNodePath;
-        private Spatial _camera;
-        private Camera _cameraForFOV;
-        private float _originalFOV;
-        private float _targetFOV;
-        private float _maxFov = 1.15f;
-        private float _FOVChangeSpeed = 9.0f;
-        private float CamRotationAmount = 0.1f;
-        private float _mouseSensitivity = 0.005f;
-        
-        private float _randomShakeStrenght = 0.3f;
-        private float _shakeDecay = 300.0f;
-        private RandomNumberGenerator _randShake = new RandomNumberGenerator();
-        private float _shakeStrenght = 0f;
+        // Adjust the Y rotation (Yaw)
+        RotateY(-mouseInput.Relative.X * _mouseSensitivity);
 
-        public void _cameraInit()
-        {
-            _cameraNodePath = "Head/Camera";
-            _head = GetNode<Spatial>("Head");
-            _camera = GetNode<Spatial>(_cameraNodePath);
-            _cameraForFOV = GetNode<Camera>(_cameraNodePath);
-            _originalFOV = _cameraForFOV.Fov;
-            _targetFOV = _originalFOV;
-            _randShake.Randomize();
-        }
-        public void HandleMouseMovement(InputEventMouseMotion mouseInput)
-        {
-            // Adjust the Y rotation (Yaw)
-            RotateY(-mouseInput.Relative.x * _mouseSensitivity);
+        // Adjust the X rotation (Pitch)
+        _head.RotateX(-mouseInput.Relative.Y * _mouseSensitivity);
 
-            // Adjust the X rotation (Pitch)
-            _head.RotateX(-mouseInput.Relative.y * _mouseSensitivity);
+        // Define your minimum and maximum pitch angles (in degrees)
+        float minPitch = -90.0f;
+        float maxPitch = 90.0f;
 
-            // Define your minimum and maximum pitch angles (in degrees)
-            float minPitch = -90.0f;
-            float maxPitch = 90.0f;
+        // Clamp the X rotation within the specified range
+        var currentRotation = _head.RotationDegrees;
+        currentRotation.X = Mathf.Clamp(currentRotation.X, minPitch, maxPitch);
 
-            // Clamp the X rotation within the specified range
-            var currentRotation = _head.RotationDegrees;
-            currentRotation.x = Mathf.Clamp(currentRotation.x, minPitch, maxPitch);
-
-            // Apply the new rotation to the camera
-            _head.RotationDegrees = currentRotation;
-        }
-        
-        private void AdjustFOV(float delta)
-        {
-            if (Input.IsActionPressed("key_z") && _floorRayCast.GetCollider() != null) 
-                _targetFOV = Mathf.Lerp(_targetFOV, _originalFOV * _maxFov, _FOVChangeSpeed * delta);
-            
-            else 
-                _targetFOV = Mathf.Lerp(_targetFOV, _originalFOV, _FOVChangeSpeed * delta);
-            
-            _cameraForFOV.Fov = _targetFOV;
-        }
-        
-        private void RotateCamera(float inputX, float delta)
-        {
-            if (_camera != null)
-            {
-                _camera.Rotation = new Vector3(
-                    _camera.Rotation.x,
-                    _camera.Rotation.y,
-                    Mathf.Lerp(_camera.Rotation.z, -inputX * CamRotationAmount, 10 * delta)
-                );
-            }
-        }
-
-        public void applyShake()
-        {
-            _shakeStrenght = _randomShakeStrenght;
-        }
-
-        public Vector2 randomOffset()
-        {
-            return new Vector2(_randShake.RandfRange(-_shakeStrenght, _shakeStrenght),
-                _randShake.RandfRange(-_shakeStrenght, _shakeStrenght));
-        }
-
-        public void cameraShake()
-        {
-            applyShake();
-        }
-
-        public void cameraShakeProcess()
-        {
-            if (_shakeStrenght > 0)
-            {
-                _shakeStrenght = Mathf.Lerp(_shakeStrenght, 0, _shakeDecay * GetProcessDeltaTime());
-                Vector2 offset = randomOffset();
-                _cameraForFOV.HOffset = offset[0];
-                _cameraForFOV.VOffset = offset[1];
-            }
-        }
-        
+        // Apply the new rotation to the camera
+        _head.RotationDegrees = currentRotation;
     }
+        
+    private void AdjustFov(float delta)
+    {
+        if (Input.IsActionPressed("key_z") && _floorRayCast.GetCollider() != null) 
+            _targetFov = Mathf.Lerp(_targetFov, _originalFov * _maxFov, _fovChangingSpeed * delta);
+            
+        else 
+            _targetFov = Mathf.Lerp(_targetFov, _originalFov, _fovChangingSpeed * delta);
+            
+        CameraForFov.Fov = _targetFov;
+    }
+        
+    private void RotateCamera(float inputX, float delta)
+    {
+        if (_camera != null)
+        {
+            _camera.Rotation = new Vector3(
+                _camera.Rotation.X,
+                _camera.Rotation.Y,
+                Mathf.Lerp(_camera.Rotation.Z, -inputX * _camRotationAmount, 10 * delta)
+            );
+        }
+    }
+
+
+    private Vector2 RandomOffset()
+    {
+        return new Vector2(_randShake.RandfRange(-_shakeStrength, _shakeStrength),
+            _randShake.RandfRange(-_shakeStrength, _shakeStrength));
+    }
+
+    private void CameraShake()
+    {
+        _shakeStrength = _randShake.RandfRange(0.1f, 0.3f);
+    }
+
+    private void CameraShakeProcess()
+    {
+        if (_shakeStrength > 0)
+        {
+            _shakeStrength = (float)Mathf.Lerp(_shakeStrength, 0, _shakeDelay * GetProcessDeltaTime());
+            Vector2 offset = RandomOffset();
+            CameraForFov.HOffset = offset[0];
+            CameraForFov.VOffset = offset[1];
+        }
+    }
+        
+}

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/focused_button.wav-e6fa1351ed008275281ea7db33a6118b.sample"
+type="AudioStreamWAV"
+uid="uid://tnxqtj6v030l"
+path="res://.godot/imported/focused_button.wav-e6fa1351ed008275281ea7db33a6118b.sample"
 
 [deps]
 
 source_file="res://Assets/SoundEffects/focused_button.wav"
-dest_files=[ "res://.import/focused_button.wav-e6fa1351ed008275281ea7db33a6118b.sample" ]
+dest_files=["res://.godot/imported/focused_button.wav-e6fa1351ed008275281ea7db33a6118b.sample"]
 
 [params]
 

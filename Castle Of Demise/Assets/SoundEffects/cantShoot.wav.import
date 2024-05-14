@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/cantShoot.wav-aa95b13530b661d11c30a225e714ebf1.sample"
+type="AudioStreamWAV"
+uid="uid://ch4j4krlu01sn"
+path="res://.godot/imported/cantShoot.wav-aa95b13530b661d11c30a225e714ebf1.sample"
 
 [deps]
 
 source_file="res://Assets/SoundEffects/cantShoot.wav"
-dest_files=[ "res://.import/cantShoot.wav-aa95b13530b661d11c30a225e714ebf1.sample" ]
+dest_files=["res://.godot/imported/cantShoot.wav-aa95b13530b661d11c30a225e714ebf1.sample"]
 
 [params]
 

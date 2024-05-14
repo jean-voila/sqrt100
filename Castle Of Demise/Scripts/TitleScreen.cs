@@ -1,7 +1,8 @@
 using Godot;
-using System;
 
-public class TitleScreen : Control
+namespace CastleOfDemise.Scripts;
+
+public partial class TitleScreen : Control
 {
 	// Declare member variables here. Examples:
 	// private int a = 2;
@@ -51,17 +52,15 @@ public class TitleScreen : Control
 	}
 	
 	private void _DebugButtonPressed()
-{
-	GetTree().ChangeScene("res://maps/TestsMap.tscn");
-}
+	{
+		GetTree().ChangeSceneToFile("res://maps/TestsMap.tscn");
+	}
 
 	
 
-  // Called every frame. 'delta' is the elapsed time since the previous frame.
-  public override void _Process(float delta)
-  {
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public void _Process(float delta)
+	{
 
-  }
+	}
 }
-
-

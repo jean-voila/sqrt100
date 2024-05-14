@@ -1,7 +1,8 @@
 using Godot;
-using System;
 
-public class Ammo : Area
+namespace CastleOfDemise.Scripts;
+
+public partial class Ammo : Area3D
 {
     [Export] public int ammoInc = 10;
     private AudioStreamPlayer3D _reloadSound;
@@ -17,7 +18,7 @@ public class Ammo : Area
     
     public void _on_Ammo_body_entered(Node body)
     {
-        if (body is Player player && _time.TimeLeft <= 0)
+        if (body is CastleOfDemise.mobs.Player.Player player && _time.TimeLeft <= 0)
         {
             _reloadSound.Play();
             _time.Start();

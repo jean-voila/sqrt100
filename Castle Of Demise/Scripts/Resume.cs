@@ -1,7 +1,8 @@
 using Godot;
-using System;
 
-public class Resume : Button
+namespace CastleOfDemise.Scripts;
+
+public partial class Resume : Button
 {
     // Declare member variables here. Examples:
     // private int a = 2;
@@ -13,11 +14,11 @@ public class Resume : Button
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-  public override void _Process(float delta)
-  {
-      if (Input.IsActionJustPressed("key_escape"))
-      {
-          EmitSignal("pressed");
-      }
-  }
+    public void _Process(float delta)
+    {
+        if (Input.IsActionJustPressed("key_escape"))
+        {
+            EmitSignal("pressed");
+        }
+    }
 }

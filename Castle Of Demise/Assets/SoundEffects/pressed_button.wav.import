@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/pressed_button.wav-dc4488f8b1d5f340fe66b8e202e8421b.sample"
+type="AudioStreamWAV"
+uid="uid://swed5s4rocpw"
+path="res://.godot/imported/pressed_button.wav-dc4488f8b1d5f340fe66b8e202e8421b.sample"
 
 [deps]
 
 source_file="res://Assets/SoundEffects/pressed_button.wav"
-dest_files=[ "res://.import/pressed_button.wav-dc4488f8b1d5f340fe66b8e202e8421b.sample" ]
+dest_files=["res://.godot/imported/pressed_button.wav-dc4488f8b1d5f340fe66b8e202e8421b.sample"]
 
 [params]
 

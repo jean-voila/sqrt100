@@ -2,7 +2,7 @@ using Godot;
 
 namespace CastleOfDemise.Scripts
 {
-    public class CodeParser 
+    public partial class CodeParser 
     {
 
 
@@ -131,10 +131,10 @@ namespace CastleOfDemise.Scripts
     }
 
 
-    public class MultiplayerMenu : Control
+    public partial class MultiplayerMenu : Control
     {
     
-        private NetworkedMultiplayerENet _peer;
+        private ENetMultiplayerPeer _peer;
         private Label _statusOk;
         private Label _statusFail;
         private Button _hostButton;
@@ -164,10 +164,14 @@ namespace CastleOfDemise.Scripts
         private void _return_pressed_button()
         {
             // Stop the server and client peers
-            _peer?.CloseConnection();
+           /*
+            * _peer?.CloseConnection();
+            */
 
             // Disconnect them from the network
-            GetTree().NetworkPeer = null;
+            /*
+             * GetTree().NetworkPeer = null;
+             */
 
             GD.Print("Stopped everything relating to network connections");
         }
@@ -180,16 +184,22 @@ namespace CastleOfDemise.Scripts
                 return;
             }
 
-            _peer = new NetworkedMultiplayerENet();
-            _peer.CompressionMode = NetworkedMultiplayerENet.CompressionModeEnum.RangeCoder;
+            _peer = new ENetMultiplayerPeer();
+            /*
+             * _peer.CompressionMode = ENetMultiplayerPeer.CompressionModeEnum.RangeCoder;
+             */
             _peer.CreateClient(ServerIp, DefaultPort);
-            GetTree().NetworkPeer = _peer;
+            /*
+             * GetTree().NetworkPeer = _peer;
+             */
             SetStatus("Connecting...", true);    
         }
         private void _hostPressed()  
         {
-            _peer = new NetworkedMultiplayerENet();
-            _peer.CompressionMode = NetworkedMultiplayerENet.CompressionModeEnum.RangeCoder;
+            _peer = new ENetMultiplayerPeer();
+            /*
+             * _peer.CompressionMode = ENetMultiplayerPeer.CompressionModeEnum.RangeCoder;
+             */
             Error err = _peer.CreateServer(DefaultPort, MaxNumberOfPeers);
             if (err != Error.Ok)
             {
@@ -198,7 +208,9 @@ namespace CastleOfDemise.Scripts
                 return;
             }
 
-            GetTree().NetworkPeer = _peer;
+            /*
+             * GetTree().NetworkPeer = _peer;
+             */
             //hides the button?
             /*
             _hostButton.Disabled = true;
@@ -226,7 +238,9 @@ namespace CastleOfDemise.Scripts
     
         public override void _Ready()
         {
-            // Get nodes - the generic is a class, argument is node path.
+            /*
+             * // Get nodes - the generic is a class, argument is node path.
+           
             _statusOk = GetNode<Label>("ConnectionControl/StatusOk");
             _statusFail = GetNode<Label>("ConnectionControl/StatusFail");
             _address = GetNode<LineEdit>("ConnectionControl/Address");
@@ -234,31 +248,33 @@ namespace CastleOfDemise.Scripts
             _joinButton = GetNode<Button>("ConnectionControl/JoinButton");
             // Connect all callbacks related to networking.
             // Note: Use snake_case when talking to engine API.
-            GetTree().Connect("network_peer_connected", this, nameof(PlayerConnected));
-            GetTree().Connect("network_peer_disconnected", this, nameof(PlayerDisconnected));
-            GetTree().Connect("connected_to_server", this, nameof(ConnectedOk));
-            GetTree().Connect("connection_failed", this, nameof(ConnectedFail));
-            GetTree().Connect("server_disconnected", this, nameof(ServerDisconnected));
+            GetTree().Connect("network_peer_connected", new Callable(this, nameof(PlayerConnected)));
+            GetTree().Connect("network_peer_disconnected", new Callable(this, nameof(PlayerDisconnected)));
+            GetTree().Connect("connected_to_server", new Callable(this, nameof(ConnectedOk)));
+            GetTree().Connect("connection_failed", new Callable(this, nameof(ConnectedFail)));
+            GetTree().Connect("server_disconnected", new Callable(this, nameof(ServerDisconnected)));
         
             // test?
             var returnButton = GetNode<Button>("BackButton");
             if (returnButton != null)
             {
-                returnButton.Connect("pressed", this, nameof(_return_pressed_button));
+                returnButton.Connect("pressed", new Callable(this, nameof(_return_pressed_button)));
             }
             else
             {
                 GD.Print("BackButton node not found");
-            }
+            }*/
         }
 
         private void PlayerConnected(int id)
         {
             // Someone connected, start the game!
-            var pong = ResourceLoader.Load<PackedScene>("res://maps/mpMap01.tscn").Instance();
+            var pong = ResourceLoader.Load<PackedScene>("res://maps/mpMap01.tscn").Instantiate();
 
             // Connect deferred so we can safely erase it from the callback.
-            pong.Connect("GameFinished", this, nameof(EndGame), new Godot.Collections.Array(), (int) ConnectFlags.Deferred);
+            /*
+             * pong.Connect("GameFinished", new Callable(this, nameof(EndGame)), new Godot.Collections.Array(), (int) ConnectFlags.Deferred);
+             */
 
             GetTree().Root.AddChild(pong);
             Hide();
@@ -266,7 +282,9 @@ namespace CastleOfDemise.Scripts
     
         private void PlayerDisconnected(int id)
         {
-            EndGame(GetTree().IsNetworkServer() ? "Client disconnected" : "Server disconnected");
+            /*
+             * EndGame(GetTree().IsServer() ? "Client disconnected" : "Server disconnected");
+             */
         }
     
     
@@ -282,7 +300,9 @@ namespace CastleOfDemise.Scripts
                 Show();
             }
 
-            GetTree().NetworkPeer = null; // Remove peer.
+            /*
+             * GetTree().NetworkPeer = null; // Remove peer.
+             */
             // shows the button?
             /*
             _hostButton.Disabled = false;
@@ -303,7 +323,9 @@ namespace CastleOfDemise.Scripts
         {
             SetStatus("Couldn't connect", false);
 
-            GetTree().NetworkPeer = null; // Remove peer.
+            /*
+             * GetTree().NetworkPeer = null; // Remove peer.
+             */
         }
 
         private void ServerDisconnected()
