@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://twx1vowmd4ni"]
+[gd_scene load_steps=43 format=3 uid="uid://twx1vowmd4ni"]
 
 [ext_resource type="Script" path="res://mobs/Player/Player.cs" id="1_y1gl0"]
 [ext_resource type="PackedScene" path="res://mobs/Player/HUD.tscn" id="2"]
@@ -14,34 +14,29 @@
 [ext_resource type="AudioStream" uid="uid://x41bhmg1xwlk" path="res://Assets/SoundEffects/Step01.wav" id="12"]
 [ext_resource type="AudioStream" uid="uid://cfo18pmuxn7ub" path="res://Assets/SoundEffects/Land.wav" id="13"]
 [ext_resource type="AudioStream" uid="uid://c3tcksfrbvmu2" path="res://Assets/SoundEffects/Jump.wav" id="14"]
-[ext_resource type="Texture2D" uid="uid://dtc7wjnag443v" path="res://Assets/Textures/imageonline-co-pixelated(2).png" id="15"]
 [ext_resource type="Script" path="res://Scripts/Resume.cs" id="17"]
 [ext_resource type="FontFile" uid="uid://dvmceoo1v7y32" path="res://Assets/Fonts/firacode.ttf" id="18"]
 [ext_resource type="StyleBox" path="res://Assets/Styles/redButton.tres" id="19"]
 [ext_resource type="StyleBox" path="res://Assets/Styles/blueButton.tres" id="20"]
-[ext_resource type="AudioStream" uid="uid://d1hh3x7e8rjnp" path="res://Assets/SoundEffects/alternativeGunShot.wav" id="21"]
 [ext_resource type="PackedScene" path="res://mobs/Player/PlayerInfos.tscn" id="22"]
 [ext_resource type="AudioStream" uid="uid://ch4j4krlu01sn" path="res://Assets/SoundEffects/cantShoot.wav" id="23"]
 [ext_resource type="AudioStream" uid="uid://ba5i1q7f3plrh" path="res://Assets/SoundEffects/hit.wav" id="24"]
 [ext_resource type="Material" path="res://Assets/Mesh/Brown_Revolver02.material" id="25"]
 
 [sub_resource type="CapsuleShape3D" id="1"]
-height = 1.5
+radius = 0.384727
+height = 1.05406
 
-[sub_resource type="StandardMaterial3D" id="4"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qgwxh"]
+radius = 0.32
+height = 1.494
 
-[sub_resource type="CapsuleMesh" id="2"]
-material = SubResource("4")
-radius = 0.2335
-height = 0.467
-
-[sub_resource type="StandardMaterial3D" id="6"]
-albedo_texture = ExtResource("15")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sscpg"]
 
 [sub_resource type="Shader" id="7"]
 code = "shader_type spatial;
 render_mode unshaded;
-
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 const int pixel_size = 4; //resolution must be divisible by pixel_size
 
 void fragment() {
@@ -94,19 +89,47 @@ length = 0.2
 step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("Head/Revolver:transform")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
+"times": PackedFloat32Array(0, 0.11, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Transform3D(-0.299978, 0, 0.00367431, 0, 0.3, 0, -0.00367431, 0, -0.299978, 0.677808, -0.635396, -1.09473), Transform3D(-0.3, 0, 0.004, 0, 0.3, 0, -0.004, 1, -0.3, 0.678, -0.635, -0.5), Transform3D(-0.299978, 0, 0.00367431, 0, 0.3, 0, -0.00367431, 0, -0.299978, 0.677808, -0.635396, -1.09473)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Head/Revolver:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_x0etl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/Revolver:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.677808, 0.181293, -0.567406)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_664c0"]
 _data = {
+"RESET": SubResource("Animation_x0etl"),
 "shoot": SubResource("30")
 }
 
@@ -121,7 +144,7 @@ the modified result to godotshaders.com.
 */
 
 shader_type canvas_item;
-
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 //*** IMPORTANT! ***/ 
 // - If you are using this shader to affect the node it is applied to set 'overlay' to false (unchecked in the instepctor).
 // - If you are using this shader as an overlay, and want the shader to affect the nodes below in the Scene hierarchy,
@@ -343,6 +366,27 @@ void fragment()
 
 [sub_resource type="ShaderMaterial" id="19"]
 shader = SubResource("18")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
 
 [sub_resource type="StyleBoxFlat" id="22"]
 bg_color = Color(0, 0, 0, 0.627451)
@@ -400,9 +444,10 @@ bg_color = Color(0.54902, 0.054902, 0.054902, 0.545098)
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_head", "_floorRayCast")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_head", "_usedCamera", "_floorRayCast")]
 script = ExtResource("1_y1gl0")
 _head = NodePath("Head")
+_usedCamera = NodePath("Head/Camera3D")
 _floorRayCast = NodePath("checkFloor")
 
 [node name="GunShotSoundsEffects" type="Node3D" parent="."]
@@ -417,9 +462,6 @@ pitch_scale = 2.27
 [node name="GunShot03" type="AudioStreamPlayer3D" parent="GunShotSoundsEffects"]
 stream = ExtResource("7")
 
-[node name="JeansMod" type="AudioStreamPlayer3D" parent="GunShotSoundsEffects"]
-stream = ExtResource("21")
-
 [node name="CantShoot" type="AudioStreamPlayer3D" parent="GunShotSoundsEffects"]
 stream = ExtResource("23")
 
@@ -427,21 +469,22 @@ stream = ExtResource("23")
 stream = ExtResource("24")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, -3.48787e-16, -3.48787e-16, -3.48787e-16, -1, -8.74228e-08, -3.48787e-16, 8.74228e-08, -1, 0, 1.0238, -0.0436072)
 shape = SubResource("1")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, -3.48787e-16, -3.48787e-16, -3.48787e-16, -1, -8.74228e-08, -3.48787e-16, 8.74228e-08, -1, 2.08165e-12, 0.771594, 2.08165e-12)
 cast_shadow = 0
-mesh = SubResource("2")
-material = SubResource("6")
+mesh = SubResource("CapsuleMesh_qgwxh")
+material = SubResource("StandardMaterial3D_sscpg")
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.952763, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.11717, 2.08165e-12)
 current = true
-fov = 110.0
+fov = 100.0
 
 [node name="PixeliseShader" type="MeshInstance3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.466729)
@@ -457,11 +500,11 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4")
 
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, -5.96046e-08, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, 0, 0)
 target_position = Vector3(0, 0, -2000)
 
 [node name="Revolver" type="MeshInstance3D" parent="Head"]
-transform = Transform3D(-0.299978, 0, 0.00367431, 0, 0.3, 0, -0.00367431, 0, -0.299978, 0.677808, -0.635396, -1.09473)
+transform = Transform3D(-0.299978, 0, 0.00367431, 0, 0.3, 0, -0.00367431, 0, -0.299978, 0.507487, 0.170912, -0.896288)
 cast_shadow = 0
 mesh = SubResource("29")
 skeleton = NodePath("../..")
@@ -504,6 +547,7 @@ stream = ExtResource("8")
 stream = ExtResource("10")
 
 [node name="Step04" type="AudioStreamPlayer3D" parent="StepSoundsEffetcs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43719, 0)
 stream = ExtResource("9")
 
 [node name="Step05" type="AudioStreamPlayer3D" parent="StepSoundsEffetcs"]
@@ -519,10 +563,12 @@ one_shot = true
 stream = ExtResource("14")
 
 [node name="Land" type="AudioStreamPlayer3D" parent="jumpAndLandSoundEffect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.947863, 0)
 stream = ExtResource("13")
 
 [node name="checkFloor" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.304532, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75709, 0)
+target_position = Vector3(2.08165e-12, -2, 2.08165e-12)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -613,10 +659,6 @@ layout_mode = 2
 layout_mode = 2
 theme_override_styles/separator = SubResource("23")
 
-[node name="JModToggle" type="CheckButton" parent="CanvasLayer2/MenuPause/Panneau/Elements"]
-layout_mode = 2
-text = "Jean's Mod"
-
 [node name="FullScToggle" type="CheckButton" parent="CanvasLayer2/MenuPause/Panneau/Elements"]
 layout_mode = 2
 shortcut = SubResource("28")
@@ -653,7 +695,6 @@ theme_override_styles/separator = SubResource("23")
 [connection signal="toggled" from="CanvasLayer2/MenuPause/Panneau/Elements/Music/MusicToggle" to="." method="SwitchMusicPlayer"]
 [connection signal="value_changed" from="CanvasLayer2/MenuPause/Panneau/Elements/SoundEffects/Slider" to="." method="ChangeSoundEffectsVolume"]
 [connection signal="toggled" from="CanvasLayer2/MenuPause/Panneau/Elements/SoundEffects/SEToggle" to="." method="SwitchSEPlayer"]
-[connection signal="toggled" from="CanvasLayer2/MenuPause/Panneau/Elements/JModToggle" to="." method="SwitchJeansMod"]
 [connection signal="toggled" from="CanvasLayer2/MenuPause/Panneau/Elements/FullScToggle" to="." method="ToggleFullscreen"]
 [connection signal="pressed" from="CanvasLayer2/MenuPause/Panneau/Elements/Boutons/Resume" to="." method="UnPause"]
 [connection signal="pressed" from="CanvasLayer2/MenuPause/Panneau/Elements/Boutons/Exit" to="." method="QuitGame"]

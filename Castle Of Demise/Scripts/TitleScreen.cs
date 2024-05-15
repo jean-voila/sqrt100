@@ -59,7 +59,7 @@ public partial class TitleScreen : Control
 	
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public void _Process(float delta)
+	public override void _Process(double d)
 	{
 
 	}

@@ -14,7 +14,7 @@ public partial class Resume : Button
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public void _Process(float delta)
+    public override void _Process(double d)
     {
         if (Input.IsActionJustPressed("key_escape"))
         {

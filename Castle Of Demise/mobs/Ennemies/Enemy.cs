@@ -29,7 +29,7 @@ namespace CastleOfDemise.mobs.Ennemies
             Connect("HitSignal", new Callable(this, "Hit"));
         }
 
-        public void _Process(float delta)
+        public override void _Process(double d)
         {
             ulong timeNow = Time.GetTicksMsec();
             if (ImDead && timeNow - _timeSinceImDead > TimeBeforeDisappear)

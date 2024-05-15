@@ -29,7 +29,7 @@ namespace CastleOfDemise.Scripts
         }
 
 
-        public void _Process(float delta)
+        public override void _Process(double d)
         {
             
         }

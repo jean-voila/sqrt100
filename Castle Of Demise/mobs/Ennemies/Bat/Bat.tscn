@@ -1,112 +1,152 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=21 format=3 uid="uid://tgtc4mteft3s"]
 
-[ext_resource path="res://Assets/Textures/batframes.png" type="Texture2D" id=1]
-[ext_resource path="res://mobs/Ennemies/Bat/Bat.cs" type="Script" id=2]
-[ext_resource path="res://Assets/Textures/touched_batframes.png" type="Texture2D" id=3]
+[ext_resource type="Texture2D" uid="uid://vj4ih4cpmamv" path="res://Assets/Textures/batframes.png" id="1"]
+[ext_resource type="Script" path="res://mobs/Ennemies/Bat/Bat.cs" id="2"]
+[ext_resource type="Texture2D" uid="uid://pl17t38jbv5u" path="res://Assets/Textures/touched_batframes.png" id="3"]
 
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 3 )
-region = Rect2( 64, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="19"]
+atlas = ExtResource("3")
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=12]
-flags = 16
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="12"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=16]
-flags = 16
-atlas = ExtResource( 1 )
-region = Rect2( 0, 96, 32, 32 )
+[sub_resource type="AtlasTexture" id="16"]
+atlas = ExtResource("1")
+region = Rect2(0, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id=14]
-flags = 16
-atlas = ExtResource( 1 )
-region = Rect2( 0, 32, 32, 32 )
+[sub_resource type="AtlasTexture" id="14"]
+atlas = ExtResource("1")
+region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id=15]
-flags = 16
-atlas = ExtResource( 1 )
-region = Rect2( 0, 64, 32, 32 )
+[sub_resource type="AtlasTexture" id="15"]
+atlas = ExtResource("1")
+region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id=2]
-flags = 16
-atlas = ExtResource( 1 )
-region = Rect2( 32, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="2"]
+atlas = ExtResource("1")
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=3]
-flags = 16
-atlas = ExtResource( 1 )
-region = Rect2( 64, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("1")
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=4]
-flags = 16
-atlas = ExtResource( 1 )
-region = Rect2( 96, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="4"]
+atlas = ExtResource("1")
+region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=11]
-flags = 16
-atlas = ExtResource( 1 )
-region = Rect2( 64, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="11"]
+atlas = ExtResource("1")
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 3 )
-region = Rect2( 64, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="20"]
+atlas = ExtResource("3")
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=25]
-flags = 16
-atlas = ExtResource( 1 )
-region = Rect2( 64, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="25"]
+atlas = ExtResource("1")
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=21]
-flags = 16
-atlas = ExtResource( 1 )
-region = Rect2( 64, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="21"]
+atlas = ExtResource("1")
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 3 )
-region = Rect2( 32, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="22"]
+atlas = ExtResource("3")
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=23]
-flags = 16
-atlas = ExtResource( 1 )
-region = Rect2( 32, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="23"]
+atlas = ExtResource("1")
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 3 )
-region = Rect2( 64, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="24"]
+atlas = ExtResource("3")
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id=5]
-animations = [ {
-"frames": [ SubResource( 19 ), SubResource( 12 ), SubResource( 16 ), SubResource( 14 ), SubResource( 15 ) ],
+[sub_resource type="SpriteFrames" id="5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("19")
+}, {
+"duration": 1.0,
+"texture": SubResource("12")
+}, {
+"duration": 1.0,
+"texture": SubResource("16")
+}, {
+"duration": 1.0,
+"texture": SubResource("14")
+}, {
+"duration": 1.0,
+"texture": SubResource("15")
+}],
 "loop": true,
-"name": "dying",
+"name": &"dying",
 "speed": 8.0
 }, {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 11 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("2")
+}, {
+"duration": 1.0,
+"texture": SubResource("3")
+}, {
+"duration": 1.0,
+"texture": SubResource("4")
+}, {
+"duration": 1.0,
+"texture": SubResource("11")
+}],
 "loop": true,
-"name": "idle",
+"name": &"idle",
 "speed": 8.0
 }, {
-"frames": [ SubResource( 2 ), SubResource( 20 ), SubResource( 25 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("2")
+}, {
+"duration": 1.0,
+"texture": SubResource("20")
+}, {
+"duration": 1.0,
+"texture": SubResource("25")
+}, {
+"duration": 1.0,
+"texture": SubResource("20")
+}, {
+"duration": 1.0,
+"texture": SubResource("21")
+}, {
+"duration": 1.0,
+"texture": SubResource("22")
+}, {
+"duration": 1.0,
+"texture": SubResource("23")
+}, {
+"duration": 1.0,
+"texture": SubResource("24")
+}],
 "loop": true,
-"name": "touched",
+"name": &"touched",
 "speed": 25.0
-} ]
+}]
 
-[sub_resource type="SphereShape3D" id=6]
+[sub_resource type="SphereShape3D" id="6"]
 radius = 0.650555
 
 [node name="Bat" type="Node3D"]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D"]
-transform = Transform3D( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0 )
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 billboard = 2
-frames = SubResource( 5 )
-animation = "idle"
-playing = true
+texture_filter = 0
+sprite_frames = SubResource("5")
+animation = &"idle"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-shape = SubResource( 6 )
+shape = SubResource("6")

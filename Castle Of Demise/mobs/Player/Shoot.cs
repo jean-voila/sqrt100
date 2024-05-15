@@ -74,14 +74,10 @@ public partial class Player
         }
         if (_SEEnabled && !isEnnemiTouched)
         {
-            if (!_jeansModEnabled)
-            {
-                var randomGunShot = new Random().Next(0, _gunShotSounds.Count);
-                _gunShotSounds[randomGunShot].PitchScale = new Random().Next(1, 2);
-                _gunShotSounds[randomGunShot].Play();
-            }
-            else
-                _alternateShotSound.Play();
+             var randomGunShot = new Random().Next(0, _gunShotSounds.Count); 
+             _gunShotSounds[randomGunShot].PitchScale = new Random().Next(1, 2); 
+             _gunShotSounds[randomGunShot].Play();
+
         }
     }
     

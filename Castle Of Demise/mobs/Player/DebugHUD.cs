@@ -14,22 +14,22 @@ public partial class Player
     		
 		var transform = GlobalTransform;
 		var position = transform.Origin;
-		PositionX = position.X;
-		PositionY = position.Y;
-		PositionZ = position.Z;
+		_positionX = position.X;
+		_positionY = position.Y;
+		_positionZ = position.Z;
     
-		var acceleration = _velocity;
-		AccelerationX = acceleration.X;
-		AccelerationY = acceleration.Y;
-		AccelerationZ = acceleration.Z;
+		var acceleration = Velocity;
+		_accelerationX = acceleration.X;
+		_accelerationY = acceleration.Y;
+		_accelerationZ = acceleration.Z;
     
     
-		var cameraTransform = CameraForFov.GlobalTransform;
+		var cameraTransform = ((Camera3D)_usedCamera).GlobalTransform;
 		var cameraBasis = cameraTransform.Basis;
 		var cameraEulerAngles = cameraBasis.GetEuler();
     
-		OrientationX = cameraEulerAngles.X;
-		OrientationY = cameraEulerAngles.Y;
+		_orientationX = cameraEulerAngles.X;
+		_orientationY = cameraEulerAngles.Y;
     
 		var leftText = GenerateLeftHudText();
 		textLeftHud.Text = leftText;
@@ -46,18 +46,18 @@ public partial class Player
 	{
 		return
 			$"{Title("Position")}" +
-			$"{HudData("posX", PositionX)}" +
-			$"{HudData("posY", PositionY)}" +
-			$"{HudData("posZ", PositionZ)}" +
+			$"{HudData("posX", _positionX)}" +
+			$"{HudData("posY", _positionY)}" +
+			$"{HudData("posZ", _positionZ)}" +
     
 			$"{Title("Acceleration")}" +
-			$"{HudData("accX", AccelerationX)}" +
-			$"{HudData("accY", AccelerationY)}" +
-			$"{HudData("accZ", AccelerationZ)}" +
+			$"{HudData("accX", _accelerationX)}" +
+			$"{HudData("accY", _accelerationY)}" +
+			$"{HudData("accZ", _accelerationZ)}" +
     
 			$"{Title("Orientation")}" +
-			$"{HudData("oriX", OrientationX)}" +
-			$"{HudData("oriY", OrientationY)}" +
+			$"{HudData("oriX", _orientationX)}" +
+			$"{HudData("oriY", _orientationY)}" +
     
 			$"{Title("Other")}" +
 			$"{HudData("Bullet Count", _ammoShooted)}"+
@@ -69,7 +69,7 @@ public partial class Player
 	{
 		return
 			$"{Title("Game Version")}" +
-			$"{HudData("CoDem", _version)}" +
+			$"{HudData("Version", "")}" +
 
 			$"{Title("Execution Info")}" +
 			$"{HudData("FPS", _fps)}";

@@ -16,12 +16,11 @@ public partial class Player
     private AudioStreamPlayer3D _landSound;
     // private String _musicPlayerPath;
     // private AudioStreamPlayer2D _musicPlayer;
-    private bool _SEEnabled;
+    private bool _SEEnabled = true;
 
     public void _audioInit()
     {
         
-        _alternateShotSound = GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/JeansMod");
         _cantShootSound = GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/CantShoot");
         _hitSound = GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/Hit");
         _gunShotSounds = new List<AudioStreamPlayer3D>

@@ -17,7 +17,7 @@ public partial class TexteHUD : Control
 	
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-	public void _Process(float delta)
+	public override void _Process(double d)
 	{
 		if (Input.IsActionJustPressed("hideHUD")){
 			hideHUDDefault = !hideHUDDefault;

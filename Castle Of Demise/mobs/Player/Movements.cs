@@ -1,29 +1,30 @@
+using System;
 using Godot;
 
 namespace CastleOfDemise.mobs.Player;
 
 public partial class Player 
 {
-    private float PositionX;
-    private float PositionY;
-    private float PositionZ;
-    private float AccelerationX;
-    private float AccelerationY;
-    private float AccelerationZ;
-    private float OrientationX;
-    private float OrientationY;
+    private float _positionX;
+    private float _positionY;
+    private float _positionZ;
+    private float _accelerationX;
+    private float _accelerationY;
+    private float _jumpVelocity;
+    private float _accelerationZ;
+    private float _orientationX;
+    private float _orientationY;
     private Vector3 _direction;
-    private Vector3 _velocity;
-    private ulong LastJumpTime = Time.GetTicksUsec();
-    private bool Landed = false;
-    private float _accelerationSpeed = 6f;
-    private float _decelerationSpeed = 6f;
-    private float _maxSpeed = 17f;
-    private float _gravity = 34f;
-    private float _jumpSpeed = 25f;
-    
-    
-    private void HandleMouseMovementInputs(float delta)
+    private ulong _lastJumpTime = Time.GetTicksUsec();
+    private bool _landed=true;
+    [Export] private float _accelerationSpeed = 45f;
+    [Export] private float _decelerationSpeed = 30f;
+    [Export] private float _maxSpeed = 12.5f;
+    [Export] private float _gravity = 34f;
+    [Export] private float _jumpSpeed = 25f;
+
+
+    private void HandleMouseMovementInputs(float d)
     {
         var inputMovementVector = new Vector2();
         bool isMoving = false;
@@ -51,59 +52,57 @@ public partial class Player
             isMoving = true;
         }
         
+
+        
         _direction = new Vector3();
         _direction += -GlobalTransform.Basis.Z * inputMovementVector.Y;
         _direction += GlobalTransform.Basis.X * inputMovementVector.X;
         HandleStepSounds(isMoving);
         
-        RotateCamera(inputMovementVector.X, delta);
-        AdjustFov(delta);
+        RotateCamera(inputMovementVector.X, d);
+        AdjustFov(d);
     }
     
-    private void HandleJump()
+
+
+    public void HandleMovements(double d)
     {
-        if (_floorRayCast.GetCollider() == null) return;
-
-        if (!Landed && Time.GetTicksUsec() - LastJumpTime > 10)
-        {
-            Landed = true;
-            if (_SEEnabled)
-            {
-                _landSound.Play();
-                // cameraShake();
-            }
-        }
-
-        if (_floorRayCast.GetCollider() != null && Input.IsActionPressed("key_space"))
-        {
-            LastJumpTime = Time.GetTicksUsec();
-            _velocity.Y = _jumpSpeed;
-			
-            if (_SEEnabled) _jumpSound.Play();
-            Landed = false;
-        }
-    }
-
-    public void HandleMovements(float delta)
-    {
-        var horizontalVelocity = Velocity;
         
-        horizontalVelocity.Y = 0;
+        var horizontalVelocity = Velocity;
+
 
         var target = _direction * _maxSpeed;
         var acceleration = (_direction.Dot(horizontalVelocity) > 0) ? _accelerationSpeed : _decelerationSpeed;
 
-        horizontalVelocity = horizontalVelocity.Lerp(target, acceleration * delta);
-        
-        horizontalVelocity.X = horizontalVelocity.X;
-        horizontalVelocity.Z = horizontalVelocity.Z;
+        horizontalVelocity = horizontalVelocity.Lerp(target, acceleration * (float)d);
 
-        if (_floorRayCast.GetCollider() == null)
+
+
+        if (_floorRayCast.GetCollider() != null)
         {
-            horizontalVelocity.Y -= delta * _gravity;
+            if (!_landed && Time.GetTicksUsec() - _lastJumpTime > 100)
+            {
+                _landed = true;
+                horizontalVelocity.Y = 0;
+                _landSound.Play();
+            }
+
+            else if (Input.IsActionJustPressed("key_space"))
+            {
+                _lastJumpTime = Time.GetTicksUsec();
+                horizontalVelocity.Y = Velocity.Y + _jumpSpeed;
+                _jumpSound.Play();
+                _landed = false;
+            }
         }
 
-        Velocity = new Vector3(horizontalVelocity.X, horizontalVelocity.Y, horizontalVelocity.Z);
+        else
+        {
+            horizontalVelocity.Y = Velocity.Y - ((float)d * _gravity);
+        }
+        
+        Velocity = horizontalVelocity;
+        
         MoveAndSlide();
     }
     
@@ -116,18 +115,18 @@ public partial class Player
 
     private void HandleRespawn()
     {
-        if (PositionY < -25)
+        if (_positionY < -25)
         {
             Vector3 newCoordinates = new Vector3(0.0f, 6.0f, 0.0f);
             _gravity = -60f;
             //Teleport(newCoordinates);
         }
-        if (PositionY > 35)
+        if (_positionY > 35)
         {
             Vector3 newCoordinates = new Vector3(0.0f, 6.0f, 0.0f);
             _gravity = 75f;
             //Teleport(newCoordinates);
-        } else if (PositionY > 0)
+        } else if (_positionY > 0)
         {
             Vector3 newCoordinates = new Vector3(0.0f, 6.0f, 0.0f);
             _gravity = 34f;

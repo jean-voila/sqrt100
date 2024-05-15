@@ -1,134 +1,180 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=23 format=3 uid="uid://xrhd6q53it2j"]
 
-[ext_resource path="res://Assets/Textures/ZombieFrames.png" type="Texture2D" id=1]
-[ext_resource path="res://mobs/Ennemies/Zombie/Zombie.cs" type="Script" id=2]
+[ext_resource type="Texture2D" uid="uid://bgvmrshlnj4l7" path="res://Assets/Textures/ZombieFrames.png" id="1"]
+[ext_resource type="Script" path="res://mobs/Ennemies/Zombie/Zombie.cs" id="2"]
 
-[sub_resource type="AtlasTexture" id=11]
-flags = 19
-atlas = ExtResource( 1 )
-region = Rect2( 0, 160, 32, 32 )
+[sub_resource type="AtlasTexture" id="11"]
+atlas = ExtResource("1")
+region = Rect2(0, 160, 32, 32)
 
-[sub_resource type="AtlasTexture" id=12]
-flags = 19
-atlas = ExtResource( 1 )
-region = Rect2( 32, 160, 32, 32 )
+[sub_resource type="AtlasTexture" id="12"]
+atlas = ExtResource("1")
+region = Rect2(32, 160, 32, 32)
 
-[sub_resource type="AtlasTexture" id=13]
-flags = 19
-atlas = ExtResource( 1 )
-region = Rect2( 64, 160, 32, 32 )
+[sub_resource type="AtlasTexture" id="13"]
+atlas = ExtResource("1")
+region = Rect2(64, 160, 32, 32)
 
-[sub_resource type="AtlasTexture" id=14]
-flags = 19
-atlas = ExtResource( 1 )
-region = Rect2( 96, 160, 32, 32 )
+[sub_resource type="AtlasTexture" id="14"]
+atlas = ExtResource("1")
+region = Rect2(96, 160, 32, 32)
 
-[sub_resource type="AtlasTexture" id=15]
-flags = 19
-atlas = ExtResource( 1 )
-region = Rect2( 128, 160, 32, 32 )
+[sub_resource type="AtlasTexture" id="15"]
+atlas = ExtResource("1")
+region = Rect2(128, 160, 32, 32)
 
-[sub_resource type="AtlasTexture" id=16]
-flags = 19
-atlas = ExtResource( 1 )
-region = Rect2( 160, 160, 32, 32 )
+[sub_resource type="AtlasTexture" id="16"]
+atlas = ExtResource("1")
+region = Rect2(160, 160, 32, 32)
 
-[sub_resource type="AtlasTexture" id=17]
-flags = 19
-atlas = ExtResource( 1 )
-region = Rect2( 192, 160, 32, 32 )
+[sub_resource type="AtlasTexture" id="17"]
+atlas = ExtResource("1")
+region = Rect2(192, 160, 32, 32)
 
-[sub_resource type="AtlasTexture" id=18]
-flags = 19
-atlas = ExtResource( 1 )
-region = Rect2( 224, 160, 32, 32 )
+[sub_resource type="AtlasTexture" id="18"]
+atlas = ExtResource("1")
+region = Rect2(224, 160, 32, 32)
 
-[sub_resource type="AtlasTexture" id=19]
-flags = 19
-atlas = ExtResource( 1 )
-region = Rect2( 0, 2, 32, 31 )
+[sub_resource type="AtlasTexture" id="19"]
+atlas = ExtResource("1")
+region = Rect2(0, 2, 32, 31)
 
-[sub_resource type="AtlasTexture" id=20]
-flags = 19
-atlas = ExtResource( 1 )
-region = Rect2( 32, 2, 32, 31 )
+[sub_resource type="AtlasTexture" id="20"]
+atlas = ExtResource("1")
+region = Rect2(32, 2, 32, 31)
 
-[sub_resource type="AtlasTexture" id=21]
-flags = 19
-atlas = ExtResource( 1 )
-region = Rect2( 64, 2, 32, 31 )
+[sub_resource type="AtlasTexture" id="21"]
+atlas = ExtResource("1")
+region = Rect2(64, 2, 32, 31)
 
-[sub_resource type="AtlasTexture" id=22]
-flags = 19
-atlas = ExtResource( 1 )
-region = Rect2( 96, 2, 32, 31 )
+[sub_resource type="AtlasTexture" id="22"]
+atlas = ExtResource("1")
+region = Rect2(96, 2, 32, 31)
 
-[sub_resource type="AtlasTexture" id=23]
-flags = 19
-atlas = ExtResource( 1 )
-region = Rect2( 128, 2, 32, 31 )
+[sub_resource type="AtlasTexture" id="23"]
+atlas = ExtResource("1")
+region = Rect2(128, 2, 32, 31)
 
-[sub_resource type="AtlasTexture" id=24]
-flags = 19
-atlas = ExtResource( 1 )
-region = Rect2( 160, 2, 32, 31 )
+[sub_resource type="AtlasTexture" id="24"]
+atlas = ExtResource("1")
+region = Rect2(160, 2, 32, 31)
 
-[sub_resource type="AtlasTexture" id=25]
-flags = 19
-atlas = ExtResource( 1 )
-region = Rect2( 192, 2, 32, 31 )
+[sub_resource type="AtlasTexture" id="25"]
+atlas = ExtResource("1")
+region = Rect2(192, 2, 32, 31)
 
-[sub_resource type="AtlasTexture" id=26]
-flags = 19
-atlas = ExtResource( 1 )
-region = Rect2( 224, 2, 32, 31 )
+[sub_resource type="AtlasTexture" id="26"]
+atlas = ExtResource("1")
+region = Rect2(224, 2, 32, 31)
 
-[sub_resource type="AtlasTexture" id=28]
-flags = 19
-atlas = ExtResource( 1 )
-region = Rect2( 64, 160, 32, 32 )
+[sub_resource type="AtlasTexture" id="28"]
+atlas = ExtResource("1")
+region = Rect2(64, 160, 32, 32)
 
-[sub_resource type="AtlasTexture" id=27]
-flags = 19
-atlas = ExtResource( 1 )
-region = Rect2( 32, 160, 32, 32 )
+[sub_resource type="AtlasTexture" id="27"]
+atlas = ExtResource("1")
+region = Rect2(32, 160, 32, 32)
 
-[sub_resource type="SpriteFrames" id=10]
-animations = [ {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+[sub_resource type="SpriteFrames" id="10"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("11")
+}, {
+"duration": 1.0,
+"texture": SubResource("12")
+}, {
+"duration": 1.0,
+"texture": SubResource("13")
+}, {
+"duration": 1.0,
+"texture": SubResource("14")
+}, {
+"duration": 1.0,
+"texture": SubResource("15")
+}, {
+"duration": 1.0,
+"texture": SubResource("16")
+}, {
+"duration": 1.0,
+"texture": SubResource("17")
+}, {
+"duration": 1.0,
+"texture": SubResource("18")
+}],
 "loop": false,
-"name": "dying",
+"name": &"dying",
 "speed": 24.0
 }, {
-"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("19")
+}, {
+"duration": 1.0,
+"texture": SubResource("20")
+}, {
+"duration": 1.0,
+"texture": SubResource("21")
+}, {
+"duration": 1.0,
+"texture": SubResource("22")
+}, {
+"duration": 1.0,
+"texture": SubResource("23")
+}, {
+"duration": 1.0,
+"texture": SubResource("24")
+}, {
+"duration": 1.0,
+"texture": SubResource("25")
+}, {
+"duration": 1.0,
+"texture": SubResource("26")
+}],
 "loop": true,
-"name": "idle",
+"name": &"idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 28 ), SubResource( 27 ), SubResource( 28 ), SubResource( 27 ), SubResource( 28 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("28")
+}, {
+"duration": 1.0,
+"texture": SubResource("27")
+}, {
+"duration": 1.0,
+"texture": SubResource("28")
+}, {
+"duration": 1.0,
+"texture": SubResource("27")
+}, {
+"duration": 1.0,
+"texture": SubResource("28")
+}],
 "loop": false,
-"name": "touched",
+"name": &"touched",
 "speed": 25.0
-} ]
+}]
 
-[sub_resource type="CapsuleShape3D" id=1]
-radius = 0.763853
+[sub_resource type="CapsuleShape3D" id="1"]
+radius = 0.357655
 height = 0.71531
 
 [node name="Zombie" type="Node3D"]
-transform = Transform3D( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0 )
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D"]
-transform = Transform3D( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 billboard = 2
-frames = SubResource( 10 )
-animation = "idle"
-frame = 1
-playing = true
+texture_filter = 0
+sprite_frames = SubResource("10")
+animation = &"idle"
+frame = 4
+frame_progress = 0.928901
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D( 0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, -0.133596, 0 )
-shape = SubResource( 1 )
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, -0.133596, 0)
+shape = SubResource("1")

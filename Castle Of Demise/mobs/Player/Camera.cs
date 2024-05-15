@@ -4,13 +4,12 @@ namespace CastleOfDemise.mobs.Player;
 
 public partial class Player
 {
-
-        
     private readonly RandomNumberGenerator _randShake = new();
         
-        
-    private float _targetFov = _originalFov;
-    static Camera3D CameraForFov => _camera as Camera3D;
+    private Camera3D CameraForFov => _usedCamera as Camera3D;
+    [Export] private static readonly float OriginalFov = 100;
+    private float _targetFov = OriginalFov;
+    
 
 
     public void HandleMouseMovement(InputEventMouseMotion mouseInput)
@@ -33,25 +32,25 @@ public partial class Player
         _head.RotationDegrees = currentRotation;
     }
         
-    private void AdjustFov(float delta)
+    private void AdjustFov(float d)
     {
-        if (Input.IsActionPressed("key_z") && _floorRayCast.GetCollider() != null) 
-            _targetFov = Mathf.Lerp(_targetFov, _originalFov * _maxFov, _fovChangingSpeed * delta);
-            
-        else 
-            _targetFov = Mathf.Lerp(_targetFov, _originalFov, _fovChangingSpeed * delta);
+        if (Input.IsActionPressed("key_z") && _floorRayCast.GetCollider() != null)
+            _targetFov = Mathf.Lerp(_targetFov, OriginalFov * _maxFov, _fovChangingSpeed * d);
+
+        else
+            _targetFov = Mathf.Lerp(_targetFov, OriginalFov, _fovChangingSpeed * d);
             
         CameraForFov.Fov = _targetFov;
     }
         
-    private void RotateCamera(float inputX, float delta)
+    private void RotateCamera(float inputX, float d)
     {
-        if (_camera != null)
+        if (_usedCamera != null)
         {
-            _camera.Rotation = new Vector3(
-                _camera.Rotation.X,
-                _camera.Rotation.Y,
-                Mathf.Lerp(_camera.Rotation.Z, -inputX * _camRotationAmount, 10 * delta)
+            _usedCamera.Rotation = new Vector3(
+                _usedCamera.Rotation.X,
+                _usedCamera.Rotation.Y,
+                Mathf.Lerp(_usedCamera.Rotation.Z, -inputX * _camRotationAmount, 10 * d)
             );
         }
     }

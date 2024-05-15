@@ -99,5 +99,8 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+environment/defaults/default_clear_color=Color(0.611383, 0.362601, 0.417175, 1)
+anti_aliasing/quality/msaa_2d=1
+anti_aliasing/quality/msaa_3d=1
 environment/defaults/default_environment="res://default_env.tres"
 quality/filters/msaa=1
