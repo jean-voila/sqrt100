@@ -1219,6 +1219,7 @@ texture = ExtResource("4")
 
 [node name="TitleMenu" type="Control" parent="."]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 0
 
 [node name="PlayButton" type="Button" parent="TitleMenu"]
@@ -1355,8 +1356,8 @@ text = "Retour"
 
 [node name="MultiplayerMenu" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
-anchors_preset = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 7.0
@@ -1446,19 +1447,19 @@ clear_button_enabled = true
 [node name="ServerIsConnectedDebug" type="RichTextLabel" parent="MultiplayerMenu"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 846.0
-offset_top = 332.0
-offset_right = 1073.0
-offset_bottom = 411.0
+offset_left = 1054.0
+offset_top = 327.0
+offset_right = 1218.0
+offset_bottom = 432.0
 rotation = 1.29472
 
 [node name="ClientConnected" type="RichTextLabel" parent="MultiplayerMenu"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 853.0
-offset_top = 203.0
-offset_right = 1080.0
-offset_bottom = 282.0
+offset_left = 859.0
+offset_top = 199.0
+offset_right = 1086.0
+offset_bottom = 278.0
 
 [node name="GamemodeMenu" type="Control" parent="."]
 unique_name_in_owner = true
@@ -1517,6 +1518,9 @@ theme_override_styles/normal = ExtResource("5")
 theme_override_styles/hover = ExtResource("6")
 theme_override_styles/pressed = ExtResource("11")
 text = "Jouer à plusieurs"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://mobs/Player/Player.tscn")
 
 [connection signal="button_down" from="TitleMenu/PlayButton" to="." method="_pressed_button"]
 [connection signal="button_up" from="TitleMenu/PlayButton" to="." method="_PlayButtonPressed"]

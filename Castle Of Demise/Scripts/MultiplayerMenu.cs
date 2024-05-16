@@ -133,8 +133,8 @@ namespace CastleOfDemise.Scripts
 
     public partial class MultiplayerMenu : Control
     {
-    
-        private ENetMultiplayerPeer _peer;
+
+        private ENetMultiplayerPeer _peer = new();
         private Label _statusOk;
         private Label _statusFail;
         private Button _hostButton;
@@ -175,16 +175,17 @@ namespace CastleOfDemise.Scripts
 
             GD.Print("Stopped everything relating to network connections");
         }
-        private void _clientPressed()
+        private void _clientPressed() // joinpressed
         {
-            string ip = CodeParser.CodeToIp(_address.Text);
+            string ip = "hehe";
+            if (_address == null) ip = CodeParser.CodeToIp("1MCCIR5T");
+            else ip = CodeParser.CodeToIp(_address.Text);
             if (!ip.IsValidIPAddress())
             {
                 SetStatus("IP address is invalid", false);
                 return;
             }
 
-            _peer = new ENetMultiplayerPeer();
             /*
              * _peer.CompressionMode = ENetMultiplayerPeer.CompressionModeEnum.RangeCoder;
              */
@@ -208,19 +209,18 @@ namespace CastleOfDemise.Scripts
                 return;
             }
 
-            /*
-             * GetTree().NetworkPeer = _peer;
-             */
-            //hides the button?
-            /*
-            _hostButton.Disabled = true;
-            _joinButton.Disabled = true;
-            */
             SetStatus($"Code: {CodeParser.IpToCode(ServerIp)} \n Waiting for player...", true);
-        
+            _add_player();
         }
-    
-    
+
+        private void _add_player(int id = 1)
+        {
+            var player = GD.Load<PackedScene>("res://maps/mpMap01.tscn").Instantiate();
+            player.Name = id.ToString();
+            GetTree().Root.AddChild(player);
+        }
+        
+        
         private void SetStatus(string text, bool isOk)
         {
             // Simple way to show status.
@@ -265,20 +265,19 @@ namespace CastleOfDemise.Scripts
                 GD.Print("BackButton node not found");
             }*/
         }
-
+/*
         private void PlayerConnected(int id)
         {
             // Someone connected, start the game!
-            var pong = ResourceLoader.Load<PackedScene>("res://maps/mpMap01.tscn").Instantiate();
 
             // Connect deferred so we can safely erase it from the callback.
-            /*
+            
              * pong.Connect("GameFinished", new Callable(this, nameof(EndGame)), new Godot.Collections.Array(), (int) ConnectFlags.Deferred);
-             */
+             
 
             GetTree().Root.AddChild(pong);
             Hide();
-        }
+        } */
     
         private void PlayerDisconnected(int id)
         {

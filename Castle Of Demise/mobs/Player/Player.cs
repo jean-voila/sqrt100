@@ -40,6 +40,7 @@ public partial class Player : CharacterBody3D
 	}
 	public override void _PhysicsProcess(double d)
 	{
+		// il faut un truc pour check si les gens controlent pas la mm personne?
 		HandleMouseMovementInputs((float)d);
 		HandleMovements(d);
 		HandleRespawn();
@@ -47,4 +48,19 @@ public partial class Player : CharacterBody3D
 		UpdatePlayerInfo();
 		CameraShakeProcess();
 	}
+
+	public override void _EnterTree()
+	{
+		RpcId(1, "SetNetworkMaster", int.Parse(Name));
+	}
+
+	[Export]
+	private int _dummyExport; // Dummy exported variable to call the private method from the editor
+
+	private void SetNetworkMaster(int newMaster)
+	{
+		// This method would be called on the peer with ID 1, changing the network master of the node
+	}
+	
+		
 }
