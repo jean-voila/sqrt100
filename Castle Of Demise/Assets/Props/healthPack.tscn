@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bao7wu340lf6s"]
+
+[ext_resource type="AudioStream" uid="uid://beukxe8b81igw" path="res://Assets/SoundEffects/healthPickupSound.wav" id="1_3vvs3"]
+[ext_resource type="Script" path="res://Scripts/healthPack.cs" id="1_g1yhr"]
+[ext_resource type="Texture2D" uid="uid://bg8tvrtmyrauk" path="res://Assets/Props/healthPack.png" id="2_bhxrd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_42oon"]
+size = Vector3(0.267029, 0.226807, 0.278931)
+
+[node name="Area3D" type="Area3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+script = ExtResource("1_g1yhr")
+
+[node name="healthPickupSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("1_3vvs3")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_bhxrd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0102844, 0.0181885, -0.00746223)
+shape = SubResource("BoxShape3D_42oon")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.8
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

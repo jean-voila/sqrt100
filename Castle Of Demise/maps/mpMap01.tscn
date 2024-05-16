@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://yv10fpfkfj4a"]
+[gd_scene load_steps=50 format=3 uid="uid://yv10fpfkfj4a"]
 
 [ext_resource type="Texture2D" uid="uid://dtc7wjnag443v" path="res://Assets/Textures/imageonline-co-pixelated(2).png" id="1"]
 [ext_resource type="PackedScene" uid="uid://twx1vowmd4ni" path="res://mobs/Player/Player.tscn" id="2"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://tgtc4mteft3s" path="res://mobs/Ennemies/Bat/Bat.tscn" id="15"]
 [ext_resource type="PackedScene" uid="uid://xrhd6q53it2j" path="res://mobs/Ennemies/Zombie/Zombie.tscn" id="16"]
 [ext_resource type="PackedScene" uid="uid://wlukug466k0o" path="res://Assets/Props/Ammo.tscn" id="17"]
+[ext_resource type="PackedScene" uid="uid://bao7wu340lf6s" path="res://Assets/Props/healthPack.tscn" id="18_jy73f"]
 
 [sub_resource type="StandardMaterial3D" id="3"]
 albedo_texture = ExtResource("5")
@@ -270,13 +271,13 @@ size = Vector3(18, 1, 1)
 material = SubResource("8")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSGCombiner3D"]
-transform = Transform3D(-5.24537e-08, 0, 1.2, 0, 0.352, 0, -0.4, 0, -1.74846e-08, 2, -13, 15)
+transform = Transform3D(-5.24537e-08, 0, 1.2, 0, 0.352, 0, -0.4, 0, -1.74846e-08, 1.76652, -13.1988, 15.0538)
 polygon = PackedVector2Array(-8, 0, 0, 1, 1, 1, 1, 0)
 depth = 3.13
 material = SubResource("9")
 
 [node name="CSGPolygon2" type="CSGPolygon3D" parent="CSGCombiner3D"]
-transform = Transform3D(8.74228e-08, 0, -1.2, 0, 0.352, 0, 0.4, 0, 1.22392e-07, -2, -13, -15)
+transform = Transform3D(8.74228e-08, 0, -1.2, 0, 0.352, 0, 0.4, 0, 1.22392e-07, -2, -13.2063, -15)
 polygon = PackedVector2Array(-8, 0, 0, 1, 1, 1, 1, 0)
 depth = 3.13
 material = SubResource("9")
@@ -287,12 +288,12 @@ size = Vector3(6, 1, 74)
 material = SubResource("11")
 
 [node name="CSGBox9" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(0.965926, -0.258819, 1.71867e-07, 0.258819, 0.965926, -2.26267e-08, -1.60154e-07, 6.63381e-08, 1, 14.654, -8.357, 45.5182)
+transform = Transform3D(0.965926, -0.258819, 1.71867e-07, 0.258819, 0.965926, -2.26267e-08, -1.60154e-07, 6.63381e-08, 1, 14.574, -8.522, 45.518)
 size = Vector3(60, 1, 8)
 material = SubResource("12")
 
 [node name="CSGBox7" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-0.965926, 0.258819, -8.44439e-08, 0.258819, 0.965926, -2.26267e-08, 7.57103e-08, -4.37114e-08, -1, -14.357, -8.357, -46)
+transform = Transform3D(-0.965926, 0.258819, -8.44439e-08, 0.258819, 0.965926, -2.26267e-08, 7.57103e-08, -4.37114e-08, -1, -14.202, -8.531, -46)
 size = Vector3(60, 1, 8)
 material = SubResource("12")
 
@@ -332,7 +333,7 @@ size = Vector3(18, 1, 20)
 material = SubResource("18")
 
 [node name="CSGCylinder7" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(-0.154515, -0.973653, 0, 0.576658, -0.26089, 0, 0, 0, 1, 35.7156, -2.32035, -22)
+transform = Transform3D(-0.154515, -0.973653, 0, 0.576658, -0.26089, 0, 0, 0, 1, 35.7156, -2.66097, -22)
 height = 16.0
 sides = 24
 material = SubResource("19")
@@ -367,7 +368,7 @@ size = Vector3(12, 12, 12)
 material = SubResource("21")
 
 [node name="CSGCylinder10" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(0.154515, 0.973653, -8.74228e-08, 0.576658, -0.26089, 0, -1.35081e-08, -8.51195e-08, -1, -35.2844, -2.32035, 22)
+transform = Transform3D(0.154515, 0.973653, -8.74228e-08, 0.576658, -0.26089, 0, -1.35081e-08, -8.51195e-08, -1, -35.2844, -2.84746, 22)
 height = 16.0
 sides = 24
 material = SubResource("19")
@@ -1331,29 +1332,29 @@ use_collision = true
 size = Vector3(10, 6, 1)
 material = SubResource("21")
 
-[node name="Ammo" parent="." instance=ExtResource("17")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 17, -12, -18)
-
-[node name="Ammo2" parent="." instance=ExtResource("17")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 14, -12, -18)
-
-[node name="Ammo3" parent="." instance=ExtResource("17")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 11, -12, -18)
-
-[node name="Ammo4" parent="." instance=ExtResource("17")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 8, -12, -18)
-
-[node name="Ammo5" parent="." instance=ExtResource("17")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 17, -12, -21)
-
-[node name="Ammo6" parent="." instance=ExtResource("17")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 14, -12, -21)
-
-[node name="Ammo7" parent="." instance=ExtResource("17")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 11, -12, -21)
-
-[node name="Ammo8" parent="." instance=ExtResource("17")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 8, -12, -21)
-
 [node name="Player" parent="." instance=ExtResource("2")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.22956, -13, -29.1567)
+
+[node name="HealthPack" parent="." instance=ExtResource("18_jy73f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 2.41469, -12.5151, -38.5125)
+
+[node name="AmmoPack" parent="." instance=ExtResource("17")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 7.92489, -12.5755, -35.0966)
+
+[node name="AmmoPack2" parent="." instance=ExtResource("17")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 7.92489, -12.5755, -32.1236)
+
+[node name="AmmoPack3" parent="." instance=ExtResource("17")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 7.92489, -12.5755, -28.7053)
+
+[node name="AmmoPack4" parent="." instance=ExtResource("17")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 7.92489, -12.5755, -38.543)
+
+[node name="HealthPack2" parent="." instance=ExtResource("18_jy73f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 2.41469, -12.5151, -35.1752)
+
+[node name="HealthPack3" parent="." instance=ExtResource("18_jy73f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 2.41469, -12.5151, -31.6003)
+
+[node name="HealthPack4" parent="." instance=ExtResource("18_jy73f")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 2.41469, -12.5151, -28.7698)

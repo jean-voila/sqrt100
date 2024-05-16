@@ -1,24 +1,43 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://cfku4f6icyaj4"]
 
-[ext_resource path="res://Assets/Fonts/pixel.ttf" type="FontFile" id=1]
+[ext_resource type="FontFile" uid="uid://qtsc2kgt2e0p" path="res://Assets/Fonts/pixel.ttf" id="1"]
 
-[sub_resource type="FontFile" id=1]
-size = 45
-font_data = ExtResource( 1 )
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("1")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [node name="PlayerInfos" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Ammo" type="RichTextLabel" parent="."]
-modulate = Color( 1, 1, 1, 0.631373 )
-offset_left = 935.0
-offset_top = 568.0
-offset_right = 1244.0
-offset_bottom = 719.0
-theme_override_fonts/normal_font = SubResource( 1 )
+modulate = Color(1, 1, 1, 0.631373)
+layout_mode = 0
+offset_left = 1112.0
+offset_top = 576.0
+offset_right = 1165.0
+offset_bottom = 624.0
+scale = Vector2(3, 3)
+theme_override_fonts/normal_font = SubResource("1")
 bbcode_enabled = true
-text = "[right]30[/right]"
-text = "30"
+text = "100"
+
+[node name="Health" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0.631373)
+offset_left = 16.0
+offset_top = 576.0
+offset_right = 67.0
+offset_bottom = 624.0
+scale = Vector2(3, 3)
+theme_override_fonts/normal_font = SubResource("1")
+bbcode_enabled = true
+text = "100"

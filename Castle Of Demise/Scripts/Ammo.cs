@@ -22,7 +22,7 @@ public partial class Ammo : Area3D
         {
             _reloadSound.Play();
             _time.Start();
-            player.SetAmmo(ammoInc);
+            player.SetAmmoInc(ammoInc);
             _ammoSprite.QueueFree();
         }
     }

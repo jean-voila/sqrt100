@@ -1,7 +1,7 @@
 [gd_scene load_steps=43 format=3 uid="uid://twx1vowmd4ni"]
 
 [ext_resource type="Script" path="res://mobs/Player/Player.cs" id="1_y1gl0"]
-[ext_resource type="PackedScene" path="res://mobs/Player/HUD.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dikmlfsujgrqa" path="res://mobs/Player/HUD.tscn" id="2"]
 [ext_resource type="Material" path="res://Assets/Mesh/Gray_Revolver02.material" id="3"]
 [ext_resource type="Texture2D" uid="uid://bhauv2kw8n7s" path="res://Assets/Textures/CrossHair.png" id="4"]
 [ext_resource type="AudioStream" uid="uid://ctvaktg3p5v6m" path="res://Assets/SoundEffects/gunShot01.wav" id="5"]
@@ -18,7 +18,7 @@
 [ext_resource type="FontFile" uid="uid://dvmceoo1v7y32" path="res://Assets/Fonts/firacode.ttf" id="18"]
 [ext_resource type="StyleBox" path="res://Assets/Styles/redButton.tres" id="19"]
 [ext_resource type="StyleBox" path="res://Assets/Styles/blueButton.tres" id="20"]
-[ext_resource type="PackedScene" path="res://mobs/Player/PlayerInfos.tscn" id="22"]
+[ext_resource type="PackedScene" uid="uid://cfku4f6icyaj4" path="res://mobs/Player/PlayerInfos.tscn" id="22"]
 [ext_resource type="AudioStream" uid="uid://ch4j4krlu01sn" path="res://Assets/SoundEffects/cantShoot.wav" id="23"]
 [ext_resource type="AudioStream" uid="uid://ba5i1q7f3plrh" path="res://Assets/SoundEffects/hit.wav" id="24"]
 [ext_resource type="Material" path="res://Assets/Mesh/Brown_Revolver02.material" id="25"]
@@ -448,7 +448,7 @@ corner_radius_bottom_left = 10
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_y1gl0")
 _accelerationSpeed = 10.0
-_decelerationSpeed = 12.0
+_decelerationSpeed = 10.0
 _maxSpeed = 10.0
 _gravity = 34.0
 _jumpSpeed = 24.0
@@ -485,7 +485,7 @@ mesh = SubResource("CapsuleMesh_qgwxh")
 material = SubResource("StandardMaterial3D_sscpg")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31931, 0)
+transform = Transform3D(0.196649, 0, 0, 0, 0.17496, 0, 0, 0, 0.504494, 0, 1.31931, -0.129202)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.0238431, 2.08165e-12)
@@ -510,7 +510,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, 0, 0)
 target_position = Vector3(0, 0, -2000)
 
 [node name="Revolver" type="MeshInstance3D" parent="Head"]
-transform = Transform3D(-0.148806, 0, 0.0188877, 0, 0.15, 0, -0.0188877, 0, -0.148806, 0.81629, -0.406953, -0.688711)
+transform = Transform3D(-0.105319, 0, 0.00982718, 0, 0.15, 0, -0.0133679, 0, -0.0774231, 0.554481, -0.406953, -0.377482)
 cast_shadow = 0
 mesh = SubResource("29")
 skeleton = NodePath("../..")
@@ -526,16 +526,12 @@ libraries = {
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Debug" parent="HUD" instance=ExtResource("2")]
-layout_mode = 3
-anchors_preset = 15
 offset_right = -1280.0
 offset_bottom = -720.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PlayerInfos" parent="HUD" instance=ExtResource("22")]
-layout_mode = 3
-anchors_preset = 15
 offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 2
@@ -573,7 +569,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.947863, 0)
 stream = ExtResource("13")
 
 [node name="checkFloor" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39815, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51207, 0)
 target_position = Vector3(2.08165e-12, -1.6, 2.08165e-12)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]

@@ -24,7 +24,7 @@ public partial class Player : CharacterBody3D
 		_pauseMenuInit();
 		_graphismsInit();
 		_gameWindowInit();
-		
+		_playerHealthInit();
 	}
 	public override void _Input(InputEvent @event)
 	{

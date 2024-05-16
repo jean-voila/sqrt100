@@ -10,5 +10,8 @@ public partial class Player
         var valeurTexteAmmo = $"[right]{_ammoAvailable}[/right] ";
         texteAmmo.Text = valeurTexteAmmo;
 		
+        var texteHealth = GetNode<RichTextLabel>("HUD/PlayerInfos/Health");
+        var valeurTexteHealth = $"[right]{PlayerHealth}[/right] ";
+        texteHealth.Text = valeurTexteHealth;
     }
 }
