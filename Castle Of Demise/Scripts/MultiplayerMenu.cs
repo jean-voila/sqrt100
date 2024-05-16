@@ -182,7 +182,6 @@ namespace CastleOfDemise.Scripts
             else ip = CodeParser.CodeToIp(_address.Text);
             if (!ip.IsValidIPAddress())
             {
-                SetStatus("IP address is invalid", false);
                 return;
             }
 
@@ -193,7 +192,6 @@ namespace CastleOfDemise.Scripts
             /*
              * GetTree().NetworkPeer = _peer;
              */
-            SetStatus("Connecting...", true);    
         }
         private void _hostPressed()  
         {
@@ -205,11 +203,9 @@ namespace CastleOfDemise.Scripts
             if (err != Error.Ok)
             {
                 // Is another server running?
-                SetStatus("Can't host, address in use.", false);
                 return;
             }
 
-            SetStatus($"Code: {CodeParser.IpToCode(ServerIp)} \n Waiting for player...", true);
             _add_player();
         }
 
@@ -221,20 +217,7 @@ namespace CastleOfDemise.Scripts
         }
         
         
-        private void SetStatus(string text, bool isOk)
-        {
-            // Simple way to show status.
-            if (isOk)
-            {
-                _statusOk.Text = text;
-                _statusFail.Text = "";
-            }
-            else
-            {
-                _statusOk.Text = "";
-                _statusFail.Text = text;
-            }
-        }
+       
     
         public override void _Ready()
         {
@@ -308,25 +291,8 @@ namespace CastleOfDemise.Scripts
             _joinButton.Disabled = false;
             */
 
-            SetStatus(withError, false);
         }
-
-        // Callback from SceneTree, only for clients (not server).
-        private void ConnectedOk()
-        {
-            // This function is not needed for this project.
-        }
-
-        // Callback from SceneTree, only for clients (not server).
-        private void ConnectedFail()
-        {
-            SetStatus("Couldn't connect", false);
-
-            /*
-             * GetTree().NetworkPeer = null; // Remove peer.
-             */
-        }
-
+        
         private void ServerDisconnected()
         {
             EndGame("Server disconnected");

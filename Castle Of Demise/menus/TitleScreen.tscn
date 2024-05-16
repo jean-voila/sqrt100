@@ -1219,7 +1219,6 @@ texture = ExtResource("4")
 
 [node name="TitleMenu" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
 anchors_preset = 0
 
 [node name="PlayButton" type="Button" parent="TitleMenu"]
@@ -1356,6 +1355,7 @@ text = "Retour"
 
 [node name="MultiplayerMenu" type="Control" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
