@@ -157,8 +157,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape3D" id="1"]
-radius = 0.357655
-height = 0.71531
+radius = 0.766308
 
 [node name="Zombie" type="Node3D"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
@@ -171,10 +170,8 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 billboard = 2
 texture_filter = 0
 sprite_frames = SubResource("10")
-animation = &"idle"
-frame = 4
-frame_progress = 0.928901
+animation = &"touched"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, -0.133596, 0)
+transform = Transform3D(0.5, -1.8048e-16, 1.74287e-16, 1.74287e-16, 0.499695, 0.0174497, -1.8048e-16, -0.0174497, 0.499695, 0.0667673, -0.112016, 0)
 shape = SubResource("1")

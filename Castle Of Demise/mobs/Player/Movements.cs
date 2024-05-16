@@ -17,11 +17,21 @@ public partial class Player
     private Vector3 _direction;
     private ulong _lastJumpTime = Time.GetTicksUsec();
     private bool _landed=true;
-    [Export] private float _accelerationSpeed = 45f;
-    [Export] private float _decelerationSpeed = 30f;
-    [Export] private float _maxSpeed = 12.5f;
-    [Export] private float _gravity = 34f;
-    [Export] private float _jumpSpeed = 25f;
+    
+    [Export] private float _accelerationSpeed;
+    //10 
+    
+    [Export] private float _decelerationSpeed;
+    // 10
+    
+    [Export] private float _maxSpeed;
+    //12.5
+    
+    [Export] private float _gravity;
+    // 34
+    
+    [Export] private float _jumpSpeed;
+    // 25
 
 
     private void HandleMouseMovementInputs(float d)
@@ -75,8 +85,7 @@ public partial class Player
         var acceleration = (_direction.Dot(horizontalVelocity) > 0) ? _accelerationSpeed : _decelerationSpeed;
 
         horizontalVelocity = horizontalVelocity.Lerp(target, acceleration * (float)d);
-
-
+        
 
         if (_floorRayCast.GetCollider() != null)
         {

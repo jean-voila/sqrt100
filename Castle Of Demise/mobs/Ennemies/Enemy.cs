@@ -27,6 +27,8 @@ namespace CastleOfDemise.mobs.Ennemies
         {
             AddChild(_deathSound);
             Connect("HitSignal", new Callable(this, "Hit"));
+            GetChild<AnimatedSprite3D>(0).Play("idle");
+
         }
 
         public override void _Process(double d)
@@ -47,6 +49,8 @@ namespace CastleOfDemise.mobs.Ennemies
                     }
 
                 }
+
+
             }
         }
 

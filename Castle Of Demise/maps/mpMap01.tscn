@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cpqdrsebauimv" path="res://Assets/Props/chandelier.png" id="14"]
 [ext_resource type="PackedScene" uid="uid://tgtc4mteft3s" path="res://mobs/Ennemies/Bat/Bat.tscn" id="15"]
 [ext_resource type="PackedScene" uid="uid://xrhd6q53it2j" path="res://mobs/Ennemies/Zombie/Zombie.tscn" id="16"]
-[ext_resource type="PackedScene" path="res://Assets/Props/Ammo.tscn" id="17"]
+[ext_resource type="PackedScene" uid="uid://wlukug466k0o" path="res://Assets/Props/Ammo.tscn" id="17"]
 
 [sub_resource type="StandardMaterial3D" id="3"]
 albedo_texture = ExtResource("5")
@@ -85,6 +85,9 @@ uv1_scale = Vector3(1, 4.172, 1)
 
 [sub_resource type="StandardMaterial3D" id="20"]
 albedo_texture = ExtResource("4")
+uv1_offset = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+texture_filter = 0
+texture_repeat = false
 
 [sub_resource type="StandardMaterial3D" id="21"]
 albedo_texture = ExtResource("1")
@@ -183,9 +186,6 @@ animations = [{
 }]
 
 [node name="mpMap01" type="Node3D"]
-
-[node name="Player" parent="." instance=ExtResource("2")]
-transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 34.2344, -12.2049, -34.3531)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.891948, 0.452139, 0, -0.452139, 0.891948, 0, 79.9324, 124.007)
@@ -829,30 +829,35 @@ sprite_frames = SubResource("27")
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 21.6839, -12.6726, 30.4565)
 billboard = 2
 shaded = true
+texture_filter = 0
 sprite_frames = SubResource("28")
 
 [node name="grass2" type="AnimatedSprite3D" parent="forest2"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 22.6839, -12.6726, 34.4565)
 billboard = 2
 shaded = true
+texture_filter = 0
 sprite_frames = SubResource("28")
 
 [node name="grass3" type="AnimatedSprite3D" parent="forest2"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 15.6839, -12.6726, 34.4565)
 billboard = 2
 shaded = true
+texture_filter = 0
 sprite_frames = SubResource("28")
 
 [node name="grass4" type="AnimatedSprite3D" parent="forest2"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 23.6839, -12.6726, 31.4565)
 billboard = 2
 shaded = true
+texture_filter = 0
 sprite_frames = SubResource("28")
 
 [node name="grass5" type="AnimatedSprite3D" parent="forest2"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 14.6839, -12.6726, 29.4565)
 billboard = 2
 shaded = true
+texture_filter = 0
 sprite_frames = SubResource("28")
 
 [node name="Texture15" type="AnimatedSprite3D" parent="forest2"]
@@ -964,30 +969,35 @@ sprite_frames = SubResource("27")
 transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 12.0685, -12.6726, 32.3542)
 billboard = 2
 shaded = true
+texture_filter = 0
 sprite_frames = SubResource("28")
 
 [node name="grass7" type="AnimatedSprite3D" parent="forest2"]
 transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 8.46364, -12.6726, 34.3554)
 billboard = 2
 shaded = true
+texture_filter = 0
 sprite_frames = SubResource("28")
 
 [node name="grass8" type="AnimatedSprite3D" parent="forest2"]
 transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 6.65191, -12.6726, 27.5939)
 billboard = 2
 shaded = true
+texture_filter = 0
 sprite_frames = SubResource("28")
 
 [node name="grass9" type="AnimatedSprite3D" parent="forest2"]
 transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 11.6202, -12.6726, 34.5449)
 billboard = 2
 shaded = true
+texture_filter = 0
 sprite_frames = SubResource("28")
 
 [node name="grass10" type="AnimatedSprite3D" parent="forest2"]
 transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 11.2227, -12.6726, 25.3339)
 billboard = 2
 shaded = true
+texture_filter = 0
 sprite_frames = SubResource("28")
 
 [node name="Texture29" type="AnimatedSprite3D" parent="forest2"]
@@ -1099,30 +1109,35 @@ sprite_frames = SubResource("27")
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 19.7434, -12.6726, 20.3085)
 billboard = 2
 shaded = true
+texture_filter = 0
 sprite_frames = SubResource("28")
 
 [node name="grass12" type="AnimatedSprite3D" parent="forest2"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 23.7434, -12.6726, 19.3085)
 billboard = 2
 shaded = true
+texture_filter = 0
 sprite_frames = SubResource("28")
 
 [node name="grass13" type="AnimatedSprite3D" parent="forest2"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 23.7434, -12.6726, 26.3085)
 billboard = 2
 shaded = true
+texture_filter = 0
 sprite_frames = SubResource("28")
 
 [node name="grass14" type="AnimatedSprite3D" parent="forest2"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 20.7434, -12.6726, 18.3085)
 billboard = 2
 shaded = true
+texture_filter = 0
 sprite_frames = SubResource("28")
 
 [node name="grass15" type="AnimatedSprite3D" parent="forest2"]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 18.7434, -12.6726, 27.3085)
 billboard = 2
 shaded = true
+texture_filter = 0
 sprite_frames = SubResource("28")
 
 [node name="bush02" type="AnimatedSprite3D" parent="."]
@@ -1217,6 +1232,7 @@ spot_angle = 149.03
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, -0.72501, 0.0489099, -0.54352)
 billboard = 2
 shaded = true
+texture_filter = 0
 sprite_frames = SubResource("31")
 
 [node name="CSGCylinder12" type="CSGCylinder3D" parent="."]
@@ -1306,3 +1322,6 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 11, -12, -21)
 
 [node name="Ammo8" parent="." instance=ExtResource("17")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 8, -12, -21)
+
+[node name="Player" parent="." instance=ExtResource("2")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.22956, -13, -29.1567)

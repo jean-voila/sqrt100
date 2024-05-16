@@ -1,27 +1,29 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://wlukug466k0o"]
 
-[ext_resource path="res://Assets/Props/ammoPack.png" type="Texture2D" id=1]
-[ext_resource path="res://Scripts/Ammo.cs" type="Script" id=2]
-[ext_resource path="res://Assets/SoundEffects/reload.wav" type="AudioStream" id=3]
+[ext_resource type="Texture2D" uid="uid://cs7c3wjxx01db" path="res://Assets/Props/ammoPack.png" id="1"]
+[ext_resource type="Script" path="res://Scripts/Ammo.cs" id="2"]
+[ext_resource type="AudioStream" uid="uid://bflxlyjbe5e7l" path="res://Assets/SoundEffects/reload.wav" id="3"]
 
-[sub_resource type="BoxShape3D" id=1]
-extents = Vector3( 0.139166, 0.127977, 0.495448 )
+[sub_resource type="BoxShape3D" id="1"]
+size = Vector3(0.278332, 0.255954, 0.303571)
 
 [node name="Ammo" type="Area3D"]
-transform = Transform3D( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0 )
-script = ExtResource( 2 )
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+script = ExtResource("2")
 
 [node name="reloadSound" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0 )
-stream = ExtResource( 3 )
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0)
+stream = ExtResource("3")
 volume_db = 10.0
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 billboard = 2
-texture = ExtResource( 1 )
+texture_filter = 0
+texture = ExtResource("1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource( 1 )
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0143521)
+shape = SubResource("1")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5

@@ -99,6 +99,7 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 environment/defaults/default_clear_color=Color(0.611383, 0.362601, 0.417175, 1)
 anti_aliasing/quality/msaa_2d=1
 anti_aliasing/quality/msaa_3d=1
