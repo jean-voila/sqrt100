@@ -9,43 +9,63 @@ public partial class Player
     private RayCast3D _shootRayCast;
     private PackedScene _bulletHoleScene;
     private PackedScene _bloodHit;
-    private AnimationPlayer _animationPlayer;
     private int _ammoAvailable;
+    private int _ammoInMag;
     private int _ammoShooted;
     private int _strength;
     private int _killedEnemmies;
+    private AnimationPlayer _animShoot;
     
     [Signal]
     public delegate bool KillSignalEventHandler();
     public void _shootInit()
     {
         _shootRayCast = GetNode<RayCast3D>("Head/Camera3D/RayCast3D");
-        _ammoAvailable = 100;
+        _ammoAvailable = 120;
         _ammoShooted = 0;
         _strength = 10;
+        _ammoInMag = 6;
         _killedEnemmies = 0;
         _bulletHoleScene = GD.Load<PackedScene>("res://Assets/Effects/BulletHole/BulletHoleScene.tscn");
         _bloodHit = GD.Load<PackedScene>("res://Assets/Effects/BloodHit/BloodHit.tscn");
-        _animationPlayer = GetNode<AnimationPlayer>("Head/RevolverAnimationPlayer");
+        _animShoot = GetNode<AnimationPlayer>("Head/Revolver/shoot");
     }
     
     public void SetAmmoInc(int ammo)
     {
-        _ammoAvailable += ammo;
+        if (_ammoAvailable + ammo < 120)
+        {
+            _ammoAvailable += ammo;
+        }
+        else
+        {
+            _ammoAvailable = 120;
+        }
+    }
+
+    public bool CanPickupAmmo()
+    {
+        return _ammoAvailable != 120;
+    }
+
+    public bool canReload()
+    {
+        return _ammoInMag != 6 && _ammoAvailable != 0;
+    }
+
+    public bool outOfAmmo()
+    {
+        return _ammoAvailable == 0 && _ammoInMag == 0;
     }
     
     public void Shoot()
     {
-        _ammoAvailable--;
+        _ammoInMag--;
         _ammoShooted++;
         bool isEnnemiTouched = false;
         var rayEnd = _shootRayCast.GetCollisionPoint();
         // cameraShake();
-        if (!_animationPlayer.IsPlaying())
-        {
-            _animationPlayer.Play("shoot");
-        }
-
+        _animShoot.Play("Shoot");
         if (_shootRayCast.IsColliding())
         {
             var bulletHole = (Node3D)_bulletHoleScene.Instantiate();
@@ -90,5 +110,21 @@ public partial class Player
             else _killedEnemmies++;
 
         }
+    }
+
+    private void reload()
+    {
+        
+        if (_ammoAvailable > 0 && _ammoAvailable < 6)
+        {
+            _ammoInMag += _ammoAvailable;
+            _ammoAvailable = 0;
+        }
+        else
+        {
+            _ammoAvailable -= 6 - _ammoInMag;
+            _ammoInMag = 6;
+        }
+        
     }
 }
