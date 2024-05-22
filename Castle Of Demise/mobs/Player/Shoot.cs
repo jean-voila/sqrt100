@@ -15,13 +15,14 @@ public partial class Player
     private int _strength;
     private int _killedEnemmies;
     private AnimationPlayer _animShoot;
+    private const int _maxAmmo = 60;
     
     [Signal]
     public delegate bool KillSignalEventHandler();
     public void _shootInit()
     {
         _shootRayCast = GetNode<RayCast3D>("Head/Camera3D/RayCast3D");
-        _ammoAvailable = 120;
+        _ammoAvailable = _maxAmmo;
         _ammoShooted = 0;
         _strength = 10;
         _ammoInMag = 6;
@@ -33,19 +34,19 @@ public partial class Player
     
     public void SetAmmoInc(int ammo)
     {
-        if (_ammoAvailable + ammo < 120)
+        if (_ammoAvailable + ammo < _maxAmmo)
         {
             _ammoAvailable += ammo;
         }
         else
         {
-            _ammoAvailable = 120;
+            _ammoAvailable = _maxAmmo;
         }
     }
 
     public bool CanPickupAmmo()
     {
-        return _ammoAvailable != 120;
+        return _ammoAvailable != _maxAmmo;
     }
 
     public bool canReload()

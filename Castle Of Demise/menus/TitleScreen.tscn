@@ -5,12 +5,12 @@
 [ext_resource type="FontFile" uid="uid://c6l4o3vn05yn8" path="res://Assets/Fonts/Roboto-Regular.ttf" id="3"]
 [ext_resource type="Texture2D" uid="uid://s5p1sdslvodf" path="res://Assets/Images/BackgroundMenu.png" id="4"]
 [ext_resource type="StyleBox" path="res://menus/StandardButton.tres" id="5"]
-[ext_resource type="StyleBox" path="res://menus/StandardHoverButton.tres" id="6"]
+[ext_resource type="StyleBox" uid="uid://xy3ookw3fxr0" path="res://menus/StandardHoverButton.tres" id="6"]
 [ext_resource type="AudioStream" uid="uid://tnxqtj6v030l" path="res://Assets/SoundEffects/focused_button.wav" id="7"]
 [ext_resource type="AudioStream" uid="uid://swed5s4rocpw" path="res://Assets/SoundEffects/pressed_button.wav" id="8"]
 [ext_resource type="Script" path="res://Scripts/MultiplayerMenu.cs" id="9"]
 [ext_resource type="FontFile" uid="uid://b27rvaqsafr5t" path="res://Assets/Fonts/PlayFair.ttf" id="10"]
-[ext_resource type="StyleBox" path="res://menus/StandardPressedButton.tres" id="11"]
+[ext_resource type="StyleBox" uid="uid://b5bvit6wpb3ss" path="res://menus/StandardPressedButton.tres" id="11"]
 [ext_resource type="Script" path="res://Scripts/GamemodeMenu.cs" id="12"]
 [ext_resource type="StyleBox" path="res://menus/StandardButtonFocused.tres" id="13"]
 
@@ -1212,10 +1212,12 @@ grow_vertical = 2
 script = ExtResource("1")
 
 [node name="Background" type="Sprite2D" parent="."]
-modulate = Color(0.45098, 0.45098, 0.45098, 1)
-position = Vector2(640, 248)
-scale = Vector2(1.43701, 1.34091)
+modulate = Color(0.154876, 0.154876, 0.154876, 1)
+position = Vector2(640, 359.919)
+scale = Vector2(1.43701, 1.34048)
 texture = ExtResource("4")
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 87, 893.5, 537.52)
 
 [node name="TitleMenu" type="Control" parent="."]
 unique_name_in_owner = true
@@ -1286,10 +1288,10 @@ text = "Quitter"
 
 [node name="sqrt100" type="Label" parent="TitleMenu"]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 661.0
-offset_right = 180.0
-offset_bottom = 717.0
+offset_left = 29.0
+offset_top = 665.0
+offset_right = 207.0
+offset_bottom = 721.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 theme_override_colors/font_color = Color(0.447059, 0.447059, 0.447059, 1)
@@ -1298,16 +1300,18 @@ text = "by sqrt(100)"
 
 [node name="Title" type="Label" parent="TitleMenu"]
 layout_mode = 0
-offset_left = 274.0
-offset_top = 96.0
-offset_right = 1016.0
-offset_bottom = 226.0
+offset_left = 284.0
+offset_top = 145.0
+offset_right = 1026.0
+offset_bottom = 275.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 theme_override_colors/font_color = Color(0.929412, 0.929412, 0.929412, 0.807843)
 theme_override_fonts/font = SubResource("1")
 theme_override_font_sizes/font_size = 71
 text = "Castle Of Demise"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PressedButtonSound" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true

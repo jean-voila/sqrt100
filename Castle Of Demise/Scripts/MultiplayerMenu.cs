@@ -205,7 +205,7 @@ namespace CastleOfDemise.Scripts
                 // Is another server running?
                 return;
             }
-
+            GetTree().ChangeSceneToFile("res://maps/mpMap01.tscn");
             _add_player();
         }
 
@@ -213,7 +213,7 @@ namespace CastleOfDemise.Scripts
         {
             var player = GD.Load<PackedScene>("res://maps/mpMap01.tscn").Instantiate();
             player.Name = id.ToString();
-            GetTree().Root.AddChild(player);
+            /* GetTree().Root.AddChild(player);*/
         }
         
         
