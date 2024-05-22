@@ -4,7 +4,7 @@ namespace CastleOfDemise.Scripts;
 
 public partial class Ammo : Area3D
 {
-    [Export] public int ammoInc = 10;
+    [Export] public int ammoInc = 12;
     private AudioStreamPlayer3D _reloadSound;
     private Timer _time;
     public Sprite3D _ammoSprite;
@@ -18,7 +18,7 @@ public partial class Ammo : Area3D
     
     public void _on_Ammo_body_entered(Node body)
     {
-        if (body is CastleOfDemise.mobs.Player.Player player && _time.TimeLeft <= 0)
+        if (body is CastleOfDemise.mobs.Player.Player player && _time.TimeLeft <= 0 && player.CanPickupAmmo())
         {
             _reloadSound.Play();
             _time.Start();

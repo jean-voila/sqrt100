@@ -15,6 +15,7 @@ public partial class Player : CharacterBody3D
 	[Export] private float _shakeDelay = 300.0f;
 	[Export] private float _shakeStrength;
 	[Export] private Node3D _usedCamera;
+	[Export] private AnimationPlayer _animReload;
 	
 	public override void _Ready()
 	{
@@ -32,11 +33,20 @@ public partial class Player : CharacterBody3D
 			HandleMouseMovement(mouseInput);
 		if (@event.IsActionPressed("mouse_left_click"))
 		{
-			if (_ammoAvailable > 0) Shoot();
+			if (_ammoInMag > 0) Shoot();
 			else _cantShootSound.Play();
 		}
 		if (Input.IsActionJustPressed("key_escape"))
 			Pause();
+		if (@event.IsActionPressed("key_r") && canReload())
+		{
+			_animReload.Play("reload");
+			reload();
+		}
+		if (@event.IsActionPressed("key_r") && outOfAmmo())
+		{
+			_cantShootSound.Play();
+		}
 	}
 	public override void _PhysicsProcess(double d)
 	{
