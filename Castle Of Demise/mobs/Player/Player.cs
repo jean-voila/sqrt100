@@ -60,6 +60,7 @@ public partial class Player : CharacterBody3D
 	private void SetNetworkMaster(int newMaster)
 	{
 		// This method would be called on the peer with ID 1, changing the network master of the node
+		
 	}
 	
 		

@@ -4,6 +4,9 @@
 
 [sub_resource type="FontFile" id="1"]
 fallbacks = Array[Font]([ExtResource("1")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -18,6 +21,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 40.0
 offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Ammo" type="RichTextLabel" parent="."]
 modulate = Color(1, 1, 1, 0.631373)
@@ -33,6 +38,7 @@ text = "100"
 
 [node name="Health" type="RichTextLabel" parent="."]
 modulate = Color(1, 1, 1, 0.631373)
+layout_mode = 0
 offset_left = 16.0
 offset_top = 576.0
 offset_right = 67.0
