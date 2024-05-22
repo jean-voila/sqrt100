@@ -5,8 +5,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="maps\" />
+    <Folder Include="Scripts\GameMechanics\CampaignMechanics\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="mobs\Ennemies\Bat\Bat.tscn" />
+    <Content Include="Scripts\Entities\Ennemies\Bat\Bat.tscn" />
   </ItemGroup>
 </Project>
