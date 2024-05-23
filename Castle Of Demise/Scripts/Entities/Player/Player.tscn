@@ -1,7 +1,7 @@
 [gd_scene load_steps=45 format=3 uid="uid://twx1vowmd4ni"]
 
-[ext_resource type="Script" path="res://mobs/Player/Player.cs" id="1_y1gl0"]
-[ext_resource type="PackedScene" uid="uid://dikmlfsujgrqa" path="res://mobs/Player/HUD.tscn" id="2"]
+[ext_resource type="Script" path="res://Scripts/Entities/Player/Player.cs" id="1_y1gl0"]
+[ext_resource type="PackedScene" uid="uid://dikmlfsujgrqa" path="res://Scripts/Entities/Player/HUD.tscn" id="2"]
 [ext_resource type="Material" path="res://Assets/Mesh/Gray_Revolver02.material" id="3"]
 [ext_resource type="Texture2D" uid="uid://bhauv2kw8n7s" path="res://Assets/Textures/CrossHair.png" id="4"]
 [ext_resource type="AudioStream" uid="uid://ctvaktg3p5v6m" path="res://Assets/SoundEffects/gunShot01.wav" id="5"]
@@ -14,14 +14,15 @@
 [ext_resource type="AudioStream" uid="uid://x41bhmg1xwlk" path="res://Assets/SoundEffects/Step01.wav" id="12"]
 [ext_resource type="AudioStream" uid="uid://cfo18pmuxn7ub" path="res://Assets/SoundEffects/Land.wav" id="13"]
 [ext_resource type="AudioStream" uid="uid://c3tcksfrbvmu2" path="res://Assets/SoundEffects/Jump.wav" id="14"]
-[ext_resource type="Script" path="res://Scripts/Resume.cs" id="17"]
+[ext_resource type="Script" path="res://Scripts/Menus/Resume.cs" id="17"]
 [ext_resource type="FontFile" uid="uid://dvmceoo1v7y32" path="res://Assets/Fonts/firacode.ttf" id="18"]
 [ext_resource type="StyleBox" path="res://Assets/Styles/redButton.tres" id="19"]
 [ext_resource type="StyleBox" path="res://Assets/Styles/blueButton.tres" id="20"]
-[ext_resource type="PackedScene" uid="uid://cfku4f6icyaj4" path="res://mobs/Player/PlayerInfos.tscn" id="22"]
+[ext_resource type="PackedScene" uid="uid://cfku4f6icyaj4" path="res://Scripts/Entities/Player/PlayerInfos.tscn" id="22"]
 [ext_resource type="AudioStream" uid="uid://ch4j4krlu01sn" path="res://Assets/SoundEffects/cantShoot.wav" id="23"]
 [ext_resource type="AudioStream" uid="uid://ba5i1q7f3plrh" path="res://Assets/SoundEffects/hit.wav" id="24"]
 [ext_resource type="Material" path="res://Assets/Mesh/Brown_Revolver02.material" id="25"]
+
 
 [sub_resource type="CapsuleShape3D" id="1"]
 radius = 0.384727

@@ -1,8 +1,9 @@
 [gd_scene load_steps=21 format=3 uid="uid://tgtc4mteft3s"]
 
 [ext_resource type="Texture2D" uid="uid://vj4ih4cpmamv" path="res://Assets/Textures/batframes.png" id="1"]
-[ext_resource type="Script" path="res://mobs/Ennemies/Bat/Bat.cs" id="2"]
+[ext_resource type="Script" path="res://Scripts/Entities/Ennemies/Bat/Bat.cs" id="2"]
 [ext_resource type="Texture2D" uid="uid://pl17t38jbv5u" path="res://Assets/Textures/touched_batframes.png" id="3"]
+
 
 [sub_resource type="AtlasTexture" id="19"]
 atlas = ExtResource("3")

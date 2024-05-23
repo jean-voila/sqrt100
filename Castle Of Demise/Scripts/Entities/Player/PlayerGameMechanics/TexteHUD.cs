@@ -1,6 +1,6 @@
 using Godot;
 
-namespace CastleOfDemise.Scripts;
+namespace CastleOfDemise.Scripts.Entities.Player.PlayerGameMechanics;
 
 public partial class TexteHUD : Control
 {

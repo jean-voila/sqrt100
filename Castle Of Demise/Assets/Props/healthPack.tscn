@@ -1,8 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bao7wu340lf6s"]
 
 [ext_resource type="AudioStream" uid="uid://beukxe8b81igw" path="res://Assets/SoundEffects/healthPickupSound.wav" id="1_3vvs3"]
-[ext_resource type="Script" path="res://Scripts/healthPack.cs" id="1_g1yhr"]
+[ext_resource type="Script" path="res://Scripts/GameMechanics/GameTheory/healthPack.cs" id="1_g1yhr"]
 [ext_resource type="Texture2D" uid="uid://bg8tvrtmyrauk" path="res://Assets/Props/healthPack.png" id="2_bhxrd"]
+
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_42oon"]
 size = Vector3(0.267029, 0.226807, 0.278931)
