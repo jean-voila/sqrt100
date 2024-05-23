@@ -1414,6 +1414,11 @@ theme_override_styles/hover = ExtResource("6")
 theme_override_styles/pressed = ExtResource("11")
 text = "Heberger"
 
+[node name="SetupGameAsHost" type="Control" parent="MultiplayerMenu/ConnectionControl/HostButton"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="JoinButton" type="Button" parent="MultiplayerMenu/ConnectionControl"]
 layout_mode = 0
 offset_left = 669.0
@@ -1426,6 +1431,11 @@ theme_override_styles/normal = ExtResource("5")
 theme_override_styles/hover = ExtResource("6")
 theme_override_styles/pressed = ExtResource("11")
 text = "Rejoindre"
+
+[node name="SetupGameAsClient" type="Control" parent="MultiplayerMenu/ConnectionControl/JoinButton"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="StatusOk" type="Label" parent="MultiplayerMenu/ConnectionControl"]
 layout_mode = 0

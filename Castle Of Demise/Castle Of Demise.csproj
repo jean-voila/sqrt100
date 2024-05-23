@@ -5,6 +5,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="maps\" />
+    <Folder Include="menus\" />
     <Folder Include="Scripts\GameMechanics\CampaignMechanics\" />
   </ItemGroup>
   <ItemGroup>
