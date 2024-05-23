@@ -1,7 +1,7 @@
 [gd_scene load_steps=50 format=3 uid="uid://yv10fpfkfj4a"]
 
 [ext_resource type="Texture2D" uid="uid://dtc7wjnag443v" path="res://Assets/Textures/imageonline-co-pixelated(2).png" id="1"]
-[ext_resource type="PackedScene" uid="uid://twx1vowmd4ni" path="res://mobs/Player/Player.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://twx1vowmd4ni" path="res://Scripts/Entities/Player/Player.tscn" id="2"]
 [ext_resource type="Texture2D" uid="uid://c3ckpby2dcm6k" path="res://Assets/Textures/imageonline-co-pixelated.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://bddvfd4li5gc0" path="res://Assets/Textures/imageonline-co-pixelated(4).png" id="4"]
 [ext_resource type="Texture2D" uid="uid://citnbqb3htaxg" path="res://Assets/Textures/imageonline-co-pixelated(1).png" id="5"]
@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://05wr4u2iltdf" path="res://Assets/Props/Bush02.png" id="12"]
 [ext_resource type="Texture2D" uid="uid://vigsw83qmser" path="res://Assets/Props/Chains01.png" id="13"]
 [ext_resource type="Texture2D" uid="uid://cpqdrsebauimv" path="res://Assets/Props/chandelier.png" id="14"]
-[ext_resource type="PackedScene" uid="uid://tgtc4mteft3s" path="res://mobs/Ennemies/Bat/Bat.tscn" id="15"]
-[ext_resource type="PackedScene" uid="uid://xrhd6q53it2j" path="res://mobs/Ennemies/Zombie/Zombie.tscn" id="16"]
+[ext_resource type="PackedScene" uid="uid://tgtc4mteft3s" path="res://Scripts/Entities/Ennemies/Bat/Bat.tscn" id="15"]
+[ext_resource type="PackedScene" uid="uid://xrhd6q53it2j" path="res://Scripts/Entities/Ennemies/Zombie/Zombie.tscn" id="16"]
 [ext_resource type="PackedScene" uid="uid://wlukug466k0o" path="res://Assets/Props/Ammo.tscn" id="17"]
 [ext_resource type="PackedScene" uid="uid://bao7wu340lf6s" path="res://Assets/Props/healthPack.tscn" id="18_jy73f"]
 

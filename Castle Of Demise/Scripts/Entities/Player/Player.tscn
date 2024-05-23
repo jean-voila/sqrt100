@@ -23,7 +23,6 @@
 [ext_resource type="AudioStream" uid="uid://ba5i1q7f3plrh" path="res://Assets/SoundEffects/hit.wav" id="24"]
 [ext_resource type="Material" path="res://Assets/Mesh/Brown_Revolver02.material" id="25"]
 
-
 [sub_resource type="CapsuleShape3D" id="1"]
 radius = 0.384727
 height = 2.06712
@@ -412,6 +411,9 @@ corner_radius_bottom_left = 25
 
 [sub_resource type="FontFile" id="20"]
 fallbacks = Array[Font]([ExtResource("18")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -433,6 +435,9 @@ expand_margin_right = 50.0
 
 [sub_resource type="FontFile" id="24"]
 fallbacks = Array[Font]([ExtResource("18")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -447,6 +452,9 @@ corner_radius_top_right = 10
 
 [sub_resource type="FontFile" id="21"]
 fallbacks = Array[Font]([ExtResource("18")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -470,14 +478,14 @@ properties/1/replication_mode = 1
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_head", "_usedCamera", "_animReload", "_floorRayCast")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_y1gl0")
+_head = NodePath("Head")
+_usedCamera = NodePath("Head/Camera3D")
+_animReload = NodePath("Head/Revolver/Reload")
 _accelerationSpeed = 10.0
 _decelerationSpeed = 10.0
 _maxSpeed = 10.0
 _gravity = 34.0
 _jumpSpeed = 24.0
-_head = NodePath("Head")
-_usedCamera = NodePath("Head/Camera3D")
-_animReload = NodePath("Head/Revolver/Reload")
 _floorRayCast = NodePath("checkFloor")
 
 [node name="GunShotSoundsEffects" type="Node3D" parent="."]
@@ -556,8 +564,6 @@ speed_scale = 5.0
 [node name="Debug" parent="HUD" instance=ExtResource("2")]
 offset_right = -1280.0
 offset_bottom = -720.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="PlayerInfos" parent="HUD" instance=ExtResource("22")]
 offset_right = 0.0
