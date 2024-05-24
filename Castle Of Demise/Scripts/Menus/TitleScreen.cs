@@ -1,6 +1,6 @@
 using Godot;
 
-namespace CastleOfDemise.Scripts;
+namespace CastleOfDemise.Scripts.Menus;
 
 public partial class TitleScreen : Control
 {
