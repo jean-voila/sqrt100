@@ -65,7 +65,7 @@ public partial class Player
         _ammoShooted++;
         bool isEnnemiTouched = false;
         var rayEnd = _shootRayCast.GetCollisionPoint();
-        CameraShake();
+        // CameraShake();
         _animShoot.Play("Shoot");
         if (_shootRayCast.IsColliding())
         {
