@@ -27,18 +27,7 @@ public partial class SetupGameAsHost : Control
 		_startGameButton = GetNode<Button>("StartGame");
 		
 		
-		var err = Peer.CreateServer(DefaultPort, MaxNumberOfPeers);
-		if (err != Error.Ok)
-		{
-			// Is another server running?
-			GD.Print("Cannot host server");
-			return;
-		}
-
-		var multiplayerApi = GetTree().GetMultiplayer();
-		multiplayerApi.MultiplayerPeer = Peer;
-		GetTree().SetMultiplayer(multiplayerApi);
-		GD.Print("Waiting for players to connect...");
+		
 		
 	}
 	
@@ -97,7 +86,18 @@ public partial class SetupGameAsHost : Control
 	
 	private void _on_start_game_pressed()
 	{
-		 
+		 var err = Peer.CreateServer(DefaultPort, MaxNumberOfPeers);
+         		if (err != Error.Ok)
+         		{
+         			// Is another server running?
+         			GD.Print("Cannot host server");
+         			return;
+         		}
+         
+         		var multiplayerApi = GetTree().GetMultiplayer();
+         		multiplayerApi.MultiplayerPeer = Peer;
+         		GetTree().SetMultiplayer(multiplayerApi);
+         		GD.Print("Waiting for players to connect...");
 	}
 
 

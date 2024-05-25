@@ -1162,8 +1162,6 @@ cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5vmnb"]
-
 [sub_resource type="FontFile" id="14"]
 fallbacks = Array[Font]([ExtResource("3")])
 cache/0/16/0/ascent = 0.0
@@ -1199,6 +1197,8 @@ cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vmnb"]
 
 [node name="Titlescreen" type="Control"]
 layout_mode = 3
@@ -1418,77 +1418,6 @@ theme_override_styles/hover = ExtResource("6")
 theme_override_styles/pressed = ExtResource("11")
 text = "Heberger"
 
-[node name="SetupGameAsHost" type="Control" parent="MultiplayerMenu/ConnectionControl/SceneHostButton"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("13_xtka4")
-
-[node name="Gamemodetext" type="Label" parent="MultiplayerMenu/ConnectionControl/SceneHostButton/SetupGameAsHost"]
-layout_mode = 0
-offset_left = -9.0
-offset_top = -202.0
-offset_right = 209.0
-offset_bottom = -160.0
-text = "Choisissez un mode de jeu"
-
-[node name="ChooseGameMode" type="ItemList" parent="MultiplayerMenu/ConnectionControl/SceneHostButton/SetupGameAsHost"]
-layout_mode = 0
-offset_left = -11.0
-offset_top = -175.0
-offset_right = 327.0
-offset_bottom = -135.0
-item_count = 2
-item_0/text = "Choisir mode de jeu"
-item_1/text = "Deathmatch (premier à x assassinations)"
-
-[node name="ScoreToReachText" type="Label" parent="MultiplayerMenu/ConnectionControl/SceneHostButton/SetupGameAsHost"]
-layout_mode = 0
-offset_left = -6.0
-offset_top = -118.0
-offset_right = 221.0
-offset_bottom = -83.0
-text = "Choisisez le score à atteindre pour gagner la partie"
-
-[node name="ScoreToReach" type="ItemList" parent="MultiplayerMenu/ConnectionControl/SceneHostButton/SetupGameAsHost"]
-layout_mode = 0
-offset_left = -5.0
-offset_top = -84.0
-offset_right = 318.0
-offset_bottom = 157.0
-item_count = 9
-item_0/text = "Choisir score"
-item_1/text = "1"
-item_2/text = "2"
-item_3/text = "5"
-item_3/icon = SubResource("AtlasTexture_5vmnb")
-item_4/text = "10"
-item_5/text = "15"
-item_6/text = "20"
-item_7/text = "50"
-item_8/text = "100"
-
-[node name="BackButtonFromhost" type="Button" parent="MultiplayerMenu/ConnectionControl/SceneHostButton/SetupGameAsHost"]
-layout_mode = 0
-offset_left = 153.0
-offset_top = 137.0
-offset_right = 274.0
-offset_bottom = 187.0
-theme_override_fonts/font = SubResource("11")
-theme_override_styles/normal = ExtResource("5")
-theme_override_styles/hover = ExtResource("6")
-theme_override_styles/pressed = ExtResource("11")
-text = "Retour"
-
-[node name="StartGame" type="Button" parent="MultiplayerMenu/ConnectionControl/SceneHostButton/SetupGameAsHost"]
-layout_mode = 0
-offset_left = 491.0
-offset_top = -30.0
-offset_right = 581.0
-offset_bottom = 152.0
-disabled = true
-text = "Lancher la partie"
-
 [node name="SceneJoinButton" type="Button" parent="MultiplayerMenu/ConnectionControl"]
 layout_mode = 0
 offset_left = 669.0
@@ -1501,29 +1430,6 @@ theme_override_styles/normal = ExtResource("5")
 theme_override_styles/hover = ExtResource("6")
 theme_override_styles/pressed = ExtResource("11")
 text = "Rejoindre"
-
-[node name="SetupGameAsClient" type="Control" parent="MultiplayerMenu/ConnectionControl/SceneJoinButton"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("14_w0bpv")
-
-[node name="BackButtonFromClient" type="Button" parent="MultiplayerMenu/ConnectionControl/SceneJoinButton/SetupGameAsClient"]
-layout_mode = 0
-offset_left = -94.0
-offset_top = 134.0
-offset_right = 27.0
-offset_bottom = 184.0
-theme_override_fonts/font = SubResource("11")
-theme_override_styles/normal = ExtResource("5")
-theme_override_styles/hover = ExtResource("6")
-theme_override_styles/pressed = ExtResource("11")
-text = "Retour"
-
-[node name="JoinButton" type="Button" parent="MultiplayerMenu/ConnectionControl/SceneJoinButton/SetupGameAsClient"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
 
 [node name="StatusOk" type="Label" parent="MultiplayerMenu/ConnectionControl"]
 layout_mode = 0
@@ -1616,6 +1522,108 @@ text = "Jouer à plusieurs"
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 
+[node name="SetupGameAsHost" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 0
+offset_left = 433.0
+offset_top = 345.0
+offset_right = 473.0
+offset_bottom = 385.0
+script = ExtResource("13_xtka4")
+
+[node name="Gamemodetext" type="Label" parent="SetupGameAsHost"]
+layout_mode = 0
+offset_left = -9.0
+offset_top = -202.0
+offset_right = 209.0
+offset_bottom = -160.0
+text = "Choisissez un mode de jeu"
+
+[node name="ChooseGameMode" type="ItemList" parent="SetupGameAsHost"]
+layout_mode = 0
+offset_left = -11.0
+offset_top = -175.0
+offset_right = 327.0
+offset_bottom = -135.0
+item_count = 2
+item_0/text = "Choisir mode de jeu"
+item_1/text = "Deathmatch (premier à x assassinations)"
+
+[node name="ScoreToReachText" type="Label" parent="SetupGameAsHost"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -118.0
+offset_right = 221.0
+offset_bottom = -83.0
+text = "Choisisez le score à atteindre pour gagner la partie"
+
+[node name="ScoreToReach" type="ItemList" parent="SetupGameAsHost"]
+layout_mode = 0
+offset_left = -5.0
+offset_top = -84.0
+offset_right = 318.0
+offset_bottom = 157.0
+item_count = 9
+item_0/text = "Choisir score"
+item_1/text = "1"
+item_2/text = "2"
+item_3/text = "5"
+item_3/icon = SubResource("AtlasTexture_5vmnb")
+item_4/text = "10"
+item_5/text = "15"
+item_6/text = "20"
+item_7/text = "50"
+item_8/text = "100"
+
+[node name="BackButtonFromhost" type="Button" parent="SetupGameAsHost"]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 137.0
+offset_right = 274.0
+offset_bottom = 187.0
+theme_override_fonts/font = SubResource("11")
+theme_override_styles/normal = ExtResource("5")
+theme_override_styles/hover = ExtResource("6")
+theme_override_styles/pressed = ExtResource("11")
+text = "Retour"
+
+[node name="StartGame" type="Button" parent="SetupGameAsHost"]
+layout_mode = 0
+offset_left = 491.0
+offset_top = -30.0
+offset_right = 581.0
+offset_bottom = 152.0
+disabled = true
+text = "Lancher la partie"
+
+[node name="SetupGameAsClient" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 0
+offset_left = 676.0
+offset_top = 384.0
+offset_right = 716.0
+offset_bottom = 424.0
+script = ExtResource("14_w0bpv")
+
+[node name="BackButtonFromClient" type="Button" parent="SetupGameAsClient"]
+layout_mode = 0
+offset_left = -94.0
+offset_top = 134.0
+offset_right = 27.0
+offset_bottom = 184.0
+theme_override_fonts/font = SubResource("11")
+theme_override_styles/normal = ExtResource("5")
+theme_override_styles/hover = ExtResource("6")
+theme_override_styles/pressed = ExtResource("11")
+text = "Retour"
+
+[node name="JoinButton" type="Button" parent="SetupGameAsClient"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
 [connection signal="button_down" from="TitleMenu/PlayButton" to="." method="_pressed_button"]
 [connection signal="button_up" from="TitleMenu/PlayButton" to="." method="_PlayButtonPressed"]
 [connection signal="mouse_entered" from="TitleMenu/PlayButton" to="." method="_focused_button"]
@@ -1637,19 +1645,9 @@ text = "Jouer à plusieurs"
 [connection signal="button_down" from="MultiplayerMenu/ConnectionControl/SceneHostButton" to="." method="_pressed_button"]
 [connection signal="mouse_entered" from="MultiplayerMenu/ConnectionControl/SceneHostButton" to="." method="_focused_button"]
 [connection signal="pressed" from="MultiplayerMenu/ConnectionControl/SceneHostButton" to="MultiplayerMenu" method="_hostPressed"]
-[connection signal="item_selected" from="MultiplayerMenu/ConnectionControl/SceneHostButton/SetupGameAsHost/ChooseGameMode" to="MultiplayerMenu/ConnectionControl/SceneHostButton/SetupGameAsHost" method="_on_choose_game_mode_item_selected"]
-[connection signal="item_selected" from="MultiplayerMenu/ConnectionControl/SceneHostButton/SetupGameAsHost/ScoreToReach" to="MultiplayerMenu/ConnectionControl/SceneHostButton/SetupGameAsHost" method="_on_score_to_reach_item_selected"]
-[connection signal="button_down" from="MultiplayerMenu/ConnectionControl/SceneHostButton/SetupGameAsHost/BackButtonFromhost" to="." method="_return_pressed_button"]
-[connection signal="button_up" from="MultiplayerMenu/ConnectionControl/SceneHostButton/SetupGameAsHost/BackButtonFromhost" to="." method="_PlayButtonPressed"]
-[connection signal="mouse_entered" from="MultiplayerMenu/ConnectionControl/SceneHostButton/SetupGameAsHost/BackButtonFromhost" to="." method="_focused_button"]
-[connection signal="pressed" from="MultiplayerMenu/ConnectionControl/SceneHostButton/SetupGameAsHost/StartGame" to="MultiplayerMenu/ConnectionControl/SceneHostButton/SetupGameAsHost" method="_on_start_game_pressed"]
 [connection signal="button_down" from="MultiplayerMenu/ConnectionControl/SceneJoinButton" to="." method="_pressed_button"]
 [connection signal="mouse_entered" from="MultiplayerMenu/ConnectionControl/SceneJoinButton" to="." method="_focused_button"]
 [connection signal="pressed" from="MultiplayerMenu/ConnectionControl/SceneJoinButton" to="MultiplayerMenu" method="_clientPressed"]
-[connection signal="button_down" from="MultiplayerMenu/ConnectionControl/SceneJoinButton/SetupGameAsClient/BackButtonFromClient" to="." method="_return_pressed_button"]
-[connection signal="button_up" from="MultiplayerMenu/ConnectionControl/SceneJoinButton/SetupGameAsClient/BackButtonFromClient" to="." method="_PlayButtonPressed"]
-[connection signal="mouse_entered" from="MultiplayerMenu/ConnectionControl/SceneJoinButton/SetupGameAsClient/BackButtonFromClient" to="." method="_focused_button"]
-[connection signal="pressed" from="MultiplayerMenu/ConnectionControl/SceneJoinButton/SetupGameAsClient/JoinButton" to="MultiplayerMenu/ConnectionControl/SceneJoinButton/SetupGameAsClient" method="_on_join_button_pressed"]
 [connection signal="button_down" from="GamemodeMenu/BackButton" to="." method="_pressed_button"]
 [connection signal="button_up" from="GamemodeMenu/BackButton" to="." method="_show_title_screen_"]
 [connection signal="mouse_entered" from="GamemodeMenu/BackButton" to="." method="_focused_button"]
@@ -1659,3 +1657,13 @@ text = "Jouer à plusieurs"
 [connection signal="button_down" from="GamemodeMenu/Multiplayer" to="." method="_pressed_button"]
 [connection signal="button_up" from="GamemodeMenu/Multiplayer" to="GamemodeMenu" method="_multiplayerPressed"]
 [connection signal="mouse_entered" from="GamemodeMenu/Multiplayer" to="." method="_focused_button"]
+[connection signal="item_selected" from="SetupGameAsHost/ChooseGameMode" to="SetupGameAsHost" method="_on_choose_game_mode_item_selected"]
+[connection signal="item_selected" from="SetupGameAsHost/ScoreToReach" to="SetupGameAsHost" method="_on_score_to_reach_item_selected"]
+[connection signal="button_down" from="SetupGameAsHost/BackButtonFromhost" to="." method="_return_pressed_button"]
+[connection signal="button_up" from="SetupGameAsHost/BackButtonFromhost" to="." method="_PlayButtonPressed"]
+[connection signal="mouse_entered" from="SetupGameAsHost/BackButtonFromhost" to="." method="_focused_button"]
+[connection signal="pressed" from="SetupGameAsHost/StartGame" to="SetupGameAsHost" method="_on_start_game_pressed"]
+[connection signal="button_down" from="SetupGameAsClient/BackButtonFromClient" to="." method="_return_pressed_button"]
+[connection signal="button_up" from="SetupGameAsClient/BackButtonFromClient" to="." method="_PlayButtonPressed"]
+[connection signal="mouse_entered" from="SetupGameAsClient/BackButtonFromClient" to="." method="_focused_button"]
+[connection signal="pressed" from="SetupGameAsClient/JoinButton" to="SetupGameAsClient" method="_on_join_button_pressed"]
