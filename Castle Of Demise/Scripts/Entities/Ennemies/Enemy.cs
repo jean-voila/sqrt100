@@ -5,24 +5,29 @@ namespace CastleOfDemise.mobs.Ennemies
 {
     public abstract partial class Enemy : CharacterBody3D
     {
-        [Signal] 
+        [Signal]
         public delegate void HitSignalEventHandler(int strength);
-        
+
         private readonly AudioStreamPlayer2D _deathSound = GetDeathSound();
         public bool ImDead { get; private set; }
         private ulong _timeSinceImDead;
-        
-        
+
+
         private const ulong TimeBeforeDisappear = 500;
-        public virtual int Health { get; set; }
-        
+        protected virtual int Health { get; set; }
+
+        private bool _canMove = true;
+        protected virtual bool _canMoveUpAndDown { get; set; } = false;
+        protected virtual float Speed { get; set; } = 0.30f;
+
+
         private static AudioStreamPlayer2D GetDeathSound()
         {
             AudioStreamPlayer2D deathSound = new AudioStreamPlayer2D();
             deathSound.Stream = GD.Load<AudioStream>("res://Assets/SoundEffects/death.wav");
             return deathSound;
         }
-        
+
         public override void _Ready()
         {
             AddChild(_deathSound);
@@ -43,16 +48,28 @@ namespace CastleOfDemise.mobs.Ennemies
             {
                 if (GetChild<AnimatedSprite3D>(0).Animation == "touched")
                 {
-                    if (GetChild<AnimatedSprite3D>(0).Frame == GetChild<AnimatedSprite3D>(0).SpriteFrames.GetFrameCount("touched")-1)
+                    if (GetChild<AnimatedSprite3D>(0).Frame ==
+                        GetChild<AnimatedSprite3D>(0).SpriteFrames.GetFrameCount("touched") - 1)
                     {
                         GetChild<AnimatedSprite3D>(0).Play("idle");
                     }
 
                 }
-
-
             }
         }
+    
+
+
+
+
+    public override void _PhysicsProcess(double d)
+        {
+            MoveTowardsPlayer(d);
+
+        }
+        
+
+        
 
         public void Hit(int strength)
         {
@@ -72,6 +89,32 @@ namespace CastleOfDemise.mobs.Ennemies
                     
                 }
             }
+        }
+
+        private void MoveTowardsPlayer(double d)
+        {
+            Vector3 playerPosition = GetNode<Player.Player>("../../Player").GlobalTransform.Origin;
+            Vector3 direction;
+            
+            if (_canMove)
+            {
+                direction = playerPosition - GlobalTransform.Origin;
+                LookAt(playerPosition, Vector3.Up);
+                direction = direction * Speed;
+            }
+            else
+            {
+                direction = new Vector3();
+            }
+            
+            if (!_canMoveUpAndDown)
+            {
+                direction.Y  = Velocity.Y - ((float)d * 0.3f);
+            }
+
+            Velocity = direction;
+            
+            MoveAndSlide();
         }
         
     }

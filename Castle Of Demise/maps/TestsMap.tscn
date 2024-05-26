@@ -1,12 +1,12 @@
 [gd_scene load_steps=53 format=3 uid="uid://debrxiqmdmuyo"]
 
-[ext_resource type="PackedScene" uid="uid://twx1vowmd4ni" path="res://Mobs/Player/Player.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://twx1vowmd4ni" path="res://Scripts/Entities/Player/Player.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://4t6pfy0uxm21" path="res://Assets/Props/grass02.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://bnd1ohf3rcdfj" path="res://Assets/Props/rock02.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://c0tm1u0k4kco" path="res://Assets/Props/tree01.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://cgg2wqugcv5de" path="res://Assets/Props/tree02.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://dvq5v83vruwmg" path="res://Assets/Props/rock01.png" id="6"]
-[ext_resource type="PackedScene" uid="uid://xrhd6q53it2j" path="res://mobs/Ennemies/Zombie/Zombie.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://xrhd6q53it2j" path="res://Scripts/Entities/Ennemies/Zombie/Zombie.tscn" id="7"]
 [ext_resource type="Texture2D" uid="uid://dn3gxxpskoijj" path="res://Assets/Props/grass.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://bhmi15ai0cduy" path="res://Assets/Props/explosiveBarrel.png" id="9"]
 [ext_resource type="Texture2D" uid="uid://05wr4u2iltdf" path="res://Assets/Props/Bush02.png" id="10"]
@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bddvfd4li5gc0" path="res://Assets/Textures/imageonline-co-pixelated(4).png" id="19"]
 [ext_resource type="Texture2D" uid="uid://citnbqb3htaxg" path="res://Assets/Textures/imageonline-co-pixelated(1).png" id="20"]
 [ext_resource type="Texture2D" uid="uid://c3ckpby2dcm6k" path="res://Assets/Textures/imageonline-co-pixelated.png" id="21"]
-[ext_resource type="PackedScene" uid="uid://tgtc4mteft3s" path="res://mobs/Ennemies/Bat/Bat.tscn" id="22"]
+[ext_resource type="PackedScene" uid="uid://tgtc4mteft3s" path="res://Scripts/Entities/Ennemies/Bat/Bat.tscn" id="22"]
 [ext_resource type="Texture2D" uid="uid://bredc67f5tmsh" path="res://Assets/Textures/imageonline-co-pixelated(3).png" id="24"]
 [ext_resource type="PackedScene" uid="uid://wlukug466k0o" path="res://Assets/Props/Ammo.tscn" id="25"]
 
