@@ -126,6 +126,35 @@ public partial class Player
             _ammoAvailable -= 6 - _ammoInMag;
             _ammoInMag = 6;
         }
-        
+    }
+
+    private void RotateWeapon(float inputX, float d)
+    {
+        if (_revolverModel != null)
+        {
+            _revolverModel.Rotation = new Vector3(
+                _revolverModel.Rotation.X,
+                _revolverModel.Rotation.Y,
+                Mathf.Lerp(_revolverModel.Rotation.Z, -inputX * _revolverModelRotationAmount, 10 * d)
+            );
+        }
+    }
+
+    private void WeaponSway()
+    {
+        float cameraMovementDirectionX = _lastMouseMovement.X;
+        float cameraMovementDirectionY = _lastMouseMovement.Y;
+        float swayFactor = 0.007f;
+        Vector3 sway = new Vector3(cameraMovementDirectionY * swayFactor, cameraMovementDirectionX * swayFactor, 0);
+        float returnSpeed = 0.1f;
+        if (_revolverModel != null)
+        {
+            _revolverModel.Rotation += sway;
+            _revolverModel.Rotation = new Vector3(
+                Mathf.Lerp(_revolverModel.Rotation.X, 0, returnSpeed),
+                Mathf.Lerp(_revolverModel.Rotation.Y, Mathf.DegToRad(170), returnSpeed),
+                Mathf.Lerp(_revolverModel.Rotation.Z, 0, returnSpeed)
+            );
+        }
     }
 }

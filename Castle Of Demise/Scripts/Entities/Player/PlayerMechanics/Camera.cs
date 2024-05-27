@@ -54,8 +54,7 @@ public partial class Player
             );
         }
     }
-
-
+    
     private Vector2 RandomOffset()
     {
         return new Vector2(_randShake.RandfRange(-_shakeStrength, _shakeStrength),

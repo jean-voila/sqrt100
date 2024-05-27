@@ -1,53 +1,44 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://bdgxn8n6q0ron"]
 
-[sub_resource type="StandardMaterial3D" id=1]
-albedo_color = Color( 1, 0.101961, 0.101961, 1 )
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nqfvo"]
+albedo_color = Color(0.627451, 0, 0, 1)
 
-[sub_resource type="BoxMesh" id=2]
-material = SubResource( 1 )
-size = Vector3( 0.35, 0.35, 0.35 )
+[sub_resource type="BoxMesh" id="BoxMesh_eskgu"]
+material = SubResource("StandardMaterial3D_nqfvo")
+size = Vector3(0.4, 0.4, 0.4)
 
-[sub_resource type="Curve" id=3]
+[sub_resource type="Curve" id="Curve_48pi8"]
 min_value = -100.0
 max_value = 100.0
-_data = [ Vector2( 0, 100 ), 0.0, -345.669, 0, 0, Vector2( 1, 27.2727 ), 0.0, 0.0, 0, 0 ]
+_data = [Vector2(0, 100), 0.0, -345.669, 0, 0, Vector2(1, 27.2727), 0.0, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="Curve" id=4]
-_data = [ Vector2( 0, 1 ), 0.0, 0.133554, 0, 0, Vector2( 1, 0 ), -2.36104, 0.0, 0, 0 ]
+[sub_resource type="Curve" id="Curve_30ays"]
+_data = [Vector2(0, 1), 0.0, 0.133554, 0, 0, Vector2(1, 0), -2.36104, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="Gradient" id=5]
-colors = PackedColorArray( 0, 0, 0, 1, 1, 1, 1, 0 )
+[sub_resource type="Gradient" id="Gradient_puesv"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
 
 [node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58, -1.359, -0.986)
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
-transform = Transform3D( -0.06, 0, -9.05975e-09, 0, 0.06, 0, 9.05975e-09, 0, -0.06, 0, 0, 0 )
+transform = Transform3D(-0.01, 0, -1.50996e-09, 0, 0.01, 0, 1.50996e-09, 0, -0.01, 0, 0, 0)
 emitting = false
-amount = 88
-lifetime = 0.3
+amount = 64
+lifetime = 0.2
 one_shot = true
 explosiveness = 1.0
 randomness = 1.0
 lifetime_randomness = 1.0
-mesh = SubResource( 2 )
+mesh = SubResource("BoxMesh_eskgu")
 emission_shape = 1
-emission_sphere_radius = 0.08
-flag_align_y = true
-direction = Vector3( 0, 0, 0 )
-gravity = Vector3( 0, 0, -1.352 )
-initial_velocity = 50.0
-initial_velocity_random = 0.1
-angular_velocity = 3.0
-angular_velocity_random = 1.0
-damping = 1000.0
-damping_random = 1.0
-damping_curve = SubResource( 3 )
-angle = 2.0
-angle_random = 1.0
-scale_amount = 0.1
-scale_amount_random = 1.0
-scale_amount_curve = SubResource( 4 )
-color_ramp = SubResource( 5 )
-hue_variation = 1.0
-hue_variation_random = 1.0
-anim_speed_random = 0.18
+emission_sphere_radius = 0.1
+direction = Vector3(0, 0, 1)
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 150.0
+damping_curve = SubResource("Curve_48pi8")
+scale_amount_curve = SubResource("Curve_30ays")
+color_ramp = SubResource("Gradient_puesv")

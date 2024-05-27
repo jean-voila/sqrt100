@@ -6,8 +6,6 @@ public partial class Player : CharacterBody3D
 {
 	
 	[Export] private Node3D _head;
-	
-	
 	[Export] private float _maxFov = 1.15f;
 	[Export] private float _fovChangingSpeed = 17f;
 	[Export] private float _camRotationAmount = 0.1f;
@@ -16,6 +14,9 @@ public partial class Player : CharacterBody3D
 	[Export] private float _shakeStrength;
 	[Export] private Node3D _usedCamera;
 	[Export] private AnimationPlayer _animReload;
+	[Export] private MeshInstance3D _revolverModel;
+	[Export] private float _revolverModelRotationAmount = -0.3f;
+	private Vector2 _lastMouseMovement;
 	
 	public override void _Ready()
 	{
@@ -26,11 +27,16 @@ public partial class Player : CharacterBody3D
 		_graphismsInit();
 		_gameWindowInit();
 		_playerHealthInit();
+		Engine.MaxFps = 300;
 	}
+	
 	public override void _Input(InputEvent @event)
 	{
-		if (@event is InputEventMouseMotion mouseInput) 
+		if (@event is InputEventMouseMotion mouseInput)
+		{
 			HandleMouseMovement(mouseInput);
+			_lastMouseMovement = mouseInput.Relative;
+		}
 		if (@event.IsActionPressed("mouse_left_click"))
 		{
 			if (_ammoInMag > 0) Shoot();
@@ -40,6 +46,7 @@ public partial class Player : CharacterBody3D
 			Pause();
 		if (@event.IsActionPressed("key_r") && canReload())
 		{
+			_weaponReload.Play();
 			_animReload.Play("reload");
 			reload();
 		}
@@ -57,6 +64,7 @@ public partial class Player : CharacterBody3D
 		UpdateDebugInfo();
 		UpdatePlayerInfo();
 		CameraShakeProcess();
+		WeaponSway();
 	}
 
 	public override void _EnterTree()

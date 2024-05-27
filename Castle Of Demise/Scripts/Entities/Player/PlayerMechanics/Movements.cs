@@ -61,15 +61,13 @@ public partial class Player
             inputMovementVector.X += 1;
             isMoving = true;
         }
-        
-
-        
         _direction = new Vector3();
         _direction += -GlobalTransform.Basis.Z * inputMovementVector.Y;
         _direction += GlobalTransform.Basis.X * inputMovementVector.X;
         HandleStepSounds(isMoving);
         
         RotateCamera(inputMovementVector.X, d);
+        RotateWeapon(inputMovementVector.X, d);
         AdjustFov(d);
     }
     

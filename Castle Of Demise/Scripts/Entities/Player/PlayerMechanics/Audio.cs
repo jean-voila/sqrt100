@@ -8,11 +8,13 @@ public partial class Player
 
     private List<AudioStreamPlayer3D> _gunShotSounds;
     private List<AudioStreamPlayer3D> _stepSounds;
+    
     private List<AudioStreamPlayer3D> _allSoundEffects;
     private AudioStreamPlayer3D _hitSound;
     private AudioStreamPlayer3D _jumpSound;
     private AudioStreamPlayer3D _alternateShotSound;
     private AudioStreamPlayer3D _cantShootSound;
+    private AudioStreamPlayer3D _weaponReload;
     private AudioStreamPlayer3D _landSound;
     // private String _musicPlayerPath;
     // private AudioStreamPlayer2D _musicPlayer;
@@ -39,6 +41,7 @@ public partial class Player
         };
         _jumpSound = GetNode<AudioStreamPlayer3D>("jumpAndLandSoundEffect/jump");
         _landSound = GetNode<AudioStreamPlayer3D>("jumpAndLandSoundEffect/Land");
+        _weaponReload = GetNode<AudioStreamPlayer3D>("GunShotSoundsEffects/weaponReload");
         _allSoundEffects = new List<AudioStreamPlayer3D>();
         _allSoundEffects.AddRange(_gunShotSounds);
         _allSoundEffects.AddRange(_stepSounds);
