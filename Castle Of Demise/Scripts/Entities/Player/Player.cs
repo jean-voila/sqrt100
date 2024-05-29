@@ -10,8 +10,8 @@ public partial class Player : CharacterBody3D
 	[Export] private float _fovChangingSpeed = 17f;
 	[Export] private float _camRotationAmount = 0.1f;
 	[Export] private float _mouseSensitivity = 0.005f;
-	[Export] private float _shakeDelay = 300.0f;
-	[Export] private float _shakeStrength;
+	[Export] private float _shakeDelay = 10f;
+	[Export] private float _shakeStrength = 0.2f;
 	[Export] private Node3D _usedCamera;
 	[Export] private AnimationPlayer _animReload;
 	[Export] private MeshInstance3D _revolverModel;
@@ -27,7 +27,7 @@ public partial class Player : CharacterBody3D
 		_graphismsInit();
 		_gameWindowInit();
 		_playerHealthInit();
-		Engine.MaxFps = 300;
+		Engine.MaxFps = 60;
 	}
 	
 	public override void _Input(InputEvent @event)

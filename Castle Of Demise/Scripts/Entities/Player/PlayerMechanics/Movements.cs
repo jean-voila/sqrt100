@@ -92,6 +92,7 @@ public partial class Player
                 _landed = true;
                 horizontalVelocity.Y = 0;
                 _landSound.Play();
+                CameraShake();
             }
 
             else if (Input.IsActionJustPressed("key_space"))

@@ -65,7 +65,7 @@ public partial class Player
         _ammoShooted++;
         bool isEnnemiTouched = false;
         var rayEnd = _shootRayCast.GetCollisionPoint();
-        // CameraShake();
+        CameraShake();
         _animShoot.Play("Shoot");
         if (_shootRayCast.IsColliding())
         {
@@ -144,7 +144,7 @@ public partial class Player
     {
         float cameraMovementDirectionX = _lastMouseMovement.X;
         float cameraMovementDirectionY = _lastMouseMovement.Y;
-        float swayFactor = 0.007f;
+        float swayFactor = 0.001f;
         Vector3 sway = new Vector3(cameraMovementDirectionY * swayFactor, cameraMovementDirectionX * swayFactor, 0);
         float returnSpeed = 0.1f;
         if (_revolverModel != null)
