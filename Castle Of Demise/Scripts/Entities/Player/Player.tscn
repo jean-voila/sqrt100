@@ -548,6 +548,12 @@ texture = ExtResource("4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, 0, 0)
 target_position = Vector3(0, 0, -2000)
 
+[node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D"]
+light_color = Color(1, 1, 0.607843, 1)
+light_energy = 10.0
+spot_range = 70.1516
+spot_angle = 31.4842
+
 [node name="Revolver" type="MeshInstance3D" parent="Head"]
 transform = Transform3D(-0.838265, 0, 5.28735e-07, 0, 0.544463, 0, -2.12515e-06, 0, -0.208559, 1.58, -1.359, -0.986)
 cast_shadow = 0

@@ -681,21 +681,6 @@ billboard = 2
 shaded = true
 sprite_frames = SubResource("SpriteFrames_m5mt7")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/Forest"]
-transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 5.07143, 4.79938, 5.45877)
-shape = SubResource("BoxShape3D_b55vf")
-disabled = true
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="CSGBox3D/Forest"]
-transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, -6.33287, 4.79938, 4.94892)
-shape = SubResource("BoxShape3D_b55vf")
-disabled = true
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="CSGBox3D/Forest"]
-transform = Transform3D(-0.0097039, 0, -0.999953, 0, 1, 0, 0.999953, 0, -0.00970387, -0.382253, 5.30481, 143.614)
-shape = SubResource("BoxShape3D_alqix")
-disabled = true
-
 [node name="Texture15" type="AnimatedSprite3D" parent="CSGBox3D/Forest"]
 transform = Transform3D(-0.277539, 0, 0.998457, 0, 7, 0, -4.99229, 0, -0.0555076, -6.04312, 3.94815, 98.049)
 billboard = 2
@@ -1943,6 +1928,24 @@ transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.
 billboard = 2
 shaded = true
 sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D/Forest"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/Forest/StaticBody3D"]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 5.07143, 4.79938, 5.45877)
+shape = SubResource("BoxShape3D_b55vf")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="CSGBox3D/Forest"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="CSGBox3D/Forest/StaticBody3D2"]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, -6.33287, 4.79938, 4.94892)
+shape = SubResource("BoxShape3D_b55vf")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="CSGBox3D/Forest"]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="CSGBox3D/Forest/StaticBody3D3"]
+transform = Transform3D(-0.0097039, 0, -0.999953, 0, 1, 0, 0.999953, 0, -0.00970387, -0.382253, 5.30481, 143.614)
+shape = SubResource("BoxShape3D_alqix")
 
 [node name="Roads" type="Node3D" parent="CSGBox3D"]
 
