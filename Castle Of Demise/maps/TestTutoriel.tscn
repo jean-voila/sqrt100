@@ -1,15 +1,15 @@
 [gd_scene load_steps=15 format=3 uid="uid://dl3nt6mahqgxs"]
 
-[ext_resource type="Texture2D" uid="uid://citnbqb3htaxg" path="res://Assets/Textures/imageonline-co-pixelated(1).png" id="1_hfde4"]
-[ext_resource type="PackedScene" uid="uid://djvcnnignduwe" path="res://Assets/Props/CR0SSR0ADS.tscn" id="2_sfak4"]
-[ext_resource type="Texture2D" uid="uid://cgg2wqugcv5de" path="res://Assets/Props/tree02.png" id="3_yrl35"]
-[ext_resource type="Texture2D" uid="uid://c0tm1u0k4kco" path="res://Assets/Props/tree01.png" id="4_sa0mt"]
-[ext_resource type="PackedScene" uid="uid://wlukug466k0o" path="res://Assets/Props/Ammo.tscn" id="5_m34dl"]
-[ext_resource type="PackedScene" uid="uid://twx1vowmd4ni" path="res://Scripts/Entities/Player/Player.tscn" id="5_nl3us"]
-[ext_resource type="PackedScene" uid="uid://tgtc4mteft3s" path="res://Scripts/Entities/Ennemies/Bat/Bat.tscn" id="6_b4on4"]
+[ext_resource type="Texture2D" uid="uid://citnbqb3htaxg" path="res://Assets/Textures/imageonline-co-pixelated(1).png" id="1_833s0"]
+[ext_resource type="Texture2D" uid="uid://cgg2wqugcv5de" path="res://Assets/Props/tree02.png" id="2_hdyt8"]
+[ext_resource type="Texture2D" uid="uid://c0tm1u0k4kco" path="res://Assets/Props/tree01.png" id="3_f7eww"]
+[ext_resource type="PackedScene" uid="uid://djvcnnignduwe" path="res://Assets/Props/CR0SSR0ADS.tscn" id="4_fo8q0"]
+[ext_resource type="PackedScene" uid="uid://wlukug466k0o" path="res://Assets/Props/Ammo.tscn" id="5_ud77k"]
+[ext_resource type="PackedScene" uid="uid://tgtc4mteft3s" path="res://Scripts/Entities/Ennemies/Bat/Bat.tscn" id="6_jacck"]
+[ext_resource type="PackedScene" uid="uid://twx1vowmd4ni" path="res://Scripts/Entities/Player/Player.tscn" id="7_q61ml"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2p0j6"]
-albedo_texture = ExtResource("1_hfde4")
+albedo_texture = ExtResource("1_833s0")
 uv1_triplanar = true
 uv2_triplanar = true
 
@@ -17,7 +17,7 @@ uv2_triplanar = true
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_yrl35")
+"texture": ExtResource("2_hdyt8")
 }],
 "loop": true,
 "name": &"default",
@@ -28,7 +28,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_sa0mt")
+"texture": ExtResource("3_f7eww")
 }],
 "loop": true,
 "name": &"default",
@@ -36,7 +36,7 @@ animations = [{
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b55vf"]
-size = Vector3(1, 10.5988, 89.9807)
+size = Vector3(1, 10.5988, 277.093)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_alqix"]
 size = Vector3(1, 8.88788, 12.5965)
@@ -47,17 +47,18 @@ volumetric_fog_density = 0.0206
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_l70uj"]
 
-[node name="TestVillage" type="Node3D"]
+[node name="TestTutoriel" type="Node3D"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.668209, 0, -0.37368)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.668209, 0, -8.32977)
 material_override = SubResource("StandardMaterial3D_2p0j6")
-size = Vector3(58.665, 1, 297.094)
+use_collision = true
+size = Vector3(58.665, 1, 313.006)
 
 [node name="Forest" type="Node3D" parent="CSGBox3D"]
 
 [node name="Texture2" type="AnimatedSprite3D" parent="CSGBox3D/Forest"]
-transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, -4.13573, 3.68236, -10.5578)
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, -6.77486, 3.68236, -20.077)
 billboard = 2
 shaded = true
 sprite_frames = SubResource("SpriteFrames_ndudl")
@@ -320,13 +321,373 @@ billboard = 2
 shaded = true
 sprite_frames = SubResource("SpriteFrames_m5mt7")
 
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.18058, 0.200208, 0.986809)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424043, 0, 0.996397, 0.560171, 0.200208, 1.25514)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.18058, 0.200208, 0.986809)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424043, 0, 0.996397, 0.363397, 0.200208, 1.11604)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.18058, 0.200208, 0.986809)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424043, 0, 0.996397, 0.560171, 0.200208, 1.25514)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.18058, 0.200208, 0.986809)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture13/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/Forest"]
-transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 5.07143, 4.79938, 98.8846)
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 5.07143, 4.79938, 5.45877)
 shape = SubResource("BoxShape3D_b55vf")
 disabled = true
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="CSGBox3D/Forest"]
-transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, -6.33287, 4.79938, 99.6609)
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, -6.33287, 4.79938, 4.94892)
 shape = SubResource("BoxShape3D_b55vf")
 disabled = true
 
@@ -335,8 +696,32 @@ transform = Transform3D(-0.0097039, 0, -0.999953, 0, 1, 0, 0.999953, 0, -0.00970
 shape = SubResource("BoxShape3D_alqix")
 disabled = true
 
+[node name="Texture15" type="AnimatedSprite3D" parent="CSGBox3D/Forest"]
+transform = Transform3D(-0.277539, 0, 0.998457, 0, 7, 0, -4.99229, 0, -0.0555076, -6.04312, 3.94815, 98.049)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture15"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture15/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture15/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
 [node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest"]
-transform = Transform3D(-0.277539, 0, 0.998457, 0, 7, 0, -4.99229, 0, -0.0555076, 5.67017, 3.94815, 107.13)
+transform = Transform3D(-0.277539, 0, 0.998457, 0, 7, 0, -4.99229, 0, -0.0555076, -6.62458, 3.94815, 89.4108)
 billboard = 2
 shaded = true
 sprite_frames = SubResource("SpriteFrames_ndudl")
@@ -359,84 +744,1326 @@ billboard = 2
 shaded = true
 sprite_frames = SubResource("SpriteFrames_m5mt7")
 
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.18058, 0.200208, 0.986809)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424043, 0, 0.996397, 0.560171, 0.200208, 1.25514)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.18058, 0.200208, 0.986809)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424043, 0, 0.996397, 0.363397, 0.200208, 1.11604)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.18058, 0.200208, 0.986809)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424043, 0, 0.996397, 0.560171, 0.200208, 1.25514)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.18058, 0.200208, 0.986809)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture16" type="AnimatedSprite3D" parent="CSGBox3D/Forest"]
+transform = Transform3D(-0.277539, 0, 0.998457, 0, 7, 0, -4.99229, 0, -0.0555076, 5.83438, 3.94815, 3.09678)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture16"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture16/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture16/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture17" type="AnimatedSprite3D" parent="CSGBox3D/Forest"]
+transform = Transform3D(-0.277539, 0, 0.998457, 0, 7, 0, -4.99229, 0, -0.0555076, 5.83438, 3.94815, -5.29283)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture17"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture17/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture17/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture17" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 2.98023e-08, 0, 1, 1.63644, 0, 0.454878)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture17/Texture17"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture17/Texture17/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture17/Texture17/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture18" type="AnimatedSprite3D" parent="CSGBox3D/Forest"]
+transform = Transform3D(-0.277539, 0, 0.998457, 0, 7, 0, -4.99229, 0, -0.0555076, 6.32471, 3.94815, -15.1811)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.18058, 0.200208, 0.986809)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424043, 0, 0.996397, 0.560171, 0.200208, 1.25514)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.18058, 0.200208, 0.986809)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424043, 0, 0.996397, 0.363397, 0.200208, 1.11604)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.18058, 0.200208, 0.986809)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424043, 0, 0.996397, 0.560171, 0.200208, 1.25514)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.18058, 0.200208, 0.986809)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture18/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture19" type="AnimatedSprite3D" parent="CSGBox3D/Forest"]
+transform = Transform3D(-0.277539, 0, 0.998457, 0, 7, 0, -4.99229, 0, -0.0555076, -6.91976, 3.94815, -21.2343)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.18058, 0.200208, 0.986809)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424043, 0, 0.996397, 0.560171, 0.200208, 1.25514)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.18058, 0.200208, 0.986809)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424043, 0, 0.996397, 0.363397, 0.200208, 1.11604)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.18058, 0.200208, 0.986809)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424043, 0, 0.996397, 0.560171, 0.200208, 1.25514)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.18058, 0.200208, 0.986809)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, -0.125111, 0.200208, -0.551377)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1"]
+transform = Transform3D(0.996397, 0, -0.0169617, 0, 1.4, 0, 0.424042, 0, 0.996397, 0.580109, 0.200208, 0.608185)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="CSGBox3D/Forest/Texture19/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9/Texture1/Texture14/Texture1/Texture9"]
+transform = Transform3D(0.996397, 0, 0.0169617, 0, 0.714286, 0, -0.424042, 0, 0.996398, 0.34609, -0.143006, -0.100262)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
 [node name="Roads" type="Node3D" parent="CSGBox3D"]
 
-[node name="Spatial" parent="CSGBox3D/Roads" instance=ExtResource("2_sfak4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, -45.5256)
+[node name="Spatial" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, -146.815)
 
-[node name="Spatial" parent="CSGBox3D/Roads/Spatial" instance=ExtResource("2_sfak4")]
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial" instance=ExtResource("4_fo8q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
 
-[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial" instance=ExtResource("2_sfak4")]
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
 
-[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial" instance=ExtResource("2_sfak4")]
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
 
-[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("2_sfak4")]
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
 
-[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("2_sfak4")]
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
 
-[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("2_sfak4")]
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
 
-[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("2_sfak4")]
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
 
-[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("2_sfak4")]
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
 
-[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("2_sfak4")]
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
 
-[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("2_sfak4")]
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
 
-[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("2_sfak4")]
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
 
-[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("2_sfak4")]
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
 
-[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("2_sfak4")]
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
 
-[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("2_sfak4")]
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
 
-[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("2_sfak4")]
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
 
-[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("2_sfak4")]
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
 
-[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("2_sfak4")]
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
 
-[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("2_sfak4")]
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
 
-[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("2_sfak4")]
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
 
-[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("2_sfak4")]
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
 
-[node name="Ammo" parent="CSGBox3D" instance=ExtResource("5_m34dl")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.328491, 0.835439, 121.947)
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
+
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
+
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
+
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
+
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
+
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
+
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
+
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
+
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
+
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
+
+[node name="Spatial" parent="CSGBox3D/Roads/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial/Spatial" instance=ExtResource("4_fo8q0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20181)
+
+[node name="Ammo" parent="CSGBox3D" instance=ExtResource("5_ud77k")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.328491, 0.835439, 51.7666)
 
 [node name="Ennemies" type="Node3D" parent="CSGBox3D"]
 
-[node name="Bat1" parent="CSGBox3D/Ennemies" groups=["ennemies"] instance=ExtResource("6_b4on4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2912, 3.49293, 86.0975)
+[node name="Bat" parent="CSGBox3D/Ennemies" groups=["ennemies"] instance=ExtResource("6_jacck")]
+transform = Transform3D(1.296, 0, 0, 0, 1.296, 0, 0, 0, 1.296, 2.50714, 3.02134, -30.2955)
 
-[node name="Bat2" parent="CSGBox3D/Ennemies" groups=["ennemies"] instance=ExtResource("6_b4on4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9993, 3.49293, 87.6398)
+[node name="Bat2" parent="CSGBox3D/Ennemies" groups=["ennemies"] instance=ExtResource("6_jacck")]
+transform = Transform3D(1.296, 0, 0, 0, 1.296, 0, 0, 0, 1.296, -1.58968, 2.55366, -23.1951)
 
-[node name="Player" parent="." instance=ExtResource("5_nl3us")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.01742, 0, 137.952)
+[node name="Bat3" parent="CSGBox3D/Ennemies" groups=["ennemies"] instance=ExtResource("6_jacck")]
+transform = Transform3D(1.296, 0, 0, 0, 1.296, 0, 0, 0, 1.296, 2.54502, 2.56583, -39.2798)
+
+[node name="Bat4" parent="CSGBox3D/Ennemies" groups=["ennemies"] instance=ExtResource("6_jacck")]
+transform = Transform3D(1.296, 0, 0, 0, 1.296, 0, 0, 0, 1.296, -1.55179, 2.09815, -32.1795)
+
+[node name="Bat5" parent="CSGBox3D/Ennemies" groups=["ennemies"] instance=ExtResource("6_jacck")]
+transform = Transform3D(1.296, 0, 0, 0, 1.296, 0, 0, 0, 1.296, -1.55179, 7.52306, 74.9774)
+
+[node name="Player" parent="." instance=ExtResource("7_q61ml")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.01742, 0, 129.909)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ckuwf")
