@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://dl3nt6mahqgxs"]
+[gd_scene load_steps=14 format=3 uid="uid://dl3nt6mahqgxs"]
 
 [ext_resource type="Texture2D" uid="uid://citnbqb3htaxg" path="res://Assets/Textures/imageonline-co-pixelated(1).png" id="1_833s0"]
 [ext_resource type="Texture2D" uid="uid://cgg2wqugcv5de" path="res://Assets/Props/tree02.png" id="2_hdyt8"]
 [ext_resource type="Texture2D" uid="uid://c0tm1u0k4kco" path="res://Assets/Props/tree01.png" id="3_f7eww"]
 [ext_resource type="PackedScene" uid="uid://djvcnnignduwe" path="res://Assets/Props/CR0SSR0ADS.tscn" id="4_fo8q0"]
 [ext_resource type="PackedScene" uid="uid://wlukug466k0o" path="res://Assets/Props/Ammo.tscn" id="5_ud77k"]
-[ext_resource type="PackedScene" uid="uid://tgtc4mteft3s" path="res://Scripts/Entities/Ennemies/Bat/Bat.tscn" id="6_jacck"]
 [ext_resource type="PackedScene" uid="uid://twx1vowmd4ni" path="res://Scripts/Entities/Player/Player.tscn" id="7_q61ml"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2p0j6"]
@@ -43,7 +42,8 @@ animations = [{
 
 [sub_resource type="Environment" id="Environment_ckuwf"]
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.0206
+volumetric_fog_density = 0.1186
+volumetric_fog_albedo = Color(0.781416, 0.503441, 0.132731, 1)
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_l70uj"]
 
@@ -54,10 +54,13 @@ transform = Transform3D(-0.359997, -0.459408, 0.812001, 0, 0.870356, 0.492424, -
 shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.668209, 0, -8.32977)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43372, 0, -8.32977)
 material_override = SubResource("StandardMaterial3D_2p0j6")
 use_collision = true
-size = Vector3(58.665, 1, 313.006)
+size = Vector3(293.38, 1, 313.006)
+
+[node name="Player" parent="CSGBox3D" instance=ExtResource("7_q61ml")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.192408, -0.345818, 130.79)
 
 [node name="Forest" type="Node3D" parent="CSGBox3D"]
 transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 0, 0, 1, -5.36442e-07, 2.38419e-07, -1.04904e-05)
@@ -1575,7 +1578,7 @@ shaded = true
 sprite_frames = SubResource("SpriteFrames_m5mt7")
 
 [node name="Texture250" type="AnimatedSprite3D" parent="CSGBox3D/Forest"]
-transform = Transform3D(-0.277519, 0, 0.998471, 0, 7.0001, 0, -4.99221, 0, -0.0555084, 5.67043, 3.94811, -122.292)
+transform = Transform3D(-0.277519, 0, 0.998471, 0, 7.0001, 0, -4.99221, 0, -0.0555084, 5.67043, 3.9481, -122.292)
 billboard = 2
 shaded = true
 sprite_frames = SubResource("SpriteFrames_ndudl")
@@ -1659,7 +1662,7 @@ shaded = true
 sprite_frames = SubResource("SpriteFrames_m5mt7")
 
 [node name="Texture264" type="AnimatedSprite3D" parent="CSGBox3D/Forest"]
-transform = Transform3D(-0.277523, 0, 0.998468, 0, 7.00008, 0, -4.99223, 0, -0.0555083, 6.32487, 3.94812, -98.7694)
+transform = Transform3D(-0.277523, 0, 0.998468, 0, 7.00008, 0, -4.99223, 0, -0.0555083, 6.32487, 3.94811, -98.7694)
 billboard = 2
 shaded = true
 sprite_frames = SubResource("SpriteFrames_ndudl")
@@ -1952,6 +1955,30 @@ billboard = 2
 shaded = true
 sprite_frames = SubResource("SpriteFrames_ndudl")
 
+[node name="Texture313" type="AnimatedSprite3D" parent="CSGBox3D/Forest"]
+transform = Transform3D(-0.699913, 0, 0.990167, 0, 5.00008, 0, -4.95069, 0, -0.139985, 5.47428, 2.94705, -124.014)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture314" type="AnimatedSprite3D" parent="CSGBox3D/Forest"]
+transform = Transform3D(-0.277519, 0, 0.998471, 0, 7.0001, 0, -4.99221, 0, -0.0555084, 5.67043, 3.9481, -122.292)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
+[node name="Texture315" type="AnimatedSprite3D" parent="CSGBox3D/Forest"]
+transform = Transform3D(-0.699913, 0, 0.990167, 0, 5.00007, 0, -4.95068, 0, -0.139985, 5.47428, 2.94705, -128.752)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_m5mt7")
+
+[node name="Texture316" type="AnimatedSprite3D" parent="CSGBox3D/Forest"]
+transform = Transform3D(-0.277519, 0, 0.998471, 0, 7.0001, 0, -4.99221, 0, -0.0555084, 5.67043, 3.9481, -127.03)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ndudl")
+
 [node name="Roads" type="Node3D" parent="CSGBox3D"]
 
 [node name="Spatial" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
@@ -2052,29 +2079,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, -137.613)
 
 [node name="Ammo" parent="CSGBox3D" instance=ExtResource("5_ud77k")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.328491, 0.835439, 51.7666)
-
-[node name="Ennemies" type="Node3D" parent="CSGBox3D"]
-
-[node name="Bat" parent="CSGBox3D/Ennemies" groups=["ennemies"] instance=ExtResource("6_jacck")]
-transform = Transform3D(1.296, 0, 0, 0, 1.296, 0, 0, 0, 1.296, 2.50714, 3.02134, -30.2955)
-
-[node name="Bat2" parent="CSGBox3D/Ennemies" groups=["ennemies"] instance=ExtResource("6_jacck")]
-transform = Transform3D(1.296, 0, 0, 0, 1.296, 0, 0, 0, 1.296, -1.58968, 2.55366, -23.1951)
-
-[node name="Bat3" parent="CSGBox3D/Ennemies" groups=["ennemies"] instance=ExtResource("6_jacck")]
-transform = Transform3D(1.296, 0, 0, 0, 1.296, 0, 0, 0, 1.296, 2.54502, 2.56583, -39.2798)
-
-[node name="Bat4" parent="CSGBox3D/Ennemies" groups=["ennemies"] instance=ExtResource("6_jacck")]
-transform = Transform3D(1.296, 0, 0, 0, 1.296, 0, 0, 0, 1.296, -1.55179, 2.09815, -32.1795)
-
-[node name="Bat5" parent="CSGBox3D/Ennemies" groups=["ennemies"] instance=ExtResource("6_jacck")]
-transform = Transform3D(1.296, 0, 0, 0, 1.296, 0, 0, 0, 1.296, -1.55179, 7.52306, 74.9774)
-
-[node name="Bat6" parent="CSGBox3D/Ennemies" groups=["ennemies"] instance=ExtResource("6_jacck")]
-transform = Transform3D(1.296, 0, 0, 0, 1.296, 0, 0, 0, 1.296, -3.14869, 3.65605, -82.4592)
-
-[node name="Player" parent="." instance=ExtResource("7_q61ml")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.860617, -0.345818, 122.461)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ckuwf")
