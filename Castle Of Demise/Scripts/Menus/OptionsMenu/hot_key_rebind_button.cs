@@ -37,13 +37,19 @@ public partial class hot_key_rebind_button : Control
 			case "key_space" :
 				_label.Text = "Sauter";
 				break;
+            case "key_r" :
+				_label.Text = "Recharger";
+	            break;
+            case "key_escape" :
+				_label.Text = "Pause";
+	            break;
 		}
 	}
 	public void SetTextForKey()
 	{
 		var actionEvents = InputMap.ActionGetEvents(action_name);
 		InputEvent actionEvent = actionEvents[0];
-		_button.Text = $"{actionEvent.AsText()}";
+		_button.Text = $"{actionEvent.AsText().TrimSuffix(" (Physical)")}";
 	}
 
 	private void _on_button_toggled(bool buttonPressed)
