@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 namespace CastleOfDemise.Scripts.Menus.MultiLauncher;
@@ -74,10 +75,29 @@ public partial class SetupGameAsHost : Control
 	private void _on_start_game_pressed()
 	{
 		_startGameButton.Disabled = true;
+		var scene = GD.Load<PackedScene>("res://maps/mpMap01.tscn").Instantiate();
+		GetTree().Root.AddChild(scene);
+		this.Hide();
+		Rpc("StartGame");
 	}
+	
+	[Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true, TransferMode = MultiplayerPeer.TransferModeEnum.Reliable)]
 
-
+	private void StartGame()
+	{
+		var scene = ResourceLoader.Load<PackedScene>("res://Scenes/Map/world1.tscn").Instantiate();
+		GetTree().Root.AddChild(scene);
+		this.Hide();
+	}
+	
+	private void SendPlayerInformation(string name, int id)
+	{
+		throw new NotImplementedException();
+	}
 }
+
+
+
 
 
 

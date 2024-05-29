@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dk2u6d3w8t0cw"]
+[gd_scene load_steps=27 format=3 uid="uid://dk2u6d3w8t0cw"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/TitleScreen.cs" id="1"]
 [ext_resource type="FontFile" uid="uid://cnxno2loranng" path="res://Assets/Fonts/Roboto-Bold.ttf" id="2"]
@@ -16,7 +16,6 @@
 [ext_resource type="Script" path="res://Scripts/Menus/GamemodeMenu.cs" id="12"]
 [ext_resource type="StyleBox" path="res://menus/StandardButtonFocused.tres" id="13"]
 [ext_resource type="Script" path="res://Scripts/Menus/MultiLauncher/SetupGameAsHost.cs" id="13_xtka4"]
-[ext_resource type="Script" path="res://Scripts/Menus/MultiLauncher/SetupGameAsClient.cs" id="14_w0bpv"]
 
 [sub_resource type="StyleBoxFlat" id="26"]
 bg_color = Color(0, 0, 0, 0.211765)
@@ -519,33 +518,6 @@ offset_bottom = 152.0
 disabled = true
 text = "Lancher la partie"
 
-[node name="SetupGameAsClient" type="Control" parent="."]
-unique_name_in_owner = true
-visible = false
-anchors_preset = 0
-offset_left = 676.0
-offset_top = 384.0
-offset_right = 716.0
-offset_bottom = 424.0
-script = ExtResource("14_w0bpv")
-
-[node name="BackButtonFromClient" type="Button" parent="SetupGameAsClient"]
-layout_mode = 0
-offset_left = -94.0
-offset_top = 134.0
-offset_right = 27.0
-offset_bottom = 184.0
-theme_override_fonts/font = SubResource("11")
-theme_override_styles/normal = ExtResource("5")
-theme_override_styles/hover = ExtResource("6")
-theme_override_styles/pressed = ExtResource("11")
-text = "Retour"
-
-[node name="JoinButton" type="Button" parent="SetupGameAsClient"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-
 [connection signal="button_down" from="TitleMenu/PlayButton" to="." method="_pressed_button"]
 [connection signal="button_up" from="TitleMenu/PlayButton" to="." method="_PlayButtonPressed"]
 [connection signal="mouse_entered" from="TitleMenu/PlayButton" to="." method="_focused_button"]
@@ -585,7 +557,3 @@ offset_bottom = 8.0
 [connection signal="button_up" from="SetupGameAsHost/BackButtonFromhost" to="." method="_PlayButtonPressed"]
 [connection signal="mouse_entered" from="SetupGameAsHost/BackButtonFromhost" to="." method="_focused_button"]
 [connection signal="pressed" from="SetupGameAsHost/StartGame" to="SetupGameAsHost" method="_on_start_game_pressed"]
-[connection signal="button_down" from="SetupGameAsClient/BackButtonFromClient" to="." method="_return_pressed_button"]
-[connection signal="button_up" from="SetupGameAsClient/BackButtonFromClient" to="." method="_PlayButtonPressed"]
-[connection signal="mouse_entered" from="SetupGameAsClient/BackButtonFromClient" to="." method="_focused_button"]
-[connection signal="pressed" from="SetupGameAsClient/JoinButton" to="SetupGameAsClient" method="_on_join_button_pressed"]
