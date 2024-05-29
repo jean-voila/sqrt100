@@ -55,6 +55,11 @@ public partial class TitleScreen : Control
 	{
 		GetTree().ChangeSceneToFile("res://maps/TestsMap.tscn");
 	}
+	
+	private void _TutoButtonPressed()
+	{
+		GetTree().ChangeSceneToFile("res://maps/TestTutoriel.tscn");
+	}
 
 	
 
