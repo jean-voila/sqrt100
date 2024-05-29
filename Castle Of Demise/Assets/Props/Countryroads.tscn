@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://7hhxey5vvu2b"]
+
+[ext_resource type="Texture2D" uid="uid://cutjplaxotxtt" path="res://Assets/Textures/imageonline-co-pixelated-terre.png" id="1"]
+
+[sub_resource type="StandardMaterial3D" id="1"]
+albedo_texture = ExtResource("1")
+uv1_triplanar = true
+
+[node name="Spatial" type="Node3D"]
+
+[node name="CSGBox" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0115596, 0.0276172, 0)
+material_overlay = SubResource("1")
+size = Vector3(1, 0.002, 1)

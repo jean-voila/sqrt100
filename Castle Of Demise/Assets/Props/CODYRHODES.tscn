@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpf52rtbwycp6"]
+
+[ext_resource type="PackedScene" uid="uid://kmdcawdug4ax" path="res://Assets/Props/road.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://c580hl7hr2ch4" path="res://Assets/Textures/imageonline-co-pixelated-terre.png" id="2"]
+
+[sub_resource type="StandardMaterial3D" id="1"]
+albedo_texture = ExtResource("2")
+uv1_triplanar = true
+
+[node name="Spatial" type="Node3D"]
+
+[node name="road" parent="." instance=ExtResource("1")]
+
+[node name="CSGBox" type="CSGBox3D" parent="."]
+transform = Transform3D(0.999995, -0.00301941, 0, 0.00301941, 0.999995, 0, 0, 0, 1, 2.02758, 0.0273752, -0.0213932)
+material_overlay = SubResource("1")
+size = Vector3(1, 0.002, 1)
+
+[node name="CSGBox2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.999993, 0.00371754, 0, -0.00371754, 0.999993, 0, 0, 0, 1, -0.940448, 0.0220477, -0.0120193)
+material_overlay = SubResource("1")
+size = Vector3(1.02625, 0.002, 1)

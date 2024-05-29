@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://djvcnnignduwe"]
+
+[ext_resource type="PackedScene" path="res://Assets/Props/CODYRHODES.tscn" id="1"]
+
+[node name="Spatial" type="Node3D"]
+
+[node name="lechemin" parent="." instance=ExtResource("1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.556933, 0.020708, 1.37207)
+
+[node name="lechemin" parent="lechemin" instance=ExtResource("1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.927963)
+
+[node name="lechemin" parent="lechemin/lechemin" instance=ExtResource("1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.927963)
+
+[node name="lechemin" parent="lechemin/lechemin/lechemin" instance=ExtResource("1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.927963)
+
+[node name="lechemin" parent="lechemin/lechemin/lechemin/lechemin" instance=ExtResource("1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.927963)
+
+[node name="lechemin" parent="lechemin/lechemin/lechemin/lechemin/lechemin" instance=ExtResource("1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.927963)
+
+[node name="lechemin" parent="lechemin/lechemin/lechemin/lechemin/lechemin/lechemin" instance=ExtResource("1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.927963)
+
+[node name="lechemin" parent="lechemin/lechemin/lechemin/lechemin/lechemin/lechemin/lechemin" instance=ExtResource("1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.927963)
+
+[node name="lechemin" parent="lechemin/lechemin/lechemin/lechemin/lechemin/lechemin/lechemin/lechemin" instance=ExtResource("1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.927963)
+
+[node name="lechemin" parent="lechemin/lechemin/lechemin/lechemin/lechemin/lechemin/lechemin/lechemin/lechemin" instance=ExtResource("1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.927963)
