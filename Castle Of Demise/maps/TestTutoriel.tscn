@@ -49,6 +49,10 @@ volumetric_fog_density = 0.0206
 
 [node name="TestTutoriel" type="Node3D"]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.359997, -0.459408, 0.812001, 0, 0.870356, 0.492424, -0.932954, 0.177271, -0.313325, 0, 0, 0)
+shadow_enabled = true
+
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.668209, 0, -8.32977)
 material_override = SubResource("StandardMaterial3D_2p0j6")
