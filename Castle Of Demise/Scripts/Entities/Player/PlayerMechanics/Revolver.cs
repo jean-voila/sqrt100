@@ -1,4 +1,5 @@
 using System;
+using System.Net.Mime;
 using CastleOfDemise.mobs.Ennemies;
 using Godot;
 
@@ -16,6 +17,12 @@ public partial class Player
     private int _killedEnemmies;
     private AnimationPlayer _animShoot;
     private const int _maxAmmo = 60;
+    private CpuParticles3D _muzzleFlashEffect;
+    private OmniLight3D _muzzleFlash;
+    private Timer _muzzleFlashTimer;
+    private TextureRect _Hitmarker;
+    private Timer _HitmarkerTimer;
+    private TextureRect _HitmarkerKill;
     
     [Signal]
     public delegate bool KillSignalEventHandler();
@@ -30,6 +37,12 @@ public partial class Player
         _bulletHoleScene = GD.Load<PackedScene>("res://Assets/Effects/BulletHole/BulletHoleScene.tscn");
         _bloodHit = GD.Load<PackedScene>("res://Assets/Effects/BloodHit/BloodHit.tscn");
         _animShoot = GetNode<AnimationPlayer>("Head/Revolver/shoot");
+        _muzzleFlashEffect = GetNode<CpuParticles3D>("Head/Revolver/muzzleFlash");
+        _muzzleFlash = GetNode<OmniLight3D>("Head/Revolver/muzzleFlash/OmniLight3D");
+        _muzzleFlashTimer = GetNode<Timer>("Head/Revolver/muzzleFlash/Timer");
+        _Hitmarker = GetNode<TextureRect>("Head/Camera3D/hitMarker");
+        _HitmarkerTimer = GetNode<Timer>("Head/Camera3D/TimerHitMarker");
+        _HitmarkerKill = GetNode<TextureRect>("Head/Camera3D/hitMarkerKill");
     }
     
     public void SetAmmoInc(int ammo)
@@ -46,7 +59,7 @@ public partial class Player
 
     public bool CanPickupAmmo()
     {
-        return _ammoAvailable != _maxAmmo;
+        return _ammoAvailable < _maxAmmo;
     }
 
     public bool canReload()
@@ -61,6 +74,7 @@ public partial class Player
     
     public void Shoot()
     {
+        
         _ammoInMag--;
         _ammoShooted++;
         bool isEnnemiTouched = false;
@@ -69,6 +83,9 @@ public partial class Player
         _animShoot.Play("Shoot");
         if (_shootRayCast.IsColliding())
         {
+            _muzzleFlash.Show();
+            _muzzleFlashEffect.Emitting = true;
+            _muzzleFlashTimer.Start();
             var bulletHole = (Node3D)_bulletHoleScene.Instantiate();
             var bloodHit = (Node3D)_bloodHit.Instantiate();
             var hitObject = _shootRayCast.GetCollider() as Node;
@@ -80,6 +97,8 @@ public partial class Player
                 {
                     Hit((Enemy)hitObject);
                     hitObject.AddChild(bloodHit);
+                    _Hitmarker.Show();
+                    _HitmarkerTimer.Start();
                     bloodHit.GlobalTransform = new Transform3D(bloodHit.GlobalTransform.Basis, rayEnd);
                     bloodHit.LookAt(rayEnd + _shootRayCast.GetCollisionNormal() + new Vector3(0.01f, 0.01f, 0.01f), Vector3.Up);
                     bloodHit.GetNode<CpuParticles3D>("CPUParticles3D").Restart();
@@ -91,14 +110,27 @@ public partial class Player
                     bulletHole.LookAt(rayEnd + _shootRayCast.GetCollisionNormal() + new Vector3(0.01f, 0.01f, 0.01f), Vector3.Up);
                     bulletHole.GetNode<CpuParticles3D>("CPUParticles3D").Restart();
                 }
+
+                if (isEnnemiTouched && ((Enemy)hitObject).ImDead)
+                {
+                    _HitmarkerKill.Show();
+                    _HitmarkerTimer.Start();
+                }
             }
         }
         if (_SEEnabled && !isEnnemiTouched)
         {
              var randomGunShot = new Random().Next(0, _gunShotSounds.Count); 
-             _gunShotSounds[randomGunShot].PitchScale = new Random().Next(1, 2); 
+             _gunShotSounds[randomGunShot].PitchScale = new Random().Next(1, 2);
+             _gunShotSounds[randomGunShot].VolumeDb = 0;
              _gunShotSounds[randomGunShot].Play();
-
+        }
+        else
+        {
+            var randomGunShot = new Random().Next(0, _gunShotSounds.Count); 
+            _gunShotSounds[randomGunShot].PitchScale = new Random().Next(1, 2);
+            _gunShotSounds[randomGunShot].VolumeDb = -15;
+            _gunShotSounds[randomGunShot].Play();
         }
     }
     
@@ -109,10 +141,20 @@ public partial class Player
             mobTouche.EmitSignal("HitSignal", _strength);
             if (!mobTouche.ImDead) _hitSound.Play();
             else _killedEnemmies++;
-
         }
     }
 
+    private void _on_timer_muzzleFlash_timeout()
+    {
+        _muzzleFlash.Hide();
+    }
+
+    private void _on_timer_hit_marker_timeout()
+    {
+        _Hitmarker.Hide();
+        _HitmarkerKill.Hide();
+    }
+    
     private void reload()
     {
         

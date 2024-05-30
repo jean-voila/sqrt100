@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://twx1vowmd4ni"]
+[gd_scene load_steps=51 format=3 uid="uid://twx1vowmd4ni"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/Player/Player.cs" id="1_y1gl0"]
 [ext_resource type="PackedScene" uid="uid://dikmlfsujgrqa" path="res://Scripts/Entities/Player/HUD.tscn" id="2"]
@@ -9,7 +9,9 @@
 [ext_resource type="AudioStream" uid="uid://bdf5qc1tdcgyv" path="res://Assets/SoundEffects/gunShot03.wav" id="7"]
 [ext_resource type="AudioStream" uid="uid://bc71i10371q4m" path="res://Assets/SoundEffects/Step02.wav" id="8"]
 [ext_resource type="AudioStream" uid="uid://du5b7v34861fq" path="res://Assets/SoundEffects/Step04.wav" id="9"]
+[ext_resource type="Texture2D" uid="uid://dqqog0o0wl23t" path="res://Assets/Textures/HitMarker.png" id="9_mgmic"]
 [ext_resource type="AudioStream" uid="uid://4jduyh7o7uti" path="res://Assets/SoundEffects/Step03.wav" id="10"]
+[ext_resource type="Texture2D" uid="uid://5m3d8xa00fju" path="res://Assets/Textures/HitMarkerKill.png" id="10_pawsq"]
 [ext_resource type="AudioStream" uid="uid://wrlumi7q402m" path="res://Assets/SoundEffects/WeaponReload.wav" id="10_sskf2"]
 [ext_resource type="AudioStream" uid="uid://bfem82bpgnmp8" path="res://Assets/SoundEffects/Step05.wav" id="11"]
 [ext_resource type="AudioStream" uid="uid://x41bhmg1xwlk" path="res://Assets/SoundEffects/Step01.wav" id="12"]
@@ -147,6 +149,19 @@ tracks/1/keys = {
 _data = {
 "reload": SubResource("Animation_ekhsd")
 }
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a51g6"]
+albedo_color = Color(0.870588, 0.411765, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_nocxv"]
+lightmap_size_hint = Vector2i(17, 9)
+material = SubResource("StandardMaterial3D_a51g6")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="Gradient" id="Gradient_xskcb"]
+offsets = PackedFloat32Array(0, 0.426829, 0.768293, 0.914634, 0.97561, 1)
+colors = PackedColorArray(0.746318, 0.32129, 0.0371472, 1, 0.854597, 0.610983, 0.448121, 1, 0.907189, 0.751691, 0.647737, 1, 0.978344, 0.942061, 0.917805, 1, 0.967516, 0.913092, 0.876708, 1, 1, 0.180392, 0, 1)
 
 [sub_resource type="Shader" id="18"]
 code = "/*
@@ -415,6 +430,7 @@ fallbacks = Array[Font]([ExtResource("18")])
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
+fixed_size = 0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -439,6 +455,7 @@ fallbacks = Array[Font]([ExtResource("18")])
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
+fixed_size = 0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -456,6 +473,7 @@ fallbacks = Array[Font]([ExtResource("18")])
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
+fixed_size = 0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -536,7 +554,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.466729)
 visible = false
 mesh = SubResource("9")
 
-[node name="TextureRect" type="TextureRect" parent="Head/Camera3D"]
+[node name="crossHair" type="TextureRect" parent="Head/Camera3D"]
 offset_left = 630.0
 offset_top = 350.0
 offset_right = 670.0
@@ -553,6 +571,28 @@ light_color = Color(1, 1, 0.607843, 1)
 light_energy = 10.0
 spot_range = 70.1516
 spot_angle = 31.4842
+
+[node name="hitMarker" type="TextureRect" parent="Head/Camera3D"]
+visible = false
+offset_left = 686.0
+offset_top = 313.0
+offset_right = 726.0
+offset_bottom = 353.0
+scale = Vector2(-2.32114, 2.39269)
+texture = ExtResource("9_mgmic")
+
+[node name="hitMarkerKill" type="TextureRect" parent="Head/Camera3D"]
+visible = false
+offset_left = 595.0
+offset_top = 315.0
+offset_right = 677.0
+offset_bottom = 393.0
+scale = Vector2(1.1, 1.18)
+texture = ExtResource("10_pawsq")
+
+[node name="TimerHitMarker" type="Timer" parent="Head/Camera3D"]
+wait_time = 0.1
+one_shot = true
 
 [node name="Revolver" type="MeshInstance3D" parent="Head"]
 transform = Transform3D(-0.838265, 0, 5.28735e-07, 0, 0.544463, 0, -2.12515e-06, 0, -0.208559, 1.58, -1.359, -0.986)
@@ -572,6 +612,34 @@ libraries = {
 }
 speed_scale = 3.0
 
+[node name="muzzleFlash" type="CPUParticles3D" parent="Head/Revolver"]
+transform = Transform3D(1, 0, 1.7053e-12, 0, 1, 0, -3.63798e-12, 0, 1, 1.78814e-06, 0.347105, 2.96843)
+emitting = false
+lifetime = 0.1
+one_shot = true
+speed_scale = 2.0
+mesh = SubResource("SphereMesh_nocxv")
+direction = Vector3(0, 0, 1)
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+damping_min = 15.094
+damping_max = 40.531
+color = Color(0.952034, 0.482514, 0, 1)
+color_ramp = SubResource("Gradient_xskcb")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Head/Revolver/muzzleFlash"]
+transform = Transform3D(1, 0, -1.14833e-12, 0, 1, 0, 1.14833e-12, 0, 1, 0, 0, 0)
+visible = false
+light_color = Color(0.974472, 0.445594, 0, 1)
+light_energy = 5.0
+light_size = 1.0
+omni_range = 3.99068
+
+[node name="Timer" type="Timer" parent="Head/Revolver/muzzleFlash"]
+wait_time = 0.1
+one_shot = true
+
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Debug" parent="HUD" instance=ExtResource("2")]
@@ -579,8 +647,10 @@ offset_right = -1280.0
 offset_bottom = -720.0
 
 [node name="PlayerInfos" parent="HUD" instance=ExtResource("22")]
-offset_right = 0.0
-offset_bottom = 0.0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 7.0
+offset_bottom = 6.0
 
 [node name="StepSoundsEffetcs" type="Node3D" parent="."]
 
@@ -740,6 +810,8 @@ theme_override_styles/separator = SubResource("23")
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_cgoyc")
 
+[connection signal="timeout" from="Head/Camera3D/TimerHitMarker" to="." method="_on_timer_hit_marker_timeout"]
+[connection signal="timeout" from="Head/Revolver/muzzleFlash/Timer" to="." method="_on_timer_muzzleFlash_timeout"]
 [connection signal="pressed" from="CanvasLayer2/MenuPause/Panneau/Elements/PixelEffectToggle" to="." method="SwitchPixelShader"]
 [connection signal="value_changed" from="CanvasLayer2/MenuPause/Panneau/Elements/Music/HSlider" to="." method="ChangeMusicVolume"]
 [connection signal="toggled" from="CanvasLayer2/MenuPause/Panneau/Elements/Music/MusicToggle" to="." method="SwitchMusicPlayer"]

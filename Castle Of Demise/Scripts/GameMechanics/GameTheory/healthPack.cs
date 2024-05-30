@@ -17,7 +17,7 @@ public partial class healthPack : Area3D
     
 	public void _on_body_entered(Node body)
 	{
-		if (body is CastleOfDemise.mobs.Player.Player player && _time.TimeLeft <= 0)
+		if (body is CastleOfDemise.mobs.Player.Player player && _time.TimeLeft <= 0 && player.CanPickupHealth())
 		{
 			_healthPickupSound.Play();
 			_time.Start();

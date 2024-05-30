@@ -24,8 +24,13 @@ public partial class SetupGameAsHost : Control
 		
 		
 	}
-	
 
+	private void _on_back_button_fromhost_button_up()
+	{
+		GetNode<Control>("%SetupGameAsHost").Hide();
+		GetNode<Control>("%MultiplayerMenu").Show();
+	}
+	
 	// Ces 2 fonctions sont des fonctions de select pour le multi
 	private void _on_choose_game_mode_item_selected(int index)
 	{

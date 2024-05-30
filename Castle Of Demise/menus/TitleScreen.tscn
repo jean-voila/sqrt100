@@ -31,6 +31,7 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="FontFile" id="8"]
 fallbacks = Array[Font]([ExtResource("3")])
+fixed_size = 0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -40,6 +41,7 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="27"]
 fallbacks = Array[Font]([ExtResource("2")])
+fixed_size = 0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -67,6 +69,7 @@ cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="11"]
 fallbacks = Array[Font]([ExtResource("3")])
+fixed_size = 0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -76,6 +79,7 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="17"]
 fallbacks = Array[Font]([ExtResource("3")])
+fixed_size = 0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -85,6 +89,7 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="14"]
 fallbacks = Array[Font]([ExtResource("3")])
+fixed_size = 0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -94,6 +99,7 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="18"]
 fallbacks = Array[Font]([ExtResource("3")])
+fixed_size = 0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -103,6 +109,7 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="21"]
 fallbacks = Array[Font]([ExtResource("3")])
+fixed_size = 0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -112,6 +119,7 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="22"]
 fallbacks = Array[Font]([ExtResource("3")])
+fixed_size = 0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -345,9 +353,9 @@ offset_bottom = 40.0
 [node name="SceneHostButton" type="Button" parent="MultiplayerMenu/ConnectionControl"]
 layout_mode = 0
 offset_left = 426.0
-offset_top = 348.0
+offset_top = 353.0
 offset_right = 611.0
-offset_bottom = 410.0
+offset_bottom = 415.0
 size_flags_horizontal = 3
 theme_override_fonts/font = SubResource("17")
 theme_override_styles/normal = ExtResource("5")
@@ -357,10 +365,10 @@ text = "Heberger"
 
 [node name="SceneJoinButton" type="Button" parent="MultiplayerMenu/ConnectionControl"]
 layout_mode = 0
-offset_left = 669.0
-offset_top = 387.0
-offset_right = 856.0
-offset_bottom = 448.0
+offset_left = 661.0
+offset_top = 353.0
+offset_right = 848.0
+offset_bottom = 414.0
 size_flags_horizontal = 3
 theme_override_fonts/font = SubResource("14")
 theme_override_styles/normal = ExtResource("5")
@@ -471,18 +479,18 @@ script = ExtResource("13_xtka4")
 
 [node name="Gamemodetext" type="Label" parent="SetupGameAsHost"]
 layout_mode = 0
-offset_left = -9.0
-offset_top = -202.0
-offset_right = 209.0
-offset_bottom = -160.0
+offset_left = -6.0
+offset_top = -248.0
+offset_right = 212.0
+offset_bottom = -222.0
 text = "Choisissez un mode de jeu"
 
 [node name="ChooseGameMode" type="ItemList" parent="SetupGameAsHost"]
 layout_mode = 0
-offset_left = -11.0
-offset_top = -175.0
-offset_right = 327.0
-offset_bottom = -135.0
+offset_left = -8.0
+offset_top = -224.0
+offset_right = 330.0
+offset_bottom = -131.0
 item_count = 2
 item_0/text = "Choisir mode de jeu"
 item_1/text = "Deathmatch (premier à x assassinations)"
@@ -490,17 +498,17 @@ item_1/text = "Deathmatch (premier à x assassinations)"
 [node name="ScoreToReachText" type="Label" parent="SetupGameAsHost"]
 layout_mode = 0
 offset_left = -6.0
-offset_top = -118.0
-offset_right = 221.0
-offset_bottom = -83.0
+offset_top = -96.0
+offset_right = 386.0
+offset_bottom = -61.0
 text = "Choisisez le score à atteindre pour gagner la partie"
 
 [node name="ScoreToReach" type="ItemList" parent="SetupGameAsHost"]
 layout_mode = 0
-offset_left = -5.0
-offset_top = -84.0
-offset_right = 318.0
-offset_bottom = 157.0
+offset_left = -8.0
+offset_top = -61.0
+offset_right = 315.0
+offset_bottom = 180.0
 item_count = 9
 item_0/text = "Choisir score"
 item_1/text = "1"
@@ -515,10 +523,10 @@ item_8/text = "100"
 
 [node name="BackButtonFromhost" type="Button" parent="SetupGameAsHost"]
 layout_mode = 0
-offset_left = 153.0
-offset_top = 137.0
-offset_right = 274.0
-offset_bottom = 187.0
+offset_left = 138.0
+offset_top = 194.0
+offset_right = 259.0
+offset_bottom = 244.0
 theme_override_fonts/font = SubResource("11")
 theme_override_styles/normal = ExtResource("5")
 theme_override_styles/hover = ExtResource("6")
@@ -573,6 +581,6 @@ text = "Lancher la partie"
 [connection signal="item_selected" from="SetupGameAsHost/ChooseGameMode" to="SetupGameAsHost" method="_on_choose_game_mode_item_selected"]
 [connection signal="item_selected" from="SetupGameAsHost/ScoreToReach" to="SetupGameAsHost" method="_on_score_to_reach_item_selected"]
 [connection signal="button_down" from="SetupGameAsHost/BackButtonFromhost" to="." method="_return_pressed_button"]
-[connection signal="button_up" from="SetupGameAsHost/BackButtonFromhost" to="." method="_PlayButtonPressed"]
+[connection signal="button_up" from="SetupGameAsHost/BackButtonFromhost" to="SetupGameAsHost" method="_on_back_button_fromhost_button_up"]
 [connection signal="mouse_entered" from="SetupGameAsHost/BackButtonFromhost" to="." method="_focused_button"]
 [connection signal="pressed" from="SetupGameAsHost/StartGame" to="SetupGameAsHost" method="_on_start_game_pressed"]
