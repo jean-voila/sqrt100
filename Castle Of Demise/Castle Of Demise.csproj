@@ -7,6 +7,7 @@
     <Folder Include="maps\" />
     <Folder Include="menus\" />
     <Folder Include="Scripts\GameMechanics\CampaignMechanics\" />
+    
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\Entities\Ennemies\Bat\Bat.tscn" />

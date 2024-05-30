@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dl3nt6mahqgxs"]
+[gd_scene load_steps=21 format=3 uid="uid://dl3nt6mahqgxs"]
 
 [ext_resource type="Texture2D" uid="uid://citnbqb3htaxg" path="res://Assets/Textures/imageonline-co-pixelated(1).png" id="1_833s0"]
 [ext_resource type="Texture2D" uid="uid://cgg2wqugcv5de" path="res://Assets/Props/tree02.png" id="2_hdyt8"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://djvcnnignduwe" path="res://Assets/Props/CR0SSR0ADS.tscn" id="4_fo8q0"]
 [ext_resource type="PackedScene" uid="uid://wlukug466k0o" path="res://Assets/Props/Ammo.tscn" id="5_ud77k"]
 [ext_resource type="PackedScene" uid="uid://twx1vowmd4ni" path="res://Scripts/Entities/Player/Player.tscn" id="7_q61ml"]
+[ext_resource type="Texture2D" uid="uid://dtc7wjnag443v" path="res://Assets/Textures/imageonline-co-pixelated(2).png" id="7_vf8yo"]
+[ext_resource type="Texture2D" uid="uid://4id0pnmf22o8" path="res://Assets/Textures/imageonline-co-pixelated-planks.png" id="8_hhidg"]
+[ext_resource type="FontFile" uid="uid://qtsc2kgt2e0p" path="res://Assets/Fonts/pixel.ttf" id="9_wgqug"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2p0j6"]
 albedo_texture = ExtResource("1_833s0")
@@ -40,12 +43,24 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvqlu"]
+albedo_texture = ExtResource("7_vf8yo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nqbql"]
+albedo_texture = ExtResource("7_vf8yo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfy5f"]
+albedo_texture = ExtResource("8_hhidg")
+
 [sub_resource type="Environment" id="Environment_ckuwf"]
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.1186
 volumetric_fog_albedo = Color(0.781416, 0.503441, 0.132731, 1)
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_l70uj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yan14"]
+size = Vector3(13.6641, 12.9536, 1)
 
 [node name="TestTutoriel" type="Node3D"]
 
@@ -26782,6 +26797,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, -137.613)
 [node name="Ammo" parent="CSGBox3D" instance=ExtResource("5_ud77k")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.328491, 0.835439, 51.7666)
 
+[node name="Pancarte" type="Node3D" parent="CSGBox3D"]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D/Pancarte"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.44032, 5.03252, -134.195)
+material_override = SubResource("StandardMaterial3D_kvqlu")
+height = 15.337
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGBox3D/Pancarte"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.02518, 4.95139, -134.266)
+material_override = SubResource("StandardMaterial3D_nqbql")
+height = 15.337
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D/Pancarte"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.355629, 9.69461, -134.157)
+material_override = SubResource("StandardMaterial3D_gfy5f")
+size = Vector3(13.1265, 3.87802, 1)
+
+[node name="Label3D" type="Label3D" parent="CSGBox3D/Pancarte/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.328566, 0.407105, 1.1356)
+modulate = Color(0, 0, 0, 1)
+text = "Bienvenue 
+à [insérer nom du village] "
+font = ExtResource("9_wgqug")
+font_size = 110
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ckuwf")
 camera_attributes = SubResource("CameraAttributesPractical_l70uj")
+
+[node name="Area3D" type="Area3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43372, 0, -84.6909)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.478516, 5.97678, 0)
+shape = SubResource("BoxShape3D_yan14")
