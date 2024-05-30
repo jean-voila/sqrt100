@@ -65,7 +65,7 @@ size = Vector3(13.6641, 12.9536, 1)
 [node name="TestTutoriel" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.359997, -0.459408, 0.812001, 0, 0.870356, 0.492424, -0.932954, 0.177271, -0.313325, 0, 0, 0)
+transform = Transform3D(-0.359997, -0.459408, 0.812002, 0, 0.870356, 0.492423, -0.932954, 0.177271, -0.313325, 0, 17.3932, 0)
 shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
@@ -26800,19 +26800,22 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.328491, 0.835439, 51.7666)
 [node name="Pancarte" type="Node3D" parent="CSGBox3D"]
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D/Pancarte"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.44032, 5.03252, -134.195)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.44032, 5.03252, -134.324)
 material_override = SubResource("StandardMaterial3D_kvqlu")
+use_collision = true
 height = 15.337
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGBox3D/Pancarte"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.02518, 4.95139, -134.266)
 material_override = SubResource("StandardMaterial3D_nqbql")
+use_collision = true
 height = 15.337
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D/Pancarte"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.355629, 9.69461, -134.157)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.355629, 9.69461, -134.381)
 material_override = SubResource("StandardMaterial3D_gfy5f")
-size = Vector3(13.1265, 3.87802, 1)
+use_collision = true
+size = Vector3(13.1265, 3.87802, 2.12769)
 
 [node name="Label3D" type="Label3D" parent="CSGBox3D/Pancarte/CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.328566, 0.407105, 1.1356)
