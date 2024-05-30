@@ -80,9 +80,9 @@ public partial class SetupGameAsHost : Control
 	private void _on_start_game_pressed()
 	{
 		_startGameButton.Disabled = true;
-		var scene = GD.Load<PackedScene>("res://maps/mpMap01.tscn").Instantiate();
-		GetTree().Root.AddChild(scene);
-		this.Hide();
+
+		GetTree().ChangeSceneToFile("res://maps/mpMap01.tscn");
+
 		Rpc("StartGame");
 	}
 	
@@ -90,9 +90,7 @@ public partial class SetupGameAsHost : Control
 
 	private void StartGame()
 	{
-		var scene = ResourceLoader.Load<PackedScene>("res://Scenes/Map/world1.tscn").Instantiate();
-		GetTree().Root.AddChild(scene);
-		this.Hide();
+		GetTree().ChangeSceneToFile("res://maps/mpMap01.tscn");
 	}
 	
 	private void SendPlayerInformation(string name, int id)

@@ -31,7 +31,6 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="FontFile" id="8"]
 fallbacks = Array[Font]([ExtResource("3")])
-fixed_size = 0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -41,7 +40,6 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="27"]
 fallbacks = Array[Font]([ExtResource("2")])
-fixed_size = 0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -69,7 +67,6 @@ cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="11"]
 fallbacks = Array[Font]([ExtResource("3")])
-fixed_size = 0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -79,7 +76,6 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="17"]
 fallbacks = Array[Font]([ExtResource("3")])
-fixed_size = 0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -89,7 +85,6 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="14"]
 fallbacks = Array[Font]([ExtResource("3")])
-fixed_size = 0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -99,7 +94,6 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="18"]
 fallbacks = Array[Font]([ExtResource("3")])
-fixed_size = 0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -109,7 +103,6 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="21"]
 fallbacks = Array[Font]([ExtResource("3")])
-fixed_size = 0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -119,7 +112,6 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="22"]
 fallbacks = Array[Font]([ExtResource("3")])
-fixed_size = 0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0

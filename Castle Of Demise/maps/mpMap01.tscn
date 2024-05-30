@@ -1358,3 +1358,6 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 2.41469, -12.5151, -31.6003)
 
 [node name="HealthPack4" parent="." instance=ExtResource("18_jy73f")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 2.41469, -12.5151, -28.7698)
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+spawn_path = NodePath("..")
