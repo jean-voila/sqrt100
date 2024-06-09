@@ -255,12 +255,14 @@ unique_name_in_owner = true
 position = Vector2(653, 169)
 stream = ExtResource("8")
 volume_db = -0.998
+bus = &"SFX"
 
 [node name="FocusedButtonSound" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(650, 170)
 stream = ExtResource("7")
 volume_db = -9.738
+bus = &"SFX"
 
 [node name="OptionsMenu" type="Control" parent="."]
 unique_name_in_owner = true
@@ -533,6 +535,10 @@ offset_right = 581.0
 offset_bottom = 152.0
 disabled = true
 text = "Lancher la partie"
+
+[node name="MusiqueStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
+bus = &"Musique"
 
 [connection signal="button_down" from="TitleMenu/PlayButton" to="." method="_pressed_button"]
 [connection signal="button_up" from="TitleMenu/PlayButton" to="." method="_PlayButtonPressed"]
