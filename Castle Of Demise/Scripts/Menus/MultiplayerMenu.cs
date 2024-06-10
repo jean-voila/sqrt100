@@ -54,8 +54,6 @@ namespace CastleOfDemise.Scripts.Menus
                 {
                     GetNode<Button>("%SceneJoinButton").Disabled = true;
                 }
-
-            
         }
         private void _clientPressed()
         {
@@ -64,7 +62,6 @@ namespace CastleOfDemise.Scripts.Menus
             peer.Host.Compress(ENetConnection.CompressionMode.RangeCoder);
             Multiplayer.MultiplayerPeer = peer;
             GD.Print("JOINING GAME...");
-
         }
 
         private void _hostPressed()
@@ -86,18 +83,15 @@ namespace CastleOfDemise.Scripts.Menus
             Multiplayer.MultiplayerPeer = peer;
             GD.Print("WAITING FOR PLAYERS!");
         }
-        
-        [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true, TransferMode = MultiplayerPeer.TransferModeEnum.Reliable)]
 
-        private void StartGame()
+        
+       
+        [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true, TransferMode = MultiplayerPeer.TransferModeEnum.Reliable)]
+        public void StartGame()
         {
             GetTree().ChangeSceneToFile("res://maps/mpMap01.tscn");
+            
         }
-        
-        
-        
-        
-        
     }
     
     

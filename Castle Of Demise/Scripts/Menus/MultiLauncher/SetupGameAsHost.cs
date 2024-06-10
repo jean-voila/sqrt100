@@ -80,9 +80,9 @@ public partial class SetupGameAsHost : Control
 	{
 		_startGameButton.Disabled = true;
 
-		GetTree().ChangeSceneToFile("res://maps/mpMap01.tscn");
-
-		Rpc("StartGame");
+		var multiplayerMenu = (MultiplayerMenu)GetNode("%MultiplayerMenu");
+		multiplayerMenu.Rpc(nameof(multiplayerMenu.StartGame));
+		
 	}
 	
 	
