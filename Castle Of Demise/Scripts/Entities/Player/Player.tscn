@@ -23,7 +23,7 @@
 [ext_resource type="StyleBox" path="res://Assets/Styles/redButton.tres" id="19"]
 [ext_resource type="StyleBox" path="res://Assets/Styles/blueButton.tres" id="20"]
 [ext_resource type="PackedScene" uid="uid://cfku4f6icyaj4" path="res://Scripts/Entities/Player/PlayerInfos.tscn" id="22"]
-[ext_resource type="AudioStream" uid="uid://ch4j4krlu01sn" path="res://Assets/SoundEffects/cantShoot.wav" id="23"]
+[ext_resource type="AudioStream" uid="uid://ch4j4krlu01sn" path="res://Assets/SoundEffects/CantShoot.wav" id="23"]
 [ext_resource type="AudioStream" uid="uid://ba5i1q7f3plrh" path="res://Assets/SoundEffects/hit.wav" id="24"]
 [ext_resource type="Material" path="res://Assets/Mesh/Brown_Revolver02.material" id="25"]
 

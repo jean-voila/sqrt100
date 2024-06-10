@@ -218,6 +218,22 @@ theme_override_styles/pressed = ExtResource("11")
 theme_override_styles/focus = ExtResource("13")
 text = "tutoriel"
 
+[node name="NewMulti" type="Button" parent="TitleMenu"]
+layout_mode = 0
+offset_left = 1149.0
+offset_top = 537.0
+offset_right = 1257.0
+offset_bottom = 583.0
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_gf8o5")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("26")
+theme_override_styles/hover = ExtResource("6")
+theme_override_styles/pressed = ExtResource("11")
+theme_override_styles/focus = ExtResource("13")
+text = "NEW MULTI"
+
 [node name="QuitButton" type="Button" parent="TitleMenu"]
 layout_mode = 0
 offset_left = 579.0
@@ -571,6 +587,9 @@ bus = &"Musique"
 [connection signal="button_down" from="TitleMenu/TutoButton" to="." method="_pressed_button"]
 [connection signal="button_up" from="TitleMenu/TutoButton" to="." method="_TutoButtonPressed"]
 [connection signal="mouse_entered" from="TitleMenu/TutoButton" to="." method="_focused_button"]
+[connection signal="button_down" from="TitleMenu/NewMulti" to="." method="_pressed_button"]
+[connection signal="button_up" from="TitleMenu/NewMulti" to="." method="_NewMultiPressed"]
+[connection signal="mouse_entered" from="TitleMenu/NewMulti" to="." method="_focused_button"]
 [connection signal="button_down" from="TitleMenu/QuitButton" to="." method="_pressed_button"]
 [connection signal="button_up" from="TitleMenu/QuitButton" to="." method="_Exit"]
 [connection signal="mouse_entered" from="TitleMenu/QuitButton" to="." method="_focused_button"]

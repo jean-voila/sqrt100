@@ -61,6 +61,12 @@ public partial class TitleScreen : Control
 		GetTree().ChangeSceneToFile("res://maps/TestTutoriel.tscn");
 	}
 
+	private void _NewMultiPressed()
+	{
+		GetTree().ChangeSceneToFile("res://maps/mpMap02.tscn");
+	}
+	
+
 	
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
