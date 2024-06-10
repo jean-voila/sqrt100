@@ -9,13 +9,13 @@ public partial class SFXPlayer : AudioStreamPlayer
 	private bool Muted = false;
 	
 	
-	private static string[] ListFilesInDir(string dirPath)
+	private static string[] ListFilesInDir(string dirPath, string extension)
 	{
 		var res = new string[] { };
 		using var dir = DirAccess.Open(dirPath);
 		if (dir != null)
 		{
-			res = dir.GetFiles();
+			res = dir.GetFiles().Where(f => f.EndsWith(extension)).ToArray();
 		}
 		else
 		{
@@ -41,8 +41,9 @@ public partial class SFXPlayer : AudioStreamPlayer
 	{
 		public string GunShotSound()
 		{
-			GD.Print(RandomFilePath(ListFilesInDir(CompletePath("GunShotSounds/"))));
-			return RandomFilePath(ListFilesInDir(CompletePath("GunShotSounds/")));
+			var res = _soundEffectsPath + RandomFilePath(ListFilesInDir(CompletePath("GunShotSounds/"), ".wav"));
+			GD.Print(res);
+			return res;
 		}
 
 		public string CantShootSound()
