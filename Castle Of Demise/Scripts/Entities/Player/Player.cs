@@ -16,6 +16,9 @@ public partial class Player : CharacterBody3D
 	[Export] private AnimationPlayer _animReload;
 	[Export] private MeshInstance3D _revolverModel;
 	[Export] private float _revolverModelRotationAmount = -0.3f;
+	public string PlayerName = "";
+	public int PlayerId = 0;
+	public int PlayerScore = 0;
 	private Vector2 _lastMouseMovement;
 	
 	public override void _Ready()

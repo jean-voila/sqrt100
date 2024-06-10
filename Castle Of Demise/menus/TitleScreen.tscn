@@ -318,7 +318,6 @@ text = "Retour"
 
 [node name="MultiplayerMenu" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -361,6 +360,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="SceneHostButton" type="Button" parent="MultiplayerMenu/ConnectionControl"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 426.0
 offset_top = 353.0
@@ -371,6 +371,7 @@ theme_override_fonts/font = SubResource("17")
 theme_override_styles/normal = ExtResource("5")
 theme_override_styles/hover = ExtResource("6")
 theme_override_styles/pressed = ExtResource("11")
+disabled = true
 text = "Heberger"
 
 [node name="SceneJoinButton" type="Button" parent="MultiplayerMenu/ConnectionControl"]
@@ -405,10 +406,21 @@ offset_bottom = 510.0
 [node name="CodeToJoin" type="TextEdit" parent="MultiplayerMenu/ConnectionControl"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 572.0
+offset_left = 398.0
 offset_top = 247.0
-offset_right = 715.0
+offset_right = 913.0
 offset_bottom = 334.0
+placeholder_text = "Si vous rejoignez un hote, tapez votre code ici
+ATTENTION! Le code fait 8 caractères"
+
+[node name="PlayerName" type="TextEdit" parent="MultiplayerMenu/ConnectionControl"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 456.0
+offset_top = 107.0
+offset_right = 788.0
+offset_bottom = 188.0
+placeholder_text = "Entrez votre nom de joueur ici"
 
 [node name="ServerIsConnectedDebug" type="RichTextLabel" parent="MultiplayerMenu"]
 unique_name_in_owner = true

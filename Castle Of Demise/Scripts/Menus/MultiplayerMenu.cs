@@ -1,3 +1,5 @@
+using CastleOfDemise.mobs.Player;
+using CastleOfDemise.Scripts.Menus.MultiLauncher;
 using Godot;
 
 namespace CastleOfDemise.Scripts.Menus
@@ -7,10 +9,12 @@ namespace CastleOfDemise.Scripts.Menus
     public partial class MultiplayerMenu : Control
     {
 
-        [Export] private int port = 8910;
-        private string address = "127.0.0.1";
+        [Export] private int _port = 8910;
+        private string _address = "127.0.0.1";
+        private string _name = "Player";
         private TextEdit _codeToJoin;
-        private ENetMultiplayerPeer peer;
+        private TextEdit _nameToJoin;
+        private ENetMultiplayerPeer _peer;
 
 // Called when the node enters the scene tree for the first time.
         public override void _Ready()
@@ -20,6 +24,8 @@ namespace CastleOfDemise.Scripts.Menus
             Multiplayer.ConnectedToServer += ConnectedToServer;
             Multiplayer.ConnectionFailed += ConnectionFailed;
             _codeToJoin = GetNode<TextEdit>("%CodeToJoin");
+            _nameToJoin = GetNode<TextEdit>("%PlayerName");
+
         }
 
         private void ConnectionFailed()
@@ -30,6 +36,7 @@ namespace CastleOfDemise.Scripts.Menus
         private void ConnectedToServer()
         {
             GD.Print("CONNECTED TO SERVER");
+            RpcId(1, SendPlayerInformation($"Player pls", Multiplayer.GetUniqueId()));
         }
 
         private void PeerDisconnected(long id)
@@ -45,22 +52,33 @@ namespace CastleOfDemise.Scripts.Menus
 // Called every frame. 'delta' is the elapsed time since the previous frame.
         public override void _Process(double delta)
         {
-                try
+                if (_nameToJoin.Text != "") 
                 {
-                    address = MultiLauncher.CodeParser.CodeToIp(_codeToJoin.Text);
                     GetNode<Button>("%SceneJoinButton").Disabled = false;
+                    GetNode<Button>("%SceneHostButton").Disabled = false;
+                    _name = _nameToJoin.Text;
+                    try
+                    {
+                        _address = CodeParser.CodeToIp(_codeToJoin.Text);
+                        GetNode<Button>("%SceneJoinButton").Disabled = false;
+                    }
+                    catch
+                    {
+                        GetNode<Button>("%SceneJoinButton").Disabled = true;
+                    }
                 }
-                catch
+                else
                 {
                     GetNode<Button>("%SceneJoinButton").Disabled = true;
+                    GetNode<Button>("%SceneHostButton").Disabled = true;
                 }
         }
         private void _clientPressed()
         {
-            peer = new ENetMultiplayerPeer();
-            peer.CreateClient(address, port);
-            peer.Host.Compress(ENetConnection.CompressionMode.RangeCoder);
-            Multiplayer.MultiplayerPeer = peer;
+            _peer = new ENetMultiplayerPeer();
+            _peer.CreateClient(_address, _port);
+            _peer.Host.Compress(ENetConnection.CompressionMode.RangeCoder);
+            Multiplayer.MultiplayerPeer = _peer;
             GD.Print("JOINING GAME...");
         }
 
@@ -71,20 +89,44 @@ namespace CastleOfDemise.Scripts.Menus
             GetNode<Control>("%SetupGameAsHost").Show();
 
 
-            peer = new ENetMultiplayerPeer();
-            var error = peer.CreateServer(port, 2);
+            _peer = new ENetMultiplayerPeer();
+            var error = _peer.CreateServer(_port, 2);
             if (error != Error.Ok)
             {
                 GD.Print("ERROR CANNOT HOST: " + error.ToString());
                 return;
             }
 
-            peer.Host.Compress(ENetConnection.CompressionMode.RangeCoder);
-            Multiplayer.MultiplayerPeer = peer;
+            _peer.Host.Compress(ENetConnection.CompressionMode.RangeCoder);
+            Multiplayer.MultiplayerPeer = _peer;
             GD.Print("WAITING FOR PLAYERS!");
         }
 
-        
+        [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true,
+            TransferMode = MultiplayerPeer.TransferModeEnum.Reliable)]
+        public StringName SendPlayerInformation(string name, int id)
+        {
+            if (!GameManager.Players.Exists(x => x.PlayerId == id))
+            {
+                var player = new Player();
+                player.PlayerName = name;
+                player.PlayerId = id;
+                GameManager.Players.Add(player);
+            }
+
+            if (Multiplayer.IsServer())
+            {
+                foreach (var player in GameManager.Players)
+                {
+                    var multiplayerMenu = (MultiplayerMenu)GetNode("%MultiplayerMenu");
+                    multiplayerMenu.Rpc(nameof(multiplayerMenu.SendPlayerInformation), player.PlayerName,
+                        player.PlayerId);
+
+                }
+            }
+
+            return null;
+        }
        
         [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true, TransferMode = MultiplayerPeer.TransferModeEnum.Reliable)]
         public void StartGame()
