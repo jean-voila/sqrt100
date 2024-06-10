@@ -13,7 +13,6 @@ namespace CastleOfDemise.Scripts.Menus
         private string _address = "127.0.0.1";
         private string _name = "Player";
         private TextEdit _codeToJoin;
-        private TextEdit _nameToJoin;
         private ENetMultiplayerPeer _peer;
 
 // Called when the node enters the scene tree for the first time.
@@ -24,7 +23,6 @@ namespace CastleOfDemise.Scripts.Menus
             Multiplayer.ConnectedToServer += ConnectedToServer;
             Multiplayer.ConnectionFailed += ConnectionFailed;
             _codeToJoin = GetNode<TextEdit>("%CodeToJoin");
-            _nameToJoin = GetNode<TextEdit>("%PlayerName");
 
         }
 
@@ -32,11 +30,12 @@ namespace CastleOfDemise.Scripts.Menus
         {
             GD.Print("CONNECTION FAILED");
         }
-
+        
+        
         private void ConnectedToServer()
         {
             GD.Print("CONNECTED TO SERVER");
-            RpcId(1, SendPlayerInformation($"Player pls", Multiplayer.GetUniqueId()));
+            RpcId(1, "SendPlayerInformation", $"Client", Multiplayer.GetUniqueId());
         }
 
         private void PeerDisconnected(long id)
@@ -52,26 +51,15 @@ namespace CastleOfDemise.Scripts.Menus
 // Called every frame. 'delta' is the elapsed time since the previous frame.
         public override void _Process(double delta)
         {
-                if (_nameToJoin.Text != "") 
-                {
-                    GetNode<Button>("%SceneJoinButton").Disabled = false;
-                    GetNode<Button>("%SceneHostButton").Disabled = false;
-                    _name = _nameToJoin.Text;
-                    try
-                    {
-                        _address = CodeParser.CodeToIp(_codeToJoin.Text);
-                        GetNode<Button>("%SceneJoinButton").Disabled = false;
-                    }
-                    catch
-                    {
-                        GetNode<Button>("%SceneJoinButton").Disabled = true;
-                    }
-                }
-                else
-                {
-                    GetNode<Button>("%SceneJoinButton").Disabled = true;
-                    GetNode<Button>("%SceneHostButton").Disabled = true;
-                }
+            try
+            {
+                _address = CodeParser.CodeToIp(_codeToJoin.Text);
+                GetNode<Button>("%SceneJoinButton").Disabled = false;
+            }
+            catch
+            {
+                GetNode<Button>("%SceneJoinButton").Disabled = true;
+            }    
         }
         private void _clientPressed()
         {
@@ -81,6 +69,8 @@ namespace CastleOfDemise.Scripts.Menus
             Multiplayer.MultiplayerPeer = _peer;
             GD.Print("JOINING GAME...");
         }
+        
+        
 
         private void _hostPressed()
         {
@@ -106,39 +96,33 @@ namespace CastleOfDemise.Scripts.Menus
                 return;
             }
 
-            SendPlayerInformation(_name, Multiplayer.GetUniqueId());
+            SendPlayerInformation("Host", Multiplayer.GetUniqueId());
         }
 
-        [Rpc(MultiplayerApi.RpcMode.AnyPeer, 
-            TransferMode = MultiplayerPeer.TransferModeEnum.Reliable)]
-        public StringName SendPlayerInformation(string name, int id)
+        [Rpc(MultiplayerApi.RpcMode.AnyPeer)]
+        public StringName SendPlayerInformation(string name, int id, bool recursive = true)
         {
-            if (!GameManager.Players.Exists(x => x.PlayerId == id))
+            if (!GameManager.Players.ContainsKey(id))
             {
                 var player = new Player();
                 player.PlayerName = name;
                 player.PlayerId = id;
-                GameManager.Players.Add(player);
+                player.PlayerScore = 0;
+                GameManager.Players[id] = player;
             }
 
-            if (!Multiplayer.IsServer()) return null;
+            if (Multiplayer.IsServer() && recursive)
             {
                 foreach (var player in GameManager.Players)
                 {
-                    // Prevent the server from calling Rpc on SendPlayerInformation for itself
-                    if (player.PlayerId != Multiplayer.GetUniqueId())
-                    {
-                        var multiplayerMenu = (MultiplayerMenu)GetNode("%MultiplayerMenu");
-                        multiplayerMenu.Rpc(nameof(multiplayerMenu.SendPlayerInformation), player.PlayerName,
-                            player.PlayerId);
-                    }
-                }
+                    GD.Print($"Player ID: {player.Key}, Player Name: {player.Value.PlayerName}, Player Score: {player.Value.PlayerScore}");
+                    Rpc("SendPlayerInformation", player.Value.PlayerName, player.Key, false);                }
             }
 
             return null;
         }
        
-        [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true, TransferMode = MultiplayerPeer.TransferModeEnum.Reliable)]
+        [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
         public void StartGame()
         {
             GetTree().ChangeSceneToFile("res://maps/mpMap01.tscn");

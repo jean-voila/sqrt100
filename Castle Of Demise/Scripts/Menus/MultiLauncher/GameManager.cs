@@ -6,11 +6,11 @@ namespace CastleOfDemise.Scripts.Menus.MultiLauncher;
 
 public partial class GameManager : Control
 {
-    public static List<Player> Players = new List<Player>();
+    public static readonly Dictionary<int,Player> Players = new Dictionary<int,Player>();
     
     public override void _Ready()
     {
-        Players = new List<Player>();
+        
     }
     
     // Called every frame. 'delta' is the elapsed time since the previous frame.

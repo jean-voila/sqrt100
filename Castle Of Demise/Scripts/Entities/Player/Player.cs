@@ -72,7 +72,7 @@ public partial class Player : CharacterBody3D
 
 	public override void _EnterTree()
 	{
-		RpcId(1, "SetNetworkMaster", int.Parse(Name));
+		RpcId(1, "SetNetworkMaster", int.Parse(Name));  // pose probleme
 	}
 
 	[Export]

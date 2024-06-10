@@ -85,16 +85,9 @@ public partial class SetupGameAsHost : Control
 		
 	}
 	
-	
-	
-	private void SendPlayerInformation(string name, int id)
-	{
-		throw new NotImplementedException();
-	}
-	
 	public override void _Process(double d)
 	{
-		if (_gameModeValue != null && _scoreToReachValue != null)
+		if (_gameModeValue != null && _scoreToReachValue != null && GameManager.Players.Count > 1)
 		{
 			_startGameButton.Disabled = false;
 		}
