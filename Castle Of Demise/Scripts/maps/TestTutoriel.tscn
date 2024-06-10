@@ -1,18 +1,18 @@
-[gd_scene load_steps=22 format=3 uid="uid://dl3nt6mahqgxs"]
+[gd_scene load_steps=22 format=3 uid="uid://d31ilo1ppob8b"]
 
-[ext_resource type="Texture2D" uid="uid://citnbqb3htaxg" path="res://Assets/Textures/imageonline-co-pixelated(1).png" id="1_833s0"]
-[ext_resource type="Texture2D" uid="uid://cgg2wqugcv5de" path="res://Assets/Props/tree02.png" id="2_hdyt8"]
-[ext_resource type="Texture2D" uid="uid://c0tm1u0k4kco" path="res://Assets/Props/tree01.png" id="3_f7eww"]
-[ext_resource type="PackedScene" uid="uid://djvcnnignduwe" path="res://Assets/Props/CR0SSR0ADS.tscn" id="4_fo8q0"]
-[ext_resource type="PackedScene" uid="uid://wlukug466k0o" path="res://Assets/Props/Ammo.tscn" id="5_ud77k"]
-[ext_resource type="PackedScene" uid="uid://twx1vowmd4ni" path="res://Scripts/Entities/Player/Player.tscn" id="7_q61ml"]
-[ext_resource type="Texture2D" uid="uid://dtc7wjnag443v" path="res://Assets/Textures/imageonline-co-pixelated(2).png" id="7_vf8yo"]
-[ext_resource type="Texture2D" uid="uid://4id0pnmf22o8" path="res://Assets/Textures/imageonline-co-pixelated-planks.png" id="8_hhidg"]
-[ext_resource type="FontFile" uid="uid://qtsc2kgt2e0p" path="res://Assets/Fonts/pixel.ttf" id="9_wgqug"]
-[ext_resource type="Script" path="res://Scripts/GameMechanics/CampaignMechanics/ClearFog.cs" id="10_tmbgb"]
+[ext_resource type="Texture2D" uid="uid://citnbqb3htaxg" path="res://Assets/Textures/imageonline-co-pixelated(1).png" id="1_55tu6"]
+[ext_resource type="PackedScene" uid="uid://twx1vowmd4ni" path="res://Scripts/Entities/Player/Player.tscn" id="2_v3odh"]
+[ext_resource type="Texture2D" uid="uid://cgg2wqugcv5de" path="res://Assets/Props/tree02.png" id="3_g7pnx"]
+[ext_resource type="Texture2D" uid="uid://c0tm1u0k4kco" path="res://Assets/Props/tree01.png" id="4_lhuk7"]
+[ext_resource type="PackedScene" uid="uid://djvcnnignduwe" path="res://Assets/Props/CR0SSR0ADS.tscn" id="5_nlul6"]
+[ext_resource type="PackedScene" uid="uid://wlukug466k0o" path="res://Assets/Props/Ammo.tscn" id="6_s12g1"]
+[ext_resource type="Texture2D" uid="uid://dtc7wjnag443v" path="res://Assets/Textures/imageonline-co-pixelated(2).png" id="7_rjxgy"]
+[ext_resource type="Texture2D" uid="uid://4id0pnmf22o8" path="res://Assets/Textures/imageonline-co-pixelated-planks.png" id="8_wtd25"]
+[ext_resource type="FontFile" uid="uid://qtsc2kgt2e0p" path="res://Assets/Fonts/pixel.ttf" id="9_nqjir"]
+[ext_resource type="Script" path="res://Scripts/GameMechanics/CampaignMechanics/ClearFog.cs" id="10_tuvce"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2p0j6"]
-albedo_texture = ExtResource("1_833s0")
+albedo_texture = ExtResource("1_55tu6")
 uv1_triplanar = true
 uv2_triplanar = true
 
@@ -20,7 +20,7 @@ uv2_triplanar = true
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_hdyt8")
+"texture": ExtResource("3_g7pnx")
 }],
 "loop": true,
 "name": &"default",
@@ -37,7 +37,7 @@ size = Vector3(1, 8.88788, 12.5965)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_f7eww")
+"texture": ExtResource("4_lhuk7")
 }],
 "loop": true,
 "name": &"default",
@@ -45,13 +45,13 @@ animations = [{
 }]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvqlu"]
-albedo_texture = ExtResource("7_vf8yo")
+albedo_texture = ExtResource("7_rjxgy")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nqbql"]
-albedo_texture = ExtResource("7_vf8yo")
+albedo_texture = ExtResource("7_rjxgy")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfy5f"]
-albedo_texture = ExtResource("8_hhidg")
+albedo_texture = ExtResource("8_wtd25")
 
 [sub_resource type="Environment" id="Environment_ckuwf"]
 volumetric_fog_enabled = true
@@ -75,7 +75,7 @@ material_override = SubResource("StandardMaterial3D_2p0j6")
 use_collision = true
 size = Vector3(293.38, 1, 362.512)
 
-[node name="Player" parent="CSGBox3D" instance=ExtResource("7_q61ml")]
+[node name="Player" parent="CSGBox3D" instance=ExtResource("2_v3odh")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.192408, -0.345818, 130.79)
 
 [node name="Forest" type="Node3D" parent="CSGBox3D"]
@@ -26699,103 +26699,103 @@ sprite_frames = SubResource("SpriteFrames_m5mt7")
 
 [node name="Roads" type="Node3D" parent="CSGBox3D"]
 
-[node name="Spatial" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, -146.815)
 
-[node name="Spatial2" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial2" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, 138.441)
 
-[node name="Spatial3" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial3" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, 129.239)
 
-[node name="Spatial4" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial4" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, 120.038)
 
-[node name="Spatial5" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial5" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, 110.836)
 
-[node name="Spatial6" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial6" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, 101.634)
 
-[node name="Spatial7" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial7" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, 92.4321)
 
-[node name="Spatial8" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial8" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, 83.2303)
 
-[node name="Spatial9" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial9" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, 74.0285)
 
-[node name="Spatial10" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial10" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, 64.8266)
 
-[node name="Spatial11" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial11" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, 55.6248)
 
-[node name="Spatial12" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial12" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, 46.423)
 
-[node name="Spatial13" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial13" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, 37.2212)
 
-[node name="Spatial14" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial14" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, 28.0194)
 
-[node name="Spatial15" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial15" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, 18.8176)
 
-[node name="Spatial16" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial16" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, 9.61578)
 
-[node name="Spatial17" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial17" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, 0.413973)
 
-[node name="Spatial18" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial18" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, -8.78784)
 
-[node name="Spatial19" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial19" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, -17.9896)
 
-[node name="Spatial20" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial20" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, -27.1915)
 
-[node name="Spatial21" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial21" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, -36.3933)
 
-[node name="Spatial22" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial22" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, -54.7969)
 
-[node name="Spatial23" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial23" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, -45.5951)
 
-[node name="Spatial24" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial24" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, -63.9987)
 
-[node name="Spatial25" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial25" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, -73.2005)
 
-[node name="Spatial26" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial26" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, -82.4023)
 
-[node name="Spatial27" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial27" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, -91.6041)
 
-[node name="Spatial28" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial28" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, -100.806)
 
-[node name="Spatial29" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial29" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, -110.008)
 
-[node name="Spatial30" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial30" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, -119.21)
 
-[node name="Spatial31" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial31" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, -128.411)
 
-[node name="Spatial32" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
+[node name="Spatial32" parent="CSGBox3D/Roads" instance=ExtResource("5_nlul6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, -137.613)
 
-[node name="Ammo" parent="CSGBox3D" instance=ExtResource("5_ud77k")]
+[node name="Ammo" parent="CSGBox3D" instance=ExtResource("6_s12g1")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.328491, 0.835439, 51.7666)
 
 [node name="Pancarte" type="Node3D" parent="CSGBox3D"]
@@ -26823,13 +26823,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.328566, 0.407105, 1.1356)
 modulate = Color(0, 0, 0, 1)
 text = "Bienvenue 
 à [insérer nom du village] "
-font = ExtResource("9_wgqug")
+font = ExtResource("9_nqjir")
 font_size = 110
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ckuwf")
 camera_attributes = SubResource("CameraAttributesPractical_l70uj")
-script = ExtResource("10_tmbgb")
+script = ExtResource("10_tuvce")
 
 [node name="Area3D" type="Area3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43372, 0, -84.6909)
