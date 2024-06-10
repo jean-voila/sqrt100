@@ -109,7 +109,7 @@ namespace CastleOfDemise.Scripts.Menus
             SendPlayerInformation(_name, Multiplayer.GetUniqueId());
         }
 
-        [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true,
+        [Rpc(MultiplayerApi.RpcMode.AnyPeer, 
             TransferMode = MultiplayerPeer.TransferModeEnum.Reliable)]
         public StringName SendPlayerInformation(string name, int id)
         {
