@@ -1,4 +1,6 @@
 using System;
+using System.Net;
+using System.Net.Sockets;
 using Godot;
 
 namespace CastleOfDemise.Scripts.Menus.MultiLauncher;
@@ -10,7 +12,8 @@ public partial class SetupGameAsHost : Control
 	[Export] private ItemList _chooseGameMode;
 	[Export] private ItemList _scoreToReach;
 	[Export] private Button _startGameButton;
-	[Export] private string _address = "127.0.0.1";
+	[Export] private string _address = GetLocalIPAdress();
+
 	private int? _scoreToReachValue = null;
 	private int? _gameModeValue = null;
 	
@@ -19,10 +22,22 @@ public partial class SetupGameAsHost : Control
 		_chooseGameMode = GetNode<ItemList>("ChooseGameMode");
 		_scoreToReach = GetNode<ItemList>("ScoreToReach");
 		_startGameButton = GetNode<Button>("StartGame");
-		
-		
-		
-		
+		GetNode<Label>("%HostCode").Text = CodeParser.IpToCode(_address);
+
+
+
+
+	}
+
+	public static string GetLocalIPAdress()
+	{
+		var host = Dns.GetHostEntry(Dns.GetHostName());
+		foreach (var ip in host.AddressList)
+		{
+			if (ip.AddressFamily == AddressFamily.InterNetwork) return ip.ToString();
+		}
+
+		return "127.0.0.1";
 	}
 
 	private void _on_back_button_fromhost_button_up()
@@ -44,14 +59,7 @@ public partial class SetupGameAsHost : Control
 			_gameModeValue = null;
 		}
 		
-		if (_gameModeValue != null && _scoreToReachValue != null)
-		{
-			_startGameButton.Disabled = false;
-		}
-		else
-		{
-			_startGameButton.Disabled = true;
-		}
+		
 	}
 
 
@@ -66,15 +74,6 @@ public partial class SetupGameAsHost : Control
 		{
 			_scoreToReachValue = null;
 		}
-		
-		if (_gameModeValue != null && _scoreToReachValue != null)
-		{
-			_startGameButton.Disabled = false;
-		}
-		else
-		{
-			_startGameButton.Disabled = true;
-		}
 	}
 	
 	private void _on_start_game_pressed()
@@ -86,16 +85,23 @@ public partial class SetupGameAsHost : Control
 		Rpc("StartGame");
 	}
 	
-	[Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true, TransferMode = MultiplayerPeer.TransferModeEnum.Reliable)]
-
-	private void StartGame()
-	{
-		GetTree().ChangeSceneToFile("res://maps/mpMap01.tscn");
-	}
+	
 	
 	private void SendPlayerInformation(string name, int id)
 	{
 		throw new NotImplementedException();
+	}
+	
+	public override void _Process(double d)
+	{
+		if (_gameModeValue != null && _scoreToReachValue != null)
+		{
+			_startGameButton.Disabled = false;
+		}
+		else
+		{
+			_startGameButton.Disabled = true;
+		}
 	}
 }
 

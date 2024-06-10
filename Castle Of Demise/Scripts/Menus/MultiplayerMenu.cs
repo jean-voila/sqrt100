@@ -8,8 +8,8 @@ namespace CastleOfDemise.Scripts.Menus
     {
 
         [Export] private int port = 8910;
-        [Export] private string address = "127.0.0.1";
-
+        private string address = "127.0.0.1";
+        private TextEdit _codeToJoin;
         private ENetMultiplayerPeer peer;
 
 // Called when the node enters the scene tree for the first time.
@@ -19,6 +19,7 @@ namespace CastleOfDemise.Scripts.Menus
             Multiplayer.PeerDisconnected += PeerDisconnected;
             Multiplayer.ConnectedToServer += ConnectedToServer;
             Multiplayer.ConnectionFailed += ConnectionFailed;
+            _codeToJoin = GetNode<TextEdit>("%CodeToJoin");
         }
 
         private void ConnectionFailed()
@@ -44,6 +45,17 @@ namespace CastleOfDemise.Scripts.Menus
 // Called every frame. 'delta' is the elapsed time since the previous frame.
         public override void _Process(double delta)
         {
+                try
+                {
+                    address = MultiLauncher.CodeParser.CodeToIp(_codeToJoin.Text);
+                    GetNode<Button>("%SceneJoinButton").Disabled = false;
+                }
+                catch
+                {
+                    GetNode<Button>("%SceneJoinButton").Disabled = true;
+                }
+
+            
         }
         private void _clientPressed()
         {
@@ -52,6 +64,7 @@ namespace CastleOfDemise.Scripts.Menus
             peer.Host.Compress(ENetConnection.CompressionMode.RangeCoder);
             Multiplayer.MultiplayerPeer = peer;
             GD.Print("JOINING GAME...");
+
         }
 
         private void _hostPressed()
@@ -73,7 +86,21 @@ namespace CastleOfDemise.Scripts.Menus
             Multiplayer.MultiplayerPeer = peer;
             GD.Print("WAITING FOR PLAYERS!");
         }
+        
+        [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true, TransferMode = MultiplayerPeer.TransferModeEnum.Reliable)]
+
+        private void StartGame()
+        {
+            GetTree().ChangeSceneToFile("res://maps/mpMap01.tscn");
+        }
+        
+        
+        
+        
+        
     }
+    
+    
 
     // test
 

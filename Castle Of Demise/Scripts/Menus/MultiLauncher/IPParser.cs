@@ -1,4 +1,6 @@
-﻿namespace CastleOfDemise.Scripts.Menus.MultiLauncher;
+﻿using System;
+
+namespace CastleOfDemise.Scripts.Menus.MultiLauncher;
 
 public partial class CodeParser 
     {
@@ -57,7 +59,7 @@ public partial class CodeParser
             if (code.Length != 8)
             {
                 // Tous les codes font exactement 8 caractères, donc si on en a pas 8, on retourne une erreur
-                return basicIP;
+                throw new Exception("code length not equals 8");
             }
 
             long ipValue = Base36Converter.ConvertFrom(code);

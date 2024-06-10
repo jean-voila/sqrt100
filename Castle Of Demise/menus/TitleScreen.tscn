@@ -358,6 +358,7 @@ theme_override_styles/pressed = ExtResource("11")
 text = "Heberger"
 
 [node name="SceneJoinButton" type="Button" parent="MultiplayerMenu/ConnectionControl"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 661.0
 offset_top = 353.0
@@ -368,6 +369,7 @@ theme_override_fonts/font = SubResource("14")
 theme_override_styles/normal = ExtResource("5")
 theme_override_styles/hover = ExtResource("6")
 theme_override_styles/pressed = ExtResource("11")
+disabled = true
 text = "Rejoindre"
 
 [node name="StatusOk" type="Label" parent="MultiplayerMenu/ConnectionControl"]
@@ -383,6 +385,14 @@ offset_left = 418.0
 offset_top = 460.0
 offset_right = 854.0
 offset_bottom = 510.0
+
+[node name="CodeToJoin" type="TextEdit" parent="MultiplayerMenu/ConnectionControl"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 572.0
+offset_top = 247.0
+offset_right = 715.0
+offset_bottom = 334.0
 
 [node name="ServerIsConnectedDebug" type="RichTextLabel" parent="MultiplayerMenu"]
 unique_name_in_owner = true
@@ -459,8 +469,6 @@ theme_override_styles/hover = ExtResource("6")
 theme_override_styles/pressed = ExtResource("11")
 text = "Jouer à plusieurs"
 
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-
 [node name="SetupGameAsHost" type="Control" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -478,6 +486,17 @@ offset_top = -248.0
 offset_right = 212.0
 offset_bottom = -222.0
 text = "Choisissez un mode de jeu"
+
+[node name="HostCode" type="Label" parent="SetupGameAsHost"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 466.0
+offset_top = -188.0
+offset_right = 684.0
+offset_bottom = -162.0
+text = "Votre code est:
+
+"
 
 [node name="ChooseGameMode" type="ItemList" parent="SetupGameAsHost"]
 layout_mode = 0
