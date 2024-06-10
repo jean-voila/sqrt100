@@ -85,9 +85,7 @@ namespace CastleOfDemise.Scripts.Menus
         private void _hostPressed()
         {
             GetNode<Control>("%MultiplayerMenu").Hide();
-            // GetNode<Control>("%GamemodeMenu").Hide();
             GetNode<Control>("%SetupGameAsHost").Show();
-
 
             _peer = new ENetMultiplayerPeer();
             var error = _peer.CreateServer(_port, 2);
@@ -100,6 +98,15 @@ namespace CastleOfDemise.Scripts.Menus
             _peer.Host.Compress(ENetConnection.CompressionMode.RangeCoder);
             Multiplayer.MultiplayerPeer = _peer;
             GD.Print("WAITING FOR PLAYERS!");
+
+            var multiplayerMenu = GetNode<Control>("%MultiplayerMenu");
+            if (multiplayerMenu == null)
+            {
+                GD.Print("ERROR: MultiplayerMenu node not found");
+                return;
+            }
+
+            SendPlayerInformation(_name, Multiplayer.GetUniqueId());
         }
 
         [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true,
@@ -114,14 +121,17 @@ namespace CastleOfDemise.Scripts.Menus
                 GameManager.Players.Add(player);
             }
 
-            if (Multiplayer.IsServer())
+            if (!Multiplayer.IsServer()) return null;
             {
                 foreach (var player in GameManager.Players)
                 {
-                    var multiplayerMenu = (MultiplayerMenu)GetNode("%MultiplayerMenu");
-                    multiplayerMenu.Rpc(nameof(multiplayerMenu.SendPlayerInformation), player.PlayerName,
-                        player.PlayerId);
-
+                    // Prevent the server from calling Rpc on SendPlayerInformation for itself
+                    if (player.PlayerId != Multiplayer.GetUniqueId())
+                    {
+                        var multiplayerMenu = (MultiplayerMenu)GetNode("%MultiplayerMenu");
+                        multiplayerMenu.Rpc(nameof(multiplayerMenu.SendPlayerInformation), player.PlayerName,
+                            player.PlayerId);
+                    }
                 }
             }
 
