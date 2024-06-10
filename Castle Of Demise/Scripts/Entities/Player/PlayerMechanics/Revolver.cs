@@ -120,17 +120,13 @@ public partial class Player
         }
         if (_SEEnabled && !isEnnemiTouched)
         {
-             var randomGunShot = new Random().Next(0, _gunShotSounds.Count); 
-             _gunShotSounds[randomGunShot].PitchScale = new Random().Next(1, 2);
-             _gunShotSounds[randomGunShot].VolumeDb = 0;
-             _gunShotSounds[randomGunShot].Play();
+            var _SFXPlayer = new SFXPlayer();
+            _SFXPlayer.PlaySFX("gunshot");
         }
         else
         {
-            var randomGunShot = new Random().Next(0, _gunShotSounds.Count); 
-            _gunShotSounds[randomGunShot].PitchScale = new Random().Next(1, 2);
-            _gunShotSounds[randomGunShot].VolumeDb = -15;
-            _gunShotSounds[randomGunShot].Play();
+            var _SFXPlayer = new SFXPlayer();
+            _SFXPlayer.PlaySFX("gunshot");
         }
     }
     

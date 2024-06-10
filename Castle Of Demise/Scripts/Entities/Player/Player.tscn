@@ -1,7 +1,8 @@
-[gd_scene load_steps=51 format=3 uid="uid://twx1vowmd4ni"]
+[gd_scene load_steps=52 format=3 uid="uid://twx1vowmd4ni"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/Player/Player.cs" id="1_y1gl0"]
 [ext_resource type="PackedScene" uid="uid://dikmlfsujgrqa" path="res://Scripts/Entities/Player/HUD.tscn" id="2"]
+[ext_resource type="Script" path="res://Scripts/Entities/Player/SFXPlayer.cs" id="2_0xmel"]
 [ext_resource type="Material" path="res://Assets/Mesh/Gray_Revolver02.material" id="3"]
 [ext_resource type="Texture2D" uid="uid://bhauv2kw8n7s" path="res://Assets/Textures/CrossHair.png" id="4"]
 [ext_resource type="AudioStream" uid="uid://ctvaktg3p5v6m" path="res://Assets/SoundEffects/gunShot01.wav" id="5"]
@@ -430,7 +431,6 @@ fallbacks = Array[Font]([ExtResource("18")])
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
-fixed_size = 0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -455,7 +455,6 @@ fallbacks = Array[Font]([ExtResource("18")])
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
-fixed_size = 0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -473,7 +472,6 @@ fallbacks = Array[Font]([ExtResource("18")])
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
-fixed_size = 0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -507,6 +505,9 @@ _maxSpeed = 10.0
 _gravity = 34.0
 _jumpSpeed = 24.0
 _floorRayCast = NodePath("checkFloor")
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("2_0xmel")
 
 [node name="GunShotSoundsEffects" type="Node3D" parent="."]
 
