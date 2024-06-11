@@ -73,8 +73,9 @@ public partial class Player : CharacterBody3D
 
 	public override void _EnterTree()
 	{
-		RpcId(1, "SetNetworkMaster", int.Parse(Name));  // pose probleme
+		RpcId(1, "SetnetworkMaster", PlayerId);
 	}
+
 
 	[Export]
 	private int _dummyExport; // Dummy exported variable to call the private method from the editor
@@ -82,7 +83,6 @@ public partial class Player : CharacterBody3D
 	private void SetNetworkMaster(int newMaster)
 	{
 		// This method would be called on the peer with ID 1, changing the network master of the node
-		
 	}
 	
 	
