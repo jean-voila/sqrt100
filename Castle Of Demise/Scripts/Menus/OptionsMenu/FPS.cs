@@ -31,7 +31,6 @@ public partial class FPS : Control
 		{
 			Engine.MaxFps = FPS_DI[index];
 			_button.Select(index);
-			GD.Print($"3 {FPS_DI[index]}");
 			ConfigFileHandler.SaveFpsSetting(index);
 		}
 	}
