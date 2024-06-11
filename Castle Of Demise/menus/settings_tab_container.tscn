@@ -82,6 +82,10 @@ action_name = "key_r"
 layout_mode = 2
 action_name = "key_escape"
 
+[node name="HotKey_Rebind_Button8" parent="TabContainer/Contrôles/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_0q84g")]
+layout_mode = 2
+action_name = "hideHUD"
+
 [node name="HSeparator2" type="HSeparator" parent="TabContainer/Contrôles/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10

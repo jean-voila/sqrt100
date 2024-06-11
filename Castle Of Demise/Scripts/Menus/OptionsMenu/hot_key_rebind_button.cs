@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using CastleOfDemise.Scripts.Menus;
 using System.Net.NetworkInformation;
 
 public partial class hot_key_rebind_button : Control
@@ -11,11 +12,22 @@ public partial class hot_key_rebind_button : Control
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		LoadKeybindingFromSettings();
 		_label = GetNode<Label>("HBoxContainer/Label");
 		_button = GetNode<Button>("HBoxContainer/Button");
 		SetProcessUnhandledKeyInput(false);
 		SetActionName();
 		SetTextForKey();
+	}
+
+	public void LoadKeybindingFromSettings()
+	{
+		var keybindings = ConfigFileHandler.LoadKeybinding();
+		foreach (var action in keybindings.Keys)
+		{
+			InputMap.ActionEraseEvents(action);
+			InputMap.ActionAddEvent(action,keybindings[action] as InputEvent);
+		}
 	}
 	public void SetActionName()
 	{
@@ -43,6 +55,9 @@ public partial class hot_key_rebind_button : Control
             case "key_escape" :
 				_label.Text = "Pause";
 	            break;
+			case "hideHUD" :
+				_label.Text = "HUD";
+				break;
 		}
 	}
 	public void SetTextForKey()
@@ -91,6 +106,7 @@ public partial class hot_key_rebind_button : Control
 	public void RebindActionKey(InputEvent @event)
 	{
 		InputMap.ActionEraseEvents(action_name);
+		ConfigFileHandler.SaveKeybinding(action_name, @event);
 		InputMap.ActionAddEvent(action_name,@event);
 		SetProcessUnhandledKeyInput(false);
 		SetTextForKey();
