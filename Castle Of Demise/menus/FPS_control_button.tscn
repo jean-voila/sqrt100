@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx3rhi4s4jf6o"]
+
+[ext_resource type="Script" path="res://Scripts/Menus/OptionsMenu/FPS.cs" id="1_ys6cu"]
+
+[node name="FPS" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ys6cu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 21.0
+offset_bottom = 11.5
+grow_vertical = 2
+alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Maximum d'images par secondes"
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 200
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+alignment = 1
+item_count = 4
+selected = 0
+popup/item_0/text = "illimité"
+popup/item_0/id = 0
+popup/item_1/text = "120"
+popup/item_1/id = 1
+popup/item_2/text = "60"
+popup/item_2/id = 2
+popup/item_3/text = "30"
+popup/item_3/id = 3
+
+[connection signal="item_selected" from="HBoxContainer/OptionButton" to="." method="OnFpsDropdownItemSelected"]

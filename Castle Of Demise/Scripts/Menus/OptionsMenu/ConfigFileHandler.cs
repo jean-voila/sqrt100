@@ -13,7 +13,7 @@ public partial class ConfigFileHandler : Node
 	{
 		if (!FileAccess.FileExists(SETTINGS_FILE_PATH))
 		{
-			
+			config.SetValue("FPS","fps",3);
 			config.SetValue("Audio", "Master", 1.0);
 			config.SetValue("Audio", "Musique", 1.0);
 			config.SetValue("Audio", "SFX", 1.0);
@@ -32,7 +32,18 @@ public partial class ConfigFileHandler : Node
 			config.Load(SETTINGS_FILE_PATH);
 		}
 	}
+	public static void SaveFpsSetting(double value)
+	{
+		config.SetValue("FPS", "fps", value);
+		config.Save(SETTINGS_FILE_PATH);
+	}
 
+	public static int LoadFpsSettings()
+	{
+		config.Load(SETTINGS_FILE_PATH);
+		var res = config.GetValue("FPS","fps").AsInt32();
+		return res;
+	}
 	public static void SaveAudioSetting(string key, double value)
 	{
 		config.SetValue("Audio", key, value);

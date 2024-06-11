@@ -31,7 +31,6 @@ public partial class Player : CharacterBody3D
 		_graphismsInit();
 		_gameWindowInit();
 		_playerHealthInit();
-		Engine.MaxFps = 60;
 	}
 	
 	public override void _Input(InputEvent @event)
