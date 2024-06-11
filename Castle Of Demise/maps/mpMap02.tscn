@@ -1451,9 +1451,9 @@ material_override = SubResource("StandardMaterial3D_f2iur")
 size = Vector3(10, 1, 10)
 
 [node name="CSGBox9" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.0131341, -0.00351699, 0.999912, -0.000454063, 1.68999, 0.00207438, -0.999914, -0.000721231, -0.013135, 63.0377, 8.1958, 94.2153)
+transform = Transform3D(-0.0131341, -0.00351699, 0.999912, -0.000454063, 1.68999, 0.00207438, -0.999914, -0.000721231, -0.013135, 56.02, 8.18124, 94.3075)
 use_collision = true
-size = Vector3(8.6853, 1, 54.2063)
+size = Vector3(8.6853, 1, 68.243)
 material = SubResource("11")
 
 [node name="CSGBox10" type="CSGBox3D" parent="."]
@@ -3155,7 +3155,7 @@ texture_filter = 0
 sprite_frames = SubResource("28")
 
 [node name="forest7" type="Node3D" parent="."]
-transform = Transform3D(-0.0482398, 0, 0.998836, 0, 1, 0, -0.998836, 0, -0.0482398, -47.6999, -1.65325, -58.7694)
+transform = Transform3D(-0.0482398, 0, 0.998836, 0, 1, 0, -0.998836, 0, -0.0482398, -47.6999, -0.402252, -58.7694)
 
 [node name="Texture38" type="AnimatedSprite3D" parent="forest7"]
 transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 22.7291, -9.31764, 17.397)
