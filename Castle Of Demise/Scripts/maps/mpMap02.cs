@@ -12,12 +12,6 @@ public partial class mpMap02 : Node3D
 	{
         for (int i = 0; i < GameManager.Players.Count; i++)
 		{
-			if (_multiplayerScene02 == null)
-			{
-				GD.Print("_playerScene is null");
-				return;
-			}
-
 			Player currentPlayer = (Player)_multiplayerScene02.Instantiate();
 			AddChild(currentPlayer);
 

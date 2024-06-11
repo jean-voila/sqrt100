@@ -1,7 +1,8 @@
-[gd_scene load_steps=52 format=3 uid="uid://cmpstvb25nh77"]
+[gd_scene load_steps=53 format=3 uid="uid://cmpstvb25nh77"]
 
 [ext_resource type="Script" path="res://Scripts/maps/mpMap02.cs" id="1_3yvam"]
 [ext_resource type="Texture2D" uid="uid://citnbqb3htaxg" path="res://Assets/Textures/imageonline-co-pixelated(1).png" id="1_4lqvp"]
+[ext_resource type="PackedScene" uid="uid://twx1vowmd4ni" path="res://Scripts/Entities/Player/Player.tscn" id="2_lsdmt"]
 [ext_resource type="Texture2D" uid="uid://bddvfd4li5gc0" path="res://Assets/Textures/imageonline-co-pixelated(4).png" id="2_msges"]
 [ext_resource type="Texture2D" uid="uid://dtc7wjnag443v" path="res://Assets/Textures/imageonline-co-pixelated(2).png" id="3_58xsk"]
 [ext_resource type="Texture2D" uid="uid://c3ckpby2dcm6k" path="res://Assets/Textures/imageonline-co-pixelated.png" id="4_yxyfe"]
@@ -223,6 +224,7 @@ albedo_texture = ExtResource("19_ru3yf")
 
 [node name="mpMap02" type="Node3D"]
 script = ExtResource("1_3yvam")
+_multiplayerScene02 = ExtResource("2_lsdmt")
 
 [node name="Spawn" type="Node" parent="."]
 

@@ -39,21 +39,24 @@ namespace CastleOfDemise.mobs.Ennemies
         public override void _Process(double d)
         {
             ulong timeNow = Time.GetTicksMsec();
-            if (ImDead && timeNow - _timeSinceImDead > TimeBeforeDisappear)
+            switch (ImDead)
             {
-                QueueFree();
-            }
-
-            if (!ImDead)
-            {
-                if (GetChild<AnimatedSprite3D>(0).Animation == "touched")
+                case true when timeNow - _timeSinceImDead > TimeBeforeDisappear:
+                    QueueFree();
+                    break;
+                case false:
                 {
-                    if (GetChild<AnimatedSprite3D>(0).Frame ==
-                        GetChild<AnimatedSprite3D>(0).SpriteFrames.GetFrameCount("touched") - 1)
+                    if (GetChild<AnimatedSprite3D>(0).Animation == "touched")
                     {
-                        GetChild<AnimatedSprite3D>(0).Play("idle");
+                        if (GetChild<AnimatedSprite3D>(0).Frame ==
+                            GetChild<AnimatedSprite3D>(0).SpriteFrames.GetFrameCount("touched") - 1)
+                        {
+                            GetChild<AnimatedSprite3D>(0).Play("idle");
+                        }
+
                     }
 
+                    break;
                 }
             }
         }
