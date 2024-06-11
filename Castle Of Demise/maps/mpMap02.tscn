@@ -1,5 +1,6 @@
 [gd_scene load_steps=52 format=3 uid="uid://cmpstvb25nh77"]
 
+[ext_resource type="Script" path="res://Scripts/maps/mpMap02.cs" id="1_3yvam"]
 [ext_resource type="Texture2D" uid="uid://citnbqb3htaxg" path="res://Assets/Textures/imageonline-co-pixelated(1).png" id="1_4lqvp"]
 [ext_resource type="Texture2D" uid="uid://bddvfd4li5gc0" path="res://Assets/Textures/imageonline-co-pixelated(4).png" id="2_msges"]
 [ext_resource type="Texture2D" uid="uid://dtc7wjnag443v" path="res://Assets/Textures/imageonline-co-pixelated(2).png" id="3_58xsk"]
@@ -15,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://xrhd6q53it2j" path="res://Scripts/Entities/Ennemies/Zombie/Zombie.tscn" id="13_r1okt"]
 [ext_resource type="PackedScene" uid="uid://tgtc4mteft3s" path="res://Scripts/Entities/Ennemies/Bat/Bat.tscn" id="14_11u5u"]
 [ext_resource type="Texture2D" uid="uid://cpqdrsebauimv" path="res://Assets/Props/chandelier.png" id="15_tw8g0"]
-[ext_resource type="PackedScene" uid="uid://twx1vowmd4ni" path="res://Scripts/Entities/Player/Player.tscn" id="16_2ib2r"]
 [ext_resource type="PackedScene" uid="uid://bao7wu340lf6s" path="res://Assets/Props/healthPack.tscn" id="17_uwwih"]
 [ext_resource type="PackedScene" uid="uid://wlukug466k0o" path="res://Assets/Props/Ammo.tscn" id="18_bmirq"]
 [ext_resource type="Texture2D" uid="uid://cutjplaxotxtt" path="res://Assets/Textures/imageonline-co-pixelated-terre.png" id="19_ru3yf"]
@@ -221,7 +221,16 @@ animations = [{
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2iur"]
 albedo_texture = ExtResource("19_ru3yf")
 
-[node name="mpMap01" type="Node3D"]
+[node name="mpMap02" type="Node3D"]
+script = ExtResource("1_3yvam")
+
+[node name="Spawn" type="Node" parent="."]
+
+[node name="0" type="Node3D" parent="Spawn" groups=["PlayerSpawnpoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.3639, 22.939, -72.316)
+
+[node name="1" type="Node3D" parent="Spawn" groups=["PlayerSpawnpoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.3275, 2.51532, 68.0625)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.891948, 0.452139, 0, -0.452139, 0.891948, 0, 79.9324, 124.007)
@@ -1398,9 +1407,6 @@ transform = Transform3D(0.998669, 0, -0.0515865, 0, 1, 0, 0.0515865, 0, 0.998669
 use_collision = true
 size = Vector3(10, 6, 1)
 material = SubResource("21")
-
-[node name="Player" parent="." instance=ExtResource("16_2ib2r")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.22956, -13, -29.1567)
 
 [node name="HealthPack" parent="." instance=ExtResource("17_uwwih")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 2.41469, -12.5151, -38.5125)

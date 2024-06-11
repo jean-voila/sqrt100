@@ -149,7 +149,7 @@ namespace CastleOfDemise.Scripts.Menus
         [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
         public void StartGame()
         {
-            GetTree().ChangeSceneToFile("res://maps/mpMap01.tscn");
+            GetTree().ChangeSceneToFile("res://maps/mpMap02.tscn");
             
         }
     }

@@ -1361,3 +1361,11 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 2.41469, -12.5151, -28.7698)
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 spawn_path = NodePath("..")
+
+[node name="Spawner" type="Node" parent="."]
+
+[node name="ClientSpawner" type="Node3D" parent="Spawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4051, -5.33657, -36.3226)
+
+[node name="HostSpawner" type="Node3D" parent="Spawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.0096, -8.95357, 32.8776)
