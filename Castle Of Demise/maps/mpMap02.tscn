@@ -339,8 +339,8 @@ size = Vector3(18, 1, 20)
 material = SubResource("18")
 
 [node name="CSGBox15" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.2269, 6.21723, 82)
-size = Vector3(18, 1, 20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.2269, 6.21723, 69.1787)
+size = Vector3(20, 1, 20)
 material = SubResource("18")
 
 [node name="CSGBox10" type="CSGBox3D" parent="CSGCombiner3D"]
@@ -387,6 +387,7 @@ material = SubResource("21")
 transform = Transform3D(0.154515, 0.973653, -8.74228e-08, 0.576658, -0.26089, 0, -1.35081e-08, -8.51195e-08, -1, -35.2844, -2.84746, 22)
 radius = 0.834
 height = 16.17
+sides = 16
 smooth_faces = false
 material = SubResource("19")
 
@@ -412,6 +413,36 @@ material = SubResource("22")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.8396, -8.33285, -49.1681)
 radius = 6.0
 height = 38.0
+material = SubResource("22")
+
+[node name="CSGCylinder17" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.36, -1.65325, -91.9959)
+radius = 6.0
+height = 46.3779
+material = SubResource("22")
+
+[node name="CSGCylinder16" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.8101, -0.826625, -65.6533)
+radius = 6.0
+height = 27.027
+material = SubResource("22")
+
+[node name="CSGCylinder18" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.1963, -7.0093, 43.1132)
+radius = 3.0
+height = 24.1588
+material = SubResource("22")
+
+[node name="CSGCylinder19" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4133, -13.6865, 79.8948)
+radius = 3.0
+height = 24.1588
+material = SubResource("22")
+
+[node name="CSGCylinder20" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.8338, -15.0968, 69.1644)
+radius = 3.0
+height = 41.649
 material = SubResource("22")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -1297,15 +1328,15 @@ shaded = true
 texture_filter = 0
 sprite_frames = SubResource("31")
 
-[node name="CSGCylinder12" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, -11, 0)
+[node name="CSGCylinder12" type="CSGCylinder3D" parent="SpotLight3D"]
+transform = Transform3D(-1, -8.74228e-08, 0, -3.82137e-15, 4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 94.1166, 93.8661, -3.79754)
 use_collision = true
 radius = 4.0
 height = 38.0
 material = SubResource("22")
 
-[node name="CSGCylinder12" type="CSGCylinder3D" parent="CSGCylinder12"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.1166, 5.20246, 93.8661)
+[node name="CSGCylinder12" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, -11, 0)
 use_collision = true
 radius = 4.0
 height = 38.0
@@ -1418,3 +1449,21 @@ transform = Transform3D(-0.0131341, -0.00351699, 0.999912, -0.000454063, 1.68999
 use_collision = true
 size = Vector3(8.6853, 1, 54.2063)
 material = SubResource("11")
+
+[node name="CSGBox10" type="CSGBox3D" parent="."]
+transform = Transform3D(0.754577, -0.00172244, 0.656211, -0.000454063, 1.68999, 0.00207438, -0.656211, -0.00315001, 0.754575, 77.348, 13.266, -78.0427)
+use_collision = true
+size = Vector3(8.6853, 1, 9.24298)
+material = SubResource("11")
+
+[node name="CSGCylinder17" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.8395, -7.0093, -38.6073)
+radius = 3.0
+height = 24.1588
+material = SubResource("22")
+
+[node name="CSGCylinder16" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.2537, -0.826625, -78.1415)
+radius = 3.0
+height = 27.027
+material = SubResource("22")
