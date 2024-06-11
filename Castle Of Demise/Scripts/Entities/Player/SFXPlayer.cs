@@ -41,7 +41,7 @@ public partial class SFXPlayer : AudioStreamPlayer
 	{
 		public string GunShotSound()
 		{
-			var res = _soundEffectsPath + RandomFilePath(ListFilesInDir(CompletePath("GunShotSounds/"), ".wav"));
+			var res = CompletePath(RandomFilePath(ListFilesInDir(CompletePath("GunShotSounds/"), ".wav")));
 			GD.Print(res);
 			return res;
 		}

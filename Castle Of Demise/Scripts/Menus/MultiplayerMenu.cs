@@ -100,7 +100,7 @@ namespace CastleOfDemise.Scripts.Menus
         }
 
         [Rpc(MultiplayerApi.RpcMode.AnyPeer)]
-        public StringName SendPlayerInformation(string name, int id, bool recursive = true)
+        public void SendPlayerInformation(string name, int id, bool recursive = true)
         {
             if (!GameManager.Players.ContainsKey(id))
             {
@@ -119,7 +119,7 @@ namespace CastleOfDemise.Scripts.Menus
                     Rpc("SendPlayerInformation", player.Value.PlayerName, player.Key, false);                }
             }
 
-            return null;
+
         }
        
         [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
