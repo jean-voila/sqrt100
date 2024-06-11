@@ -35,7 +35,7 @@ namespace CastleOfDemise.Scripts.Menus
         private void ConnectedToServer()
         {
             GD.Print("CONNECTED TO SERVER");
-            RpcId(1, "SendPlayerInformation", $"Client", Multiplayer.GetUniqueId());
+            Rpc("SendPlayerInformation", $"Client", Multiplayer.GetUniqueId()); // old rcp id with id = 1
         }
 
         private void PeerDisconnected(long id)
@@ -100,8 +100,10 @@ namespace CastleOfDemise.Scripts.Menus
         }
 
         [Rpc(MultiplayerApi.RpcMode.AnyPeer)]
-        public StringName SendPlayerInformation(string name, int id, bool recursive = true)
+        private void SendPlayerInformation(string name, int id, bool recursive = true)
         {
+            
+            GD.Print("SendPlayerInformation, begining...");
             if (!GameManager.Players.ContainsKey(id))
             {
                 var player = new Player();
@@ -110,16 +112,23 @@ namespace CastleOfDemise.Scripts.Menus
                 player.PlayerScore = 0;
                 GameManager.Players[id] = player;
             }
+            GD.Print("SendPlayerInformation, player added...");
 
-            if (Multiplayer.IsServer() && recursive)
+            if (!Multiplayer.IsServer() || !recursive) return;
             {
+                GD.Print("SendPlayerInformation, server found...");
+                GD.Print("===== LIST OF PLAYERS =====");
+
                 foreach (var player in GameManager.Players)
                 {
                     GD.Print($"Player ID: {player.Key}, Player Name: {player.Value.PlayerName}, Player Score: {player.Value.PlayerScore}");
-                    Rpc("SendPlayerInformation", player.Value.PlayerName, player.Key, false);                }
-            }
+                    Rpc("SendPlayerInformation", player.Value.PlayerName, player.Key, false);                
+                }
+                GD.Print("===== END OF LIST =====");
 
-            return null;
+            }
+            GD.Print("SendPlayerInformation, end of function...");
+
         }
        
         [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
