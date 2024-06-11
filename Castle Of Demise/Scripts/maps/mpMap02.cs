@@ -10,8 +10,6 @@ public partial class mpMap02 : Node3D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		_multiplayerScene02 = GD.Load<PackedScene>(".");
-
         for (int i = 0; i < GameManager.Players.Count; i++)
 		{
 			if (_multiplayerScene02 == null)

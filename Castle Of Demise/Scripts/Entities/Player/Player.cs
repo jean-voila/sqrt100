@@ -32,7 +32,6 @@ public partial class Player : CharacterBody3D
 		_gameWindowInit();
 		_playerHealthInit();
 		Engine.MaxFps = 60;
-		_usedCamera = GetNode<Node3D>("Camera");
 	}
 	
 	public override void _Input(InputEvent @event)
@@ -88,5 +87,5 @@ public partial class Player : CharacterBody3D
 	
 	
 	
-		
+													
 }
