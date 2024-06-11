@@ -5,23 +5,32 @@ using CastleOfDemise.Scripts.Menus.MultiLauncher;
 
 public partial class mpMap02 : Node3D
 {
-	[Export] private PackedScene _playerScene;
+	[Export] private PackedScene _multiplayerScene02;
     
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		_multiplayerScene02 = GD.Load<PackedScene>(".");
 
-		
-		for (int i = 0; i < GameManager.Players.Count; i++)
+        for (int i = 0; i < GameManager.Players.Count; i++)
 		{
-			Player currentPlayer = (Player)_playerScene.Instantiate();
-			AddChild(currentPlayer);
-			Node3D spawnPoint = GetNode<Node3D>(i.ToString());
-			if (spawnPoint != null)
+			if (_multiplayerScene02 == null)
 			{
-				currentPlayer.Teleport(spawnPoint.GlobalPosition);
+				GD.Print("_playerScene is null");
+				return;
 			}
 
+			Player currentPlayer = (Player)_multiplayerScene02.Instantiate();
+			AddChild(currentPlayer);
+
+			Node3D spawnPoint = GetNode<Node3D>(i.ToString());
+			if (spawnPoint == null)
+			{
+				GD.PrintErr("No Node3D with name " + i.ToString());
+				return;
+			}
+
+			currentPlayer.Teleport(spawnPoint.GlobalTransform.Origin);
 		}
 	}
 
