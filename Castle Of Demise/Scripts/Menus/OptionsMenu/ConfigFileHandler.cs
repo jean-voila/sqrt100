@@ -59,7 +59,7 @@ public partial class ConfigFileHandler : Node
 		var eventstr = "";
 		if (@event is InputEventKey keyevent)
 		{
-			eventstr = OS.GetKeycodeString(keyevent.PhysicalKeycode);
+			eventstr = OS.GetKeycodeString(keyevent.GetKeycodeWithModifiers());
 		}
 		config.SetValue("keybinding",action,eventstr);
 		config.Save(SETTINGS_FILE_PATH);
