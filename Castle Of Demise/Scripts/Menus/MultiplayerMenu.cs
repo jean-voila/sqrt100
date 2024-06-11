@@ -31,11 +31,12 @@ namespace CastleOfDemise.Scripts.Menus
             GD.Print("CONNECTION FAILED");
         }
         
-        
         private void ConnectedToServer()
         {
             GD.Print("CONNECTED TO SERVER");
-            RpcId(1, "SendPlayerInformation", $"Client", Multiplayer.GetUniqueId());
+            // Call SendPlayerInformation on the server
+            RpcId(1, nameof(SendPlayerInformation), $"Client", Multiplayer.GetUniqueId(), false);
+            GD.Print("SENDING PLAYER INFORMATION...");
         }
 
         private void PeerDisconnected(long id)
@@ -100,8 +101,9 @@ namespace CastleOfDemise.Scripts.Menus
         }
 
         [Rpc(MultiplayerApi.RpcMode.AnyPeer)]
-        public void SendPlayerInformation(string name, int id, bool recursive = true)
+        private void SendPlayerInformation(string name, int id, bool recursive = true)
         {
+            GD.Print("SendPlayerInformation, beginning...");
             if (!GameManager.Players.ContainsKey(id))
             {
                 var player = new Player();
@@ -111,17 +113,39 @@ namespace CastleOfDemise.Scripts.Menus
                 GameManager.Players[id] = player;
             }
 
-            if (Multiplayer.IsServer() && recursive)
+            GD.Print("SendPlayerInformation, player added...");
+
+            if (Multiplayer.IsServer() || !recursive)
             {
+                GD.Print("SendPlayerInformation, server found...");
+                GD.Print("===== LIST OF PLAYERS =====");
+
                 foreach (var player in GameManager.Players)
                 {
-                    GD.Print($"Player ID: {player.Key}, Player Name: {player.Value.PlayerName}, Player Score: {player.Value.PlayerScore}");
-                    Rpc("SendPlayerInformation", player.Value.PlayerName, player.Key, false);                }
+                    GD.Print(
+                        $"Player ID: {player.Key}, Player Name: {player.Value.PlayerName}, Player Score: {player.Value.PlayerScore}");
+                    // Call Rpc instead of RpcId
+                    Rpc(nameof(AddPlayerToAllPeers), player.Value.PlayerName, player.Key);
+                }
+
+                GD.Print("===== END OF LIST =====");
             }
-
-
+            GD.Print($"SendPlayerInformation, end of function with {GameManager.Players.Count} players...");
         }
-       
+
+        [Rpc(MultiplayerApi.RpcMode.AnyPeer)]
+        private void AddPlayerToAllPeers(string name, int id)
+        {
+            if (!GameManager.Players.ContainsKey(id))
+            {
+                var player = new Player();
+                player.PlayerName = name;
+                player.PlayerId = id;
+                player.PlayerScore = 0;
+                GameManager.Players[id] = player;
+            }
+        }
+
         [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
         public void StartGame()
         {

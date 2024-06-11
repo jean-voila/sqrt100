@@ -6,7 +6,7 @@ namespace CastleOfDemise.Scripts.Menus.MultiLauncher;
 
 public partial class GameManager : Control
 {
-    public static readonly Dictionary<int,Player> Players = new Dictionary<int,Player>();
+    public static Dictionary<int,Player> Players = new Dictionary<int,Player>();
     
     public override void _Ready()
     {
