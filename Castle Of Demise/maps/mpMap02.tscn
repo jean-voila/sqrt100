@@ -428,19 +428,19 @@ height = 27.027
 material = SubResource("22")
 
 [node name="CSGCylinder18" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.1963, -7.0093, 43.1132)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.7892, -7.0093, 43.7738)
 radius = 3.0
 height = 24.1588
 material = SubResource("22")
 
 [node name="CSGCylinder19" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4133, -13.6865, 79.8948)
-radius = 3.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.245, -13.6865, 78.9614)
+radius = 4.00027
 height = 24.1588
 material = SubResource("22")
 
 [node name="CSGCylinder20" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.8338, -15.0968, 69.1644)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.8539, -15.0968, 69.1644)
 radius = 3.0
 height = 41.649
 material = SubResource("22")
@@ -1461,6 +1461,2535 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.8395, -7.0093, -38.6073)
 radius = 3.0
 height = 24.1588
 material = SubResource("22")
+
+[node name="forest5" type="Node3D" parent="."]
+transform = Transform3D(0.960333, 0, 0.278857, 0, 1, 0, -0.278857, 0, 0.960333, 53.7093, 0, -33.5245)
+
+[node name="Texture38" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 22.7291, -9.31764, 17.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture2" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326667, 22.5954, -9.31764, 30.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture3" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, 18.5954, -9.31764, 29.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture4" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, 24.5954, -9.31764, 33.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture5" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, 18.5954, -9.31764, 32.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(0.26107, 0, -0.998635, 0, 5, 0, 4.99318, 0, 0.052214, 23.742, -10.3187, 28.249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture6" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(0.26107, 0, -0.998635, 0, 5, 0, 4.99318, 0, 0.052214, 19.742, -10.3187, 34.249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture7" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(0.26107, 0, -0.998635, 0, 5, 0, 4.99318, 0, 0.052214, 15.742, -10.3187, 28.249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture8" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, 22.5954, -9.31764, 30.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, 18.5954, -9.31764, 29.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture10" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, 24.5954, -9.31764, 33.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture11" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, 18.5954, -9.31764, 32.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture12" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(0.26107, 0, -0.998635, 0, 5, 0, 4.99318, 0, 0.052214, 23.742, -10.3187, 28.249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture13" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(0.26107, 0, -0.998635, 0, 5, 0, 4.99318, 0, 0.052214, 19.742, -10.3187, 34.249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(0.26107, 0, -0.998635, 0, 5, 0, 4.99318, 0, 0.052214, 15.742, -10.3187, 28.249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="rock 01" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 20.9683, -11.8478, 26.249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("27")
+
+[node name="grass" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 21.6839, -12.6726, 30.4565)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass2" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 22.6839, -12.6726, 34.4565)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass3" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 15.6839, -12.6726, 34.4565)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass4" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 23.6839, -12.6726, 31.4565)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass5" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 14.6839, -12.6726, 29.4565)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="Texture15" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 12.3182, -9.31764, 33.2309)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture16" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 12.2489, -9.31764, 29.1084)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture17" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 9.93809, -9.31764, 35.9392)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture18" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 9.3511, -9.31764, 29.8849)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture19" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.75547, 0, -0.308901, 0, 5, 0, 1.5445, 0, -0.951093, 14.7335, -10.3187, 33.7708)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture20" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.75547, 0, -0.308901, 0, 5, 0, 1.5445, 0, -0.951093, 7.90264, -10.3187, 31.46)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture21" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.75547, 0, -0.308901, 0, 5, 0, 1.5445, 0, -0.951093, 12.6629, -10.3187, 26.0434)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture22" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 12.3182, -9.31764, 33.2309)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture23" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 12.2489, -9.31764, 29.1084)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture24" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 9.93809, -9.31764, 35.9392)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture25" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 9.3511, -9.31764, 29.8849)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture26" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.75547, 0, -0.308901, 0, 5, 0, 1.5445, 0, -0.951093, 14.7335, -10.3187, 33.7708)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture27" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.75547, 0, -0.308901, 0, 5, 0, 1.5445, 0, -0.951093, 7.90264, -10.3187, 31.46)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture28" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.75547, 0, -0.308901, 0, 5, 0, 1.5445, 0, -0.951093, 12.6629, -10.3187, 26.0434)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="rock 02" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 15.9474, -11.8478, 30.574)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("27")
+
+[node name="grass6" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 12.0685, -12.6726, 32.3542)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass7" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 8.46364, -12.6726, 34.3554)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass8" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 6.65191, -12.6726, 27.5939)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass9" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 11.6202, -12.6726, 34.5449)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass10" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 11.2227, -12.6726, 25.3339)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="Texture29" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 19.7291, -9.31764, 19.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture30" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 18.7291, -9.31764, 23.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture31" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 22.7291, -9.31764, 17.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture32" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 21.7291, -9.31764, 23.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture33" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99318, 0, 0.052214, 0, 5, 0, -0.26107, 0, 0.998635, 17.5359, -10.3187, 18.2504)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture34" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99318, 0, 0.052214, 0, 5, 0, -0.26107, 0, 0.998635, 23.5359, -10.3187, 22.2504)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture35" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99318, 0, 0.052214, 0, 5, 0, -0.26107, 0, 0.998635, 17.5359, -10.3187, 26.2504)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture36" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 19.7291, -9.31764, 19.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture37" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 18.7291, -9.31764, 23.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture39" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 21.7291, -9.31764, 23.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture40" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99318, 0, 0.052214, 0, 5, 0, -0.26107, 0, 0.998635, 17.5359, -10.3187, 18.2504)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture41" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99318, 0, 0.052214, 0, 5, 0, -0.26107, 0, 0.998635, 23.5359, -10.3187, 22.2504)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture42" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99318, 0, 0.052214, 0, 5, 0, -0.26107, 0, 0.998635, 17.5359, -10.3187, 26.2504)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="rock 03" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 15.5359, -11.8478, 21.0241)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("27")
+
+[node name="grass11" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 19.7434, -12.6726, 20.3085)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass12" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 23.7434, -12.6726, 19.3085)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass13" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 23.7434, -12.6726, 26.3085)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass14" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 20.7434, -12.6726, 18.3085)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass15" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 18.7434, -12.6726, 27.3085)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="Texture43" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 13.2432, -9.31764, 8.09643)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture44" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 16.8057, -9.31764, 10.1722)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture45" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 12.1591, -9.31764, 4.65772)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture46" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 17.6422, -9.31764, 7.29119)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture47" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(1.14167, 0, 0.973582, 0, 5, 0, -4.86792, 0, 0.228334, 11.5305, -10.3187, 9.88289)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture48" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(1.14167, 0, 0.973582, 0, 5, 0, -4.86792, 0, 0.228334, 17.045, -10.3187, 5.23632)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture49" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(1.14167, 0, 0.973582, 0, 5, 0, -4.86792, 0, 0.228334, 19.2131, -10.3187, 12.1138)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture50" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 13.2432, -9.31764, 8.09643)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture51" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 16.8057, -9.31764, 10.1722)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture52" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 12.1591, -9.31764, 4.65772)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture53" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 17.6422, -9.31764, 7.29119)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture54" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(1.14167, 0, 0.973582, 0, 5, 0, -4.86792, 0, 0.228334, 11.5305, -10.3187, 9.88289)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture55" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(1.14167, 0, 0.973582, 0, 5, 0, -4.86792, 0, 0.228334, 17.045, -10.3187, 5.23632)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture56" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(1.14167, 0, 0.973582, 0, 5, 0, -4.86792, 0, 0.228334, 19.2131, -10.3187, 12.1138)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="rock 04" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.80166, 0, 0.278857, 0, 5, 0, -1.39429, 0, -0.960333, 13.6364, -11.8478, 12.577)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("27")
+
+[node name="grass16" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.80166, 0, 0.278857, 0, 5, 0, -1.39429, 0, -0.960333, 14.1225, -12.6726, 8.33688)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass17" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.80166, 0, 0.278857, 0, 5, 0, -1.39429, 0, -0.960333, 14.2776, -12.6726, 4.21669)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass18" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.80166, 0, 0.278857, 0, 5, 0, -1.39429, 0, -0.960333, 20.9999, -12.6726, 6.16869)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass19" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.80166, 0, 0.278857, 0, 5, 0, -1.39429, 0, -0.960333, 12.4807, -12.6726, 6.81883)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass20" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.80166, 0, 0.278857, 0, 5, 0, -1.39429, 0, -0.960333, 20.566, -12.6726, 11.2492)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="Texture57" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 23.8904, -9.31764, 8.28422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture58" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 22.8073, -9.31764, 12.2625)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture59" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 26.9313, -9.31764, 6.34706)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture60" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 25.8067, -9.31764, 12.3249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture61" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99753, 0, 0.0314287, 0, 5, 0, -0.157137, 0, 0.999505, 21.7214, -10.3187, 7.09221)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture62" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99753, 0, 0.0314287, 0, 5, 0, -0.157137, 0, 0.999505, 27.6369, -10.3187, 11.2162)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture63" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99753, 0, 0.0314287, 0, 5, 0, -0.157137, 0, 0.999505, 21.5551, -10.3187, 15.0905)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture64" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 23.8904, -9.31764, 8.28422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture65" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 22.8073, -9.31764, 12.2625)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture66" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 26.9313, -9.31764, 6.34706)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture67" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 25.8067, -9.31764, 12.3249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture68" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99753, 0, 0.0314287, 0, 5, 0, -0.157137, 0, 0.999505, 21.7214, -10.3187, 7.09221)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture69" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99753, 0, 0.0314287, 0, 5, 0, -0.157137, 0, 0.999505, 27.6369, -10.3187, 11.2162)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture70" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(4.99753, 0, 0.0314287, 0, 5, 0, -0.157137, 0, 0.999505, 21.5551, -10.3187, 15.0905)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="rock 05" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(0.10401, 0, 0.999784, 0, 5, 0, -4.99892, 0, 0.020803, 19.6642, -11.8478, 9.8237)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("27")
+
+[node name="grass21" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(0.10401, 0, 0.999784, 0, 5, 0, -4.99892, 0, 0.020803, 23.8857, -12.6726, 9.19577)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass22" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(0.10401, 0, 0.999784, 0, 5, 0, -4.99892, 0, 0.020803, 27.9056, -12.6726, 8.2792)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass23" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(0.10401, 0, 0.999784, 0, 5, 0, -4.99892, 0, 0.020803, 27.76, -12.6726, 15.2777)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass24" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(0.10401, 0, 0.999784, 0, 5, 0, -4.99892, 0, 0.020803, 24.9271, -12.6726, 7.21699)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass25" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(0.10401, 0, 0.999784, 0, 5, 0, -4.99892, 0, 0.020803, 22.7403, -12.6726, 16.1735)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="Texture71" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 12.9157, -9.31764, 19.5028)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture72" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 14.9915, -9.31764, 15.9403)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture73" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 9.47704, -9.31764, 20.5869)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture74" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 12.1105, -9.31764, 15.1037)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture75" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.86792, 0, 0.228334, 0, 5, 0, -1.14167, 0, -0.973582, 14.7022, -10.3187, 21.2155)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture76" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.86792, 0, 0.228334, 0, 5, 0, -1.14167, 0, -0.973582, 10.0556, -10.3187, 15.701)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture77" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.86792, 0, 0.228334, 0, 5, 0, -1.14167, 0, -0.973582, 16.9331, -10.3187, 13.5328)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture78" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 12.9157, -9.31764, 19.5028)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture79" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 14.9915, -9.31764, 15.9403)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture80" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 9.47704, -9.31764, 20.5869)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture81" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 12.1105, -9.31764, 15.1037)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture82" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.86792, 0, 0.228334, 0, 5, 0, -1.14167, 0, -0.973582, 14.7022, -10.3187, 21.2155)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture83" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.86792, 0, 0.228334, 0, 5, 0, -1.14167, 0, -0.973582, 10.0556, -10.3187, 15.701)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture84" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-4.86792, 0, 0.228334, 0, 5, 0, -1.14167, 0, -0.973582, 16.9331, -10.3187, 13.5328)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="rock 06" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-1.39429, 0, -0.960333, 0, 5, 0, 4.80166, 0, -0.278857, 17.3963, -11.8478, 19.1095)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("27")
+
+[node name="grass26" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-1.39429, 0, -0.960333, 0, 5, 0, 4.80166, 0, -0.278857, 13.1562, -12.6726, 18.6235)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass27" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-1.39429, 0, -0.960333, 0, 5, 0, 4.80166, 0, -0.278857, 9.03602, -12.6726, 18.4684)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass28" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-1.39429, 0, -0.960333, 0, 5, 0, 4.80166, 0, -0.278857, 10.988, -12.6726, 11.746)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass29" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-1.39429, 0, -0.960333, 0, 5, 0, 4.80166, 0, -0.278857, 11.6382, -12.6726, 20.2653)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass30" type="AnimatedSprite3D" parent="forest5"]
+transform = Transform3D(-1.39429, 0, -0.960333, 0, 5, 0, 4.80166, 0, -0.278857, 16.0685, -12.6726, 12.18)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="forest6" type="Node3D" parent="."]
+transform = Transform3D(-0.0482398, 0, 0.998836, 0, 1, 0, -0.998836, 0, -0.0482398, -12.1366, -0.826625, -57.6217)
+
+[node name="Texture38" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 22.7291, -9.31764, 17.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture2" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326667, 22.5954, -9.31764, 30.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture3" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, 18.5954, -9.31764, 29.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture4" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, 24.5954, -9.31764, 33.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture5" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, 18.5954, -9.31764, 32.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(0.26107, 0, -0.998635, 0, 5, 0, 4.99318, 0, 0.052214, 23.742, -10.3187, 28.249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture6" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(0.26107, 0, -0.998635, 0, 5, 0, 4.99318, 0, 0.052214, 19.742, -10.3187, 34.249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture7" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(0.26107, 0, -0.998635, 0, 5, 0, 4.99318, 0, 0.052214, 15.742, -10.3187, 28.249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture8" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, 22.5954, -9.31764, 30.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, 18.5954, -9.31764, 29.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture10" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, 24.5954, -9.31764, 33.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture11" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, 18.5954, -9.31764, 32.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture12" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(0.26107, 0, -0.998635, 0, 5, 0, 4.99318, 0, 0.052214, 23.742, -10.3187, 28.249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture13" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(0.26107, 0, -0.998635, 0, 5, 0, 4.99318, 0, 0.052214, 19.742, -10.3187, 34.249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(0.26107, 0, -0.998635, 0, 5, 0, 4.99318, 0, 0.052214, 15.742, -10.3187, 28.249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="rock 01" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 20.9683, -11.8478, 26.249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("27")
+
+[node name="grass" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 21.6839, -12.6726, 30.4565)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass2" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 22.6839, -12.6726, 34.4565)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass3" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 15.6839, -12.6726, 34.4565)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass4" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 23.6839, -12.6726, 31.4565)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass5" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 14.6839, -12.6726, 29.4565)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="Texture15" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 12.3182, -9.31764, 33.2309)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture16" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 12.2489, -9.31764, 29.1084)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture17" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 9.93809, -9.31764, 35.9392)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture18" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 9.3511, -9.31764, 29.8849)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture19" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.75547, 0, -0.308901, 0, 5, 0, 1.5445, 0, -0.951093, 14.7335, -10.3187, 33.7708)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture20" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.75547, 0, -0.308901, 0, 5, 0, 1.5445, 0, -0.951093, 7.90264, -10.3187, 31.46)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture21" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.75547, 0, -0.308901, 0, 5, 0, 1.5445, 0, -0.951093, 12.6629, -10.3187, 26.0434)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture22" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 12.3182, -9.31764, 33.2309)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture23" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 12.2489, -9.31764, 29.1084)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture24" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 9.93809, -9.31764, 35.9392)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture25" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 9.3511, -9.31764, 29.8849)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture26" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.75547, 0, -0.308901, 0, 5, 0, 1.5445, 0, -0.951093, 14.7335, -10.3187, 33.7708)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture27" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.75547, 0, -0.308901, 0, 5, 0, 1.5445, 0, -0.951093, 7.90264, -10.3187, 31.46)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture28" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.75547, 0, -0.308901, 0, 5, 0, 1.5445, 0, -0.951093, 12.6629, -10.3187, 26.0434)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="rock 02" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 15.9474, -11.8478, 30.574)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("27")
+
+[node name="grass6" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 12.0685, -12.6726, 32.3542)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass7" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 8.46364, -12.6726, 34.3554)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass8" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 6.65191, -12.6726, 27.5939)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass9" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 11.6202, -12.6726, 34.5449)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass10" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 11.2227, -12.6726, 25.3339)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="Texture29" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 19.7291, -9.31764, 19.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture30" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 18.7291, -9.31764, 23.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture31" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 22.7291, -9.31764, 17.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture32" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 21.7291, -9.31764, 23.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture33" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99318, 0, 0.052214, 0, 5, 0, -0.26107, 0, 0.998635, 17.5359, -10.3187, 18.2504)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture34" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99318, 0, 0.052214, 0, 5, 0, -0.26107, 0, 0.998635, 23.5359, -10.3187, 22.2504)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture35" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99318, 0, 0.052214, 0, 5, 0, -0.26107, 0, 0.998635, 17.5359, -10.3187, 26.2504)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture36" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 19.7291, -9.31764, 19.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture37" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 18.7291, -9.31764, 23.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture39" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 21.7291, -9.31764, 23.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture40" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99318, 0, 0.052214, 0, 5, 0, -0.26107, 0, 0.998635, 17.5359, -10.3187, 18.2504)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture41" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99318, 0, 0.052214, 0, 5, 0, -0.26107, 0, 0.998635, 23.5359, -10.3187, 22.2504)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture42" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99318, 0, 0.052214, 0, 5, 0, -0.26107, 0, 0.998635, 17.5359, -10.3187, 26.2504)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="rock 03" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 15.5359, -11.8478, 21.0241)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("27")
+
+[node name="grass11" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 19.7434, -12.6726, 20.3085)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass12" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 23.7434, -12.6726, 19.3085)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass13" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 23.7434, -12.6726, 26.3085)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass14" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 20.7434, -12.6726, 18.3085)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass15" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 18.7434, -12.6726, 27.3085)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="Texture43" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 13.2432, -9.31764, 8.09643)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture44" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 16.8057, -9.31764, 10.1722)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture45" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 12.1591, -9.31764, 4.65772)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture46" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 17.6422, -9.31764, 7.29119)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture47" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(1.14167, 0, 0.973582, 0, 5, 0, -4.86792, 0, 0.228334, 11.5305, -10.3187, 9.88289)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture48" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(1.14167, 0, 0.973582, 0, 5, 0, -4.86792, 0, 0.228334, 17.045, -10.3187, 5.23632)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture49" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(1.14167, 0, 0.973582, 0, 5, 0, -4.86792, 0, 0.228334, 19.2131, -10.3187, 12.1138)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture50" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 13.2432, -9.31764, 8.09643)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture51" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 16.8057, -9.31764, 10.1722)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture52" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 12.1591, -9.31764, 4.65772)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture53" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 17.6422, -9.31764, 7.29119)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture54" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(1.14167, 0, 0.973582, 0, 5, 0, -4.86792, 0, 0.228334, 11.5305, -10.3187, 9.88289)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture55" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(1.14167, 0, 0.973582, 0, 5, 0, -4.86792, 0, 0.228334, 17.045, -10.3187, 5.23632)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture56" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(1.14167, 0, 0.973582, 0, 5, 0, -4.86792, 0, 0.228334, 19.2131, -10.3187, 12.1138)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="rock 04" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.80166, 0, 0.278857, 0, 5, 0, -1.39429, 0, -0.960333, 13.6364, -11.8478, 12.577)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("27")
+
+[node name="grass16" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.80166, 0, 0.278857, 0, 5, 0, -1.39429, 0, -0.960333, 14.1225, -12.6726, 8.33688)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass17" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.80166, 0, 0.278857, 0, 5, 0, -1.39429, 0, -0.960333, 14.2776, -12.6726, 4.21669)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass18" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.80166, 0, 0.278857, 0, 5, 0, -1.39429, 0, -0.960333, 20.9999, -12.6726, 6.16869)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass19" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.80166, 0, 0.278857, 0, 5, 0, -1.39429, 0, -0.960333, 12.4807, -12.6726, 6.81883)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass20" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.80166, 0, 0.278857, 0, 5, 0, -1.39429, 0, -0.960333, 20.566, -12.6726, 11.2492)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="Texture57" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 23.8904, -9.31764, 8.28422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture58" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 22.8073, -9.31764, 12.2625)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture59" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 26.9313, -9.31764, 6.34706)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture60" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 25.8067, -9.31764, 12.3249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture61" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99753, 0, 0.0314287, 0, 5, 0, -0.157137, 0, 0.999505, 21.7214, -10.3187, 7.09221)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture62" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99753, 0, 0.0314287, 0, 5, 0, -0.157137, 0, 0.999505, 27.6369, -10.3187, 11.2162)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture63" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99753, 0, 0.0314287, 0, 5, 0, -0.157137, 0, 0.999505, 21.5551, -10.3187, 15.0905)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture64" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 23.8904, -9.31764, 8.28422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture65" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 22.8073, -9.31764, 12.2625)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture66" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 26.9313, -9.31764, 6.34706)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture67" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 25.8067, -9.31764, 12.3249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture68" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99753, 0, 0.0314287, 0, 5, 0, -0.157137, 0, 0.999505, 21.7214, -10.3187, 7.09221)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture69" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99753, 0, 0.0314287, 0, 5, 0, -0.157137, 0, 0.999505, 27.6369, -10.3187, 11.2162)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture70" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(4.99753, 0, 0.0314287, 0, 5, 0, -0.157137, 0, 0.999505, 21.5551, -10.3187, 15.0905)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="rock 05" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(0.10401, 0, 0.999784, 0, 5, 0, -4.99892, 0, 0.020803, 19.6642, -11.8478, 9.8237)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("27")
+
+[node name="grass21" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(0.10401, 0, 0.999784, 0, 5, 0, -4.99892, 0, 0.020803, 23.8857, -12.6726, 9.19577)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass22" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(0.10401, 0, 0.999784, 0, 5, 0, -4.99892, 0, 0.020803, 27.9056, -12.6726, 8.2792)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass23" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(0.10401, 0, 0.999784, 0, 5, 0, -4.99892, 0, 0.020803, 27.76, -12.6726, 15.2777)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass24" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(0.10401, 0, 0.999784, 0, 5, 0, -4.99892, 0, 0.020803, 24.9271, -12.6726, 7.21699)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass25" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(0.10401, 0, 0.999784, 0, 5, 0, -4.99892, 0, 0.020803, 22.7403, -12.6726, 16.1735)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="Texture71" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 12.9157, -9.31764, 19.5028)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture72" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 14.9915, -9.31764, 15.9403)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture73" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 9.47704, -9.31764, 20.5869)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture74" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 12.1105, -9.31764, 15.1037)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture75" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.86792, 0, 0.228334, 0, 5, 0, -1.14167, 0, -0.973582, 14.7022, -10.3187, 21.2155)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture76" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.86792, 0, 0.228334, 0, 5, 0, -1.14167, 0, -0.973582, 10.0556, -10.3187, 15.701)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture77" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.86792, 0, 0.228334, 0, 5, 0, -1.14167, 0, -0.973582, 16.9331, -10.3187, 13.5328)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture78" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 12.9157, -9.31764, 19.5028)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture79" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 14.9915, -9.31764, 15.9403)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture80" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 9.47704, -9.31764, 20.5869)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture81" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 12.1105, -9.31764, 15.1037)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture82" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.86792, 0, 0.228334, 0, 5, 0, -1.14167, 0, -0.973582, 14.7022, -10.3187, 21.2155)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture83" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.86792, 0, 0.228334, 0, 5, 0, -1.14167, 0, -0.973582, 10.0556, -10.3187, 15.701)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture84" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-4.86792, 0, 0.228334, 0, 5, 0, -1.14167, 0, -0.973582, 16.9331, -10.3187, 13.5328)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="rock 06" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-1.39429, 0, -0.960333, 0, 5, 0, 4.80166, 0, -0.278857, 17.3963, -11.8478, 19.1095)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("27")
+
+[node name="grass26" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-1.39429, 0, -0.960333, 0, 5, 0, 4.80166, 0, -0.278857, 13.1562, -12.6726, 18.6235)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass27" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-1.39429, 0, -0.960333, 0, 5, 0, 4.80166, 0, -0.278857, 9.03602, -12.6726, 18.4684)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass28" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-1.39429, 0, -0.960333, 0, 5, 0, 4.80166, 0, -0.278857, 10.988, -12.6726, 11.746)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass29" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-1.39429, 0, -0.960333, 0, 5, 0, 4.80166, 0, -0.278857, 11.6382, -12.6726, 20.2653)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass30" type="AnimatedSprite3D" parent="forest6"]
+transform = Transform3D(-1.39429, 0, -0.960333, 0, 5, 0, 4.80166, 0, -0.278857, 16.0685, -12.6726, 12.18)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="forest7" type="Node3D" parent="."]
+transform = Transform3D(-0.0482398, 0, 0.998836, 0, 1, 0, -0.998836, 0, -0.0482398, -47.6999, -1.65325, -58.7694)
+
+[node name="Texture38" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 22.7291, -9.31764, 17.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture2" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326667, 22.5954, -9.31764, 30.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture3" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, 18.5954, -9.31764, 29.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture4" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, 24.5954, -9.31764, 33.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture5" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, 18.5954, -9.31764, 32.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture1" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(0.26107, 0, -0.998635, 0, 5, 0, 4.99318, 0, 0.052214, 23.742, -10.3187, 28.249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture6" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(0.26107, 0, -0.998635, 0, 5, 0, 4.99318, 0, 0.052214, 19.742, -10.3187, 34.249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture7" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(0.26107, 0, -0.998635, 0, 5, 0, 4.99318, 0, 0.052214, 15.742, -10.3187, 28.249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture8" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, 22.5954, -9.31764, 30.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture9" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, 18.5954, -9.31764, 29.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture10" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, 24.5954, -9.31764, 33.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture11" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-0.163334, 0, -0.999465, 0, 7, 0, 4.99733, 0, -0.0326668, 18.5954, -9.31764, 32.4422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture12" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(0.26107, 0, -0.998635, 0, 5, 0, 4.99318, 0, 0.052214, 23.742, -10.3187, 28.249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture13" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(0.26107, 0, -0.998635, 0, 5, 0, 4.99318, 0, 0.052214, 19.742, -10.3187, 34.249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture14" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(0.26107, 0, -0.998635, 0, 5, 0, 4.99318, 0, 0.052214, 15.742, -10.3187, 28.249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="rock 01" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 20.9683, -11.8478, 26.249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("27")
+
+[node name="grass" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 21.6839, -12.6726, 30.4565)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass2" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 22.6839, -12.6726, 34.4565)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass3" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 15.6839, -12.6726, 34.4565)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass4" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 23.6839, -12.6726, 31.4565)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass5" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, 14.6839, -12.6726, 29.4565)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="Texture15" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 12.3182, -9.31764, 33.2309)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture16" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 12.2489, -9.31764, 29.1084)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture17" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 9.93809, -9.31764, 35.9392)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture18" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 9.3511, -9.31764, 29.8849)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture19" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.75547, 0, -0.308901, 0, 5, 0, 1.5445, 0, -0.951093, 14.7335, -10.3187, 33.7708)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture20" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.75547, 0, -0.308901, 0, 5, 0, 1.5445, 0, -0.951093, 7.90264, -10.3187, 31.46)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture21" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.75547, 0, -0.308901, 0, 5, 0, 1.5445, 0, -0.951093, 12.6629, -10.3187, 26.0434)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture22" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 12.3182, -9.31764, 33.2309)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture23" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 12.2489, -9.31764, 29.1084)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture24" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 9.93809, -9.31764, 35.9392)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture25" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.86932, 0, -0.227127, 0, 7, 0, 1.13564, 0, -0.973864, 9.3511, -9.31764, 29.8849)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture26" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.75547, 0, -0.308901, 0, 5, 0, 1.5445, 0, -0.951093, 14.7335, -10.3187, 33.7708)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture27" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.75547, 0, -0.308901, 0, 5, 0, 1.5445, 0, -0.951093, 7.90264, -10.3187, 31.46)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture28" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.75547, 0, -0.308901, 0, 5, 0, 1.5445, 0, -0.951093, 12.6629, -10.3187, 26.0434)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="rock 02" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 15.9474, -11.8478, 30.574)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("27")
+
+[node name="grass6" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 12.0685, -12.6726, 32.3542)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass7" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 8.46364, -12.6726, 34.3554)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass8" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 6.65191, -12.6726, 27.5939)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass9" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 11.6202, -12.6726, 34.5449)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass10" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(1.2941, 0, -0.965926, 0, 5, 0, 4.82963, 0, 0.258819, 11.2227, -12.6726, 25.3339)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="Texture29" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 19.7291, -9.31764, 19.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture30" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 18.7291, -9.31764, 23.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture31" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 22.7291, -9.31764, 17.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture32" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 21.7291, -9.31764, 23.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture33" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99318, 0, 0.052214, 0, 5, 0, -0.26107, 0, 0.998635, 17.5359, -10.3187, 18.2504)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture34" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99318, 0, 0.052214, 0, 5, 0, -0.26107, 0, 0.998635, 23.5359, -10.3187, 22.2504)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture35" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99318, 0, 0.052214, 0, 5, 0, -0.26107, 0, 0.998635, 17.5359, -10.3187, 26.2504)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture36" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 19.7291, -9.31764, 19.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture37" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 18.7291, -9.31764, 23.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture39" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99733, 0, -0.0326668, 0, 7, 0, 0.163334, 0, 0.999465, 21.7291, -9.31764, 23.397)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture40" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99318, 0, 0.052214, 0, 5, 0, -0.26107, 0, 0.998635, 17.5359, -10.3187, 18.2504)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture41" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99318, 0, 0.052214, 0, 5, 0, -0.26107, 0, 0.998635, 23.5359, -10.3187, 22.2504)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture42" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99318, 0, 0.052214, 0, 5, 0, -0.26107, 0, 0.998635, 17.5359, -10.3187, 26.2504)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="rock 03" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 15.5359, -11.8478, 21.0241)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("27")
+
+[node name="grass11" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 19.7434, -12.6726, 20.3085)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass12" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 23.7434, -12.6726, 19.3085)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass13" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 23.7434, -12.6726, 26.3085)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass14" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 20.7434, -12.6726, 18.3085)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass15" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 5, 0, -5, 0, -4.37114e-08, 18.7434, -12.6726, 27.3085)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="Texture43" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 13.2432, -9.31764, 8.09643)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture44" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 16.8057, -9.31764, 10.1722)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture45" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 12.1591, -9.31764, 4.65772)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture46" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 17.6422, -9.31764, 7.29119)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture47" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(1.14167, 0, 0.973582, 0, 5, 0, -4.86792, 0, 0.228334, 11.5305, -10.3187, 9.88289)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture48" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(1.14167, 0, 0.973582, 0, 5, 0, -4.86792, 0, 0.228334, 17.045, -10.3187, 5.23632)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture49" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(1.14167, 0, 0.973582, 0, 5, 0, -4.86792, 0, 0.228334, 19.2131, -10.3187, 12.1138)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture50" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 13.2432, -9.31764, 8.09643)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture51" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 16.8057, -9.31764, 10.1722)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture52" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 12.1591, -9.31764, 4.65772)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture53" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(1.5504, 0, 0.950709, 0, 7, 0, -4.75355, 0, 0.310079, 17.6422, -9.31764, 7.29119)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture54" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(1.14167, 0, 0.973582, 0, 5, 0, -4.86792, 0, 0.228334, 11.5305, -10.3187, 9.88289)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture55" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(1.14167, 0, 0.973582, 0, 5, 0, -4.86792, 0, 0.228334, 17.045, -10.3187, 5.23632)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture56" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(1.14167, 0, 0.973582, 0, 5, 0, -4.86792, 0, 0.228334, 19.2131, -10.3187, 12.1138)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="rock 04" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.80166, 0, 0.278857, 0, 5, 0, -1.39429, 0, -0.960333, 13.6364, -11.8478, 12.577)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("27")
+
+[node name="grass16" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.80166, 0, 0.278857, 0, 5, 0, -1.39429, 0, -0.960333, 14.1225, -12.6726, 8.33688)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass17" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.80166, 0, 0.278857, 0, 5, 0, -1.39429, 0, -0.960333, 14.2776, -12.6726, 4.21669)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass18" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.80166, 0, 0.278857, 0, 5, 0, -1.39429, 0, -0.960333, 20.9999, -12.6726, 6.16869)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass19" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.80166, 0, 0.278857, 0, 5, 0, -1.39429, 0, -0.960333, 12.4807, -12.6726, 6.81883)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass20" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.80166, 0, 0.278857, 0, 5, 0, -1.39429, 0, -0.960333, 20.566, -12.6726, 11.2492)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="Texture57" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 23.8904, -9.31764, 8.28422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture58" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 22.8073, -9.31764, 12.2625)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture59" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 26.9313, -9.31764, 6.34706)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture60" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 25.8067, -9.31764, 12.3249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture61" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99753, 0, 0.0314287, 0, 5, 0, -0.157137, 0, 0.999505, 21.7214, -10.3187, 7.09221)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture62" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99753, 0, 0.0314287, 0, 5, 0, -0.157137, 0, 0.999505, 27.6369, -10.3187, 11.2162)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture63" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99753, 0, 0.0314287, 0, 5, 0, -0.157137, 0, 0.999505, 21.5551, -10.3187, 15.0905)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture64" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 23.8904, -9.31764, 8.28422)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture65" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 22.8073, -9.31764, 12.2625)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture66" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 26.9313, -9.31764, 6.34706)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture67" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99285, 0, -0.0534515, 0, 7, 0, 0.267252, 0, 0.998569, 25.8067, -9.31764, 12.3249)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture68" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99753, 0, 0.0314287, 0, 5, 0, -0.157137, 0, 0.999505, 21.7214, -10.3187, 7.09221)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture69" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99753, 0, 0.0314287, 0, 5, 0, -0.157137, 0, 0.999505, 27.6369, -10.3187, 11.2162)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture70" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(4.99753, 0, 0.0314287, 0, 5, 0, -0.157137, 0, 0.999505, 21.5551, -10.3187, 15.0905)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="rock 05" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(0.10401, 0, 0.999784, 0, 5, 0, -4.99892, 0, 0.020803, 19.6642, -11.8478, 9.8237)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("27")
+
+[node name="grass21" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(0.10401, 0, 0.999784, 0, 5, 0, -4.99892, 0, 0.020803, 23.8857, -12.6726, 9.19577)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass22" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(0.10401, 0, 0.999784, 0, 5, 0, -4.99892, 0, 0.020803, 27.9056, -12.6726, 8.2792)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass23" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(0.10401, 0, 0.999784, 0, 5, 0, -4.99892, 0, 0.020803, 27.76, -12.6726, 15.2777)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass24" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(0.10401, 0, 0.999784, 0, 5, 0, -4.99892, 0, 0.020803, 24.9271, -12.6726, 7.21699)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass25" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(0.10401, 0, 0.999784, 0, 5, 0, -4.99892, 0, 0.020803, 22.7403, -12.6726, 16.1735)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="Texture71" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 12.9157, -9.31764, 19.5028)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture72" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 14.9915, -9.31764, 15.9403)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture73" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 9.47704, -9.31764, 20.5869)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture74" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 12.1105, -9.31764, 15.1037)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture75" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.86792, 0, 0.228334, 0, 5, 0, -1.14167, 0, -0.973582, 14.7022, -10.3187, 21.2155)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture76" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.86792, 0, 0.228334, 0, 5, 0, -1.14167, 0, -0.973582, 10.0556, -10.3187, 15.701)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture77" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.86792, 0, 0.228334, 0, 5, 0, -1.14167, 0, -0.973582, 16.9331, -10.3187, 13.5328)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture78" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 12.9157, -9.31764, 19.5028)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture79" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 14.9915, -9.31764, 15.9403)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture80" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 9.47704, -9.31764, 20.5869)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture81" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.75355, 0, 0.310079, 0, 7, 0, -1.5504, 0, -0.950709, 12.1105, -9.31764, 15.1037)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("25")
+
+[node name="Texture82" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.86792, 0, 0.228334, 0, 5, 0, -1.14167, 0, -0.973582, 14.7022, -10.3187, 21.2155)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture83" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.86792, 0, 0.228334, 0, 5, 0, -1.14167, 0, -0.973582, 10.0556, -10.3187, 15.701)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="Texture84" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-4.86792, 0, 0.228334, 0, 5, 0, -1.14167, 0, -0.973582, 16.9331, -10.3187, 13.5328)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("26")
+
+[node name="rock 06" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-1.39429, 0, -0.960333, 0, 5, 0, 4.80166, 0, -0.278857, 17.3963, -11.8478, 19.1095)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("27")
+
+[node name="grass26" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-1.39429, 0, -0.960333, 0, 5, 0, 4.80166, 0, -0.278857, 13.1562, -12.6726, 18.6235)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass27" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-1.39429, 0, -0.960333, 0, 5, 0, 4.80166, 0, -0.278857, 9.03602, -12.6726, 18.4684)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass28" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-1.39429, 0, -0.960333, 0, 5, 0, 4.80166, 0, -0.278857, 10.988, -12.6726, 11.746)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass29" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-1.39429, 0, -0.960333, 0, 5, 0, 4.80166, 0, -0.278857, 11.6382, -12.6726, 20.2653)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
+
+[node name="grass30" type="AnimatedSprite3D" parent="forest7"]
+transform = Transform3D(-1.39429, 0, -0.960333, 0, 5, 0, 4.80166, 0, -0.278857, 16.0685, -12.6726, 12.18)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("28")
 
 [node name="CSGCylinder16" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.2537, -0.826625, -78.1415)
