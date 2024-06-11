@@ -227,9 +227,11 @@ script = ExtResource("1_3yvam")
 [node name="Spawn" type="Node" parent="."]
 
 [node name="0" type="Node3D" parent="Spawn" groups=["PlayerSpawnpoint"]]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.3639, 22.939, -72.316)
 
 [node name="1" type="Node3D" parent="Spawn" groups=["PlayerSpawnpoint"]]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.3275, 2.51532, 68.0625)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

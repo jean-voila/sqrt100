@@ -114,7 +114,7 @@ public partial class Player
         MoveAndSlide();
     }
     
-    private void Teleport(Vector3 newPosition)
+    public void Teleport(Vector3 newPosition)
     {
         Transform3D newTransform = Transform3D.Identity;
         newTransform.Origin = newPosition;

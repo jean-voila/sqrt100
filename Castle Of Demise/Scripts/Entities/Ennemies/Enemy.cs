@@ -64,7 +64,7 @@ namespace CastleOfDemise.mobs.Ennemies
 
     public override void _PhysicsProcess(double d)
         {
-            MoveTowardsPlayer(d);
+            //MoveTowardsPlayer(d);
 
         }
         
@@ -93,6 +93,7 @@ namespace CastleOfDemise.mobs.Ennemies
 
         private void MoveTowardsPlayer(double d)
         {
+            
             Vector3 playerPosition = GetNode<Player.Player>("../../Player").GlobalTransform.Origin;
             Vector3 direction;
             
