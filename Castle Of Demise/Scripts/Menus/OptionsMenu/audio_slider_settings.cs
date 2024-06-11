@@ -21,17 +21,30 @@ public partial class audio_slider_settings : Control
 		_audioNameLbl = GetNode<Label>("HBoxContainer/Audio_Name_Lbl");
 		_audioNumLbl = GetNode<Label>("HBoxContainer/Audio_Num_Lbl");
 		_hSlider = GetNode<HSlider>("HBoxContainer/HSlider");
-		
+		LoadSoundFromSettings();
 		_hSlider.ValueChanged += OnValueChanged;
 		
 		GetBusNameByIndex();
 		SetNameLabelText();
 		SetSliderValue();
 	}
+	
+	public void LoadSoundFromSettings()
+	{
+		var keybindings = ConfigFileHandler.LoadAudioSettings();
+		int i = 0;
+		foreach (var action in keybindings.Values)
+		{
+			AudioServer.SetBusVolumeDb(i,(float)LinearToDb(action));
+			i += 1;
+		}
+	}
+	
 	private void OnValueChanged(double value)
 	{
 		AudioServer.SetBusVolumeDb(_busIndex, (float)LinearToDb(value));
 		SetAudioNumLabelText();
+		ConfigFileHandler.SaveAudioSetting($"{busName}",value);
 	}
 	public void SetNameLabelText()
 	{

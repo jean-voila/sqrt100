@@ -119,13 +119,13 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 100
 
-[node name="Audio_Slider_Settings" parent="TabContainer/Audio/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_66dlt")]
+[node name="Audio_Slider_Settings_Master" parent="TabContainer/Audio/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_66dlt")]
 layout_mode = 2
 
-[node name="Audio_Slider_Settings2" parent="TabContainer/Audio/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_66dlt")]
+[node name="Audio_Slider_Settings_Musique" parent="TabContainer/Audio/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_66dlt")]
 layout_mode = 2
 busName = 1
 
-[node name="Audio_Slider_Settings3" parent="TabContainer/Audio/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_66dlt")]
+[node name="Audio_Slider_SettingsSFX" parent="TabContainer/Audio/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_66dlt")]
 layout_mode = 2
 busName = 2

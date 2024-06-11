@@ -15,8 +15,8 @@ public partial class ConfigFileHandler : Node
 		{
 			
 			config.SetValue("Audio", "Master", 1.0);
-			config.SetValue("Audio", "SFX", 1.0);
 			config.SetValue("Audio", "Musique", 1.0);
+			config.SetValue("Audio", "SFX", 1.0);
 			config.SetValue("keybinding", "key_z", "Z");
 			config.SetValue("keybinding", "key_s", "S");
 			config.SetValue("keybinding", "key_q", "Q");
@@ -33,25 +33,25 @@ public partial class ConfigFileHandler : Node
 		}
 	}
 
-	public void SaveVideoSetting(string key, object value)
+	public static void SaveAudioSetting(string key, double value)
 	{
-		config.SetValue("audio", key, (Godot.Variant)value);
+		config.SetValue("Audio", key, value);
 		config.Save(SETTINGS_FILE_PATH);
 	}
 
-	public Dictionary<string,object> LoadAudioSettings()
+	public static Dictionary<string,double> LoadAudioSettings()
 	{
-		var audio_sett = new Dictionary<string,object>();
+		var audioSett = new Dictionary<string,double>();
 		config.Load(SETTINGS_FILE_PATH);
-		var keys = config.GetSectionKeys("audio");
+		var keys = config.GetSectionKeys("Audio");
 		if (keys!=null)
 		{
 			foreach (string key in keys)
 			{
-				audio_sett[key] = config.GetValue("audio", key);
+				audioSett[key] = (double)config.GetValue("Audio", key);
 			}
 		}
-		return audio_sett;
+		return audioSett;
 	}
 
 	public static void SaveKeybinding(StringName action, InputEvent @event)
