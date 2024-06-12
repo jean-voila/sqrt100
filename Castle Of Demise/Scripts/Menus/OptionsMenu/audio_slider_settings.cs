@@ -32,12 +32,16 @@ public partial class audio_slider_settings : Control
 	public void LoadSoundFromSettings()
 	{
 		var keybindings = ConfigFileHandler.LoadAudioSettings();
-		int i = 0;
+		AudioServer.SetBusVolumeDb(0,(float)LinearToDb(keybindings["Master"]));
+		AudioServer.SetBusVolumeDb(1,(float)LinearToDb(keybindings["SFX"]));
+		AudioServer.SetBusVolumeDb(2,(float)LinearToDb(keybindings["Musique"]));
+		/*int i = 0;
 		foreach (var action in keybindings.Values)
 		{
+			
 			AudioServer.SetBusVolumeDb(i,(float)LinearToDb(action));
 			i += 1;
-		}
+		}*/
 	}
 	
 	private void OnValueChanged(double value)
