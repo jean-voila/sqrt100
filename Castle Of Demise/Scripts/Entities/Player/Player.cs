@@ -28,6 +28,8 @@ public partial class Player : CharacterBody3D
 		GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").SetMultiplayerAuthority(PlayerId);
 		GD.Print("Authority set to" + GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority());
 		GD.Print("Multiplayer Authority: " + PlayerId);
+		GD.Print($" Player ID: {PlayerId}, Player Name: {PlayerName}, Player Score: {PlayerScore}");
+
 		GD.Print(Multiplayer.GetUniqueId());
 		_shootInit();
 		_stepsInit();
