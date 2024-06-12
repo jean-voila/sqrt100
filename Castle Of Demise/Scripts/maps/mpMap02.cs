@@ -14,9 +14,9 @@ public partial class mpMap02 : Node3D
 		foreach (var item in GameManager.Players)
 		{
 			Player current = (Player)_multiplayerScene02.Instantiate();
-			current.PlayerName = GameManager.Players[index].PlayerName;
-			current.PlayerId = GameManager.Players[index].PlayerId;
-			current.PlayerScore = GameManager.Players[index].PlayerScore;
+			current.PlayerName = item.Value.PlayerName;
+			current.PlayerId = item.Value.PlayerId;
+			current.PlayerScore = item.Value.PlayerScore;
 			AddChild(current);
 			foreach (var spawnPoint in GetTree().GetNodesInGroup("PlayerSpawnPoint"))
 			{
