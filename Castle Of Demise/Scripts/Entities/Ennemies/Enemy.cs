@@ -12,9 +12,7 @@ namespace CastleOfDemise.mobs.Ennemies
 
         private const ulong TimeBeforeDisappear = 500;
         protected virtual int Health { get; set; }
-
-        private bool _canMove = true;
-        protected virtual bool _canMoveUpAndDown { get; set; } = false;
+        
         protected virtual float Speed { get; set; } = 0.30f;
 
         [Export] private AudioStreamPlayer _sfxPlayer;
@@ -25,10 +23,19 @@ namespace CastleOfDemise.mobs.Ennemies
 
         public override void _Ready()
         {
+
+            SetPhysicsProcess(false);
+            WaitForPhysicsFrame();
             AddToGroup("ennemies");
             Connect("HitSignal", new Callable(this, "Hit"));
             GetChild<AnimatedSprite3D>(0).Play("idle");
-
+            SetPhysicsProcess(true);
+        }
+        
+        private async void WaitForPhysicsFrame()
+        {
+            await ToSignal(GetTree(), "physics_frame");
+            SetPhysicsProcess(true);
         }
 
         public override void _Process(double d)
@@ -48,17 +55,11 @@ namespace CastleOfDemise.mobs.Ennemies
                         {
                             GetChild<AnimatedSprite3D>(0).Play("idle");
                         }
-
                     }
-
                     break;
                 }
             }
         }
-    
-
-
-
 
         public void UpdateTargetLocation(Vector3 targetLocation)
         {
@@ -95,33 +96,7 @@ namespace CastleOfDemise.mobs.Ennemies
                 }
             }
         }
-
-        private void MoveTowardsPlayer(double d)
-        {
-            
-            Vector3 playerPosition = GetNode<Player.Player>("../../Player").GlobalTransform.Origin;
-            Vector3 direction;
-            
-            if (_canMove)
-            {
-                direction = playerPosition - GlobalTransform.Origin;
-                LookAt(playerPosition, Vector3.Up);
-                direction = direction * Speed;
-            }
-            else
-            {
-                direction = new Vector3();
-            }
-            
-            if (!_canMoveUpAndDown)
-            {
-                direction.Y  = Velocity.Y - ((float)d * 0.3f);
-            }
-
-            Velocity = direction;
-            
-            MoveAndSlide();
-        }
+        
         
     }
 }

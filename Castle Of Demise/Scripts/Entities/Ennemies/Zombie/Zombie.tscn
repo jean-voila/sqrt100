@@ -183,3 +183,5 @@ shape = SubResource("1")
 script = ExtResource("3_d0mnn")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D"]
+avoidance_enabled = true
+height = 10.0

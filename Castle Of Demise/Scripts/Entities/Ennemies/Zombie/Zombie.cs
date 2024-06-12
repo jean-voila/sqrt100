@@ -6,8 +6,8 @@ public partial class Zombie : Enemy
 {
     protected override int Health { get; set; } = 60;
     
-    protected override float Speed { get; set; } = 0.6f;
+    protected override float Speed { get; set; } = 1f;
     
-    protected override bool _canMoveUpAndDown { get; set; } = true;
+
 
 }

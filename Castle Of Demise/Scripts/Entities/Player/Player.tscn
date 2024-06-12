@@ -479,16 +479,16 @@ corner_radius_bottom_left = 10
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_sfxPlayer", "_head", "_usedCamera", "_animReload", "_revolverModel", "_floorRayCast")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_y1gl0")
-_accelerationSpeed = 10.0
-_decelerationSpeed = 10.0
-_maxSpeed = 10.0
-_gravity = 34.0
-_jumpSpeed = 24.0
 _sfxPlayer = NodePath("SFXPlayer")
 _head = NodePath("Head")
 _usedCamera = NodePath("Head/Camera3D")
 _animReload = NodePath("Head/Revolver/Reload")
 _revolverModel = NodePath("Head/Revolver")
+_accelerationSpeed = 10.0
+_decelerationSpeed = 10.0
+_maxSpeed = 10.0
+_gravity = 34.0
+_jumpSpeed = 24.0
 _floorRayCast = NodePath("checkFloor")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]

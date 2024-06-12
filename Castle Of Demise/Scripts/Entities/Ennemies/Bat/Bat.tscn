@@ -156,3 +156,4 @@ shape = SubResource("6")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CharacterBody3D"]
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D"]
+avoidance_enabled = true
