@@ -15,14 +15,14 @@ public partial class mpMap02 : Node3D
 			Player currentPlayer = (Player)_multiplayerScene02.Instantiate();
 			AddChild(currentPlayer);
 
-			Node3D spawnPoint = GetNode<Node3D>(i.ToString());
-			if (spawnPoint == null)
+			foreach (var spawnPoint in GetTree().GetNodesInGroup("PlayerSpawnpoint"))
 			{
-				GD.PrintErr("No Node3D with name " + i.ToString());
-				return;
+				if (spawnPoint.Name == i.ToString())
+				{
+					currentPlayer.Teleport(((Node3D)spawnPoint).GlobalTransform.Origin);
+				}
 			}
-
-			currentPlayer.Teleport(spawnPoint.GlobalTransform.Origin);
+			
 		}
 	}
 
