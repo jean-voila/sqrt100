@@ -17,9 +17,9 @@ public partial class Player : CharacterBody3D
 	[Export] private AnimationPlayer _animReload;
 	[Export] private MeshInstance3D _revolverModel;
 	[Export] private float _revolverModelRotationAmount = -0.3f;
-	public string PlayerName { get; set; }
-	public int PlayerId { get; set; }
-	public int PlayerScore { get; set; }
+	public  string PlayerName { get; set; }
+	public  int PlayerId { get; set; }
+	public  int PlayerScore { get; set; }
 	private Vector2 _lastMouseMovement;
 	public static bool IsMultiplayer = false;
 	

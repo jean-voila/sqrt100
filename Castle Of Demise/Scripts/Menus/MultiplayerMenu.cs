@@ -97,22 +97,22 @@ namespace CastleOfDemise.Scripts.Menus
                 return;
             }
 
-            SendPlayerInformation("Host", Multiplayer.GetUniqueId());
+            SendPlayerInformation("Host", Multiplayer.GetUniqueId(), true, true);
         }
 
         [Rpc(MultiplayerApi.RpcMode.AnyPeer)]
         private void SendPlayerInformation(string name, int id, bool recursive = true, bool isHost = true)
         {
             GD.Print("SendPlayerInformation, beginning...");
-            if (!GameManager.Players.ContainsValue(new Player {PlayerId = id}))
+            if (!GameManager.Players.ContainsValue(new Player {PlayerId = id})
+                )
             {
                 var player = new Player();
                 player.PlayerName = name;
                 player.PlayerId = id;
                 player.PlayerScore = 0;
-                if (isHost) GameManager.Players[0] = player;
-                else GameManager.Players[1] = player;
-                GD.Print(player.PlayerId + " " + player.PlayerName + " " + player.PlayerScore);
+                GameManager.Players.Add(isHost ? 0 : 1, player);
+
             }
 
             GD.Print("SendPlayerInformation, player added...");
@@ -125,7 +125,7 @@ namespace CastleOfDemise.Scripts.Menus
                 foreach (var player in GameManager.Players)
                 {
                     GD.Print(
-                        $"Player ID: {player.Key}, Player Name: {player.Value.PlayerName}, Player Score: {player.Value.PlayerScore}");
+                        $"Key: {player.Key}  ::  Player ID: {player.Value.PlayerId}, Player Name: {player.Value.PlayerName}, Player Score: {player.Value.PlayerScore}");
                     // Call Rpc instead of RpcId
                     Rpc(nameof(AddPlayerToAllPeers), player.Value.PlayerName, player.Value.PlayerId, isHost);
                 }
@@ -144,8 +144,7 @@ namespace CastleOfDemise.Scripts.Menus
                 player.PlayerName = name;
                 player.PlayerId = id;
                 player.PlayerScore = 0;
-                if (isHost) GameManager.Players[0] = player;
-                else GameManager.Players[1] = player;
+                GameManager.Players.Add(isHost ? 0 : 1, player);
                 GD.Print("After adding to the peers");
                 GD.Print(player.PlayerId + " " + player.PlayerName + " " + player.PlayerScore);
 
