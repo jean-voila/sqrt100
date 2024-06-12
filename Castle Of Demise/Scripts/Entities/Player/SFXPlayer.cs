@@ -57,6 +57,7 @@ public partial class SFXPlayer : AudioStreamPlayer
 	public bool PlaySFX(string soundType)
 	{
 		string path = AudioPathGetter(soundType);
+		Stream = GD.Load<AudioStream>(path);
 		Play();
 		return true;
 	}
