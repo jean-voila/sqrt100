@@ -165,6 +165,12 @@ namespace CastleOfDemise.Scripts.Menus
         {
             GetTree().ChangeSceneToFile("res://maps/mpMap02.tscn");
             GD.Print("SendPlayerInformation, server found...");
+            //PrintPlayerList();
+        }
+
+
+        private void PrintPlayerList()
+        {
             GD.Print("===== GAME STARTING =====");
             GD.Print("===== LIST OF PLAYERS =====");
 
