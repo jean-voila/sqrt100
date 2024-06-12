@@ -1,15 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4t5vqp3ahc8r"]
+[gd_scene load_steps=4 format=3 uid="uid://b4t5vqp3ahc8r"]
 
 [ext_resource type="PackedScene" uid="uid://djvcnnignduwe" path="res://Assets/Props/CR0SSR0ADS.tscn" id="1_g52n1"]
 [ext_resource type="PackedScene" uid="uid://bx201rq3muxli" path="res://Assets/Props/arrondi.tscn" id="2_2fhgw"]
+[ext_resource type="PackedScene" uid="uid://bpf52rtbwycp6" path="res://Assets/Props/CODYRHODES.tscn" id="3_nv6xl"]
 
 [node name="Node3D" type="Node3D"]
 
 [node name="Spatial" parent="." instance=ExtResource("1_g52n1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.82628, 0, 1.54934)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.826, -0.035, 1.549)
 
 [node name="Spatial2" parent="." instance=ExtResource("2_2fhgw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75813, 0, -10.339)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.503, -0.0390001, -6.626)
 
 [node name="Spatial3" parent="." instance=ExtResource("2_2fhgw")]
-transform = Transform3D(-1, -8.9407e-08, 0, 8.9407e-08, -1, 0, 0, 0, 1, -5.92186, 0.038574, -10.463)
+transform = Transform3D(-0.999353, -8.93492e-08, -0.0359635, 8.9407e-08, -1, 0, -0.0359635, -3.21539e-09, 0.999353, -5.23, 0.049, -6.666)
+
+[node name="Spatial6" parent="." instance=ExtResource("3_nv6xl")]
+transform = Transform3D(-0.0398529, 0, 0.999206, 0, 1, 0, -0.999206, 0, -0.0398529, -13.5029, -0.0356836, -11.8337)
+
+[node name="Spatial4" parent="." instance=ExtResource("3_nv6xl")]
+transform = Transform3D(0.0215357, 0, -0.999768, 0, 1, 0, 0.999768, 0, 0.0215357, -12.7139, -0.0356827, -12.9626)
+
+[node name="Spatial7" parent="." instance=ExtResource("3_nv6xl")]
+transform = Transform3D(-0.0398529, 0, 0.999206, 0, 1, 0, -0.999206, 0, -0.0398529, -14.4271, -0.0356836, -11.8337)
+
+[node name="Spatial8" parent="." instance=ExtResource("3_nv6xl")]
+transform = Transform3D(-0.0144508, 0, -0.999896, 0, 1, 0, 0.999896, 0, -0.0144508, 1.31314, -0.017862, -12.6534)
+
+[node name="Spatial9" parent="." instance=ExtResource("3_nv6xl")]
+transform = Transform3D(-0.0167893, 0, -0.999859, 0, 1, 0, 0.999859, 0, -0.0167893, 2.30668, -0.017862, -12.6386)
+
+[node name="Spatial10" parent="." instance=ExtResource("3_nv6xl")]
+transform = Transform3D(-0.0303117, 0, -0.999541, 0, 1, 0, 0.999541, 0, -0.0303117, 3.27997, -0.017862, -12.637)
