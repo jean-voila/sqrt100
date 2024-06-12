@@ -138,8 +138,9 @@ radius = 0.650555
 
 [node name="Bat" type="Node3D"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("_sfxPlayer")]
 script = ExtResource("2")
+_sfxPlayer = NodePath("AudioStreamPlayer")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D"]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
@@ -150,3 +151,5 @@ animation = &"idle"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 shape = SubResource("6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CharacterBody3D"]

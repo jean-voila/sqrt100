@@ -17,17 +17,10 @@ public partial class Player
     {
         var onTheGround  = _floorRayCast.GetCollider() != null;
         var canPlayNextStep = _stepTimer.TimeLeft <= 0;
-        if (isMoving && _SEEnabled && onTheGround && canPlayNextStep)
+        if (isMoving && onTheGround && canPlayNextStep)
         {
-                
-            // Select a random step sound from a list of different step sounds
-            var randomStep = new Random().Next(0, _stepSounds.Count);
 
-            // Set the pitch of the sound to a random value between 1 and 5
-            _stepSounds[randomStep].PitchScale = new Random().Next(1, 5);
-
-            // Play the selected step sound
-            _stepSounds[randomStep].Play();
+            _sfxPlayer.EmitSignal("PlaySFXSignal", "steps");
 
             // Restart the timer
             _stepTimer.Start(0.2f);

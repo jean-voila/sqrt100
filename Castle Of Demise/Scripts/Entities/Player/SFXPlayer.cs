@@ -5,13 +5,17 @@ using System.Linq;
 
 public partial class SFXPlayer : AudioStreamPlayer
 {
-	private int GeneralVolumePercentage = 100;
-	private bool Muted = false;
+	private const string SoundEffectsPath = "res://Assets/SoundEffects/";
+	private static int _generalVolumePercentage = 100;
+	private static bool _muted = false;
 	
+	[Signal]
+	public delegate bool PlaySFXSignalEventHandler(string soundType);
+
 	
 	private static string[] ListFilesInDir(string dirPath, string extension)
 	{
-		var res = new string[] { };
+		string[] res;
 		using var dir = DirAccess.Open(dirPath);
 		if (dir != null)
 		{
@@ -24,66 +28,45 @@ public partial class SFXPlayer : AudioStreamPlayer
 
 		return res;
 	}
-
 	private static string RandomFilePath(string[] files)
 	{
 		var rand = new Random();
 		return files[rand.Next(files.Length)];
 	}
-	private static string _soundEffectsPath = "res://Assets/SoundEffects/";
-
-	private static string CompletePath(string path)
+	private string AudioPathGetter(string folderName, string extension = ".wav")
 	{
-		return _soundEffectsPath + path;
+		var res = SoundEffectsPath + folderName + "/" + RandomFilePath(ListFilesInDir(SoundEffectsPath + folderName + "/", extension));
+		GD.Print(res);
+		return res;
 	}
 
-	private class AudioPathGetter
+	private class SoundControl
 	{
-		public string GunShotSound()
+		public void ChangeVolume(int percentage)
 		{
-			var res = CompletePath(RandomFilePath(ListFilesInDir(CompletePath("GunShotSounds/"), ".wav")));
-			GD.Print(res);
-			return res;
+			_generalVolumePercentage = percentage;
 		}
-
-		public string CantShootSound()
+	
+		public void Mute(bool mute)
 		{
-			return CompletePath("CantShoot.wav");
+			_muted = mute;
 		}
-		
 	}
 
-	public bool PlaySFX(string soundType, int volumePercentage = 100)
-	{
-		var pathGetter = new AudioPathGetter();
-		switch (soundType)
-		{
-			case "gunshot":
-				Stream = GD.Load<AudioStream>(pathGetter.GunShotSound());
-				GD.Print("Playing gunshot sound");
-				break;
 
-			case "cantshoot":
-				Stream = GD.Load<AudioStream>(pathGetter.CantShootSound());
-				break;
-			
-			default:
-				return false;
-		}
+	public bool PlaySFX(string soundType)
+	{
+		string path = AudioPathGetter(soundType);
 		Play();
 		return true;
+	}
 
+	public override void _Ready()
+	{
+		PlaySFXSignal += PlaySFX;
 	}
 	
-	public void ChangeVolume(int percentage)
-	{
-		GeneralVolumePercentage = percentage;
-	}
 	
-	public void Mute(bool mute)
-	{
-		Muted = mute;
-	}
 	
 	
 }

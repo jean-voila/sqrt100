@@ -5,7 +5,7 @@ namespace CastleOfDemise.mobs.Player;
 
 public partial class Player : CharacterBody3D
 {
-	
+	[Export] private AudioStreamPlayer _sfxPlayer;
 	[Export] private Node3D _head;
 	[Export] private float _maxFov = 1.15f;
 	[Export] private float _fovChangingSpeed = 17f;
@@ -24,7 +24,7 @@ public partial class Player : CharacterBody3D
 	
 	public override void _Ready()
 	{
-		_audioInit();
+
 		_shootInit();
 		_stepsInit();
 		_pauseMenuInit();
@@ -43,19 +43,19 @@ public partial class Player : CharacterBody3D
 		if (@event.IsActionPressed("mouse_left_click"))
 		{
 			if (_ammoInMag > 0) Shoot();
-			else _cantShootSound.Play();
+			else _sfxPlayer.EmitSignal("PlaySFXSignal", "gun/cantshoot");
 		}
 		if (Input.IsActionJustPressed("key_escape"))
 			Pause();
 		if (@event.IsActionPressed("key_r") && canReload())
 		{
-			_weaponReload.Play();
+			_sfxPlayer.EmitSignal("PlaySFXSignal", "gun/reload");
 			_animReload.Play("reload");
 			reload();
 		}
 		if (@event.IsActionPressed("key_r") && outOfAmmo())
 		{
-			_cantShootSound.Play();
+			_sfxPlayer.EmitSignal("PlaySFXSignal", "gun/cantshoot");
 		}
 	}
 	public override void _PhysicsProcess(double d)

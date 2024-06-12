@@ -7,6 +7,9 @@ namespace CastleOfDemise.mobs.Player;
 
 public partial class Player
 {
+    //[Signal]
+    //public delegate bool PlaySFXEventHandler(string soundType, int volumePercentage = 100);
+    
     private RayCast3D _shootRayCast;
     private PackedScene _bulletHoleScene;
     private PackedScene _bloodHit;
@@ -24,6 +27,10 @@ public partial class Player
     private Timer _HitmarkerTimer;
     private TextureRect _HitmarkerKill;
     
+    // Assuming SFXPlayer is a class with PlaySFXSignal event
+    
+
+
     [Signal]
     public delegate bool KillSignalEventHandler();
     public void _shootInit()
@@ -118,16 +125,12 @@ public partial class Player
                 }
             }
         }
-        if (_SEEnabled && !isEnnemiTouched)
+        if (!isEnnemiTouched)
         {
-            var _SFXPlayer = new SFXPlayer();
-            _SFXPlayer.PlaySFX("gunshot");
+            _sfxPlayer.EmitSignal("PlaySFXSignal", "gun/gunshot");
+
         }
-        else
-        {
-            var _SFXPlayer = new SFXPlayer();
-            _SFXPlayer.PlaySFX("gunshot");
-        }
+
     }
     
     private void Hit(Enemy mobTouche)
@@ -135,7 +138,7 @@ public partial class Player
         if (!mobTouche.ImDead)
         {
             mobTouche.EmitSignal("HitSignal", _strength);
-            if (!mobTouche.ImDead) _hitSound.Play();
+            if (!mobTouche.ImDead) _sfxPlayer.EmitSignal("PlaySFXSignal", "gun/hit");
             else _killedEnemmies++;
         }
     }

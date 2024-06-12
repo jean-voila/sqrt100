@@ -7,10 +7,10 @@ public partial class healthPack : Area3D
 	private AudioStreamPlayer3D _healthPickupSound;
 	private Timer _time;
 	public Sprite3D _healthSprite;
+	[Export] private AudioStreamPlayer _sfxPlayer;
     
 	public override void _Ready()
 	{
-		_healthPickupSound = GetNode<AudioStreamPlayer3D>("healthPickupSound");
 		_time = GetNode<Timer>("Timer");
 		_healthSprite = GetNode<Sprite3D>("Sprite3D");
 	}
@@ -19,7 +19,7 @@ public partial class healthPack : Area3D
 	{
 		if (body is CastleOfDemise.mobs.Player.Player player && _time.TimeLeft <= 0 && player.CanPickupHealth())
 		{
-			_healthPickupSound.Play();
+			_sfxPlayer.EmitSignal("PlaySFXSignal", "pickupable/health");
 			_time.Start();
 			player.SetHealthInc(healthInc);
 			_healthSprite.QueueFree();

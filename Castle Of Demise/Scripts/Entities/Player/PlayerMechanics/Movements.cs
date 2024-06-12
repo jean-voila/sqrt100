@@ -91,7 +91,7 @@ public partial class Player
             {
                 _landed = true;
                 horizontalVelocity.Y = 0;
-                _landSound.Play();
+                _sfxPlayer.EmitSignal("PlaySFXSignal", "landed");
                 CameraShake();
             }
 
@@ -99,7 +99,7 @@ public partial class Player
             {
                 _lastJumpTime = Time.GetTicksUsec();
                 horizontalVelocity.Y = Velocity.Y + _jumpSpeed;
-                _jumpSound.Play();
+                _sfxPlayer.EmitSignal("PlaySFXSignal", "jump");
                 _landed = false;
             }
         }

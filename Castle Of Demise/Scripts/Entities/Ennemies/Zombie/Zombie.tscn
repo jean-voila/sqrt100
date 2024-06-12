@@ -1,8 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://xrhd6q53it2j"]
+[gd_scene load_steps=24 format=3 uid="uid://xrhd6q53it2j"]
 
 [ext_resource type="Texture2D" uid="uid://bgvmrshlnj4l7" path="res://Assets/Textures/ZombieFrames.png" id="1"]
 [ext_resource type="Script" path="res://Scripts/Entities/Ennemies/Zombie/Zombie.cs" id="2"]
-
+[ext_resource type="Script" path="res://Scripts/Entities/Player/SFXPlayer.cs" id="3_d0mnn"]
 
 [sub_resource type="AtlasTexture" id="11"]
 atlas = ExtResource("1")
@@ -163,8 +163,9 @@ radius = 0.766308
 [node name="Zombie" type="Node3D"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("_sfxPlayer")]
 script = ExtResource("2")
+_sfxPlayer = NodePath("AudioStreamPlayer")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
@@ -176,3 +177,6 @@ animation = &"touched"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(0.5, -1.8048e-16, 1.74287e-16, 1.74287e-16, 0.499695, 0.0174497, -1.8048e-16, -0.0174497, 0.499695, 0.0667673, -0.112016, 0)
 shape = SubResource("1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CharacterBody3D"]
+script = ExtResource("3_d0mnn")

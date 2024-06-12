@@ -7,11 +7,8 @@ namespace CastleOfDemise.mobs.Ennemies
     {
         [Signal]
         public delegate void HitSignalEventHandler(int strength);
-
-        private readonly AudioStreamPlayer2D _deathSound = GetDeathSound();
         public bool ImDead { get; private set; }
         private ulong _timeSinceImDead;
-
 
         private const ulong TimeBeforeDisappear = 500;
         protected virtual int Health { get; set; }
@@ -20,17 +17,11 @@ namespace CastleOfDemise.mobs.Ennemies
         protected virtual bool _canMoveUpAndDown { get; set; } = false;
         protected virtual float Speed { get; set; } = 0.30f;
 
-
-        private static AudioStreamPlayer2D GetDeathSound()
-        {
-            AudioStreamPlayer2D deathSound = new AudioStreamPlayer2D();
-            deathSound.Stream = GD.Load<AudioStream>("res://Assets/SoundEffects/death.wav");
-            return deathSound;
-        }
+        [Export] private AudioStreamPlayer _sfxPlayer;
+        
 
         public override void _Ready()
         {
-            AddChild(_deathSound);
             Connect("HitSignal", new Callable(this, "Hit"));
             GetChild<AnimatedSprite3D>(0).Play("idle");
 
@@ -70,9 +61,7 @@ namespace CastleOfDemise.mobs.Ennemies
             //MoveTowardsPlayer(d);
 
         }
-        
-
-        
+    
 
         public void Hit(int strength)
         {
@@ -82,7 +71,7 @@ namespace CastleOfDemise.mobs.Ennemies
                 ImDead = Health <= 0;
                 if (ImDead)
                 {
-                    _deathSound.Play();
+                    _sfxPlayer.EmitSignal("PlaySFXSignal", "death");
                     GetChild<AnimatedSprite3D>(0).Play("dying");
                     _timeSinceImDead = Time.GetTicksMsec();
                 }

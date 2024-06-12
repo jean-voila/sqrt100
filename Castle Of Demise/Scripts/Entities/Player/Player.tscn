@@ -1,30 +1,17 @@
-[gd_scene load_steps=51 format=3 uid="uid://twx1vowmd4ni"]
+[gd_scene load_steps=38 format=3 uid="uid://twx1vowmd4ni"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/Player/Player.cs" id="1_y1gl0"]
 [ext_resource type="PackedScene" uid="uid://dikmlfsujgrqa" path="res://Scripts/Entities/Player/HUD.tscn" id="2"]
 [ext_resource type="Script" path="res://Scripts/Entities/Player/SFXPlayer.cs" id="2_0xmel"]
 [ext_resource type="Material" path="res://Assets/Mesh/Gray_Revolver02.material" id="3"]
 [ext_resource type="Texture2D" uid="uid://bhauv2kw8n7s" path="res://Assets/Textures/CrossHair.png" id="4"]
-[ext_resource type="AudioStream" uid="uid://ctvaktg3p5v6m" path="res://Assets/SoundEffects/gunShot01.wav" id="5"]
-[ext_resource type="AudioStream" uid="uid://drv3snm38chb6" path="res://Assets/SoundEffects/gunShot02.wav" id="6"]
-[ext_resource type="AudioStream" uid="uid://bdf5qc1tdcgyv" path="res://Assets/SoundEffects/gunShot03.wav" id="7"]
-[ext_resource type="AudioStream" uid="uid://bc71i10371q4m" path="res://Assets/SoundEffects/Step02.wav" id="8"]
-[ext_resource type="AudioStream" uid="uid://du5b7v34861fq" path="res://Assets/SoundEffects/Step04.wav" id="9"]
 [ext_resource type="Texture2D" uid="uid://dqqog0o0wl23t" path="res://Assets/Textures/HitMarker.png" id="9_mgmic"]
-[ext_resource type="AudioStream" uid="uid://4jduyh7o7uti" path="res://Assets/SoundEffects/Step03.wav" id="10"]
 [ext_resource type="Texture2D" uid="uid://5m3d8xa00fju" path="res://Assets/Textures/HitMarkerKill.png" id="10_pawsq"]
-[ext_resource type="AudioStream" uid="uid://wrlumi7q402m" path="res://Assets/SoundEffects/WeaponReload.wav" id="10_sskf2"]
-[ext_resource type="AudioStream" uid="uid://bfem82bpgnmp8" path="res://Assets/SoundEffects/Step05.wav" id="11"]
-[ext_resource type="AudioStream" uid="uid://x41bhmg1xwlk" path="res://Assets/SoundEffects/Step01.wav" id="12"]
-[ext_resource type="AudioStream" uid="uid://cfo18pmuxn7ub" path="res://Assets/SoundEffects/Land.wav" id="13"]
-[ext_resource type="AudioStream" uid="uid://c3tcksfrbvmu2" path="res://Assets/SoundEffects/Jump.wav" id="14"]
 [ext_resource type="Script" path="res://Scripts/Menus/Resume.cs" id="17"]
 [ext_resource type="FontFile" uid="uid://dvmceoo1v7y32" path="res://Assets/Fonts/firacode.ttf" id="18"]
 [ext_resource type="StyleBox" path="res://Assets/Styles/redButton.tres" id="19"]
 [ext_resource type="StyleBox" path="res://Assets/Styles/blueButton.tres" id="20"]
 [ext_resource type="PackedScene" uid="uid://cfku4f6icyaj4" path="res://Scripts/Entities/Player/PlayerInfos.tscn" id="22"]
-[ext_resource type="AudioStream" uid="uid://ch4j4krlu01sn" path="res://Assets/SoundEffects/cantShoot.wav" id="23"]
-[ext_resource type="AudioStream" uid="uid://ba5i1q7f3plrh" path="res://Assets/SoundEffects/hit.wav" id="24"]
 [ext_resource type="Material" path="res://Assets/Mesh/Brown_Revolver02.material" id="25"]
 
 [sub_resource type="CapsuleShape3D" id="1"]
@@ -484,9 +471,10 @@ bg_color = Color(0.54902, 0.054902, 0.054902, 0.545098)
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_head", "_usedCamera", "_animReload", "_revolverModel", "_floorRayCast")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_sfxPlayer", "_head", "_usedCamera", "_animReload", "_revolverModel", "_floorRayCast")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_y1gl0")
+_sfxPlayer = NodePath("SFXPlayer")
 _head = NodePath("Head")
 _usedCamera = NodePath("Head/Camera3D")
 _animReload = NodePath("Head/Revolver/Reload")
@@ -500,29 +488,6 @@ _floorRayCast = NodePath("checkFloor")
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
 script = ExtResource("2_0xmel")
-
-[node name="GunShotSoundsEffects" type="Node3D" parent="."]
-
-[node name="GunShot01" type="AudioStreamPlayer3D" parent="GunShotSoundsEffects"]
-stream = ExtResource("5")
-
-[node name="GunShot02" type="AudioStreamPlayer3D" parent="GunShotSoundsEffects"]
-stream = ExtResource("6")
-pitch_scale = 2.27
-
-[node name="GunShot03" type="AudioStreamPlayer3D" parent="GunShotSoundsEffects"]
-stream = ExtResource("7")
-
-[node name="CantShoot" type="AudioStreamPlayer3D" parent="GunShotSoundsEffects"]
-stream = ExtResource("23")
-
-[node name="Hit" type="AudioStreamPlayer3D" parent="GunShotSoundsEffects"]
-stream = ExtResource("24")
-
-[node name="weaponReload" type="AudioStreamPlayer3D" parent="GunShotSoundsEffects"]
-transform = Transform3D(-0.5, 0, 3.25195e-06, 0, 0.5, 0, -3.25195e-06, 0, -0.5, 0.447376, 1.07542, -0.666993)
-stream = ExtResource("10_sskf2")
-volume_db = -5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, -3.48787e-16, -3.48787e-16, -3.48787e-16, -1, -8.74228e-08, -3.48787e-16, 8.74228e-08, -1, 0, 1.0238, -0.0436072)
@@ -647,34 +612,9 @@ offset_bottom = 6.0
 
 [node name="StepSoundsEffetcs" type="Node3D" parent="."]
 
-[node name="Step01" type="AudioStreamPlayer3D" parent="StepSoundsEffetcs"]
-stream = ExtResource("12")
-
-[node name="Step02" type="AudioStreamPlayer3D" parent="StepSoundsEffetcs"]
-stream = ExtResource("8")
-
-[node name="Step03" type="AudioStreamPlayer3D" parent="StepSoundsEffetcs"]
-stream = ExtResource("10")
-
-[node name="Step04" type="AudioStreamPlayer3D" parent="StepSoundsEffetcs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43719, 0)
-stream = ExtResource("9")
-
-[node name="Step05" type="AudioStreamPlayer3D" parent="StepSoundsEffetcs"]
-stream = ExtResource("11")
-
 [node name="TimerBetweenStep" type="Timer" parent="StepSoundsEffetcs"]
 wait_time = 0.2
 one_shot = true
-
-[node name="jumpAndLandSoundEffect" type="Node3D" parent="."]
-
-[node name="jump" type="AudioStreamPlayer3D" parent="jumpAndLandSoundEffect"]
-stream = ExtResource("14")
-
-[node name="Land" type="AudioStreamPlayer3D" parent="jumpAndLandSoundEffect"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.947863, 0)
-stream = ExtResource("13")
 
 [node name="checkFloor" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51207, 0)

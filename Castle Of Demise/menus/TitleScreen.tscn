@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dk2u6d3w8t0cw"]
+[gd_scene load_steps=26 format=3 uid="uid://dk2u6d3w8t0cw"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/TitleScreen.cs" id="1"]
 [ext_resource type="FontFile" uid="uid://cnxno2loranng" path="res://Assets/Fonts/Roboto-Bold.ttf" id="2"]
@@ -8,14 +8,13 @@
 [ext_resource type="FontFile" uid="uid://ckwr54kbv5l36" path="res://Assets/Fonts/good times rg.otf" id="4_gf8o5"]
 [ext_resource type="StyleBox" uid="uid://krbgms2n0t3t" path="res://menus/StandardButton.tres" id="5"]
 [ext_resource type="StyleBox" uid="uid://xy3ookw3fxr0" path="res://menus/StandardHoverButton.tres" id="6"]
-[ext_resource type="AudioStream" uid="uid://tnxqtj6v030l" path="res://Assets/SoundEffects/focused_button.wav" id="7"]
-[ext_resource type="AudioStream" uid="uid://swed5s4rocpw" path="res://Assets/SoundEffects/pressed_button.wav" id="8"]
 [ext_resource type="Script" path="res://Scripts/Menus/MultiplayerMenu.cs" id="9"]
 [ext_resource type="StyleBox" uid="uid://b5bvit6wpb3ss" path="res://menus/StandardPressedButton.tres" id="11"]
 [ext_resource type="PackedScene" uid="uid://ce66w6rq18eta" path="res://menus/settings_tab_container.tscn" id="11_3gekp"]
 [ext_resource type="Script" path="res://Scripts/Menus/GamemodeMenu.cs" id="12"]
 [ext_resource type="StyleBox" path="res://menus/StandardButtonFocused.tres" id="13"]
 [ext_resource type="Script" path="res://Scripts/Menus/MultiLauncher/SetupGameAsHost.cs" id="13_xtka4"]
+[ext_resource type="Script" path="res://Scripts/Entities/Player/SFXPlayer.cs" id="15_p1v4r"]
 
 [sub_resource type="StyleBoxFlat" id="26"]
 bg_color = Color(0, 0, 0, 0.211765)
@@ -121,7 +120,7 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5vmnb"]
 
-[node name="Titlescreen" type="Control"]
+[node name="Titlescreen" type="Control" node_paths=PackedStringArray("_sfxPlayer", "_musicPlayer")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -135,6 +134,8 @@ offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1")
+_sfxPlayer = NodePath("SFXPlayer")
+_musicPlayer = NodePath("MusicPlayer")
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.154876, 0.154876, 0.154876, 1)
@@ -265,20 +266,6 @@ theme_override_font_sizes/font_size = 71
 text = "Castle Of Demise"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="PressedButtonSound" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(653, 169)
-stream = ExtResource("8")
-volume_db = -0.998
-bus = &"SFX"
-
-[node name="FocusedButtonSound" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(650, 170)
-stream = ExtResource("7")
-volume_db = -9.738
-bus = &"SFX"
 
 [node name="OptionsMenu" type="Control" parent="."]
 unique_name_in_owner = true
@@ -574,9 +561,13 @@ offset_bottom = 152.0
 disabled = true
 text = "Lancher la partie"
 
-[node name="MusiqueStreamPlayer" type="AudioStreamPlayer" parent="."]
-autoplay = true
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+script = ExtResource("15_p1v4r")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"Musique"
+script = ExtResource("15_p1v4r")
 
 [connection signal="button_down" from="TitleMenu/PlayButton" to="." method="_pressed_button"]
 [connection signal="button_up" from="TitleMenu/PlayButton" to="." method="_PlayButtonPressed"]

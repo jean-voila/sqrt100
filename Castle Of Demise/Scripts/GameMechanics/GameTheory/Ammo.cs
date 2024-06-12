@@ -8,10 +8,10 @@ public partial class Ammo : Area3D
     private AudioStreamPlayer3D _reloadSound;
     private Timer _time;
     public Sprite3D _ammoSprite;
+    [Export] private AudioStreamPlayer _sfxPlayer;
     
     public override void _Ready()
     {
-        _reloadSound = GetNode<AudioStreamPlayer3D>("reloadSound");
         _time = GetNode<Timer>("Timer");
         _ammoSprite = GetNode<Sprite3D>("Sprite3D");
     }
@@ -20,7 +20,7 @@ public partial class Ammo : Area3D
     {
         if (body is CastleOfDemise.mobs.Player.Player player && _time.TimeLeft <= 0 && player.CanPickupAmmo())
         {
-            _reloadSound.Play();
+            _sfxPlayer.EmitSignal("PlaySFXSignal", "pickupable/ammo");
             _time.Start();
             player.SetAmmoInc(ammoInc);
             _ammoSprite.QueueFree();

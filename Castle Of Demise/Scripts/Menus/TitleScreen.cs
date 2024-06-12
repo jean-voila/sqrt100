@@ -4,6 +4,8 @@ namespace CastleOfDemise.Scripts.Menus;
 
 public partial class TitleScreen : Control
 {
+	[Export] private AudioStreamPlayer _sfxPlayer;
+	[Export] private AudioStreamPlayer _musicPlayer;
 	// Declare member variables here. Examples:
 	// private int a = 2;
 	// private string b = "text";
@@ -36,12 +38,12 @@ public partial class TitleScreen : Control
 
 	private void _focused_button()
 	{
-		GetNode<AudioStreamPlayer2D>("%FocusedButtonSound").Play();
+		_sfxPlayer.EmitSignal("PlaySFXSignal", "buttons/focused");
 	}
 
 	private void _pressed_button()
 	{
-		GetNode<AudioStreamPlayer2D>("%PressedButtonSound").Play();
+		_sfxPlayer.EmitSignal("PlaySFXSignal", "buttons/pressed");
 	}
 
 	private void _show_title_screen_()

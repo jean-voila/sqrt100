@@ -2,19 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://cs7c3wjxx01db" path="res://Assets/Props/ammoPack.png" id="1"]
 [ext_resource type="Script" path="res://Scripts/GameMechanics/GameTheory/Ammo.cs" id="2"]
-[ext_resource type="AudioStream" uid="uid://bflxlyjbe5e7l" path="res://Assets/SoundEffects/reload.wav" id="3"]
+[ext_resource type="Script" path="res://Scripts/Entities/Player/SFXPlayer.cs" id="3_35ksx"]
 
 [sub_resource type="BoxShape3D" id="1"]
 size = Vector3(0.278332, 0.255954, 0.303571)
 
-[node name="Ammo" type="Area3D"]
+[node name="Ammo" type="Area3D" node_paths=PackedStringArray("_sfxPlayer")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 script = ExtResource("2")
-
-[node name="reloadSound" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0)
-stream = ExtResource("3")
-volume_db = 10.0
+_sfxPlayer = NodePath("SFXPlayer")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 billboard = 2
@@ -27,6 +23,9 @@ shape = SubResource("1")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("3_35ksx")
 
 [connection signal="body_entered" from="." to="." method="_on_Ammo_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
