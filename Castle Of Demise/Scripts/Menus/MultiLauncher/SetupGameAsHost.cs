@@ -87,7 +87,7 @@ public partial class SetupGameAsHost : Control
 	
 	public override void _Process(double d)
 	{
-		if (_gameModeValue != null && _scoreToReachValue != null && GameManager.Players.Count > 1)
+		if (_gameModeValue != null && _scoreToReachValue != null && GameManager.Players.Count == 2)
 		{
 			_startGameButton.Disabled = false;
 		}

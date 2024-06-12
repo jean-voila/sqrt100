@@ -35,8 +35,14 @@ namespace CastleOfDemise.Scripts.Menus
         {
             GD.Print("CONNECTED TO SERVER");
             // Call SendPlayerInformation on the server
-            RpcId(1, nameof(SendPlayerInformation), $"Client", Multiplayer.GetUniqueId(), false, false);
+            RpcId(1, nameof(SendPlayerInformation), $"Client", Multiplayer.GetUniqueId(), false);
             GD.Print("SENDING PLAYER INFORMATION...");
+            
+            GD.Print("===================================");
+            GD.Print("===================================");
+            GD.Print("=======  YOU ARE CLIENT   =========");
+            GD.Print("===================================");
+            GD.Print("===================================");
         }
 
         private void PeerDisconnected(long id)
@@ -97,13 +103,20 @@ namespace CastleOfDemise.Scripts.Menus
                 return;
             }
 
-            SendPlayerInformation("Host", Multiplayer.GetUniqueId(), true, true);
+            SendPlayerInformation("Host", 1, true);
+            GD.Print("===================================");
+            GD.Print("===================================");
+            GD.Print("========  YOU ARE HOST   ==========");
+            GD.Print("===================================");
+            GD.Print("===================================");
+
+            
         }
 
         [Rpc(MultiplayerApi.RpcMode.AnyPeer)]
-        private void SendPlayerInformation(string name, int id, bool recursive = true, bool isHost = true)
+        private void SendPlayerInformation(string name, int id, bool recursive = true)
         {
-            GD.Print("SendPlayerInformation, beginning...");
+            //GD.Print("SendPlayerInformation, beginning...");
             if (!GameManager.Players.ContainsValue(new Player {PlayerId = id})
                 )
             {
@@ -111,51 +124,57 @@ namespace CastleOfDemise.Scripts.Menus
                 player.PlayerName = name;
                 player.PlayerId = id;
                 player.PlayerScore = 0;
-                GameManager.Players.Add(isHost ? 0 : 1, player);
+                GameManager.Players.Add((id == 1) ? 0 : 1, player);
 
             }
 
-            GD.Print("SendPlayerInformation, player added...");
+            //GD.Print("SendPlayerInformation, player added...");
 
             if (Multiplayer.IsServer() || !recursive)
             {
-                GD.Print("SendPlayerInformation, server found...");
-                GD.Print("===== LIST OF PLAYERS =====");
+                //GD.Print("SendPlayerInformation, server found...");
+                //GD.Print("===== LIST OF PLAYERS =====");
 
                 foreach (var player in GameManager.Players)
                 {
-                    GD.Print(
-                        $"Key: {player.Key}  ::  Player ID: {player.Value.PlayerId}, Player Name: {player.Value.PlayerName}, Player Score: {player.Value.PlayerScore}");
-                    // Call Rpc instead of RpcId
-                    Rpc(nameof(AddPlayerToAllPeers), player.Value.PlayerName, player.Value.PlayerId, isHost);
+                    //GD.Print(
+                    //    $"Key: {player.Key}  ::  Player ID: {player.Value.PlayerId}, Player Name: {player.Value.PlayerName}, Player Score: {player.Value.PlayerScore}");
+                    Rpc(nameof(AddPlayerToAllPeers), player.Value.PlayerName, player.Value.PlayerId);
                 }
 
-                GD.Print("===== END OF LIST =====");
+                //GD.Print("===== END OF LIST =====");
             }
-            GD.Print($"SendPlayerInformation, end of function with {GameManager.Players.Count} players...");
+            // GD.Print($"SendPlayerInformation, end of function with {GameManager.Players.Count} players...");
         }
 
         [Rpc(MultiplayerApi.RpcMode.AnyPeer)]
-        private void AddPlayerToAllPeers(string name, int id, bool isHost)
+        private void AddPlayerToAllPeers(string name, int id)
         {
-            if (!GameManager.Players.ContainsValue(new Player {PlayerId = id}))
-            {
-                var player = new Player();
-                player.PlayerName = name;
-                player.PlayerId = id;
-                player.PlayerScore = 0;
-                GameManager.Players.Add(isHost ? 0 : 1, player);
-                GD.Print("After adding to the peers");
-                GD.Print(player.PlayerId + " " + player.PlayerName + " " + player.PlayerScore);
-
-            }
+            if (GameManager.Players.ContainsValue(new Player { PlayerId = id })) return;
+            var player = new Player();
+            player.PlayerName = name;
+            player.PlayerId = id;
+            player.PlayerScore = 0;
+            GameManager.Players.Add((id == 1) ? 0 : 1, player);
+            GD.Print("After adding to the peers");
+            GD.Print(player.PlayerId + " " + player.PlayerName + " " + player.PlayerScore);
         }
 
-        [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
+        [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true, TransferMode = MultiplayerPeer.TransferModeEnum.Reliable)]
         public void StartGame()
         {
             GetTree().ChangeSceneToFile("res://maps/mpMap02.tscn");
-            
+            GD.Print("SendPlayerInformation, server found...");
+            GD.Print("===== GAME STARTING =====");
+            GD.Print("===== LIST OF PLAYERS =====");
+
+            foreach (var player in GameManager.Players)
+            {
+                GD.Print(
+                    $"Key: {player.Key}  ::  Player ID: {player.Value.PlayerId}, Player Name: {player.Value.PlayerName}, Player Score: {player.Value.PlayerScore}");
+            }
+
+            GD.Print("===== END OF LIST =====");
         }
     }
     

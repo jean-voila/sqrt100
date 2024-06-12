@@ -120,7 +120,7 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5vmnb"]
 
-[node name="Titlescreen" type="Control" node_paths=PackedStringArray("_sfxPlayer", "_musicPlayer")]
+[node name="Titlescreen" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -134,8 +134,6 @@ offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1")
-_sfxPlayer = NodePath("SFXPlayer")
-_musicPlayer = NodePath("MusicPlayer")
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.154876, 0.154876, 0.154876, 1)

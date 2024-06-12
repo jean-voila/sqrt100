@@ -26,11 +26,6 @@ public partial class Player : CharacterBody3D
 	public override void _Ready()
 	{
 		GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").SetMultiplayerAuthority(PlayerId);
-		GD.Print("Authority set to" + GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority());
-		GD.Print("Multiplayer Authority: " + PlayerId);
-		GD.Print($" Player ID: {PlayerId}, Player Name: {PlayerName}, Player Score: {PlayerScore}");
-
-		GD.Print(Multiplayer.GetUniqueId());
 		_shootInit();
 		_stepsInit();
 		_pauseMenuInit();
@@ -88,13 +83,22 @@ public partial class Player : CharacterBody3D
 			WeaponSway();
 
 		}
-		/*
+		
+		
+		// Method will send a report about the current multiplayerauthority, to see if it is working correctly
+		//MultiplayerAuthorityReport();
+	}
+
+
+
+	private void MultiplayerAuthorityReport()
+	{
 		GD.Print("===== RAPPORT =====");
-		GD.Print(GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority() == Multiplayer.GetUniqueId());
-		GD.Print(GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority().ToString());
-		GD.Print(Multiplayer.GetUniqueId());
+		GD.Print("The session is " + PlayerName);
+		GD.Print("Are they both equal? ::" + (GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority() == Multiplayer.GetUniqueId()));
+		GD.Print("The authority is "+ GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority().ToString());
+		GD.Print("The Id is " + Multiplayer.GetUniqueId());
 		GD.Print("===== ENDOF =====");
-		*/
 	}
 
 	public override void _EnterTree()
