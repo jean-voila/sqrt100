@@ -138,9 +138,10 @@ radius = 0.650555
 
 [node name="Bat" type="Node3D"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("_sfxPlayer")]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("_sfxPlayer", "NavAgent")]
 script = ExtResource("2")
 _sfxPlayer = NodePath("AudioStreamPlayer")
+NavAgent = NodePath("NavigationAgent3D")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D"]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
@@ -153,3 +154,5 @@ animation = &"idle"
 shape = SubResource("6")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CharacterBody3D"]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D"]

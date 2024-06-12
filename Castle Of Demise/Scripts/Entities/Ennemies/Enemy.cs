@@ -19,9 +19,13 @@ namespace CastleOfDemise.mobs.Ennemies
 
         [Export] private AudioStreamPlayer _sfxPlayer;
         
+        [Export] public NavigationAgent3D NavAgent;
+        public Vector3 target;
+        
 
         public override void _Ready()
         {
+            AddToGroup("ennemies");
             Connect("HitSignal", new Callable(this, "Hit"));
             GetChild<AnimatedSprite3D>(0).Play("idle");
 
@@ -56,10 +60,19 @@ namespace CastleOfDemise.mobs.Ennemies
 
 
 
-    public override void _PhysicsProcess(double d)
+        public void UpdateTargetLocation(Vector3 targetLocation)
         {
-            //MoveTowardsPlayer(d);
+            NavAgent.TargetPosition = targetLocation;
+        }
 
+        public override void _PhysicsProcess(double d)
+        {
+            Vector3 currentLocation = GlobalTransform.Origin;
+            Vector3 nextLocation = NavAgent.GetNextPathPosition();
+            Vector3 newVelocity = (nextLocation - currentLocation).Normalized() * Speed * 10f;
+            Velocity = newVelocity;
+            MoveAndSlide();
+            // MoveTowardsPlayer(d);
         }
     
 

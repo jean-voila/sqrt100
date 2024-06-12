@@ -163,9 +163,10 @@ radius = 0.766308
 [node name="Zombie" type="Node3D"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("_sfxPlayer")]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("_sfxPlayer", "NavAgent")]
 script = ExtResource("2")
 _sfxPlayer = NodePath("AudioStreamPlayer")
+NavAgent = NodePath("NavigationAgent3D")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
@@ -180,3 +181,5 @@ shape = SubResource("1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CharacterBody3D"]
 script = ExtResource("3_d0mnn")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D"]
