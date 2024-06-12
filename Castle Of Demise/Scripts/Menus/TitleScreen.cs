@@ -67,6 +67,11 @@ public partial class TitleScreen : Control
 	{
 		GetTree().ChangeSceneToFile("res://maps/mpMap02.tscn");
 	}
+
+	private void _LeidenStadtPressed()
+	{
+		GetTree().ChangeSceneToFile("res://maps/LeidenStadt.tscn");
+	}
 	
 
 	

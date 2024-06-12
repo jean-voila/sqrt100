@@ -120,7 +120,7 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5vmnb"]
 
-[node name="Titlescreen" type="Control"]
+[node name="Titlescreen" type="Control" node_paths=PackedStringArray("_sfxPlayer", "_musicPlayer")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -134,6 +134,8 @@ offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1")
+_sfxPlayer = NodePath("SFXPlayer")
+_musicPlayer = NodePath("MusicPlayer")
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.154876, 0.154876, 0.154876, 1)
@@ -232,6 +234,22 @@ theme_override_styles/hover = ExtResource("6")
 theme_override_styles/pressed = ExtResource("11")
 theme_override_styles/focus = ExtResource("13")
 text = "NEW MULTI"
+
+[node name="Leidenstadt" type="Button" parent="TitleMenu"]
+layout_mode = 0
+offset_left = 1007.0
+offset_top = 609.0
+offset_right = 1115.0
+offset_bottom = 655.0
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_gf8o5")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("26")
+theme_override_styles/hover = ExtResource("6")
+theme_override_styles/pressed = ExtResource("11")
+theme_override_styles/focus = ExtResource("13")
+text = "LEIDENSTADT"
 
 [node name="QuitButton" type="Button" parent="TitleMenu"]
 layout_mode = 0
@@ -582,6 +600,9 @@ script = ExtResource("15_p1v4r")
 [connection signal="button_down" from="TitleMenu/NewMulti" to="." method="_pressed_button"]
 [connection signal="button_up" from="TitleMenu/NewMulti" to="." method="_NewMultiPressed"]
 [connection signal="mouse_entered" from="TitleMenu/NewMulti" to="." method="_focused_button"]
+[connection signal="button_down" from="TitleMenu/Leidenstadt" to="." method="_pressed_button"]
+[connection signal="button_up" from="TitleMenu/Leidenstadt" to="." method="_LeidenStadtPressed"]
+[connection signal="mouse_entered" from="TitleMenu/Leidenstadt" to="." method="_focused_button"]
 [connection signal="button_down" from="TitleMenu/QuitButton" to="." method="_pressed_button"]
 [connection signal="button_up" from="TitleMenu/QuitButton" to="." method="_Exit"]
 [connection signal="mouse_entered" from="TitleMenu/QuitButton" to="." method="_focused_button"]
