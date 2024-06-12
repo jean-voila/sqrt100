@@ -55,6 +55,7 @@ albedo_texture = ExtResource("7_vf8yo")
 albedo_texture = ExtResource("8_hhidg")
 
 [sub_resource type="Environment" id="Environment_ckuwf"]
+volumetric_fog_enabled = true
 volumetric_fog_density = 0.1186
 volumetric_fog_albedo = Color(0.781416, 0.503441, 0.132731, 1)
 

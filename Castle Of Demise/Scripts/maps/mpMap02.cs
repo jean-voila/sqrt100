@@ -10,32 +10,24 @@ public partial class mpMap02 : Node3D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		Player player0 = (Player)_multiplayerScene02.Instantiate();
-		AddChild(player0);
-		player0.PlayerName = GameManager.Players[0].PlayerName;
-		player0.PlayerId = GameManager.Players[0].PlayerId;
-		player0.PlayerScore = GameManager.Players[0].PlayerScore;
-		foreach (var spawnPoint in GetTree().GetNodesInGroup("PlayerSpawnPoint"))
+		int index = 0;
+		foreach (var item in GameManager.Players)
 		{
-			if (spawnPoint.Name == 0.ToString())
+			Player current = (Player)_multiplayerScene02.Instantiate();
+			current.PlayerName = item.Value.PlayerName;
+			current.PlayerId = item.Value.PlayerId;
+			current.PlayerScore = item.Value.PlayerScore;
+			AddChild(current);
+			foreach (var spawnPoint in GetTree().GetNodesInGroup("PlayerSpawnPoint"))
 			{
-				player0.Teleport(((Node3D)spawnPoint).GlobalTransform.Origin);
+				if (spawnPoint.Name == 0.ToString())
+				{
+					current.Teleport(((Node3D)spawnPoint).GlobalTransform.Origin);
+				}
 			}
+			index++;
 		}
 		
-		Player player1 = (Player)_multiplayerScene02.Instantiate();
-		AddChild(player1);
-		player1.PlayerName = GameManager.Players[1].PlayerName;
-		player1.PlayerId = GameManager.Players[1].PlayerId;
-		player1.PlayerScore = GameManager.Players[1].PlayerScore;
-
-		foreach (var spawnPoint in GetTree().GetNodesInGroup("PlayerSpawnPoint"))
-		{
-			if (spawnPoint.Name == 1.ToString())
-			{
-				player1.Teleport(((Node3D)spawnPoint).GlobalTransform.Origin);
-			}
-		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

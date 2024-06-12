@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://kmdcawdug4ax"]
+[gd_scene load_steps=8 format=3 uid="uid://kmdcawdug4ax"]
 
 [ext_resource type="PackedScene" uid="uid://d12g6faxafk0" path="res://Assets/Props/road.glb" id="2"]
-[ext_resource type="Texture2D" uid="uid://c580hl7hr2ch4" path="res://Assets/Textures/imageonline-co-pixelated-terre.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://bddvfd4li5gc0" path="res://Assets/Textures/imageonline-co-pixelated(4).png" id="3_e8543"]
+[ext_resource type="Texture2D" uid="uid://cutjplaxotxtt" path="res://Assets/Textures/imageonline-co-pixelated-terre.png" id="3"]
 
 [sub_resource type="StandardMaterial3D" id="3"]
 albedo_color = Color(0.968627, 0.968627, 0.968627, 1)
@@ -10,7 +9,7 @@ albedo_texture = ExtResource("3")
 metallic_texture_channel = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0urhl"]
-albedo_texture = ExtResource("3_e8543")
+albedo_color = Color(0, 0, 0, 1)
 albedo_texture_force_srgb = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6jca"]

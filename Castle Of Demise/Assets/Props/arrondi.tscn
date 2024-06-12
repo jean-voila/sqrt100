@@ -4,35 +4,23 @@
 
 [node name="Spatial" type="Node3D"]
 
-[node name="lechemin2" parent="." instance=ExtResource("1_av41j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.556933, 0.020708, 3.10649)
-
-[node name="lechemin10" parent="." instance=ExtResource("1_av41j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.556933, 0.020708, 2.17853)
-
-[node name="lechemin9" parent="." instance=ExtResource("1_av41j")]
-transform = Transform3D(0.993315, 0, -0.11544, 0, 1, 0, 0.11544, 0, 0.993315, -0.52593, 0.020708, 1.36279)
-
 [node name="lechemin8" parent="." instance=ExtResource("1_av41j")]
-transform = Transform3D(0.956279, 0, -0.292455, 0, 1, 0, 0.292455, 0, 0.956279, -0.379907, 0.020708, 0.608827)
+transform = Transform3D(0.999719, 0, -0.0236993, 0, 1, 0, 0.0236993, 0, 0.999719, 0.0916044, 0.020708, 0.260503)
 
 [node name="lechemin7" parent="." instance=ExtResource("1_av41j")]
-transform = Transform3D(0.963083, 0, -0.269206, 0, 1, 0, 0.269206, 0, 0.963083, -0.0687901, 0.016542, -0.301636)
+transform = Transform3D(0.984497, 0, -0.175401, 0, 1, 0, 0.175401, 0, 0.984497, 0.180306, 0.016542, -0.530923)
 
 [node name="lechemin6" parent="." instance=ExtResource("1_av41j")]
-transform = Transform3D(0.935364, 0, -0.353687, 0, 1, 0, 0.353687, 0, 0.935364, 0.213613, 0.020708, -1.12546)
+transform = Transform3D(0.960308, 0, -0.278941, 0, 1, 0, 0.278941, 0, 0.960308, 0.367857, 0.020708, -1.42854)
 
 [node name="lechemin5" parent="." instance=ExtResource("1_av41j")]
-transform = Transform3D(0.907374, 0, -0.420323, 0, 1, 0, 0.420323, 0, 0.907374, 0.59969, 0.020708, -1.99963)
+transform = Transform3D(0.920648, 0, -0.390393, 0, 1, 0, 0.390393, 0, 0.920648, 0.712107, 0.020708, -2.22567)
 
 [node name="lechemin4" parent="." instance=ExtResource("1_av41j")]
 transform = Transform3D(0.763909, 0, -0.645324, 0, 1, 0, 0.645324, 0, 0.763909, 1.92167, 0.020708, -4.24933)
 
 [node name="lechemin3" parent="." instance=ExtResource("1_av41j")]
 transform = Transform3D(0.890769, 0, -0.454457, 0, 1, 0, 0.454457, 0, 0.890769, 1.028, 0.020708, -2.86505)
-
-[node name="lechemin" parent="." instance=ExtResource("1_av41j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.556933, 0.020708, 4.03445)
 
 [node name="lechemin11" parent="." instance=ExtResource("1_av41j")]
 transform = Transform3D(0.598562, 0, -0.801076, 0, 1, 0, 0.801076, 0, 0.598562, 3.13237, 0.020708, -5.31232)
