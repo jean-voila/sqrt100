@@ -36,7 +36,6 @@ public partial class SFXPlayer : AudioStreamPlayer
 	private string AudioPathGetter(string folderName, string extension = ".wav")
 	{
 		var res = SoundEffectsPath + folderName + "/" + RandomFilePath(ListFilesInDir(SoundEffectsPath + folderName + "/", extension));
-		GD.Print(res);
 		return res;
 	}
 
@@ -57,6 +56,7 @@ public partial class SFXPlayer : AudioStreamPlayer
 	public bool PlaySFX(string soundType)
 	{
 		string path = AudioPathGetter(soundType);
+		Stream = GD.Load<AudioStream>(path);
 		Play();
 		return true;
 	}
