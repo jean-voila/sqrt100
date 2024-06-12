@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx201rq3muxli"]
+
+[ext_resource type="PackedScene" uid="uid://bpf52rtbwycp6" path="res://Assets/Props/CODYRHODES.tscn" id="1_av41j"]
+
+[node name="Spatial" type="Node3D"]
+
+[node name="lechemin2" parent="." instance=ExtResource("1_av41j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.556933, 0.020708, 3.10649)
+
+[node name="lechemin10" parent="." instance=ExtResource("1_av41j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.556933, 0.020708, 2.17853)
+
+[node name="lechemin9" parent="." instance=ExtResource("1_av41j")]
+transform = Transform3D(0.993315, 0, -0.11544, 0, 1, 0, 0.11544, 0, 0.993315, -0.52593, 0.020708, 1.36279)
+
+[node name="lechemin8" parent="." instance=ExtResource("1_av41j")]
+transform = Transform3D(0.956279, 0, -0.292455, 0, 1, 0, 0.292455, 0, 0.956279, -0.379907, 0.020708, 0.608827)
+
+[node name="lechemin7" parent="." instance=ExtResource("1_av41j")]
+transform = Transform3D(0.963083, 0, -0.269206, 0, 1, 0, 0.269206, 0, 0.963083, -0.0687901, 0.016542, -0.301636)
+
+[node name="lechemin6" parent="." instance=ExtResource("1_av41j")]
+transform = Transform3D(0.935364, 0, -0.353687, 0, 1, 0, 0.353687, 0, 0.935364, 0.213613, 0.020708, -1.12546)
+
+[node name="lechemin5" parent="." instance=ExtResource("1_av41j")]
+transform = Transform3D(0.907374, 0, -0.420323, 0, 1, 0, 0.420323, 0, 0.907374, 0.59969, 0.020708, -1.99963)
+
+[node name="lechemin4" parent="." instance=ExtResource("1_av41j")]
+transform = Transform3D(0.763909, 0, -0.645324, 0, 1, 0, 0.645324, 0, 0.763909, 1.92167, 0.020708, -4.24933)
+
+[node name="lechemin3" parent="." instance=ExtResource("1_av41j")]
+transform = Transform3D(0.890769, 0, -0.454457, 0, 1, 0, 0.454457, 0, 0.890769, 1.028, 0.020708, -2.86505)
+
+[node name="lechemin" parent="." instance=ExtResource("1_av41j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.556933, 0.020708, 4.03445)
+
+[node name="lechemin11" parent="." instance=ExtResource("1_av41j")]
+transform = Transform3D(0.598562, 0, -0.801076, 0, 1, 0, 0.801076, 0, 0.598562, 3.13237, 0.020708, -5.31232)
+
+[node name="lechemin12" parent="." instance=ExtResource("1_av41j")]
+transform = Transform3D(0.415233, 0, -0.909715, 0, 1, 0, 0.909715, 0, 0.415233, 3.7764, 0.020708, -5.62078)
+
+[node name="lechemin13" parent="." instance=ExtResource("1_av41j")]
+transform = Transform3D(0.278404, -1.62116e-09, -0.960464, -0.00254801, 0.999997, -0.000738577, 0.960461, 0.0026529, 0.278404, 4.47952, 0.020708, -5.86565)
+
+[node name="lechemin14" parent="." instance=ExtResource("1_av41j")]
+transform = Transform3D(0.0583481, 0, -0.998296, 0, 1, 0, 0.998296, 0, 0.0583481, 5.16538, 0.020708, -6.07671)
+
+[node name="lechemin15" parent="." instance=ExtResource("1_av41j")]
+transform = Transform3D(-0.0410212, 0, -0.999159, 0, 1, 0, 0.999159, 0, -0.0410212, 6.02971, 0.0178935, -6.06416)
+
+[node name="lechemin16" parent="." instance=ExtResource("1_av41j")]
+transform = Transform3D(-0.0243973, 0, -0.999702, 0, 1, 0, 0.999702, 0, -0.0243973, 6.90984, 0.020708, -6.03579)
+
+[node name="lechemin17" parent="." instance=ExtResource("1_av41j")]
+transform = Transform3D(0.669662, 0, -0.742666, 0, 1, 0, 0.742666, 0, 0.669662, 2.45523, 0.020708, -4.77375)
+
+[node name="lechemin18" parent="." instance=ExtResource("1_av41j")]
+transform = Transform3D(0.862743, 0, -0.505642, 0, 1, 0, 0.505642, 0, 0.862743, 1.46881, 0.0208711, -3.62091)

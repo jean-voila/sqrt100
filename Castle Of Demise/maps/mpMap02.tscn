@@ -228,11 +228,11 @@ _multiplayerScene02 = ExtResource("2_34jlc")
 
 [node name="Spawn" type="Node" parent="."]
 
-[node name="0" type="Node3D" parent="Spawn" groups=["PlayerSpawnpoint"]]
+[node name="0" type="Node3D" parent="Spawn" groups=["PlayerSpawnPoint"]]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.3639, 22.939, -72.316)
 
-[node name="1" type="Node3D" parent="Spawn" groups=["PlayerSpawnpoint"]]
+[node name="1" type="Node3D" parent="Spawn" groups=["PlayerSpawnPoint"]]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.3275, 2.51532, 68.0625)
 
@@ -1435,9 +1435,6 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 2.41469, -12.5151, -31.6003)
 
 [node name="HealthPack4" parent="." instance=ExtResource("17_uwwih")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 2.41469, -12.5151, -28.7698)
-
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-spawn_path = NodePath("..")
 
 [node name="forest4" type="Node3D" parent="."]
 

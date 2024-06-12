@@ -1,4 +1,4 @@
-using CastleOfDemise.mobs.Player;
+   using CastleOfDemise.mobs.Player;
 using CastleOfDemise.Scripts.Menus.MultiLauncher;
 using Godot;
 
@@ -35,7 +35,7 @@ namespace CastleOfDemise.Scripts.Menus
         {
             GD.Print("CONNECTED TO SERVER");
             // Call SendPlayerInformation on the server
-            RpcId(1, nameof(SendPlayerInformation), $"Client", Multiplayer.GetUniqueId(), false);
+            RpcId(1, nameof(SendPlayerInformation), $"Client", Multiplayer.GetUniqueId(), false, false);
             GD.Print("SENDING PLAYER INFORMATION...");
         }
 
@@ -97,20 +97,22 @@ namespace CastleOfDemise.Scripts.Menus
                 return;
             }
 
-            SendPlayerInformation("Host", Multiplayer.GetUniqueId());
+            SendPlayerInformation("Host", Multiplayer.GetUniqueId(), true, true);
         }
 
         [Rpc(MultiplayerApi.RpcMode.AnyPeer)]
-        private void SendPlayerInformation(string name, int id, bool recursive = true)
+        private void SendPlayerInformation(string name, int id, bool recursive = true, bool isHost = true)
         {
             GD.Print("SendPlayerInformation, beginning...");
-            if (!GameManager.Players.ContainsKey(id))
+            if (!GameManager.Players.ContainsValue(new Player {PlayerId = id})
+                )
             {
                 var player = new Player();
                 player.PlayerName = name;
                 player.PlayerId = id;
                 player.PlayerScore = 0;
-                GameManager.Players[id] = player;
+                GameManager.Players.Add(isHost ? 0 : 1, player);
+
             }
 
             GD.Print("SendPlayerInformation, player added...");
@@ -123,9 +125,9 @@ namespace CastleOfDemise.Scripts.Menus
                 foreach (var player in GameManager.Players)
                 {
                     GD.Print(
-                        $"Player ID: {player.Key}, Player Name: {player.Value.PlayerName}, Player Score: {player.Value.PlayerScore}");
+                        $"Key: {player.Key}  ::  Player ID: {player.Value.PlayerId}, Player Name: {player.Value.PlayerName}, Player Score: {player.Value.PlayerScore}");
                     // Call Rpc instead of RpcId
-                    Rpc(nameof(AddPlayerToAllPeers), player.Value.PlayerName, player.Key);
+                    Rpc(nameof(AddPlayerToAllPeers), player.Value.PlayerName, player.Value.PlayerId, isHost);
                 }
 
                 GD.Print("===== END OF LIST =====");
@@ -134,15 +136,18 @@ namespace CastleOfDemise.Scripts.Menus
         }
 
         [Rpc(MultiplayerApi.RpcMode.AnyPeer)]
-        private void AddPlayerToAllPeers(string name, int id)
+        private void AddPlayerToAllPeers(string name, int id, bool isHost)
         {
-            if (!GameManager.Players.ContainsKey(id))
+            if (!GameManager.Players.ContainsValue(new Player {PlayerId = id}))
             {
                 var player = new Player();
                 player.PlayerName = name;
                 player.PlayerId = id;
                 player.PlayerScore = 0;
-                GameManager.Players[id] = player;
+                GameManager.Players.Add(isHost ? 0 : 1, player);
+                GD.Print("After adding to the peers");
+                GD.Print(player.PlayerId + " " + player.PlayerName + " " + player.PlayerScore);
+
             }
         }
 

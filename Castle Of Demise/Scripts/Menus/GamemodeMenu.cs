@@ -1,3 +1,4 @@
+using CastleOfDemise.mobs.Player;
 using Godot;
 
 namespace CastleOfDemise.Scripts.Menus;
@@ -25,6 +26,7 @@ public partial class GamemodeMenu : Control
 	{
 		GetNode<Control>("%GamemodeMenu").Hide();
 		GetNode<Control>("%MultiplayerMenu").Show();
+		Player.IsMultiplayer = true;
 	}
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 //  public override void _Process(float delta)
