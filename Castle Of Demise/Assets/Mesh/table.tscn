@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://wl8jkcs774a8"]
+
+[ext_resource type="Texture2D" uid="uid://dtc7wjnag443v" path="res://Assets/Textures/imageonline-co-pixelated(2).png" id="1_gi6oq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1083i"]
+albedo_texture = ExtResource("1_gi6oq")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x57cu"]
+albedo_texture = ExtResource("1_gi6oq")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4a2td"]
+albedo_texture = ExtResource("1_gi6oq")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_moo37"]
+albedo_texture = ExtResource("1_gi6oq")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d2ues"]
+albedo_texture = ExtResource("1_gi6oq")
+uv2_triplanar = true
+uv2_world_triplanar = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.652738, 2.33169, 1.73679)
+material_override = SubResource("StandardMaterial3D_1083i")
+use_collision = true
+size = Vector3(0.3125, 2.56172, 0.437805)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.652738, 2.33169, -0.343321)
+material_override = SubResource("StandardMaterial3D_x57cu")
+use_collision = true
+size = Vector3(0.3125, 2.56172, 0.437805)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40579, 2.33169, -0.343321)
+material_override = SubResource("StandardMaterial3D_4a2td")
+use_collision = true
+size = Vector3(0.3125, 2.56172, 0.437805)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40615, 2.33219, 1.73713)
+material_override = SubResource("StandardMaterial3D_moo37")
+use_collision = true
+size = Vector3(0.3125, 2.56172, 0.437805)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.381151, 3.71419, 0.660302)
+material_override = SubResource("StandardMaterial3D_d2ues")
+use_collision = true
+size = Vector3(3.14258, 0.245239, 3.06335)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://biepd6okow1e8"]
+[gd_scene load_steps=24 format=3 uid="uid://biepd6okow1e8"]
 
 [ext_resource type="Texture2D" uid="uid://citnbqb3htaxg" path="res://Assets/Textures/imageonline-co-pixelated(1).png" id="1_yhi4n"]
 [ext_resource type="PackedScene" uid="uid://twx1vowmd4ni" path="res://Scripts/Entities/Player/Player.tscn" id="2_4juko"]
@@ -6,12 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://bx201rq3muxli" path="res://Assets/Props/arrondi.tscn" id="4_1uw7e"]
 [ext_resource type="Texture2D" uid="uid://cgg2wqugcv5de" path="res://Assets/Props/tree02.png" id="4_c8ftr"]
 [ext_resource type="Texture2D" uid="uid://c0tm1u0k4kco" path="res://Assets/Props/tree01.png" id="5_0rcck"]
-[ext_resource type="PackedScene" uid="uid://b4t5vqp3ahc8r" path="res://Assets/Props/intersection.tscn" id="5_i8xjm"]
+[ext_resource type="PackedScene" uid="uid://b4t5vqp3ahc8r" path="res://Assets/Props/intersection2.tscn" id="5_i8xjm"]
 [ext_resource type="Texture2D" uid="uid://dtc7wjnag443v" path="res://Assets/Textures/imageonline-co-pixelated(2).png" id="6_yw0dc"]
 [ext_resource type="Texture2D" uid="uid://4id0pnmf22o8" path="res://Assets/Textures/imageonline-co-pixelated-planks.png" id="7_orln4"]
 [ext_resource type="FontFile" uid="uid://qtsc2kgt2e0p" path="res://Assets/Fonts/pixel.ttf" id="8_mm2t4"]
 [ext_resource type="PackedScene" uid="uid://dcgp1x8mfi467" path="res://Assets/Mesh/maison.tscn" id="9_bojn0"]
 [ext_resource type="PackedScene" uid="uid://lljip5p7ygc6" path="res://Assets/Mesh/maison_ouverte.tscn" id="12_au5my"]
+[ext_resource type="PackedScene" uid="uid://d0yuohxr3dn5j" path="res://Assets/Props/intersection3.tscn" id="13_sof0u"]
+[ext_resource type="PackedScene" uid="uid://wl8jkcs774a8" path="res://Assets/Mesh/table.tscn" id="13_yynab"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cpqrk"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -112,11 +114,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.54093, 0.459294, 156.987)
 [node name="arrondi" parent="CSGBox3D/roads" instance=ExtResource("4_1uw7e")]
 transform = Transform3D(-0.0116585, 0, 0.999932, 0, 1, 0, -0.999932, 0, -0.0116585, -26.9129, 0.508, 134.47)
 
-[node name="intersection" parent="CSGBox3D/roads" instance=ExtResource("5_i8xjm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.226, 0.522, 146.202)
-
 [node name="arrondi2" parent="CSGBox3D/roads" instance=ExtResource("4_1uw7e")]
-transform = Transform3D(0.999646, 0, 0.026613, 0, 1, 0, -0.026613, 0, 0.999646, -16.2112, 0.508, 126.772)
+transform = Transform3D(0.999646, 0, 0.026613, 0, 1, 0, -0.026613, 0, 0.999646, 71.9524, 0.508, 108.737)
 
 [node name="road10" parent="CSGBox3D/roads" instance=ExtResource("3_ngq00")]
 transform = Transform3D(-0.0390331, 0, -0.999238, 0, 1, 0, 0.999238, 0, -0.0390331, -16.9431, 0.466341, 133.635)
@@ -125,10 +124,43 @@ transform = Transform3D(-0.0390331, 0, -0.999238, 0, 1, 0, 0.999238, 0, -0.03903
 transform = Transform3D(0.0208203, 0, -0.999783, 0, 1, 0, 0.999783, 0, 0.0208203, -25.3347, 0.522, 133.834)
 
 [node name="arrondi3" parent="CSGBox3D/roads" instance=ExtResource("4_1uw7e")]
-transform = Transform3D(0.0678198, -0.000458462, -0.997698, 0.00733146, -0.999972, 0.000957872, -0.997671, -0.00737954, -0.0678146, 9.73954, 0.564405, 134.79)
+transform = Transform3D(0.0678198, -0.000458462, -0.997698, 0.00733146, -0.999972, 0.000957872, -0.997671, -0.00737954, -0.0678146, 48.4376, 0.564405, 100.769)
 
 [node name="arrondi4" parent="CSGBox3D/roads" instance=ExtResource("4_1uw7e")]
-transform = Transform3D(-0.0105591, 0, -0.999944, 0, 1, 0, 0.999944, 0, -0.0105591, 10.3, 0.508378, 120.53)
+transform = Transform3D(-0.0105591, 0, -0.999944, 0, 1, 0, 0.999944, 0, -0.0105591, 60.5605, 0.508378, 106.53)
+
+[node name="arrondi5" parent="CSGBox3D/roads" instance=ExtResource("4_1uw7e")]
+transform = Transform3D(0.999646, 0, 0.026613, 0, 1, 0, -0.026613, 0, 0.999646, 40.6452, 0.508, 105.703)
+
+[node name="intersection2" parent="CSGBox3D/roads" instance=ExtResource("5_i8xjm")]
+transform = Transform3D(0.999885, 0, -0.0151663, 0, 1, 0, 0.0151663, 0, 0.999885, 30.6945, 0.522, 124.313)
+
+[node name="arrondi7" parent="CSGBox3D/roads" instance=ExtResource("4_1uw7e")]
+transform = Transform3D(0.0678198, -0.000458462, -0.997698, 0.00733146, -0.999972, 0.000957872, -0.997671, -0.00737954, -0.0678146, 35.1238, 0.564405, 112.763)
+
+[node name="Node3D2" parent="CSGBox3D/roads" instance=ExtResource("13_sof0u")]
+transform = Transform3D(1, 1.74846e-07, 0, -1.74846e-07, 1, 0, 0, 0, 1, 5.255, 0.588331, 123.717)
+
+[node name="road12" parent="CSGBox3D/roads" instance=ExtResource("3_ngq00")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.54093, 0.459294, 131.97)
+
+[node name="arrondi8" parent="CSGBox3D/roads" instance=ExtResource("4_1uw7e")]
+transform = Transform3D(-0.0116585, 0, 0.999932, 0, 1, 0, -0.999932, 0, -0.0116585, -30.0285, 0.508, 97.2797)
+
+[node name="arrondi9" parent="CSGBox3D/roads" instance=ExtResource("4_1uw7e")]
+transform = Transform3D(-0.0105591, 0, -0.999944, 0, 1, 0, 0.999944, 0, -0.0105591, -28.7624, 0.508378, 96.1637)
+
+[node name="arrondi10" parent="CSGBox3D/roads" instance=ExtResource("4_1uw7e")]
+transform = Transform3D(-0.0116585, 0, 0.999932, 0, 1, 0, -0.999932, 0, -0.0116585, -17.6833, 0.508, 110.817)
+
+[node name="road13" parent="CSGBox3D/roads" instance=ExtResource("3_ngq00")]
+transform = Transform3D(-0.146653, 0, -0.989188, 0, 1, 0, 0.989188, 0, -0.146653, -16.6101, 0.521413, 110.33)
+
+[node name="Node3D3" parent="CSGBox3D/roads" instance=ExtResource("13_sof0u")]
+transform = Transform3D(0.0117284, 2.05065e-09, -0.999931, -1.74846e-07, 1, 0, 0.999931, 1.74834e-07, 0.0117284, 12.4691, 0.501805, 139.939)
+
+[node name="Node3D2" parent="CSGBox3D" instance=ExtResource("13_sof0u")]
+transform = Transform3D(1, 1.74846e-07, 0, -1.74846e-07, 1, 0, 0, 0, 1, 5.29604, 0.52259, 146.171)
 
 [node name="forêt" type="Node3D" parent="CSGBox3D"]
 
@@ -3655,11 +3687,17 @@ font_size = 110
 [node name="maisons" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15838, 0, 0)
 
+[node name="Node3D3" parent="maisons" instance=ExtResource("12_au5my")]
+transform = Transform3D(-0.8383, 0, 0.54521, 0, 1, 0, -0.54521, 0, -0.8383, 57.5869, -2.70638, 89.4763)
+
+[node name="Node3D" parent="maisons/Node3D3" instance=ExtResource("13_yynab")]
+transform = Transform3D(0.745, 0, -2.98023e-08, 0, 0.745, 0, 2.98023e-08, 0, 0.745, -3.41129, -0.49409, 2.48245)
+
+[node name="Node3D2" parent="maisons/Node3D3" instance=ExtResource("13_yynab")]
+transform = Transform3D(0.745, 0, -2.98023e-08, 0, 0.745, 0, 2.98023e-08, 0, 0.745, -1.0824, -0.49409, 2.51388)
+
 [node name="Node3D2" parent="maisons" instance=ExtResource("9_bojn0")]
 transform = Transform3D(-0.657599, 0, -0.753368, 0, 1, 0, 0.753368, 0, -0.657599, -38.2893, -2.45459, 87.0834)
 
 [node name="Node3D" parent="maisons" instance=ExtResource("9_bojn0")]
 transform = Transform3D(-0.876676, 0, -0.48108, 0, 1, 0, 0.48108, 0, -0.876676, -34.2646, -2.75932, 123.083)
-
-[node name="Node3D" parent="." instance=ExtResource("12_au5my")]
-transform = Transform3D(-0.8383, 0, 0.54521, 0, 1, 0, -0.54521, 0, -0.8383, 30.1937, -2.70638, 115.551)
