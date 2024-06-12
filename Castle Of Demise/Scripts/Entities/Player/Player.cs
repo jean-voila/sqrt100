@@ -17,14 +17,18 @@ public partial class Player : CharacterBody3D
 	[Export] private AnimationPlayer _animReload;
 	[Export] private MeshInstance3D _revolverModel;
 	[Export] private float _revolverModelRotationAmount = -0.3f;
-	public string PlayerName = "";
-	public int PlayerId = 0;
-	public int PlayerScore = 0;
+	public string PlayerName { get; set; }
+	public int PlayerId { get; set; }
+	public int PlayerScore { get; set; }
 	private Vector2 _lastMouseMovement;
+	public static bool IsMultiplayer = false;
 	
 	public override void _Ready()
 	{
-
+		GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").SetMultiplayerAuthority(PlayerId);
+		GD.Print("Authority set to" + GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority());
+		GD.Print("Multiplayer Authority: " + PlayerId);
+		GD.Print(Multiplayer.GetUniqueId());
 		_shootInit();
 		_stepsInit();
 		_pauseMenuInit();
@@ -61,18 +65,39 @@ public partial class Player : CharacterBody3D
 	public override void _PhysicsProcess(double d)
 	{
 		// il faut un truc pour check si les gens controlent pas la mm personne?
-		HandleMouseMovementInputs((float)d);
-		HandleMovements(d);
-		HandleRespawn();
-		UpdateDebugInfo();
-		UpdatePlayerInfo();
-		CameraShakeProcess();
-		WeaponSway();
+		if (IsMultiplayer && GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority() == Multiplayer.GetUniqueId())
+		{
+			HandleMouseMovementInputs((float)d);
+			HandleMovements(d);
+			HandleRespawn();
+			UpdateDebugInfo();
+			UpdatePlayerInfo();
+			CameraShakeProcess();
+			WeaponSway();
+		}
+		if (!IsMultiplayer)
+		{
+			HandleMouseMovementInputs((float)d);
+			HandleMovements(d);
+			HandleRespawn();
+			UpdateDebugInfo();
+			UpdatePlayerInfo();
+			CameraShakeProcess();
+			WeaponSway();
+
+		}
+		/*
+		GD.Print("===== RAPPORT =====");
+		GD.Print(GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority() == Multiplayer.GetUniqueId());
+		GD.Print(GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority().ToString());
+		GD.Print(Multiplayer.GetUniqueId());
+		GD.Print("===== ENDOF =====");
+		*/
 	}
 
 	public override void _EnterTree()
 	{
-		RpcId(1, "SetnetworkMaster", PlayerId);
+		// RpcId(1, "SetnetworkMaster", PlayerId);
 	}
 
 
