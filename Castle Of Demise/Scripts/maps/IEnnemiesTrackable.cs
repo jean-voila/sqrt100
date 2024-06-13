@@ -3,7 +3,7 @@ using System;
 using CastleOfDemise.mobs.Player;
 using CastleOfDemise.Scripts.Menus.MultiLauncher;
 
-public partial class mpMap01 : Node3D
+public partial class IEnnemiesTrackable : Node3D
 {
     
 	[Export] public CharacterBody3D player;
