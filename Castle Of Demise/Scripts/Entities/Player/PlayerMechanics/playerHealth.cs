@@ -43,5 +43,22 @@ public partial class Player
             PlayerHealth -= var;
             IsDead = true;
         }
+        HandleDeath();
+    }
+    
+    private void _on_blood_hit_effect_timer_timeout()
+    {
+        BloodHitEffect.Hide();
+    }
+
+    private void HandleDeath()
+    {
+        if (IsDead)
+        {
+            _usedCamera.QueueFree();
+            _pauseMenu.Visible = true;
+            Input.MouseMode = Input.MouseModeEnum.Visible;
+            GetTree().Paused = true;
+        }
     }
 }

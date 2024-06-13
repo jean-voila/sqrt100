@@ -422,6 +422,7 @@ offset_right = 1086.0
 offset_bottom = 278.0
 
 [node name="BackbuttonFromMulti" type="Button" parent="MultiplayerMenu"]
+layout_mode = 0
 offset_left = 538.0
 offset_top = 472.0
 offset_right = 659.0

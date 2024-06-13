@@ -4,14 +4,12 @@ namespace CastleOfDemise.mobs.Player;
 
 public partial class Player
 {
-    private string _pauseMenuPath;
-    private Control _pauseMenu;
+    [Export] private Control _pauseMenu;
     public ulong _lastPauseTime;
 
     public void _pauseMenuInit()
     {
-        _pauseMenuPath = "CanvasLayer2/MenuPause";
-        _pauseMenu = GetNode<Control>(_pauseMenuPath);
+
         _pauseMenu.Visible = false;
         _lastPauseTime = Time.GetTicksMsec();
     }

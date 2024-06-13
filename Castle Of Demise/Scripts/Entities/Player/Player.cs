@@ -18,9 +18,10 @@ public partial class Player : CharacterBody3D
 	[Export] private AnimationPlayer _animReload;
 	[Export] private MeshInstance3D _revolverModel;
 	[Export] private float _revolverModelRotationAmount = -0.3f;
+	[Export] private CanvasLayer _pausecanvas;
+	[Export] private CanvasLayer _HUDCanvas;
 	
-	[Export] private CanvasLayer _pauseHUD;
-	[Export] private CanvasLayer _HUD;
+
 
 	public string PlayerName = "";
 	public int PlayerId = 0;
@@ -36,7 +37,7 @@ public partial class Player : CharacterBody3D
 	
 	public override void _Ready()
 	{
-		GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").SetMultiplayerAuthority(int.Parse(Name));
+		AddToGroup("Player");
 		_shootInit();
 		_stepsInit();
 		_pauseMenuInit();
@@ -44,6 +45,16 @@ public partial class Player : CharacterBody3D
 		_gameWindowInit();
 		_playerHealthInit();
 
+		if (!IsMultiplayer)
+		{
+			_HUDCanvas.Show();
+			_pausecanvas.Show();
+		}
+		else
+		{
+			GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").SetMultiplayerAuthority(int.Parse(Name));
+
+		}
 	}
 	
 	public override void _Input(InputEvent @event)
@@ -73,6 +84,7 @@ public partial class Player : CharacterBody3D
 	}
 	public override void _PhysicsProcess(double d)
 	{
+
 		if (IsMultiplayer)
 		{
 			if (Multiplayer.MultiplayerPeer != null 
@@ -86,9 +98,14 @@ public partial class Player : CharacterBody3D
 				UpdatePlayerInfo();
 				CameraShakeProcess();
 				WeaponSway();
+				this._HUDCanvas.Show();
+				this._pausecanvas.Show();
 				this.CameraForFov.Current = true;
-				this._HUD.Show();
-				this._pauseHUD.Show();
+				/*
+				 * this.CameraForFov.Current = true;
+				   this._HUD.Show();
+				   this._pauseHUD.Show();
+				 */
 
 				
 				// synchronisation of players
@@ -101,10 +118,10 @@ public partial class Player : CharacterBody3D
 				//GetNode<Node3D>("rotation").RotationDegrees = RotationDegrees.Lerp(_syncRotation, 0.1f);
 			}
 
-			// SendMultiplayerAuthorityReport();
+
 		}
 		
-		if (!IsMultiplayer)
+		else
 		{
 			HandleMouseMovementInputs((float)d);
 			HandleMovements(d);

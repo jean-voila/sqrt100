@@ -166,8 +166,9 @@ height = 1.18621
 [node name="Zombie" type="Node3D"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("_sfxPlayer", "NavAgent")]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("Cooldown", "_sfxPlayer", "NavAgent")]
 script = ExtResource("2")
+Cooldown = NodePath("../cooldown")
 _sfxPlayer = NodePath("AudioStreamPlayer")
 NavAgent = NodePath("NavigationAgent3D")
 

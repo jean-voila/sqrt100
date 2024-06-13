@@ -477,7 +477,7 @@ bg_color = Color(0.54902, 0.054902, 0.054902, 0.545098)
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_sfxPlayer", "_head", "_usedCamera", "_animReload", "_revolverModel", "_pauseHUD", "_HUD", "BloodHitEffect", "BloodHitEffectTimer", "_floorRayCast")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_sfxPlayer", "_head", "_usedCamera", "_animReload", "_revolverModel", "_pausecanvas", "_HUDCanvas", "BloodHitEffect", "BloodHitEffectTimer", "_floorRayCast", "_pauseMenu")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_y1gl0")
 _sfxPlayer = NodePath("SFXPlayer")
@@ -485,8 +485,8 @@ _head = NodePath("Head")
 _usedCamera = NodePath("Head/Camera3D")
 _animReload = NodePath("Head/Revolver/Reload")
 _revolverModel = NodePath("Head/Revolver")
-_pauseHUD = NodePath("CanvasLayer2")
-_HUD = NodePath("HUD")
+_pausecanvas = NodePath("CanvasLayer2")
+_HUDCanvas = NodePath("HUD")
 _accelerationSpeed = 10.0
 _decelerationSpeed = 10.0
 _maxSpeed = 10.0
@@ -495,6 +495,7 @@ _jumpSpeed = 24.0
 BloodHitEffect = NodePath("HUD/BloodHitEffect")
 BloodHitEffectTimer = NodePath("HUD/BloodHitEffectTimer")
 _floorRayCast = NodePath("checkFloor")
+_pauseMenu = NodePath("CanvasLayer2/MenuPause")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_interval = 0.07
@@ -770,6 +771,7 @@ theme_override_styles/separator = SubResource("23")
 
 [connection signal="timeout" from="Head/Camera3D/TimerHitMarker" to="." method="_on_timer_hit_marker_timeout"]
 [connection signal="timeout" from="Head/Revolver/muzzleFlash/Timer" to="." method="_on_timer_muzzleFlash_timeout"]
+[connection signal="timeout" from="HUD/BloodHitEffectTimer" to="." method="_on_blood_hit_effect_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer2/MenuPause/Panneau/Elements/PixelEffectToggle" to="." method="SwitchPixelShader"]
 [connection signal="value_changed" from="CanvasLayer2/MenuPause/Panneau/Elements/Music/HSlider" to="." method="ChangeMusicVolume"]
 [connection signal="toggled" from="CanvasLayer2/MenuPause/Panneau/Elements/Music/MusicToggle" to="." method="SwitchMusicPlayer"]
