@@ -21,7 +21,7 @@ public partial class Player : CharacterBody3D
 	
 	[Export] private CanvasLayer _pauseHUD;
 	[Export] private CanvasLayer _HUD;
-	
+
 	public string PlayerName = "";
 	public int PlayerId = 0;
 	public int PlayerScore = 0;
@@ -43,6 +43,7 @@ public partial class Player : CharacterBody3D
 		_graphismsInit();
 		_gameWindowInit();
 		_playerHealthInit();
+
 	}
 	
 	public override void _Input(InputEvent @event)
@@ -100,7 +101,7 @@ public partial class Player : CharacterBody3D
 				//GetNode<Node3D>("rotation").RotationDegrees = RotationDegrees.Lerp(_syncRotation, 0.1f);
 			}
 
-			SendMultiplayerAuthorityReport();
+			// SendMultiplayerAuthorityReport();
 		}
 		
 		if (!IsMultiplayer)

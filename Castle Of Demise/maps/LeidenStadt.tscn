@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b4t5vqp3ahc8r" path="res://Assets/Props/intersection2.tscn" id="5_i8xjm"]
 [ext_resource type="Texture2D" uid="uid://dtc7wjnag443v" path="res://Assets/Textures/imageonline-co-pixelated(2).png" id="6_yw0dc"]
 [ext_resource type="Texture2D" uid="uid://4id0pnmf22o8" path="res://Assets/Textures/imageonline-co-pixelated-planks.png" id="7_orln4"]
-[ext_resource type="Material" path="res://Assets/Props/colormap.material" id="7_q4brr"]
+[ext_resource type="Material" uid="uid://cb4j2n10wqe38" path="res://Assets/Props/colormap.material" id="7_q4brr"]
 [ext_resource type="FontFile" uid="uid://qtsc2kgt2e0p" path="res://Assets/Fonts/pixel.ttf" id="8_mm2t4"]
 [ext_resource type="PackedScene" uid="uid://dcgp1x8mfi467" path="res://Assets/Mesh/maison.tscn" id="9_bojn0"]
 [ext_resource type="PackedScene" uid="uid://lljip5p7ygc6" path="res://Assets/Mesh/maison_ouverte.tscn" id="12_au5my"]

@@ -1,7 +1,13 @@
+using Godot;
+
 namespace CastleOfDemise.mobs.Player;
 
 public partial class Player
 {
+    private bool IsDead;
+    [Export] private Sprite2D BloodHitEffect;
+    [Export] private Timer BloodHitEffectTimer;
+    
     public int PlayerHealth;
     private int _maxHealth;
 

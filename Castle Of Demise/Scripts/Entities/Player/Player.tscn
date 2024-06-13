@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://twx1vowmd4ni"]
+[gd_scene load_steps=40 format=3 uid="uid://twx1vowmd4ni"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/Player/Player.cs" id="1_y1gl0"]
 [ext_resource type="PackedScene" uid="uid://dikmlfsujgrqa" path="res://Scripts/Entities/Player/HUD.tscn" id="2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Material" path="res://Assets/Mesh/Gray_Revolver02.material" id="3"]
 [ext_resource type="Texture2D" uid="uid://bhauv2kw8n7s" path="res://Assets/Textures/CrossHair.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://dqqog0o0wl23t" path="res://Assets/Textures/HitMarker.png" id="9_mgmic"]
+[ext_resource type="Texture2D" uid="uid://cbisssun80dsd" path="res://Assets/Effects/BloodHitEffect.png" id="10_af6lm"]
 [ext_resource type="Texture2D" uid="uid://5m3d8xa00fju" path="res://Assets/Textures/HitMarkerKill.png" id="10_pawsq"]
 [ext_resource type="Script" path="res://Scripts/Menus/Resume.cs" id="17"]
 [ext_resource type="FontFile" uid="uid://dvmceoo1v7y32" path="res://Assets/Fonts/firacode.ttf" id="18"]
@@ -18,9 +19,6 @@
 properties/0/path = NodePath(".:_syncPos")
 properties/0/spawn = true
 properties/0/replication_mode = 1
-properties/1/path = NodePath(".:_syncRotation")
-properties/1/spawn = true
-properties/1/replication_mode = 1
 
 [sub_resource type="CapsuleShape3D" id="1"]
 radius = 0.384727
@@ -479,7 +477,7 @@ bg_color = Color(0.54902, 0.054902, 0.054902, 0.545098)
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_sfxPlayer", "_head", "_usedCamera", "_animReload", "_revolverModel", "_pauseHUD", "_HUD", "_floorRayCast")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_sfxPlayer", "_head", "_usedCamera", "_animReload", "_revolverModel", "_pauseHUD", "_HUD", "BloodHitEffect", "BloodHitEffectTimer", "_floorRayCast")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_y1gl0")
 _sfxPlayer = NodePath("SFXPlayer")
@@ -494,6 +492,8 @@ _decelerationSpeed = 10.0
 _maxSpeed = 10.0
 _gravity = 34.0
 _jumpSpeed = 24.0
+BloodHitEffect = NodePath("HUD/BloodHitEffect")
+BloodHitEffectTimer = NodePath("HUD/BloodHitEffectTimer")
 _floorRayCast = NodePath("checkFloor")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
@@ -626,6 +626,16 @@ offset_left = 7.0
 offset_top = 6.0
 offset_right = 7.0
 offset_bottom = 6.0
+
+[node name="BloodHitEffectTimer" type="Timer" parent="HUD"]
+wait_time = 0.05
+one_shot = true
+
+[node name="BloodHitEffect" type="Sprite2D" parent="HUD"]
+visible = false
+position = Vector2(640, 360)
+scale = Vector2(20, 20)
+texture = ExtResource("10_af6lm")
 
 [node name="StepSoundsEffetcs" type="Node3D" parent="."]
 

@@ -142,9 +142,8 @@ radius = 1.50195
 
 [node name="Bat" type="Node3D"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("Cooldown", "_sfxPlayer", "NavAgent")]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("_sfxPlayer", "NavAgent")]
 script = ExtResource("2")
-Cooldown = NodePath("../AttackCoolDown")
 _sfxPlayer = NodePath("AudioStreamPlayer")
 NavAgent = NodePath("NavigationAgent3D")
 
