@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using CastleOfDemise.Scripts.Menus.MultiLauncher;
 using Godot;
 
 namespace CastleOfDemise.mobs.Player;
@@ -17,19 +18,25 @@ public partial class Player : CharacterBody3D
 	[Export] private AnimationPlayer _animReload;
 	[Export] private MeshInstance3D _revolverModel;
 	[Export] private float _revolverModelRotationAmount = -0.3f;
-	[Export] protected Timer BloodHitEffectTimer;
-	[Export] protected Sprite2D BloodHitEffect;
-	public bool IsDead = false;
-	public  string PlayerName { get; set; }
-	public  int PlayerId { get; set; }
-	public  int PlayerScore { get; set; }
+	
+	[Export] private CanvasLayer _pauseHUD;
+	[Export] private CanvasLayer _HUD;
+	
+	public string PlayerName = "";
+	public int PlayerId = 0;
+	public int PlayerScore = 0;
+	public bool IsServer = false;
 	private Vector2 _lastMouseMovement;
 	public static bool IsMultiplayer = false;
 	
+	
+	// cleaner synchronisation
+	private Vector3 _syncPos = new Vector3(0, 0, 0);  // position
+	//private Vector3 _syncRotation = new Vector3(0, 0, 0); //rotation du perso
+	
 	public override void _Ready()
 	{
-		AddToGroup("Player");
-		GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").SetMultiplayerAuthority(PlayerId);
+		GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").SetMultiplayerAuthority(int.Parse(Name));
 		_shootInit();
 		_stepsInit();
 		_pauseMenuInit();
@@ -65,17 +72,37 @@ public partial class Player : CharacterBody3D
 	}
 	public override void _PhysicsProcess(double d)
 	{
-		// il faut un truc pour check si les gens controlent pas la mm personne?
-		if (IsMultiplayer && GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority() == Multiplayer.GetUniqueId())
+		if (IsMultiplayer)
 		{
-			HandleMouseMovementInputs((float)d);
-			HandleMovements(d);
-			HandleRespawn();
-			UpdateDebugInfo();
-			UpdatePlayerInfo();
-			CameraShakeProcess();
-			WeaponSway();
+			if (Multiplayer.MultiplayerPeer != null 
+			    && GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority() == Multiplayer.GetUniqueId()
+			   )
+			{
+				HandleMouseMovementInputs((float)d);
+				HandleMovements(d);
+				HandleRespawn();
+				UpdateDebugInfo();
+				UpdatePlayerInfo();
+				CameraShakeProcess();
+				WeaponSway();
+				this.CameraForFov.Current = true;
+				this._HUD.Show();
+				this._pauseHUD.Show();
+
+				
+				// synchronisation of players
+				_syncPos = GlobalPosition;
+				//_syncRotation = GetNode<Node3D>("rotation").RotationDegrees;
+			}
+			else
+			{
+				GlobalPosition = GlobalPosition.Lerp(_syncPos, 0.1f);
+				//GetNode<Node3D>("rotation").RotationDegrees = RotationDegrees.Lerp(_syncRotation, 0.1f);
+			}
+
+			SendMultiplayerAuthorityReport();
 		}
+		
 		if (!IsMultiplayer)
 		{
 			HandleMouseMovementInputs((float)d);
@@ -85,31 +112,24 @@ public partial class Player : CharacterBody3D
 			UpdatePlayerInfo();
 			CameraShakeProcess();
 			WeaponSway();
-			HandleDeath(); //
 		}
 		
 		
-		// Method will send a report about the current multiplayerauthority, to see if it is working correctly
-		//MultiplayerAuthorityReport();
 	}
 
 
-	public void HandleDeath()
-	{
-		if (IsDead)
-		{
-			GD.Print("MORT ! (nullos)");
-		}
-	}
 
-	private void MultiplayerAuthorityReport()
+	private void SendMultiplayerAuthorityReport()
 	{
+		GD.Print("");
 		GD.Print("===== RAPPORT =====");
 		GD.Print("The session is " + PlayerName);
 		GD.Print("Are they both equal? ::" + (GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority() == Multiplayer.GetUniqueId()));
 		GD.Print("The authority is "+ GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority().ToString());
 		GD.Print("The Id is " + Multiplayer.GetUniqueId());
-		GD.Print("===== ENDOF =====");
+		GD.Print("===== END OF =====");
+		GD.Print("");
+
 	}
 
 	public override void _EnterTree()
@@ -125,11 +145,8 @@ public partial class Player : CharacterBody3D
 	{
 		// This method would be called on the peer with ID 1, changing the network master of the node
 	}
-
-
-	public void _on_damage_effect_timer_timeout()
-	{
-		BloodHitEffect.Hide();
-	}
+	
+	
+	
 													
 }

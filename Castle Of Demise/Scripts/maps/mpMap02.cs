@@ -10,22 +10,23 @@ public partial class mpMap02 : Node3D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		int index = 0;
 		foreach (var item in GameManager.Players)
 		{
-			Player current = (Player)_multiplayerScene02.Instantiate();
+			Player current = (Player)_multiplayerScene02.Instantiate<Player>();
 			current.PlayerName = item.Value.PlayerName;
 			current.PlayerId = item.Value.PlayerId;
 			current.PlayerScore = item.Value.PlayerScore;
+			current.IsServer = item.Value.IsServer;
+			current.Name = item.Value.PlayerId.ToString(); // techniquement inutile,
+                                                  // mais ca permet de suivre une logique appréciable
 			AddChild(current);
 			foreach (var spawnPoint in GetTree().GetNodesInGroup("PlayerSpawnPoint"))
 			{
-				if (spawnPoint.Name == 0.ToString())
+				if (spawnPoint.Name == item.Key.ToString())
 				{
 					current.Teleport(((Node3D)spawnPoint).GlobalTransform.Origin);
 				}
 			}
-			index++;
 		}
 		
 	}

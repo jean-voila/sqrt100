@@ -1,7 +1,7 @@
 [gd_scene load_steps=52 format=3 uid="uid://yv10fpfkfj4a"]
 
 [ext_resource type="Texture2D" uid="uid://dtc7wjnag443v" path="res://Assets/Textures/imageonline-co-pixelated(2).png" id="1"]
-[ext_resource type="Script" path="res://Scripts/maps/mpMap01.cs" id="1_oijo4"]
+[ext_resource type="Script" path="res://Scripts/maps/IEnnemiesTrackable.cs" id="1_kxfd3"]
 [ext_resource type="PackedScene" uid="uid://twx1vowmd4ni" path="res://Scripts/Entities/Player/Player.tscn" id="2"]
 [ext_resource type="Texture2D" uid="uid://c3ckpby2dcm6k" path="res://Assets/Textures/imageonline-co-pixelated.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://bddvfd4li5gc0" path="res://Assets/Textures/imageonline-co-pixelated(4).png" id="4"]
@@ -225,7 +225,7 @@ animations = [{
 }]
 
 [node name="mpMap01" type="Node3D" node_paths=PackedStringArray("player")]
-script = ExtResource("1_oijo4")
+script = ExtResource("1_kxfd3")
 player = NodePath("Player")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
