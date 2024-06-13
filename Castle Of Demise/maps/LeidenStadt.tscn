@@ -1,10 +1,11 @@
-[gd_scene load_steps=38 format=3 uid="uid://biepd6okow1e8"]
+[gd_scene load_steps=40 format=3 uid="uid://biepd6okow1e8"]
 
 [ext_resource type="Script" path="res://Scripts/maps/IEnnemiesTrackable.cs" id="1_8ttph"]
 [ext_resource type="PackedScene" uid="uid://twx1vowmd4ni" path="res://Scripts/Entities/Player/Player.tscn" id="2_4juko"]
 [ext_resource type="PackedScene" uid="uid://djvcnnignduwe" path="res://Assets/Props/CR0SSR0ADS.tscn" id="3_ngq00"]
 [ext_resource type="PackedScene" uid="uid://bx201rq3muxli" path="res://Assets/Props/arrondi.tscn" id="4_1uw7e"]
 [ext_resource type="Texture2D" uid="uid://cgg2wqugcv5de" path="res://Assets/Props/tree02.png" id="4_c8ftr"]
+[ext_resource type="Texture2D" uid="uid://citnbqb3htaxg" path="res://Assets/Textures/imageonline-co-pixelated(1).png" id="4_o0qc2"]
 [ext_resource type="Texture2D" uid="uid://c0tm1u0k4kco" path="res://Assets/Props/tree01.png" id="5_0rcck"]
 [ext_resource type="PackedScene" uid="uid://b4t5vqp3ahc8r" path="res://Assets/Props/intersection2.tscn" id="5_i8xjm"]
 [ext_resource type="Texture2D" uid="uid://dtc7wjnag443v" path="res://Assets/Textures/imageonline-co-pixelated(2).png" id="6_yw0dc"]
@@ -26,6 +27,10 @@
 [sub_resource type="NavigationMesh" id="NavigationMesh_t0ghe"]
 vertices = PackedVector3Array(-249.541, -1.95459, -250.467, -249.541, -1.95459, 248.533, 249.459, -1.95459, 248.533, 249.459, -1.95459, -250.467)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oanpm"]
+albedo_texture = ExtResource("4_o0qc2")
+uv1_triplanar = true
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cpqrk"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -129,6 +134,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0410442, -2.95459, -0.9672
 material_override = ExtResource("7_q4brr")
 use_collision = true
 size = Vector3(500, 1, 500)
+material = SubResource("StandardMaterial3D_oanpm")
 
 [node name="roads" type="Node3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0410442, -2.95459, -0.967209)
