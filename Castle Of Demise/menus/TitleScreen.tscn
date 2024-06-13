@@ -64,15 +64,6 @@ cache/0/30/0/kerning_overrides/16/0 = Vector2(0, 0)
 cache/0/30/0/kerning_overrides/50/0 = Vector2(0, 0)
 cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
 
-[sub_resource type="FontFile" id="11"]
-fallbacks = Array[Font]([ExtResource("3")])
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-
 [sub_resource type="FontFile" id="17"]
 fallbacks = Array[Font]([ExtResource("3")])
 cache/0/16/0/ascent = 0.0
@@ -83,6 +74,15 @@ cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="14"]
+fallbacks = Array[Font]([ExtResource("3")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="11"]
 fallbacks = Array[Font]([ExtResource("3")])
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
@@ -346,18 +346,6 @@ theme_override_colors/font_color = Color(0.929412, 0.929412, 0.929412, 0.694118)
 theme_override_fonts/font = SubResource("27")
 text = "Multijoueur"
 
-[node name="BackButton" type="Button" parent="MultiplayerMenu"]
-layout_mode = 0
-offset_left = 575.0
-offset_top = 521.0
-offset_right = 696.0
-offset_bottom = 571.0
-theme_override_fonts/font = SubResource("11")
-theme_override_styles/normal = ExtResource("5")
-theme_override_styles/hover = ExtResource("6")
-theme_override_styles/pressed = ExtResource("11")
-text = "Retour"
-
 [node name="ConnectionControl" type="Control" parent="MultiplayerMenu"]
 anchors_preset = 0
 offset_right = 40.0
@@ -432,6 +420,17 @@ offset_left = 859.0
 offset_top = 199.0
 offset_right = 1086.0
 offset_bottom = 278.0
+
+[node name="BackbuttonFromMulti" type="Button" parent="MultiplayerMenu"]
+offset_left = 538.0
+offset_top = 472.0
+offset_right = 659.0
+offset_bottom = 522.0
+theme_override_fonts/font = SubResource("11")
+theme_override_styles/normal = ExtResource("5")
+theme_override_styles/hover = ExtResource("6")
+theme_override_styles/pressed = ExtResource("11")
+text = "Retour"
 
 [node name="GamemodeMenu" type="Control" parent="."]
 unique_name_in_owner = true
@@ -609,15 +608,15 @@ script = ExtResource("15_p1v4r")
 [connection signal="button_down" from="OptionsMenu/BackButton" to="." method="_pressed_button"]
 [connection signal="button_up" from="OptionsMenu/BackButton" to="." method="_show_title_screen_"]
 [connection signal="mouse_entered" from="OptionsMenu/BackButton" to="." method="_focused_button"]
-[connection signal="button_down" from="MultiplayerMenu/BackButton" to="." method="_return_pressed_button"]
-[connection signal="button_up" from="MultiplayerMenu/BackButton" to="." method="_PlayButtonPressed"]
-[connection signal="mouse_entered" from="MultiplayerMenu/BackButton" to="." method="_focused_button"]
 [connection signal="button_down" from="MultiplayerMenu/ConnectionControl/SceneHostButton" to="." method="_pressed_button"]
 [connection signal="mouse_entered" from="MultiplayerMenu/ConnectionControl/SceneHostButton" to="." method="_focused_button"]
 [connection signal="pressed" from="MultiplayerMenu/ConnectionControl/SceneHostButton" to="MultiplayerMenu" method="_hostPressed"]
 [connection signal="button_down" from="MultiplayerMenu/ConnectionControl/SceneJoinButton" to="." method="_pressed_button"]
 [connection signal="mouse_entered" from="MultiplayerMenu/ConnectionControl/SceneJoinButton" to="." method="_focused_button"]
 [connection signal="pressed" from="MultiplayerMenu/ConnectionControl/SceneJoinButton" to="MultiplayerMenu" method="_clientPressed"]
+[connection signal="button_down" from="MultiplayerMenu/BackbuttonFromMulti" to="." method="_return_pressed_button"]
+[connection signal="button_up" from="MultiplayerMenu/BackbuttonFromMulti" to="MultiplayerMenu" method="_on_back_button_frommulti_button_up"]
+[connection signal="mouse_entered" from="MultiplayerMenu/BackbuttonFromMulti" to="." method="_focused_button"]
 [connection signal="button_down" from="GamemodeMenu/BackButton" to="." method="_pressed_button"]
 [connection signal="button_up" from="GamemodeMenu/BackButton" to="." method="_show_title_screen_"]
 [connection signal="mouse_entered" from="GamemodeMenu/BackButton" to="." method="_focused_button"]

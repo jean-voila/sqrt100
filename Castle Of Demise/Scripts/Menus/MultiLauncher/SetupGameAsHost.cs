@@ -1,6 +1,7 @@
 using System;
 using System.Net;
 using System.Net.Sockets;
+using CastleOfDemise.mobs.Player;
 using Godot;
 
 namespace CastleOfDemise.Scripts.Menus.MultiLauncher;
@@ -44,6 +45,8 @@ public partial class SetupGameAsHost : Control
 	{
 		GetNode<Control>("%SetupGameAsHost").Hide();
 		GetNode<Control>("%MultiplayerMenu").Show();
+		GD.Print("Going from HostMenu to MultiplayerMenu");
+		if (MultiplayerMenu.Peer != null) MultiplayerMenu.Peer.Close();
 	}
 	
 	// Ces 2 fonctions sont des fonctions de select pour le multi
@@ -96,6 +99,9 @@ public partial class SetupGameAsHost : Control
 			_startGameButton.Disabled = true;
 		}
 	}
+
+	
+	
 }
 
 

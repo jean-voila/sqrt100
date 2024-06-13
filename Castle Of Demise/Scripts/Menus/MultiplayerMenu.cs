@@ -13,7 +13,7 @@ namespace CastleOfDemise.Scripts.Menus
         private string _address = "127.0.0.1";
         private string _name = "Player";
         private TextEdit _codeToJoin;
-        private ENetMultiplayerPeer _peer;
+        public static ENetMultiplayerPeer Peer;
 
 // Called when the node enters the scene tree for the first time.
         public override void _Ready()
@@ -70,10 +70,11 @@ namespace CastleOfDemise.Scripts.Menus
         }
         private void _clientPressed()
         {
-            _peer = new ENetMultiplayerPeer();
-            _peer.CreateClient(_address, _port);
-            _peer.Host.Compress(ENetConnection.CompressionMode.RangeCoder);
-            Multiplayer.MultiplayerPeer = _peer;
+            if (Peer != null) Peer.Close();
+            Peer = new ENetMultiplayerPeer();
+            Peer.CreateClient(_address, _port);
+            Peer.Host.Compress(ENetConnection.CompressionMode.RangeCoder);
+            Multiplayer.MultiplayerPeer = Peer;
             GD.Print("JOINING GAME...");
         }
         
@@ -81,19 +82,20 @@ namespace CastleOfDemise.Scripts.Menus
 
         private void _hostPressed()
         {
+            Peer = null;
             GetNode<Control>("%MultiplayerMenu").Hide();
             GetNode<Control>("%SetupGameAsHost").Show();
 
-            _peer = new ENetMultiplayerPeer();
-            var error = _peer.CreateServer(_port, 2);
+            Peer = new ENetMultiplayerPeer();
+            var error = Peer.CreateServer(_port, 2);
             if (error != Error.Ok)
             {
                 GD.Print("ERROR CANNOT HOST: " + error.ToString());
                 return;
             }
 
-            _peer.Host.Compress(ENetConnection.CompressionMode.RangeCoder);
-            Multiplayer.MultiplayerPeer = _peer;
+            Peer.Host.Compress(ENetConnection.CompressionMode.RangeCoder);
+            Multiplayer.MultiplayerPeer = Peer;
             GD.Print("WAITING FOR PLAYERS!");
 
             var multiplayerMenu = GetNode<Control>("%MultiplayerMenu");
@@ -111,6 +113,16 @@ namespace CastleOfDemise.Scripts.Menus
             GD.Print("===================================");
 
             
+        }
+
+        private void _on_back_button_frommulti_button_up()
+        {
+            GD.Print("_returnFromMultiplayerMenu method access found");
+            Player.IsMultiplayer = false;
+            if (Peer != null) Peer.Close();
+            GetNode<Control>("%MultiplayerMenu").Hide();
+            GetNode<Control>("%GamemodeMenu").Show();
+            GD.Print("Going from muntiplayerMenu to GamemodeMenu");
         }
 
         [Rpc(MultiplayerApi.RpcMode.AnyPeer)]
