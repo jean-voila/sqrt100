@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://twx1vowmd4ni"]
+[gd_scene load_steps=40 format=3 uid="uid://twx1vowmd4ni"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/Player/Player.cs" id="1_y1gl0"]
 [ext_resource type="PackedScene" uid="uid://dikmlfsujgrqa" path="res://Scripts/Entities/Player/HUD.tscn" id="2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bhauv2kw8n7s" path="res://Assets/Textures/CrossHair.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://dqqog0o0wl23t" path="res://Assets/Textures/HitMarker.png" id="9_mgmic"]
 [ext_resource type="Texture2D" uid="uid://5m3d8xa00fju" path="res://Assets/Textures/HitMarkerKill.png" id="10_pawsq"]
+[ext_resource type="Texture2D" uid="uid://cbisssun80dsd" path="res://Assets/Effects/BloodHitEffect.png" id="10_v07u3"]
 [ext_resource type="Script" path="res://Scripts/Menus/Resume.cs" id="17"]
 [ext_resource type="FontFile" uid="uid://dvmceoo1v7y32" path="res://Assets/Fonts/firacode.ttf" id="18"]
 [ext_resource type="StyleBox" path="res://Assets/Styles/redButton.tres" id="19"]
@@ -476,7 +477,7 @@ bg_color = Color(0.54902, 0.054902, 0.054902, 0.545098)
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_sfxPlayer", "_head", "_usedCamera", "_animReload", "_revolverModel", "_floorRayCast")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_sfxPlayer", "_head", "_usedCamera", "_animReload", "_revolverModel", "BloodHitEffectTimer", "BloodHitEffect", "_floorRayCast") groups=["Player"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_y1gl0")
 _sfxPlayer = NodePath("SFXPlayer")
@@ -484,6 +485,8 @@ _head = NodePath("Head")
 _usedCamera = NodePath("Head/Camera3D")
 _animReload = NodePath("Head/Revolver/Reload")
 _revolverModel = NodePath("Head/Revolver")
+BloodHitEffectTimer = NodePath("HUD/DamageEffectTimer")
+BloodHitEffect = NodePath("HUD/BloodHitEffect")
 _accelerationSpeed = 10.0
 _decelerationSpeed = 10.0
 _maxSpeed = 10.0
@@ -619,6 +622,16 @@ offset_top = 6.0
 offset_right = 7.0
 offset_bottom = 6.0
 
+[node name="DamageEffectTimer" type="Timer" parent="HUD"]
+wait_time = 0.05
+one_shot = true
+
+[node name="BloodHitEffect" type="Sprite2D" parent="HUD"]
+visible = false
+position = Vector2(644, 365)
+scale = Vector2(20, 20)
+texture = ExtResource("10_v07u3")
+
 [node name="StepSoundsEffetcs" type="Node3D" parent="."]
 
 [node name="TimerBetweenStep" type="Timer" parent="StepSoundsEffetcs"]
@@ -751,6 +764,7 @@ theme_override_styles/separator = SubResource("23")
 
 [connection signal="timeout" from="Head/Camera3D/TimerHitMarker" to="." method="_on_timer_hit_marker_timeout"]
 [connection signal="timeout" from="Head/Revolver/muzzleFlash/Timer" to="." method="_on_timer_muzzleFlash_timeout"]
+[connection signal="timeout" from="HUD/DamageEffectTimer" to="." method="_on_damage_effect_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer2/MenuPause/Panneau/Elements/PixelEffectToggle" to="." method="SwitchPixelShader"]
 [connection signal="value_changed" from="CanvasLayer2/MenuPause/Panneau/Elements/Music/HSlider" to="." method="ChangeMusicVolume"]
 [connection signal="toggled" from="CanvasLayer2/MenuPause/Panneau/Elements/Music/MusicToggle" to="." method="SwitchMusicPlayer"]

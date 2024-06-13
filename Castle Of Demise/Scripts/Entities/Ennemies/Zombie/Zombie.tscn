@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://xrhd6q53it2j"]
+[gd_scene load_steps=25 format=3 uid="uid://xrhd6q53it2j"]
 
 [ext_resource type="Texture2D" uid="uid://bgvmrshlnj4l7" path="res://Assets/Textures/ZombieFrames.png" id="1"]
 [ext_resource type="Script" path="res://Scripts/Entities/Ennemies/Zombie/Zombie.cs" id="2"]
@@ -160,11 +160,15 @@ animations = [{
 [sub_resource type="CapsuleShape3D" id="1"]
 radius = 0.766308
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tthly"]
+height = 1.18621
+
 [node name="Zombie" type="Node3D"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("_sfxPlayer", "NavAgent")]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("Cooldown", "_sfxPlayer", "NavAgent")]
 script = ExtResource("2")
+Cooldown = NodePath("../cooldown")
 _sfxPlayer = NodePath("AudioStreamPlayer")
 NavAgent = NodePath("NavigationAgent3D")
 
@@ -185,3 +189,15 @@ script = ExtResource("3_d0mnn")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D"]
 avoidance_enabled = true
 height = 10.0
+
+[node name="RangeZombie" type="Area3D" parent="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/RangeZombie"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.095134, 0)
+shape = SubResource("CapsuleShape3D_tthly")
+
+[node name="cooldown" type="Timer" parent="."]
+
+[connection signal="body_entered" from="CharacterBody3D/RangeZombie" to="CharacterBody3D" method="_on_range_zombie_body_entered"]
+[connection signal="body_exited" from="CharacterBody3D/RangeZombie" to="CharacterBody3D" method="_on_range_zombie_body_exited"]
+[connection signal="timeout" from="cooldown" to="CharacterBody3D" method="_on_cooldown_timeout"]

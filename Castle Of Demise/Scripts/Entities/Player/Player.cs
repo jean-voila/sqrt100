@@ -17,6 +17,9 @@ public partial class Player : CharacterBody3D
 	[Export] private AnimationPlayer _animReload;
 	[Export] private MeshInstance3D _revolverModel;
 	[Export] private float _revolverModelRotationAmount = -0.3f;
+	[Export] protected Timer BloodHitEffectTimer;
+	[Export] protected Sprite2D BloodHitEffect;
+	public bool IsDead = false;
 	public  string PlayerName { get; set; }
 	public  int PlayerId { get; set; }
 	public  int PlayerScore { get; set; }
@@ -25,6 +28,7 @@ public partial class Player : CharacterBody3D
 	
 	public override void _Ready()
 	{
+		AddToGroup("Player");
 		GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").SetMultiplayerAuthority(PlayerId);
 		_shootInit();
 		_stepsInit();
@@ -81,7 +85,7 @@ public partial class Player : CharacterBody3D
 			UpdatePlayerInfo();
 			CameraShakeProcess();
 			WeaponSway();
-
+			HandleDeath(); //
 		}
 		
 		
@@ -90,6 +94,13 @@ public partial class Player : CharacterBody3D
 	}
 
 
+	public void HandleDeath()
+	{
+		if (IsDead)
+		{
+			GD.Print("MORT ! (nullos)");
+		}
+	}
 
 	private void MultiplayerAuthorityReport()
 	{
@@ -114,8 +125,11 @@ public partial class Player : CharacterBody3D
 	{
 		// This method would be called on the peer with ID 1, changing the network master of the node
 	}
-	
-	
-	
+
+
+	public void _on_damage_effect_timer_timeout()
+	{
+		BloodHitEffect.Hide();
+	}
 													
 }

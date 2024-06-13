@@ -1347,7 +1347,7 @@ size = Vector3(10, 6, 1)
 material = SubResource("21")
 
 [node name="Player" parent="." instance=ExtResource("2")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.22956, -13, -29.1567)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 26.8545, -6.76959, -29.1567)
 
 [node name="HealthPack" parent="." instance=ExtResource("18_jy73f")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 2.41469, -12.5151, -38.5125)

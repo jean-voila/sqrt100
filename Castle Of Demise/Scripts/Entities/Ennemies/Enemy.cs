@@ -14,6 +14,7 @@ namespace CastleOfDemise.mobs.Ennemies
         protected virtual int Health { get; set; }
         
         protected virtual float Speed { get; set; } = 0.30f;
+        protected virtual int Damage { get; set; }
 
         [Export] private AudioStreamPlayer _sfxPlayer;
         

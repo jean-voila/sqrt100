@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://tgtc4mteft3s"]
+[gd_scene load_steps=23 format=3 uid="uid://tgtc4mteft3s"]
 
 [ext_resource type="Texture2D" uid="uid://vj4ih4cpmamv" path="res://Assets/Textures/batframes.png" id="1"]
 [ext_resource type="Script" path="res://Scripts/Entities/Ennemies/Bat/Bat.cs" id="2"]
 [ext_resource type="Texture2D" uid="uid://pl17t38jbv5u" path="res://Assets/Textures/touched_batframes.png" id="3"]
+[ext_resource type="Script" path="res://Scripts/Entities/Player/SFXPlayer.cs" id="4_0g0wv"]
 
 [sub_resource type="AtlasTexture" id="19"]
 atlas = ExtResource("3")
@@ -136,10 +137,14 @@ animations = [{
 [sub_resource type="SphereShape3D" id="6"]
 radius = 0.650555
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_lo8gc"]
+radius = 1.50195
+
 [node name="Bat" type="Node3D"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("_sfxPlayer", "NavAgent")]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("Cooldown", "_sfxPlayer", "NavAgent")]
 script = ExtResource("2")
+Cooldown = NodePath("../AttackCoolDown")
 _sfxPlayer = NodePath("AudioStreamPlayer")
 NavAgent = NodePath("NavigationAgent3D")
 
@@ -154,6 +159,19 @@ animation = &"idle"
 shape = SubResource("6")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CharacterBody3D"]
+script = ExtResource("4_0g0wv")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D"]
 avoidance_enabled = true
+
+[node name="AttackRange" type="Area3D" parent="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/AttackRange"]
+shape = SubResource("SphereShape3D_lo8gc")
+
+[node name="AttackCoolDown" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="body_entered" from="CharacterBody3D/AttackRange" to="CharacterBody3D" method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="CharacterBody3D/AttackRange" to="CharacterBody3D" method="_on_attack_range_body_exited"]
+[connection signal="timeout" from="AttackCoolDown" to="CharacterBody3D" method="_on_attack_cool_down_timeout"]
