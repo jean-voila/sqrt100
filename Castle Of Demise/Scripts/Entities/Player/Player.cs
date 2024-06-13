@@ -61,8 +61,7 @@ public partial class Player : CharacterBody3D
 	}
 	public override void _PhysicsProcess(double d)
 	{
-		// il faut un truc pour check si les gens controlent pas la mm personne?
-		if (IsMultiplayer && GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority() == Multiplayer.GetUniqueId())
+		if (IsMultiplayer && Multiplayer.MultiplayerPeer != null && GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority() == Multiplayer.GetUniqueId())
 		{
 			HandleMouseMovementInputs((float)d);
 			HandleMovements(d);
@@ -81,17 +80,14 @@ public partial class Player : CharacterBody3D
 			UpdatePlayerInfo();
 			CameraShakeProcess();
 			WeaponSway();
-
 		}
 		
-		
-		// Method will send a report about the current multiplayerauthority, to see if it is working correctly
-		//MultiplayerAuthorityReport();
+		//SendMultiplayerAuthorityReport();
 	}
 
 
 
-	private void MultiplayerAuthorityReport()
+	private void SendMultiplayerAuthorityReport()
 	{
 		GD.Print("===== RAPPORT =====");
 		GD.Print("The session is " + PlayerName);

@@ -37,7 +37,7 @@ public partial class Player
 		var rightText = GenerateRightHudText();
 		textRightHud.Text = rightText;
 		    
-
+		
 	}
     	
     	
@@ -49,20 +49,24 @@ public partial class Player
 			$"{HudData("posX", _positionX)}" +
 			$"{HudData("posY", _positionY)}" +
 			$"{HudData("posZ", _positionZ)}" +
-    
+
 			$"{Title("Acceleration")}" +
 			$"{HudData("accX", _accelerationX)}" +
 			$"{HudData("accY", _accelerationY)}" +
 			$"{HudData("accZ", _accelerationZ)}" +
-    
+
 			$"{Title("Orientation")}" +
 			$"{HudData("oriX", _orientationX)}" +
 			$"{HudData("oriY", _orientationY)}" +
-    
+
 			$"{Title("Other")}" +
-			$"{HudData("Bullet Count", _ammoShooted)}"+
+			$"{HudData("Bullet Count", _ammoShooted)}" +
 			$"{HudData("Strength", _strength)}" +
-			$"{HudData("Killed", _killedEnemmies)}";
+			$"{HudData("Killed", _killedEnemmies)}" +
+
+			$"{Title("Multiplayer")}" +
+			$"{HudData("IsMultiplayer", Player.IsMultiplayer)}" +
+			$"{HudData("ServerSide", Player.IsMultiplayer ? ((PlayerId == 1) ? "Server" : "Client") : "None")}";
 	}
     
 	private string GenerateRightHudText()
