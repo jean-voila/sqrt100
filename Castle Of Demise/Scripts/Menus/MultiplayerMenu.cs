@@ -124,6 +124,7 @@ namespace CastleOfDemise.Scripts.Menus
                 player.PlayerName = name;
                 player.PlayerId = id;
                 player.PlayerScore = 0;
+                player.Name = id.ToString();
                 GameManager.Players.Add((id == 1) ? 0 : 1, player);
 
             }
@@ -160,7 +161,7 @@ namespace CastleOfDemise.Scripts.Menus
             GD.Print(player.PlayerId + " " + player.PlayerName + " " + player.PlayerScore);
         }
 
-        [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true, TransferMode = MultiplayerPeer.TransferModeEnum.Reliable)]
+        [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
         public void StartGame()
         {
             GetTree().ChangeSceneToFile("res://maps/mpMap02.tscn");

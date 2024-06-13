@@ -15,7 +15,7 @@
 [ext_resource type="Material" path="res://Assets/Mesh/Brown_Revolver02.material" id="25"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_jykpr"]
-properties/0/path = NodePath(".:position")
+properties/0/path = NodePath(".:syncPos")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
@@ -492,6 +492,8 @@ _jumpSpeed = 24.0
 _floorRayCast = NodePath("checkFloor")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_interval = 0.07
+delta_interval = 0.07
 replication_config = SubResource("SceneReplicationConfig_jykpr")
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="."]

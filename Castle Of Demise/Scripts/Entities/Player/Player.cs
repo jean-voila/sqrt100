@@ -23,9 +23,13 @@ public partial class Player : CharacterBody3D
 	private Vector2 _lastMouseMovement;
 	public static bool IsMultiplayer = false;
 	
+	
+	// cleaner synchronisation
+	private Vector3 syncPos = new Vector3(0, 0, 0);  // position
+	
 	public override void _Ready()
 	{
-		GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").SetMultiplayerAuthority(PlayerId);
+		GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").SetMultiplayerAuthority(int.Parse(Name));
 		_shootInit();
 		_stepsInit();
 		_pauseMenuInit();
@@ -61,16 +65,29 @@ public partial class Player : CharacterBody3D
 	}
 	public override void _PhysicsProcess(double d)
 	{
-		if (IsMultiplayer && Multiplayer.MultiplayerPeer != null && GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority() == Multiplayer.GetUniqueId())
+		if (IsMultiplayer)
 		{
-			HandleMouseMovementInputs((float)d);
-			HandleMovements(d);
-			HandleRespawn();
-			UpdateDebugInfo();
-			UpdatePlayerInfo();
-			CameraShakeProcess();
-			WeaponSway();
+			if (Multiplayer.MultiplayerPeer != null 
+			    && GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority() == Multiplayer.GetUniqueId()
+			   )
+			{
+				HandleMouseMovementInputs((float)d);
+				HandleMovements(d);
+				HandleRespawn();
+				UpdateDebugInfo();
+				UpdatePlayerInfo();
+				CameraShakeProcess();
+				WeaponSway();
+				syncPos = GlobalPosition;
+			}
+			else
+			{
+				GlobalPosition = GlobalPosition.Lerp(syncPos, 0.1f);
+			}
+
+			
 		}
+		
 		if (!IsMultiplayer)
 		{
 			HandleMouseMovementInputs((float)d);
@@ -82,7 +99,7 @@ public partial class Player : CharacterBody3D
 			WeaponSway();
 		}
 		
-		//SendMultiplayerAuthorityReport();
+		SendMultiplayerAuthorityReport();
 	}
 
 

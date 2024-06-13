@@ -16,6 +16,8 @@ public partial class mpMap02 : Node3D
 			current.PlayerName = item.Value.PlayerName;
 			current.PlayerId = item.Value.PlayerId;
 			current.PlayerScore = item.Value.PlayerScore;
+			current.Name = item.Value.PlayerId.ToString(); // techniquement inutile,
+                                                  // mais ca permet de suivre une logique appréciable
 			AddChild(current);
 			foreach (var spawnPoint in GetTree().GetNodesInGroup("PlayerSpawnPoint"))
 			{
