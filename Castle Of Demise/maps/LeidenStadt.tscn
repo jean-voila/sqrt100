@@ -97,7 +97,7 @@ albedo_texture = ExtResource("6_yw0dc")
 albedo_texture = ExtResource("7_orln4")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wthfl"]
-size = Vector3(8.94629, 23.5497, 16.5464)
+size = Vector3(15.9607, 23.5497, 16.5464)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1iinf"]
 size = Vector3(202.66, 53.5705, 53.686)
@@ -4023,7 +4023,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0410442, -2.95459, -0.9672
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 244.601)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="mursinvisibles/StaticBody3D5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.957648, 12.1201, -2.87759)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.935065, 12.1201, -2.87759)
 shape = SubResource("BoxShape3D_wthfl")
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="mursinvisibles"]
@@ -4035,7 +4035,7 @@ shape = SubResource("BoxShape3D_1iinf")
 [node name="StaticBody3D3" type="StaticBody3D" parent="mursinvisibles"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="mursinvisibles/StaticBody3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.862, 27.2853, 229.294)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.225, 27.2853, 229.294)
 shape = SubResource("BoxShape3D_1iinf")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="mursinvisibles"]

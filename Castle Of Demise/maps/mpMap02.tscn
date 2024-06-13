@@ -423,7 +423,7 @@ height = 38.0
 material = SubResource("22")
 
 [node name="CSGCylinder12" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.8396, -8.33285, -49.1681)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.84, -11, -49.168)
 radius = 6.0
 height = 38.0
 material = SubResource("22")
@@ -4003,3 +4003,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.2537, -0.826625, -78.1415)
 radius = 3.0
 height = 27.027
 material = SubResource("22")
+
+[node name="CSGBox11" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.999998, 0.00111651, -0.00170947, -4.09444e-09, 1.57637, 0.360486, 0.00183269, 0.60922, -0.932763, -94.3381, 1.0137, -46.9907)
+size = Vector3(8.6853, 1, 86.3411)
+material = SubResource("11")
+
+[node name="CSGBox18" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.0131341, -0.00351699, 0.999912, -0.000454063, 1.68999, 0.00207438, -0.999914, -0.000721231, -0.013135, -55.375, 14.6926, -94.4208)
+use_collision = true
+size = Vector3(8.6853, 1, 68.243)
+material = SubResource("11")
