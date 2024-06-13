@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://vcaxnd8q1gu1"]
+
+[ext_resource type="Texture2D" uid="uid://4id0pnmf22o8" path="res://Assets/Textures/imageonline-co-pixelated-planks.png" id="1_4rmw7"]
+[ext_resource type="Texture2D" uid="uid://dtc7wjnag443v" path="res://Assets/Textures/imageonline-co-pixelated(2).png" id="2_vtblo"]
+[ext_resource type="Texture2D" uid="uid://bddvfd4li5gc0" path="res://Assets/Textures/imageonline-co-pixelated(4).png" id="3_vj3ec"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tyrge"]
+albedo_texture = ExtResource("1_4rmw7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lcru2"]
+albedo_texture = ExtResource("2_vtblo")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1bbk"]
+albedo_texture = ExtResource("3_vj3ec")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ag4m0"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1.01082, 0, 0, 0, 3.66619, 0, 0, 0, 1.04901, -0.584341, 3.28691, 0.0182338)
+material_override = SubResource("StandardMaterial3D_tyrge")
+use_collision = true
+size = Vector3(2.4917, 0.003479, 2.27962)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1.01082, 0, 0, 0, 3.66608, 0, 0, 0, 1.04901, -0.58422, 1.97312, -1.01623)
+use_collision = true
+size = Vector3(0.245117, 0.728027, 0.1409)
+material = SubResource("StandardMaterial3D_lcru2")
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
+transform = Transform3D(1.01082, 0, 0, 0, 3.66608, 0, 0, 0, 1.04901, -0.464133, 0.449275, 0)
+material_override = SubResource("StandardMaterial3D_i1bbk")
+use_collision = true
+inner_radius = 0.864788
+outer_radius = 1.45126
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.0891708, 0, 0.934906, 0, 3.66608, 0, -1.00688, 0, -0.0827968, -0.464933, -0.396984, 0.0649476)
+size = Vector3(1.9491, 0.001, 1.95834)
+material = SubResource("StandardMaterial3D_ag4m0")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1.01082, 0, 0, 0, 3.66608, 0, 0, 0, 1.04901, -0.58422, 1.97312, 1.0147)
+use_collision = true
+size = Vector3(0.245117, 0.728027, 0.1409)
+material = SubResource("StandardMaterial3D_lcru2")
