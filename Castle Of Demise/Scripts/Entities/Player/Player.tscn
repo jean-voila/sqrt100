@@ -495,6 +495,7 @@ _floorRayCast = NodePath("checkFloor")
 replication_config = SubResource("SceneReplicationConfig_jykpr")
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+max_polyphony = 8
 script = ExtResource("2_0xmel")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

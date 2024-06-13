@@ -63,7 +63,9 @@ public partial class SFXPlayer : AudioStreamPlayer
 
 	public override void _Ready()
 	{
+		MaxPolyphony = 20;
 		PlaySFXSignal += PlaySFX;
+		
 	}
 	
 	

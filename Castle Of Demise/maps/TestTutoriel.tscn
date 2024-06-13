@@ -26851,4 +26851,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43372, 0, -84.6909)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.7434, 5.97678, 0)
 shape = SubResource("BoxShape3D_yan14")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.2091, 0, -119.012)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+
 [connection signal="body_entered" from="WorldEnvironment/Area3D" to="WorldEnvironment" method="_on_area_3d_body_entered"]
