@@ -66,7 +66,9 @@ public partial class Player
 
 			$"{Title("Multiplayer")}" +
 			$"{HudData("IsMultiplayer", Player.IsMultiplayer)}" +
-			$"{HudData("ServerSide", Player.IsMultiplayer ? ((PlayerId == 1) ? "Server" : "Client") : "None")}";
+			$"{HudData("ServerSide", Player.IsMultiplayer ? ((PlayerId == 1) ? "Server" : "Client") : "None")}"+
+			$"{HudData("IsServerCheck", IsServer)}";
+
 	}
     
 	private string GenerateRightHudText()

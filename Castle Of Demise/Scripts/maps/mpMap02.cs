@@ -16,6 +16,7 @@ public partial class mpMap02 : Node3D
 			current.PlayerName = item.Value.PlayerName;
 			current.PlayerId = item.Value.PlayerId;
 			current.PlayerScore = item.Value.PlayerScore;
+			current.IsServer = item.Value.IsServer;
 			current.Name = item.Value.PlayerId.ToString(); // techniquement inutile,
                                                   // mais ca permet de suivre une logique appréciable
 			AddChild(current);

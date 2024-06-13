@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using CastleOfDemise.Scripts.Menus.MultiLauncher;
 using Godot;
 
 namespace CastleOfDemise.mobs.Player;
@@ -17,15 +18,21 @@ public partial class Player : CharacterBody3D
 	[Export] private AnimationPlayer _animReload;
 	[Export] private MeshInstance3D _revolverModel;
 	[Export] private float _revolverModelRotationAmount = -0.3f;
-	public  string PlayerName { get; set; }
-	public  int PlayerId { get; set; }
-	public  int PlayerScore { get; set; }
+	
+	[Export] private CanvasLayer _pauseHUD;
+	[Export] private CanvasLayer _HUD;
+	
+	public string PlayerName = "";
+	public int PlayerId = 0;
+	public int PlayerScore = 0;
+	public bool IsServer = false;
 	private Vector2 _lastMouseMovement;
 	public static bool IsMultiplayer = false;
 	
 	
 	// cleaner synchronisation
-	private Vector3 syncPos = new Vector3(0, 0, 0);  // position
+	private Vector3 _syncPos = new Vector3(0, 0, 0);  // position
+	//private Vector3 _syncRotation = new Vector3(0, 0, 0); //rotation du perso
 	
 	public override void _Ready()
 	{
@@ -78,14 +85,22 @@ public partial class Player : CharacterBody3D
 				UpdatePlayerInfo();
 				CameraShakeProcess();
 				WeaponSway();
-				syncPos = GlobalPosition;
+				this.CameraForFov.Current = true;
+				this._HUD.Show();
+				this._pauseHUD.Show();
+
+				
+				// synchronisation of players
+				_syncPos = GlobalPosition;
+				//_syncRotation = GetNode<Node3D>("rotation").RotationDegrees;
 			}
 			else
 			{
-				GlobalPosition = GlobalPosition.Lerp(syncPos, 0.1f);
+				GlobalPosition = GlobalPosition.Lerp(_syncPos, 0.1f);
+				//GetNode<Node3D>("rotation").RotationDegrees = RotationDegrees.Lerp(_syncRotation, 0.1f);
 			}
 
-			
+			SendMultiplayerAuthorityReport();
 		}
 		
 		if (!IsMultiplayer)
@@ -99,19 +114,22 @@ public partial class Player : CharacterBody3D
 			WeaponSway();
 		}
 		
-		SendMultiplayerAuthorityReport();
+		
 	}
 
 
 
 	private void SendMultiplayerAuthorityReport()
 	{
+		GD.Print("");
 		GD.Print("===== RAPPORT =====");
 		GD.Print("The session is " + PlayerName);
 		GD.Print("Are they both equal? ::" + (GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority() == Multiplayer.GetUniqueId()));
 		GD.Print("The authority is "+ GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority().ToString());
 		GD.Print("The Id is " + Multiplayer.GetUniqueId());
-		GD.Print("===== ENDOF =====");
+		GD.Print("===== END OF =====");
+		GD.Print("");
+
 	}
 
 	public override void _EnterTree()

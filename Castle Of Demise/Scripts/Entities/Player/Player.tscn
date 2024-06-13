@@ -15,9 +15,12 @@
 [ext_resource type="Material" path="res://Assets/Mesh/Brown_Revolver02.material" id="25"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_jykpr"]
-properties/0/path = NodePath(".:syncPos")
+properties/0/path = NodePath(".:_syncPos")
 properties/0/spawn = true
 properties/0/replication_mode = 1
+properties/1/path = NodePath(".:_syncRotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
 
 [sub_resource type="CapsuleShape3D" id="1"]
 radius = 0.384727
@@ -476,7 +479,7 @@ bg_color = Color(0.54902, 0.054902, 0.054902, 0.545098)
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_sfxPlayer", "_head", "_usedCamera", "_animReload", "_revolverModel", "_floorRayCast")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_sfxPlayer", "_head", "_usedCamera", "_animReload", "_revolverModel", "_pauseHUD", "_HUD", "_floorRayCast")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_y1gl0")
 _sfxPlayer = NodePath("SFXPlayer")
@@ -484,6 +487,8 @@ _head = NodePath("Head")
 _usedCamera = NodePath("Head/Camera3D")
 _animReload = NodePath("Head/Revolver/Reload")
 _revolverModel = NodePath("Head/Revolver")
+_pauseHUD = NodePath("CanvasLayer2")
+_HUD = NodePath("HUD")
 _accelerationSpeed = 10.0
 _decelerationSpeed = 10.0
 _maxSpeed = 10.0
@@ -610,6 +615,7 @@ wait_time = 0.1
 one_shot = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Debug" parent="HUD" instance=ExtResource("2")]
 offset_right = -1280.0
@@ -633,6 +639,7 @@ target_position = Vector3(2.08165e-12, -1.6, 2.08165e-12)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 
 [node name="MenuPause" type="Control" parent="CanvasLayer2"]
 process_mode = 3
