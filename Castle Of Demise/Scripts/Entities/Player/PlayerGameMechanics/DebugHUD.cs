@@ -77,7 +77,10 @@ public partial class Player
 			$"{HudData("Version", "")}" +
 
 			$"{Title("Execution Info")}" +
-			$"{HudData("FPS", _fps)}";
+			$"{HudData("FPS", _fps)}"+
+		
+			$"{Title("Player Info")}" +
+			$"{HudData("Health", PlayerHealth)}";
 
 	}
     

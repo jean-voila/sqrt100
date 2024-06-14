@@ -129,7 +129,7 @@ public partial class Player : CharacterBody3D
 				AmmoAvailable = 60;
 				HandleMouseMovementInputs((float)d);
 				HandleMovements(d);
-				HandleRespawn(d);
+				HandleRespawn(d);  // levitation hors de map, aucun rapport avec respawn actuel
 				UpdateDebugInfo();
 				UpdatePlayerInfo();
 				CameraShakeProcess();
@@ -137,11 +137,12 @@ public partial class Player : CharacterBody3D
 				this._HUDCanvas.Show();
 				this._pausecanvas.Show();
 				this.CameraForFov.Current = true;
-				/*
-				 * this.CameraForFov.Current = true;
-				   this._HUD.Show();
-				   this._pauseHUD.Show();
-				 */
+
+
+				SendMultiplayerHealthReport();
+				
+				
+				
 				// synchronisation of players
 				_syncPos = GlobalPosition;
 				_syncHeadRotation = GetNode<Node3D>("Head").RotationDegrees;
@@ -173,7 +174,15 @@ public partial class Player : CharacterBody3D
 		
 	}
 
+	private void SendMultiplayerHealthReport()
+	{
+		GD.Print("");
+		GD.Print("===== RAPPORT =====");
+		GD.Print("health : " + PlayerHealth);
+		GD.Print("===== END OF =====");
+		GD.Print("");
 
+	}
 
 	private void SendMultiplayerAuthorityReport()
 	{

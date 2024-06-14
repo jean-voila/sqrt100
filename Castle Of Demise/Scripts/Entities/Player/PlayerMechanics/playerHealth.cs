@@ -9,7 +9,7 @@ public partial class Player
     [Export] private Sprite2D BloodHitEffect;
     [Export] private Timer BloodHitEffectTimer;
     
-    public int PlayerHealth;
+    public static int PlayerHealth;
     private int _maxHealth;
 
     public void _playerHealthInit()

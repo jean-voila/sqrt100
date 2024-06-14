@@ -17,7 +17,7 @@ public partial class SetupGameAsHost : Control
 
 	private int? _scoreToReachValue = null;
 	private int? _gameModeValue = null;
-	public (int, int) Data = (0, 0);
+	public static (int, int) Data = (0, 0);
 	
 	public override void _Ready()
 	{

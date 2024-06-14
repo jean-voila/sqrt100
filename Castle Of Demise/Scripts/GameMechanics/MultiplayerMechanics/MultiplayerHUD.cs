@@ -18,7 +18,6 @@ public partial class MultiplayerHUD : CanvasLayer
         
 	private static int _hostScore = 0;
 	private static int _clientScore = 0;
-	private static int _scoreToReach = 0;
 
 	[Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
 	public static void HostScored()
@@ -35,11 +34,11 @@ public partial class MultiplayerHUD : CanvasLayer
 
 	private static void CheckWin()
 	{
-		if (_hostScore >= _scoreToReach)
+		if (_hostScore >= _scoretoReachvalue)
 		{
 			//host wins
 		}
-		else if (_clientScore >= _scoreToReach)
+		else if (_clientScore >= _scoretoReachvalue)
 		{
 			//client wins
 		}
@@ -54,14 +53,10 @@ public partial class MultiplayerHUD : CanvasLayer
 	{
 		if (Player.IsMultiplayer)
 		{
-			(_scoretoReachvalue, _gameModeValue) = GetNode<SetupGameAsHost>("SetupGameAsHost").Data;
-			_scoreToReach = _scoretoReachvalue;
+			(_scoretoReachvalue, _gameModeValue) = SetupGameAsHost.Data;
+			_scoreToReachText = _scoretoReachvalue.ToString();
+			GetNode<RichTextLabel>("%ScoreToReach").Text = _scoreToReachText;
 		}
-		
-
-		
-
-
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -69,9 +64,8 @@ public partial class MultiplayerHUD : CanvasLayer
 	{
 		if (Player.IsMultiplayer)
 		{
-			GetNode<Label>("%HostScore").Text = _hostScoreText;
-			GetNode<Label>("%ScoreToReach").Text = _scoreToReachText;
-			GetNode<Label>("%ClientScore").Text = _clientScoretext;
+			GetNode<RichTextLabel>("%HostScore").Text = _hostScoreText;
+			GetNode<RichTextLabel>("%ClientScore").Text = _clientScoretext;
 			
 			_hostScoreText = _hostScore.ToString();
 			_clientScoretext = _clientScore.ToString();
