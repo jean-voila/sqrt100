@@ -32,35 +32,42 @@ public partial class Player
     
     [Export] private float _jumpSpeed;
     // 25
+    
+
 
 
     private void HandleMouseMovementInputs(float d)
     {
         var inputMovementVector = new Vector2();
         bool isMoving = false;
-        if (Input.IsActionPressed("key_z"))
+        if (!_cinematicMode)
         {
-            inputMovementVector.Y += 1;
-            isMoving = true;
-        }
+            if (Input.IsActionPressed("key_z"))
+            {
+                inputMovementVector.Y += 1;
+                isMoving = true;
+            }
 
-        if (Input.IsActionPressed("key_s"))
-        {
-            inputMovementVector.Y -= 1;
-            isMoving = true;
-        }
+            if (Input.IsActionPressed("key_s"))
+            {
+                inputMovementVector.Y -= 1;
+                isMoving = true;
+            }
 
-        if (Input.IsActionPressed("key_q"))
-        {
-            inputMovementVector.X -= 1;
-            isMoving = true;
-        }
+            if (Input.IsActionPressed("key_q"))
+            {
+                inputMovementVector.X -= 1;
+                isMoving = true;
+            }
 
-        if (Input.IsActionPressed("key_d"))
-        {
-            inputMovementVector.X += 1;
-            isMoving = true;
+            if (Input.IsActionPressed("key_d"))
+            {
+                inputMovementVector.X += 1;
+                isMoving = true;
+            }
         }
+        
+
         _direction = new Vector3();
         _direction += -GlobalTransform.Basis.Z * inputMovementVector.Y;
         _direction += GlobalTransform.Basis.X * inputMovementVector.X;
@@ -87,6 +94,7 @@ public partial class Player
 
         if (_floorRayCast.GetCollider() != null)
         {
+
             if (!_landed && Time.GetTicksUsec() - _lastJumpTime > 100)
             {
                 _landed = true;
@@ -108,6 +116,11 @@ public partial class Player
         {
             horizontalVelocity.Y = Velocity.Y - ((float)d * _gravity);
         }
+
+        if (_levitationMode)
+        {
+            horizontalVelocity.Y = (float)d * -0.6f;
+        }
         
         Velocity = horizontalVelocity;
         
@@ -123,20 +136,21 @@ public partial class Player
 
     private void HandleRespawn()
     {
-        if (_positionY < -25)
+
+         if (_positionY < -25)
         {
-            Vector3 newCoordinates = new Vector3(0.0f, 6.0f, 0.0f);
+            //Vector3 newCoordinates = new Vector3(0.0f, 6.0f, 0.0f);
             _gravity = -60f;
             //Teleport(newCoordinates);
         }
-        if (_positionY > 35)
+        else if (_positionY > 35)
         {
-            Vector3 newCoordinates = new Vector3(0.0f, 6.0f, 0.0f);
+            //Vector3 newCoordinates = new Vector3(0.0f, 6.0f, 0.0f);
             _gravity = 75f;
             //Teleport(newCoordinates);
         } else if (_positionY > 0)
         {
-            Vector3 newCoordinates = new Vector3(0.0f, 6.0f, 0.0f);
+            //Vector3 newCoordinates = new Vector3(0.0f, 6.0f, 0.0f);
             _gravity = 34f;
             //Teleport(newCoordinates);
         }
