@@ -84,7 +84,7 @@ public partial class Player : CharacterBody3D
 			switch (_ammoInMag)
 			{
 				case > 0 when IsMultiplayer:
-					RpcId((IsServer) ? GameManager.Players[0].PlayerId : GameManager.Players[1].PlayerId, nameof(Shoot));
+					RpcId(Multiplayer.GetUniqueId(), nameof(Shoot));
 					break;
 				case > 0 when !IsMultiplayer:
 					Shoot();

@@ -83,6 +83,7 @@ public partial class Player
     [Rpc(CallLocal = true)]
     public void Shoot()
     {
+        if (IsMultiplayer && Multiplayer.GetUniqueId() == this.PlayerId || !IsMultiplayer){}
         _ammoInMag--;
         _ammoShooted++;
         bool IsEnemyTouched = false;
