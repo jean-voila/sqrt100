@@ -9,16 +9,24 @@ namespace CastleOfDemise.Scripts.GameMechanics.MultiplayerMechanics
         private static int _scoretoReachvalue = 0;
         private static int _gameModeValue = 0;
 
-        private int YouScore = 0;
-        private int OpponentScore = 0;
-        private int ScoreToReach = 0;
-        
-        
+        private static int _hostScore = 0;
+        private static int _clientScore = 0;
+        private static int _scoreToReach = 0;
+
+        public static void HostScored()
+        {
+            _hostScore++;
+        }
+        public static void ClientScored()
+        {
+            _hostScore++;
+        }
+
         
         public override void _Ready()
         {
             (_scoretoReachvalue, _gameModeValue) = GetNode<SetupGameAsHost>("SetupGameAsHost").Data;
-            ScoreToReach = _scoretoReachvalue;
+            _scoreToReach = _scoretoReachvalue;
             
             
             

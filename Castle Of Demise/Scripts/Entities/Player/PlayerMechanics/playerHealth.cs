@@ -1,3 +1,5 @@
+using CastleOfDemise.Scripts.GameMechanics.MultiplayerMechanics;
+using CastleOfDemise.Scripts.Menus.MultiLauncher;
 using Godot;
 
 namespace CastleOfDemise.mobs.Player;
@@ -56,8 +58,20 @@ public partial class Player
     {
         if (IsDead)
         {
-            Input.MouseMode = Input.MouseModeEnum.Visible;
-            GetTree().ChangeSceneToFile("res://menus/menuPlayerMort.tscn");
+            if (IsServer)
+            {
+                mpMap02.PlayerList[1].Teleport(new Vector3(7,14,2));
+                MultiplayerCode.HostScored();
+            }
+            else
+            {
+                mpMap02.PlayerList[0].Teleport(new Vector3(7,14,2));
+            }
+            
+            GD.Print(Name + " is " + PlayerName);
+            GD.Print(PlayerHealth);
+            PlayerHealth = _maxHealth;
+            GD.Print(PlayerHealth);
         }
     }
 }
