@@ -10,7 +10,6 @@ public partial class Player
     {
         if (!_tutorielFini)
         {
-            GD.Print("tutoriel finitopesto");
             _tutorielFini = true;
         }
         

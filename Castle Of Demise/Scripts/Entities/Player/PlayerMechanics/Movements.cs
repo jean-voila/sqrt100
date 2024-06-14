@@ -82,7 +82,10 @@ public partial class Player
 
     public void HandleMovements(double d)
     {
-        
+        if (_levitationMode)
+        {
+            return;
+        }
         var horizontalVelocity = Velocity;
 
 
@@ -116,11 +119,7 @@ public partial class Player
         {
             horizontalVelocity.Y = Velocity.Y - ((float)d * _gravity);
         }
-
-        if (_levitationMode)
-        {
-            horizontalVelocity.Y = (float)d * -0.6f;
-        }
+        
         
         Velocity = horizontalVelocity;
         
@@ -134,10 +133,14 @@ public partial class Player
         GlobalTransform = newTransform;
     }
 
-    private void HandleRespawn()
+    private void HandleRespawn(double d)
     {
-
-         if (_positionY < -25)
+        if (_levitationMode)
+        {
+            Velocity = new Vector3(0, 80*(float)d, -80*(float)d);
+            MoveAndSlide();
+        }
+        else if (_positionY < -25)
         {
             //Vector3 newCoordinates = new Vector3(0.0f, 6.0f, 0.0f);
             _gravity = -60f;

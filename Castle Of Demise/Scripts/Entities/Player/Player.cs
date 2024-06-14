@@ -31,6 +31,7 @@ public partial class Player : CharacterBody3D
 	[Export] private CanvasLayer _pausecanvas;
 	[Export] private CanvasLayer _HUDCanvas;
 
+
 	private bool _cinematicMode;
 	private bool _levitationMode;
 
@@ -111,15 +112,8 @@ public partial class Player : CharacterBody3D
 	{
 		if (!IsMultiplayer)
 		{
-			switch(_cinematicMode)
-			{
-				case true:
-					_HUDCanvas.Hide();
-					break;
-				case false:
-					_HUDCanvas.Show();
-					break;
-			}
+			_HUDCanvas.Visible = !_cinematicMode;
+			_revolverModel.Visible = !_cinematicMode;
 		}
 
 
@@ -132,7 +126,7 @@ public partial class Player : CharacterBody3D
 				AmmoAvailable = 60;
 				HandleMouseMovementInputs((float)d);
 				HandleMovements(d);
-				HandleRespawn();
+				HandleRespawn(d);
 				UpdateDebugInfo();
 				UpdatePlayerInfo();
 				CameraShakeProcess();
@@ -166,7 +160,7 @@ public partial class Player : CharacterBody3D
 		{
 			HandleMouseMovementInputs((float)d);
 			HandleMovements(d);
-			HandleRespawn();
+			HandleRespawn(d);
 			UpdateDebugInfo();
 			UpdatePlayerInfo();
 			CameraShakeProcess();

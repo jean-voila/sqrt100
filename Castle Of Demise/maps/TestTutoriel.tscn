@@ -70,20 +70,36 @@ volumetric_fog_albedo = Color(0.781416, 0.503441, 0.132731, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_yan14"]
 size = Vector3(13.6641, 12.9536, 1)
 
-[node name="TestTutoriel" type="Node3D" node_paths=PackedStringArray("_musicPlayer", "_gameTitle", "_player")]
+[node name="TestTutoriel" type="Node3D" node_paths=PackedStringArray("_musicPlayer", "_gameTitle", "_logoTimer", "_logoTitle", "_player")]
 script = ExtResource("1_fem7q")
 _musicPlayer = NodePath("MusicPlayer")
-_gameTitle = NodePath("GameTitle")
+_gameTitle = NodePath("Cinematic/GameTitle")
+_logoTimer = NodePath("Cinematic/logoTimer")
+_logoTitle = NodePath("Cinematic/Logo Title")
 _player = NodePath("CSGBox3D/Player")
 
-[node name="GameTitle" type="CanvasLayer" parent="."]
+[node name="Cinematic" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="GameTitle"]
+[node name="GameTitle" type="Label" parent="Cinematic"]
 offset_right = 1280.0
 offset_bottom = 720.0
 theme_override_fonts/font = ExtResource("2_lahyt")
 theme_override_font_sizes/font_size = 72
 text = "Castle Of Demise"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="logoTimer" type="Timer" parent="Cinematic"]
+wait_time = 14.5
+one_shot = true
+
+[node name="Logo Title" type="Label" parent="Cinematic"]
+offset_top = 202.0
+offset_right = 1280.0
+offset_bottom = 685.0
+theme_override_fonts/font = ExtResource("2_lahyt")
+theme_override_font_sizes/font_size = 26
+text = "by sqrt(100)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -22526,4 +22542,5 @@ shape = SubResource("BoxShape3D_yan14")
 bus = &"Musique"
 script = ExtResource("12_xr68a")
 
+[connection signal="timeout" from="Cinematic/logoTimer" to="." method="_on_logo_timer_timeout"]
 [connection signal="body_entered" from="WorldEnvironment/Area3D" to="." method="_on_area_3d_body_entered"]
