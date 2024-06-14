@@ -1,4 +1,3 @@
-using CastleOfDemise.Scripts.GameMechanics.MultiplayerMechanics;
 using CastleOfDemise.Scripts.Menus.MultiLauncher;
 using Godot;
 
@@ -70,18 +69,19 @@ public partial class Player
                 if (IsServer)
                 {
                     mpMap02.PlayerList[1].Teleport(new Vector3(7,14,2));
-                    Rpc(nameof(MultiplayerCode.HostScored));
+                    Rpc(nameof(MultiplayerHUD.HostScored));
                 }
                 else
                 {
                     mpMap02.PlayerList[0].Teleport(new Vector3(7,14,2));
-                    Rpc(nameof(MultiplayerCode.ClientScored));
+                    Rpc(nameof(MultiplayerHUD.ClientScored));
                 }
                 // GD.Print(Name + " is " + PlayerName);
                 // GD.Print(PlayerHealth);
                 PlayerHealth = _maxHealth;
                 RpcId(this.PlayerId, nameof(UpdatePlayerInfo));
                 // GD.Print(PlayerHealth);
+
             }
             
         }
