@@ -34,7 +34,9 @@ public partial class Player : CharacterBody3D
 	
 	// cleaner synchronisation
 	private Vector3 _syncPos = new Vector3(0, 0, 0);  // position
-	private Vector3 _syncRotation = new Vector3(0, 0, 0); //rotation du perso
+	private Vector3 _syncHeadRotation = new Vector3(0, 0, 0); //rotation du perso
+	private Vector3 _syncPlayerRotation = new Vector3(0, 0, 0); //rotation du perso
+
 	
 	public override void _Ready()
 	{
@@ -67,8 +69,18 @@ public partial class Player : CharacterBody3D
 		}
 		if (@event.IsActionPressed("mouse_left_click"))
 		{
-			if (_ammoInMag > 0) Shoot();
-			else _sfxPlayer.EmitSignal("PlaySFXSignal", "gun/cantshoot");
+			switch (_ammoInMag)
+			{
+				case > 0 when IsMultiplayer:
+					Rpc(nameof(this.Shoot));
+					break;
+				case > 0:
+					Shoot();
+					break;
+				default:
+					_sfxPlayer.EmitSignal("PlaySFXSignal", "gun/cantshoot");
+					break;
+			}
 		}
 		if (Input.IsActionJustPressed("key_escape"))
 			Pause();
@@ -92,7 +104,7 @@ public partial class Player : CharacterBody3D
 			    && GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority() == Multiplayer.GetUniqueId()
 			   )
 			{
-				_ammoAvailable = 60;
+				AmmoAvailable = 60;
 				HandleMouseMovementInputs((float)d);
 				HandleMovements(d);
 				HandleRespawn();
@@ -112,12 +124,16 @@ public partial class Player : CharacterBody3D
 				
 				// synchronisation of players
 				_syncPos = GlobalPosition;
-				_syncRotation = GetNode<Node3D>("Head").RotationDegrees;
+				_syncHeadRotation = GetNode<Node3D>("Head").RotationDegrees;
+				_syncPlayerRotation = GetNode<Node3D>(".").RotationDegrees;
+
 			}
 			else
 			{
 				GlobalPosition = GlobalPosition.Lerp(_syncPos, 0.1f);
-				GetNode<Node3D>("Head").RotationDegrees = RotationDegrees.Lerp(_syncRotation, 0.1f);
+				GetNode<Node3D>("Head").RotationDegrees = RotationDegrees.Lerp(_syncHeadRotation, 0.1f);
+				GetNode<Node3D>(".").RotationDegrees = RotationDegrees.Lerp(_syncPlayerRotation, 0.1f);
+
 			}
 
 			if (Multiplayer.MultiplayerPeer == null || MultiplayerMenu.Peer == null)

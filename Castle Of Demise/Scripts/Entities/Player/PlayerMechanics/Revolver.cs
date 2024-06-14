@@ -13,7 +13,7 @@ public partial class Player
     private RayCast3D _shootRayCast;
     private PackedScene _bulletHoleScene;
     private PackedScene _bloodHit;
-    public int _ammoAvailable;
+    public int AmmoAvailable;
     private int _ammoInMag;
     private int _ammoShooted;
     private int _strength;
@@ -36,7 +36,7 @@ public partial class Player
     public void _shootInit()
     {
         _shootRayCast = GetNode<RayCast3D>("Head/Camera3D/RayCast3D");
-        _ammoAvailable = _maxAmmo;
+        AmmoAvailable = _maxAmmo;
         _ammoShooted = 0;
         _strength = 10;
         _ammoInMag = 6;
@@ -54,37 +54,38 @@ public partial class Player
     
     public void SetAmmoInc(int ammo)
     {
-        if (_ammoAvailable + ammo < _maxAmmo)
+        if (AmmoAvailable + ammo < _maxAmmo)
         {
-            _ammoAvailable += ammo;
+            AmmoAvailable += ammo;
         }
         else
         {
-            _ammoAvailable = _maxAmmo;
+            AmmoAvailable = _maxAmmo;
         }
     }
 
     public bool CanPickupAmmo()
     {
-        return _ammoAvailable < _maxAmmo;
+        return AmmoAvailable < _maxAmmo;
     }
 
     public bool canReload()
     {
-        return _ammoInMag != 6 && _ammoAvailable != 0;
+        return _ammoInMag != 6 && AmmoAvailable != 0;
     }
 
     public bool outOfAmmo()
     {
-        return _ammoAvailable == 0 && _ammoInMag == 0;
+        return AmmoAvailable == 0 && _ammoInMag == 0;
     }
     
+    [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
     public void Shoot()
     {
         
         _ammoInMag--;
         _ammoShooted++;
-        bool isEnnemiTouched = false;
+        bool IsEnemyTouched = false;
         var rayEnd = _shootRayCast.GetCollisionPoint();
         CameraShake();
         _animShoot.Play("Shoot");
@@ -99,8 +100,8 @@ public partial class Player
             if (hitObject != null)
             {
                 Node mobTouche = hitObject.GetParent<Node>();
-                isEnnemiTouched = mobTouche.IsInGroup("ennemies");
-                if (isEnnemiTouched && !((Enemy)hitObject).ImDead)
+                IsEnemyTouched = mobTouche.IsInGroup("ennemies");
+                if (IsEnemyTouched && !((Enemy)hitObject).ImDead)
                 {
                     Hit((Enemy)hitObject);
                     hitObject.AddChild(bloodHit);
@@ -110,7 +111,7 @@ public partial class Player
                     bloodHit.LookAt(rayEnd + _shootRayCast.GetCollisionNormal() + new Vector3(0.01f, 0.01f, 0.01f), Vector3.Up);
                     bloodHit.GetNode<CpuParticles3D>("CPUParticles3D").Restart();
                 }
-                else if (!isEnnemiTouched)
+                else if (!IsEnemyTouched)
                 {
                     hitObject.AddChild(bulletHole);
                     bulletHole.GlobalTransform = new Transform3D(bulletHole.GlobalTransform.Basis, rayEnd);
@@ -118,14 +119,14 @@ public partial class Player
                     bulletHole.GetNode<CpuParticles3D>("CPUParticles3D").Restart();
                 }
 
-                if (isEnnemiTouched && ((Enemy)hitObject).ImDead)
+                if (IsEnemyTouched && ((Enemy)hitObject).ImDead)
                 {
                     _HitmarkerKill.Show();
                     _HitmarkerTimer.Start();
                 }
             }
         }
-        if (!isEnnemiTouched)
+        if (!IsEnemyTouched)
         {
             _sfxPlayer.EmitSignal("PlaySFXSignal", "gun/gunshot");
 
@@ -157,14 +158,14 @@ public partial class Player
     private void reload()
     {
         
-        if (_ammoAvailable > 0 && _ammoAvailable < 6)
+        if (AmmoAvailable > 0 && AmmoAvailable < 6)
         {
-            _ammoInMag += _ammoAvailable;
-            _ammoAvailable = 0;
+            _ammoInMag += AmmoAvailable;
+            AmmoAvailable = 0;
         }
         else
         {
-            _ammoAvailable -= 6 - _ammoInMag;
+            AmmoAvailable -= 6 - _ammoInMag;
             _ammoInMag = 6;
         }
     }

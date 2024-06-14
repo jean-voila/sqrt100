@@ -17,6 +17,7 @@ public partial class SetupGameAsHost : Control
 
 	private int? _scoreToReachValue = null;
 	private int? _gameModeValue = null;
+	public (int, int) Data = (0, 0);
 	
 	public override void _Ready()
 	{
@@ -24,10 +25,7 @@ public partial class SetupGameAsHost : Control
 		_scoreToReach = GetNode<ItemList>("ScoreToReach");
 		_startGameButton = GetNode<Button>("StartGame");
 		GetNode<Label>("%HostCode").Text = CodeParser.IpToCode(_address);
-
-
-
-
+		Data = ((_scoreToReachValue??0), (_gameModeValue??0));
 	}
 
 	public static string GetLocalIPAdress()
