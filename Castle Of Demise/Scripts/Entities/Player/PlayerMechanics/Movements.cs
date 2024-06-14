@@ -133,7 +133,7 @@ public partial class Player
         GlobalTransform = newTransform;
     }
 
-    private void HandleRespawn(double d)
+    private void HandleRespawn(double d)//pas de raport au multi, par rapport a out of bound.
     {
         if (_levitationMode)
         {
