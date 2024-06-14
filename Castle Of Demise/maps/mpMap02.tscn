@@ -230,7 +230,7 @@ _multiplayerScene02 = ExtResource("2_34jlc")
 
 [node name="0" type="Node3D" parent="Spawn" groups=["PlayerSpawnPoint"]]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.93, -4.58179, -68.9704)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.0973, 4.19294, 63.7043)
 
 [node name="1" type="Node3D" parent="Spawn" groups=["PlayerSpawnPoint"]]
 unique_name_in_owner = true

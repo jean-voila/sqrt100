@@ -27,6 +27,7 @@ public partial class Player
         return PlayerHealth < _maxHealth;
     }
 
+    [Rpc(MultiplayerApi.RpcMode.AnyPeer)]
     public void TakeDamage(int var)//make player take damage if it can and return if the player took damage and kills him if needed.
     {
         if (PlayerHealth - var > 0)
@@ -36,7 +37,7 @@ public partial class Player
             BloodHitEffect.Show();
             BloodHitEffectTimer.Start();
             CameraShake();
-            _sfxPlayer.EmitSignal("PlaySFXSignal", "playerhit");
+            // _sfxPlayer.EmitSignal("PlaySFXSignal", "playerhit");
         }
         else
         {
@@ -57,10 +58,6 @@ public partial class Player
         {
             Input.MouseMode = Input.MouseModeEnum.Visible;
             GetTree().ChangeSceneToFile("res://menus/menuPlayerMort.tscn");
-            // _usedCamera.QueueFree();
-            // _pauseMenu.Visible = true;
-            // Input.MouseMode = Input.MouseModeEnum.Visible;
-            // GetTree().Paused = true;
         }
     }
 }

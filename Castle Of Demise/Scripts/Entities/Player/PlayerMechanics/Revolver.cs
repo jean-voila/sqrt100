@@ -79,9 +79,11 @@ public partial class Player
         return AmmoAvailable == 0 && _ammoInMag == 0;
     }
     
-    [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
+    // [Rpc(MultiplayerApi.RpcMode.Authority)]
+    [Rpc(CallLocal = true)]
     public void Shoot()
     {
+        if (IsMultiplayer && Multiplayer.GetUniqueId() == this.PlayerId || !IsMultiplayer){}
         _ammoInMag--;
         _ammoShooted++;
         bool IsEnemyTouched = false;
@@ -98,7 +100,6 @@ public partial class Player
             var hitObject = _shootRayCast.GetCollider() as Node;
             if (hitObject != null)
             {
-                
                 Node mobTouche = hitObject.GetParent<Node>();
                 IsEnemyTouched = mobTouche.IsInGroup("ennemies");
                 if (hitObject.IsInGroup("Player"))
@@ -109,6 +110,9 @@ public partial class Player
                     bloodHit.GlobalTransform = new Transform3D(bloodHit.GlobalTransform.Basis, rayEnd);
                     bloodHit.LookAt(rayEnd + _shootRayCast.GetCollisionNormal() + new Vector3(0.01f, 0.01f, 0.01f), Vector3.Up);
                     bloodHit.GetNode<CpuParticles3D>("CPUParticles3D").Restart();
+                    Player player = (Player)hitObject;
+                    RpcId(player.PlayerId, nameof(TakeDamage), _strength * 2);
+                    // hitObject.EmitSignal("HitSignal", _strength*2);
                 }
                 else if (IsEnemyTouched && !((Enemy)hitObject).ImDead)
                 {

@@ -11,6 +11,9 @@ public partial class Player : CharacterBody3D
 	public delegate void SwitchCinematicModeSignalEventHandler(bool value);
 	[Signal]
 	public delegate void SwitchLevitationModeSignalEventHandler(bool value);
+
+	// [Signal]
+	// public delegate void HitSignalEventHandler(int var);
 	
 	
 	[Export] private AudioStreamPlayer _sfxPlayer;
@@ -49,6 +52,7 @@ public partial class Player : CharacterBody3D
 	{
 		SwitchCinematicModeSignal += SwitchCinematicMode;
 		SwitchLevitationModeSignal += SwitchLevitationMode;
+		// HitSignal += TakeDamage;
 		AddToGroup("Player");
 		_shootInit();
 		_stepsInit();
@@ -81,9 +85,9 @@ public partial class Player : CharacterBody3D
 			switch (_ammoInMag)
 			{
 				case > 0 when IsMultiplayer:
-					Rpc(nameof(this.Shoot));
+					RpcId(Multiplayer.GetUniqueId(), nameof(Shoot));
 					break;
-				case > 0:
+				case > 0 when !IsMultiplayer:
 					Shoot();
 					break;
 				default:
@@ -135,27 +139,21 @@ public partial class Player : CharacterBody3D
 				   this._HUD.Show();
 				   this._pauseHUD.Show();
 				 */
-
-				
 				// synchronisation of players
 				_syncPos = GlobalPosition;
 				_syncHeadRotation = GetNode<Node3D>("Head").RotationDegrees;
 				_syncPlayerRotation = GetNode<Node3D>(".").RotationDegrees;
-
 			}
 			else
 			{
 				GlobalPosition = GlobalPosition.Lerp(_syncPos, 0.1f);
 				GetNode<Node3D>("Head").RotationDegrees = RotationDegrees.Lerp(_syncHeadRotation, 0.1f);
 				GetNode<Node3D>(".").RotationDegrees = RotationDegrees.Lerp(_syncPlayerRotation, 0.1f);
-
 			}
-
 			if (Multiplayer.MultiplayerPeer == null || MultiplayerMenu.Peer == null)
 			{
 				GetTree().ChangeSceneToFile("res://menus/TitleScreen.tscn");
 			}
-
 		}
 		
 		else
@@ -210,8 +208,8 @@ public partial class Player : CharacterBody3D
 	{
 		_levitationMode = _value;
 	}
-	
-	
+
+
 	
 													
 }
