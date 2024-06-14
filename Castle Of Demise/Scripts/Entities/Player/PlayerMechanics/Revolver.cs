@@ -82,7 +82,6 @@ public partial class Player
     [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
     public void Shoot()
     {
-        
         _ammoInMag--;
         _ammoShooted++;
         bool IsEnemyTouched = false;
@@ -99,9 +98,19 @@ public partial class Player
             var hitObject = _shootRayCast.GetCollider() as Node;
             if (hitObject != null)
             {
+                
                 Node mobTouche = hitObject.GetParent<Node>();
                 IsEnemyTouched = mobTouche.IsInGroup("ennemies");
-                if (IsEnemyTouched && !((Enemy)hitObject).ImDead)
+                if (hitObject.IsInGroup("Player"))
+                {
+                    hitObject.AddChild(bloodHit);
+                    _Hitmarker.Show();
+                    _HitmarkerTimer.Start();
+                    bloodHit.GlobalTransform = new Transform3D(bloodHit.GlobalTransform.Basis, rayEnd);
+                    bloodHit.LookAt(rayEnd + _shootRayCast.GetCollisionNormal() + new Vector3(0.01f, 0.01f, 0.01f), Vector3.Up);
+                    bloodHit.GetNode<CpuParticles3D>("CPUParticles3D").Restart();
+                }
+                else if (IsEnemyTouched && !((Enemy)hitObject).ImDead)
                 {
                     Hit((Enemy)hitObject);
                     hitObject.AddChild(bloodHit);
@@ -118,7 +127,6 @@ public partial class Player
                     bulletHole.LookAt(rayEnd + _shootRayCast.GetCollisionNormal() + new Vector3(0.01f, 0.01f, 0.01f), Vector3.Up);
                     bulletHole.GetNode<CpuParticles3D>("CPUParticles3D").Restart();
                 }
-
                 if (IsEnemyTouched && ((Enemy)hitObject).ImDead)
                 {
                     _HitmarkerKill.Show();

@@ -105,17 +105,19 @@ public partial class Player : CharacterBody3D
 	}
 	public override void _PhysicsProcess(double d)
 	{
-
-		switch(_cinematicMode)
+		if (!IsMultiplayer)
 		{
-			case true:
-				_HUDCanvas.Hide();
-				break;
-			case false:
-				_HUDCanvas.Show();
-				break;
-			
+			switch(_cinematicMode)
+			{
+				case true:
+					_HUDCanvas.Hide();
+					break;
+				case false:
+					_HUDCanvas.Show();
+					break;
+			}
 		}
+
 
 		if (IsMultiplayer)
 		{
