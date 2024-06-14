@@ -139,7 +139,7 @@ public partial class Player : CharacterBody3D
 				this.CameraForFov.Current = true;
 
 
-				SendMultiplayerHealthReport();
+				//SendMultiplayerHealthReport();
 				
 				
 				

@@ -32,15 +32,20 @@ public partial class MultiplayerHUD : CanvasLayer
 		_clientScore++;
 	}
 
-	private static void CheckWin()
+	[Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
+
+	private  void CheckWin()
 	{
 		if (_hostScore >= _scoretoReachvalue)
 		{
-			//host wins
+			menuPartieFinie.winnerName = "Hôte";
+			GetTree().ChangeSceneToFile("res://Scripts/Menus/menuPartieFinie.cs");
 		}
 		else if (_clientScore >= _scoretoReachvalue)
 		{
-			//client wins
+			menuPartieFinie.winnerName = "Client";
+			GetTree().ChangeSceneToFile("res://Scripts/Menus/menuPartieFinie.cs");
+
 		}
 	}
         
