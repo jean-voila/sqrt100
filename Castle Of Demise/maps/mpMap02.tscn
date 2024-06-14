@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://cmpstvb25nh77"]
+[gd_scene load_steps=49 format=3 uid="uid://cmpstvb25nh77"]
 
 [ext_resource type="Script" path="res://Scripts/maps/mpMap02.cs" id="1_3yvam"]
 [ext_resource type="Texture2D" uid="uid://citnbqb3htaxg" path="res://Assets/Textures/imageonline-co-pixelated(1).png" id="1_4lqvp"]
@@ -14,11 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dn3gxxpskoijj" path="res://Assets/Props/grass.png" id="10_5pord"]
 [ext_resource type="Texture2D" uid="uid://05wr4u2iltdf" path="res://Assets/Props/Bush02.png" id="11_7fnvi"]
 [ext_resource type="Texture2D" uid="uid://vigsw83qmser" path="res://Assets/Props/Chains01.png" id="12_xxhnp"]
-[ext_resource type="PackedScene" uid="uid://xrhd6q53it2j" path="res://Scripts/Entities/Ennemies/Zombie/Zombie.tscn" id="13_r1okt"]
-[ext_resource type="PackedScene" uid="uid://tgtc4mteft3s" path="res://Scripts/Entities/Ennemies/Bat/Bat.tscn" id="14_11u5u"]
 [ext_resource type="Texture2D" uid="uid://cpqdrsebauimv" path="res://Assets/Props/chandelier.png" id="15_tw8g0"]
-[ext_resource type="PackedScene" uid="uid://bao7wu340lf6s" path="res://Assets/Props/healthPack.tscn" id="17_uwwih"]
-[ext_resource type="PackedScene" uid="uid://wlukug466k0o" path="res://Assets/Props/Ammo.tscn" id="18_bmirq"]
 [ext_resource type="Texture2D" uid="uid://cutjplaxotxtt" path="res://Assets/Textures/imageonline-co-pixelated-terre.png" id="19_ru3yf"]
 
 [sub_resource type="StandardMaterial3D" id="3"]
@@ -223,6 +219,7 @@ animations = [{
 albedo_texture = ExtResource("19_ru3yf")
 
 [node name="mpMap02" type="Node3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 6.31283, 0)
 script = ExtResource("1_3yvam")
 _multiplayerScene02 = ExtResource("2_34jlc")
 
@@ -230,11 +227,11 @@ _multiplayerScene02 = ExtResource("2_34jlc")
 
 [node name="0" type="Node3D" parent="Spawn" groups=["PlayerSpawnPoint"]]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.0973, 4.19294, 63.7043)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 19.2792, 4.19294, 36.7315)
 
 [node name="1" type="Node3D" parent="Spawn" groups=["PlayerSpawnPoint"]]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.3275, 2.51532, 68.0625)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 30.6911, 1.81832, 35.7579)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.891948, 0.452139, 0, -0.452139, 0.891948, 0, 79.9324, 124.007)
@@ -1310,24 +1307,6 @@ shaded = true
 texture_filter = 0
 sprite_frames = SubResource("30")
 
-[node name="Zombie" parent="." groups=["ennemies"] instance=ExtResource("13_r1okt")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -5.18616, -11.0453, -22.7142)
-
-[node name="Zombie2" parent="." groups=["ennemies"] instance=ExtResource("13_r1okt")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -2.31095, -11.0453, -22.7142)
-
-[node name="Bat" parent="." groups=["ennemies"] instance=ExtResource("14_11u5u")]
-transform = Transform3D(1.296, 0, 0, 0, 1.296, 0, 0, 0, 1.296, -8.67687, -7.53306, -24.7116)
-
-[node name="Bat2" parent="." groups=["ennemies"] instance=ExtResource("14_11u5u")]
-transform = Transform3D(1.296, 0, 0, 0, 1.296, 0, 0, 0, 1.296, 1.62353, -7.53306, -24.7116)
-
-[node name="Bat3" parent="." groups=["ennemies"] instance=ExtResource("14_11u5u")]
-transform = Transform3D(1.296, 0, 0, 0, 1.296, 0, 0, 0, 1.296, -3.74762, -7.53306, -24.7116)
-
-[node name="Zombie3" parent="." groups=["ennemies"] instance=ExtResource("13_r1okt")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -2.31095, -11.0453, -25.978)
-
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(-1, -3.82137e-15, -8.74228e-08, -8.74228e-08, 4.37114e-08, 1, 0, 1, -4.37114e-08, -1, -2, 0)
 light_color = Color(1, 0.647059, 0.47451, 1)
@@ -1343,7 +1322,7 @@ texture_filter = 0
 sprite_frames = SubResource("31")
 
 [node name="CSGCylinder12" type="CSGCylinder3D" parent="SpotLight3D"]
-transform = Transform3D(-1, -8.74228e-08, 0, -3.82137e-15, 4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 94.1166, 95.2554, -3.79754)
+transform = Transform3D(-1, -8.74228e-08, 0, -3.82137e-15, 4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 46.1166, 46.2554, -3.79754)
 use_collision = true
 radius = 4.0
 height = 38.0
@@ -1412,30 +1391,6 @@ transform = Transform3D(0.998669, 0, -0.0515865, 0, 1, 0, 0.0515865, 0, 0.998669
 use_collision = true
 size = Vector3(10, 6, 1)
 material = SubResource("21")
-
-[node name="HealthPack" parent="." instance=ExtResource("17_uwwih")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 2.41469, -12.5151, -38.5125)
-
-[node name="AmmoPack" parent="." instance=ExtResource("18_bmirq")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 7.92489, -12.5755, -35.0966)
-
-[node name="AmmoPack2" parent="." instance=ExtResource("18_bmirq")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 7.92489, -12.5755, -32.1236)
-
-[node name="AmmoPack3" parent="." instance=ExtResource("18_bmirq")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 7.92489, -12.5755, -28.7053)
-
-[node name="AmmoPack4" parent="." instance=ExtResource("18_bmirq")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 7.92489, -12.5755, -38.543)
-
-[node name="HealthPack2" parent="." instance=ExtResource("17_uwwih")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 2.41469, -12.5151, -35.1752)
-
-[node name="HealthPack3" parent="." instance=ExtResource("17_uwwih")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 2.41469, -12.5151, -31.6003)
-
-[node name="HealthPack4" parent="." instance=ExtResource("17_uwwih")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 2.41469, -12.5151, -28.7698)
 
 [node name="forest4" type="Node3D" parent="."]
 

@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://r32up0cfxrph"]
+
+[ext_resource type="Script" path="res://Scripts/Menus/menuPartieFinie.cs" id="1_4y6w2"]
+[ext_resource type="Texture2D" uid="uid://s5p1sdslvodf" path="res://Assets/Images/BackgroundMenu.png" id="2_a4g5v"]
+[ext_resource type="FontFile" uid="uid://c6dt5gimeq7bo" path="res://Assets/Fonts/GODOFWAR.TTF" id="3_wkvo6"]
+[ext_resource type="StyleBox" uid="uid://krbgms2n0t3t" path="res://menus/StandardButton.tres" id="4_53i6a"]
+[ext_resource type="StyleBox" uid="uid://xy3ookw3fxr0" path="res://menus/StandardHoverButton.tres" id="5_ntvus"]
+[ext_resource type="StyleBox" uid="uid://b5bvit6wpb3ss" path="res://menus/StandardPressedButton.tres" id="6_jp8h2"]
+[ext_resource type="StyleBox" path="res://menus/StandardButtonFocused.tres" id="7_lpyp6"]
+
+[node name="MenuPartieFinie" type="Node2D" node_paths=PackedStringArray("winnerLabel")]
+script = ExtResource("1_4y6w2")
+winnerLabel = NodePath("Label")
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.154876, 0.154876, 0.154876, 1)
+position = Vector2(640, 359.919)
+scale = Vector2(1.43701, 1.34048)
+texture = ExtResource("2_a4g5v")
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 87, 893.5, 537.52)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 334.0
+offset_top = 129.0
+offset_right = 955.0
+offset_bottom = 367.0
+theme_override_fonts/font = ExtResource("3_wkvo6")
+theme_override_font_sizes/font_size = 40
+text = "Le joueur [NOM] a gagné."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 493.0
+offset_top = 539.0
+offset_right = 778.0
+offset_bottom = 616.0
+theme_override_fonts/font = ExtResource("3_wkvo6")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("4_53i6a")
+theme_override_styles/hover = ExtResource("5_ntvus")
+theme_override_styles/pressed = ExtResource("6_jp8h2")
+theme_override_styles/focus = ExtResource("7_lpyp6")
+text = "Menu"
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

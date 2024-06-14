@@ -1,36 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://dq0lm0kp5ygy2"]
+[gd_scene load_steps=8 format=3 uid="uid://dq0lm0kp5ygy2"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/menuPlayerMort.cs" id="1_6tkvh"]
-[ext_resource type="Texture2D" uid="uid://bddvfd4li5gc0" path="res://Assets/Textures/imageonline-co-pixelated(4).png" id="1_xb8gg"]
-[ext_resource type="Texture2D" uid="uid://cbisssun80dsd" path="res://Assets/Effects/BloodHitEffect.png" id="2_5gc2a"]
+[ext_resource type="Texture2D" uid="uid://s5p1sdslvodf" path="res://Assets/Images/BackgroundMenu.png" id="2_okbx4"]
+[ext_resource type="FontFile" uid="uid://c6dt5gimeq7bo" path="res://Assets/Fonts/GODOFWAR.TTF" id="3_sq321"]
+[ext_resource type="StyleBox" uid="uid://krbgms2n0t3t" path="res://menus/StandardButton.tres" id="4_tt0g2"]
+[ext_resource type="StyleBox" uid="uid://xy3ookw3fxr0" path="res://menus/StandardHoverButton.tres" id="5_8i3us"]
+[ext_resource type="StyleBox" uid="uid://b5bvit6wpb3ss" path="res://menus/StandardPressedButton.tres" id="6_xv1xi"]
+[ext_resource type="StyleBox" path="res://menus/StandardButtonFocused.tres" id="7_2vo54"]
 
 [node name="MenuPlayerMort" type="Node2D"]
 script = ExtResource("1_6tkvh")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(647, 358)
-scale = Vector2(1.05846, 0.931475)
-texture = ExtResource("1_xb8gg")
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.154876, 0.154876, 0.154876, 1)
+position = Vector2(640, 359.919)
+scale = Vector2(1.43701, 1.34048)
+texture = ExtResource("2_okbx4")
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 87, 893.5, 537.52)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(639, 358)
-scale = Vector2(20, 20)
-texture = ExtResource("2_5gc2a")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 467.0
-offset_top = 160.0
-offset_right = 808.0
-offset_bottom = 219.0
-theme_override_font_sizes/normal_font_size = 40
-text = "Vous Etes Mort(e)"
+[node name="Label" type="Label" parent="."]
+offset_left = 334.0
+offset_top = 129.0
+offset_right = 955.0
+offset_bottom = 367.0
+theme_override_fonts/font = ExtResource("3_sq321")
+theme_override_font_sizes/font_size = 40
+text = "Vous êtes mort."
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Button" type="Button" parent="."]
-offset_left = 496.0
-offset_top = 330.0
-offset_right = 781.0
-offset_bottom = 407.0
+offset_left = 493.0
+offset_top = 539.0
+offset_right = 778.0
+offset_bottom = 616.0
+theme_override_fonts/font = ExtResource("3_sq321")
 theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("4_tt0g2")
+theme_override_styles/hover = ExtResource("5_8i3us")
+theme_override_styles/pressed = ExtResource("6_xv1xi")
+theme_override_styles/focus = ExtResource("7_2vo54")
 text = "Menu"
 
-[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
