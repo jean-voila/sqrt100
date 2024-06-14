@@ -19,6 +19,9 @@
 properties/0/path = NodePath(".:_syncPos")
 properties/0/spawn = true
 properties/0/replication_mode = 1
+properties/1/path = NodePath(".:_syncRotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
 
 [sub_resource type="CapsuleShape3D" id="1"]
 radius = 0.384727
@@ -517,9 +520,11 @@ mesh = SubResource("CapsuleMesh_qgwxh")
 material = SubResource("StandardMaterial3D_sscpg")
 
 [node name="Head" type="Node3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(0.196649, 0, 0, 0, 0.17496, 0, 0, 0, 0.504494, 0, 1.31931, -0.129202)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.0238431, 2.08165e-12)
 current = true
 fov = 110.0

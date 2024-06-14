@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using CastleOfDemise.Scripts.Menus;
 using CastleOfDemise.Scripts.Menus.MultiLauncher;
 using Godot;
 
@@ -33,7 +34,7 @@ public partial class Player : CharacterBody3D
 	
 	// cleaner synchronisation
 	private Vector3 _syncPos = new Vector3(0, 0, 0);  // position
-	//private Vector3 _syncRotation = new Vector3(0, 0, 0); //rotation du perso
+	private Vector3 _syncRotation = new Vector3(0, 0, 0); //rotation du perso
 	
 	public override void _Ready()
 	{
@@ -91,6 +92,7 @@ public partial class Player : CharacterBody3D
 			    && GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority() == Multiplayer.GetUniqueId()
 			   )
 			{
+				_ammoAvailable = 60;
 				HandleMouseMovementInputs((float)d);
 				HandleMovements(d);
 				HandleRespawn();
@@ -110,14 +112,18 @@ public partial class Player : CharacterBody3D
 				
 				// synchronisation of players
 				_syncPos = GlobalPosition;
-				//_syncRotation = GetNode<Node3D>("rotation").RotationDegrees;
+				_syncRotation = GetNode<Node3D>("Head").RotationDegrees;
 			}
 			else
 			{
 				GlobalPosition = GlobalPosition.Lerp(_syncPos, 0.1f);
-				//GetNode<Node3D>("rotation").RotationDegrees = RotationDegrees.Lerp(_syncRotation, 0.1f);
+				GetNode<Node3D>("Head").RotationDegrees = RotationDegrees.Lerp(_syncRotation, 0.1f);
 			}
 
+			if (Multiplayer.MultiplayerPeer == null || MultiplayerMenu.Peer == null)
+			{
+				GetTree().ChangeSceneToFile("res://menus/TitleScreen.tscn");
+			}
 
 		}
 		
