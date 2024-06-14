@@ -102,10 +102,10 @@ albedo_texture = ExtResource("7_orln4")
 size = Vector3(15.9607, 23.5497, 16.5464)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1iinf"]
-size = Vector3(202.66, 53.5705, 53.686)
+size = Vector3(139.237, 53.5705, 53.686)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fkmsh"]
-size = Vector3(302.743, 56.6495, 283.253)
+size = Vector3(45.6371, 56.6495, 283.253)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_edpy8"]
 animations = [{
@@ -4031,7 +4031,7 @@ shape = SubResource("BoxShape3D_wthfl")
 [node name="StaticBody3D4" type="StaticBody3D" parent="mursinvisibles"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="mursinvisibles/StaticBody3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.481, 27.2853, 231.012)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.7697, 27.2853, 231.012)
 shape = SubResource("BoxShape3D_1iinf")
 
 [node name="StaticBody3D6" type="StaticBody3D" parent="mursinvisibles"]
@@ -4051,14 +4051,14 @@ shape = SubResource("BoxShape3D_1iinf")
 transform = Transform3D(0.689683, 0, -0.724112, 0, 1, 0, 0.724112, 0, 0.689683, 161.598, 2.95459, 91.9833)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="mursinvisibles/StaticBody3D2"]
-transform = Transform3D(0.724076, 0, -0.689721, 0, 1, 0, 0.689721, 0, 0.724076, 50.5418, 22.6295, -29.05)
+transform = Transform3D(-0.687607, 0, -0.726083, 0, 1, 0, 0.726083, 0, -0.687607, -30.845, 22.6295, 56.3997)
 shape = SubResource("BoxShape3D_fkmsh")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="mursinvisibles"]
 transform = Transform3D(0.707107, 1.60554e-24, 0.707107, 3.48787e-16, 1, -3.48787e-16, -0.707107, 4.93259e-16, 0.707107, -86.5616, 2.95459, 104.323)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="mursinvisibles/StaticBody3D"]
-transform = Transform3D(0.724076, 0, -0.689721, 0, 1, 0, 0.689721, 0, 0.724076, -96.7861, 24.8702, -85.6349)
+transform = Transform3D(0.724076, 0, -0.689721, -1.65436e-23, 1, 1.05879e-22, 0.689721, 0, 0.724076, -3.70401, 24.8702, 3.03077)
 shape = SubResource("BoxShape3D_fkmsh")
 
 [node name="chandeliersmacabres" type="Node3D" parent="."]
