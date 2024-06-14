@@ -7,10 +7,9 @@ public partial class FPS : Control
 	private OptionButton _button;
 	private Dictionary<int, int> FPS_DI = new Dictionary<int, int>
 	{
-		{ 0, 0 },
-		{ 1, 120 },
-		{ 2, 60 },
-		{ 3, 30 }
+		{ 0, 120 },
+		{ 1, 60 },
+		{ 2, 30 }
 	};
 	
 	// Called when the node enters the scene tree for the first time.
