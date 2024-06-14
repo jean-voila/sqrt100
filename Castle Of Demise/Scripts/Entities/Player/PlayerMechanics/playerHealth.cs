@@ -38,7 +38,7 @@ public partial class Player
             BloodHitEffect.Show();
             BloodHitEffectTimer.Start();
             CameraShake();
-            // _sfxPlayer.EmitSignal("PlaySFXSignal", "playerhit");
+            _sfxPlayer.EmitSignal("PlaySFXSignal", "playerhit");
         }
         else
         {
@@ -57,21 +57,30 @@ public partial class Player
     {
         if (IsDead)
         {
-            if (IsServer)
+            if (!IsMultiplayer)
             {
-                mpMap02.PlayerList[1].Teleport(new Vector3(7,14,2));
-                Rpc(nameof(MultiplayerHUD.HostScored));
+                Input.MouseMode = Input.MouseModeEnum.Visible;
+                GetTree().ChangeSceneToFile("res://menus/menuPlayerMort.tscn");
             }
             else
             {
-                mpMap02.PlayerList[0].Teleport(new Vector3(7,14,2));
-                Rpc(nameof(MultiplayerHUD.ClientScored));
+                if (IsServer)
+                {
+                    mpMap02.PlayerList[1].Teleport(new Vector3(7,14,2));
+                    Rpc(nameof(MultiplayerHUD.HostScored));
+                }
+                else
+                {
+                    mpMap02.PlayerList[0].Teleport(new Vector3(7,14,2));
+                    Rpc(nameof(MultiplayerHUD.ClientScored));
+                }
+                // GD.Print(Name + " is " + PlayerName);
+                // GD.Print(PlayerHealth);
+                PlayerHealth = _maxHealth;
+                // GD.Print(PlayerHealth);
+
             }
             
-            GD.Print(Name + " is " + PlayerName);
-            GD.Print(PlayerHealth);
-            PlayerHealth = _maxHealth;
-            GD.Print(PlayerHealth);
         }
     }
 }
