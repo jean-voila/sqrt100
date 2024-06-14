@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dl3nt6mahqgxs"]
+[gd_scene load_steps=29 format=3 uid="uid://dl3nt6mahqgxs"]
 
 [ext_resource type="Texture2D" uid="uid://citnbqb3htaxg" path="res://Assets/Textures/imageonline-co-pixelated(1).png" id="1_833s0"]
 [ext_resource type="Script" path="res://Scripts/maps/TestTutoriel.cs" id="1_fem7q"]
@@ -9,10 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://wlukug466k0o" path="res://Assets/Props/Ammo.tscn" id="5_ud77k"]
 [ext_resource type="PackedScene" uid="uid://twx1vowmd4ni" path="res://Scripts/Entities/Player/Player.tscn" id="7_q61ml"]
 [ext_resource type="Texture2D" uid="uid://dtc7wjnag443v" path="res://Assets/Textures/imageonline-co-pixelated(2).png" id="7_vf8yo"]
+[ext_resource type="PackedScene" uid="uid://bao7wu340lf6s" path="res://Assets/Props/healthPack.tscn" id="8_2pa7a"]
 [ext_resource type="Texture2D" uid="uid://4id0pnmf22o8" path="res://Assets/Textures/imageonline-co-pixelated-planks.png" id="8_hhidg"]
 [ext_resource type="FontFile" uid="uid://qtsc2kgt2e0p" path="res://Assets/Fonts/pixel.ttf" id="9_wgqug"]
 [ext_resource type="PackedScene" uid="uid://tgtc4mteft3s" path="res://Scripts/Entities/Ennemies/Bat/Bat.tscn" id="10_gpdxc"]
+[ext_resource type="FontFile" uid="uid://bf8x3sid7odf2" path="res://Assets/Fonts/fontpourpanneau.tres" id="11_mqcht"]
 [ext_resource type="Script" path="res://Scripts/Entities/Player/SFXPlayer.cs" id="12_xr68a"]
+[ext_resource type="PackedScene" uid="uid://cnk86spow543" path="res://Assets/Mesh/panneau.tscn" id="13_w7gwc"]
+[ext_resource type="PackedScene" uid="uid://dflunlx5wbwt1" path="res://Assets/Mesh/muret.tscn" id="16_7x1yy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2p0j6"]
 albedo_texture = ExtResource("1_833s0")
@@ -22382,8 +22386,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, -128.411)
 [node name="Spatial32" parent="CSGBox3D/Roads" instance=ExtResource("4_fo8q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42884, 0.501671, -137.613)
 
+[node name="Area3D" parent="CSGBox3D" instance=ExtResource("8_2pa7a")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.88871, 0.987063, -13.6825)
+
 [node name="Ammo" parent="CSGBox3D" instance=ExtResource("5_ud77k")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.328491, 0.835439, 51.7666)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -1.32294, 0.835439, -13.6487)
+
+[node name="Muret" parent="CSGBox3D" instance=ExtResource("16_7x1yy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.35189, 1, 74.9896)
 
 [node name="Pancarte" type="Node3D" parent="CSGBox3D"]
 
@@ -22410,13 +22420,95 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.328566, 0.407105, 1.1356)
 modulate = Color(0, 0, 0, 1)
 text = "Bienvenue 
 à Leidenstadt"
-font = ExtResource("9_wgqug")
+font = ExtResource("11_mqcht")
 font_size = 110
 
 [node name="Ennemies" type="Node3D" parent="CSGBox3D"]
 
-[node name="Bat" parent="CSGBox3D/Ennemies" groups=["ennemies"] instance=ExtResource("10_gpdxc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8843, 79.1725)
+[node name="Batou" parent="CSGBox3D/Ennemies" groups=["ennemies"] instance=ExtResource("10_gpdxc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8843, 16.4695)
+
+[node name="Batou2" parent="CSGBox3D/Ennemies" groups=["ennemies"] instance=ExtResource("10_gpdxc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8843, -75.7074)
+
+[node name="Batou3" parent="CSGBox3D/Ennemies" groups=["ennemies"] instance=ExtResource("10_gpdxc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15659, 2.53477, -65.3174)
+
+[node name="Batou4" parent="CSGBox3D/Ennemies" groups=["ennemies"] instance=ExtResource("10_gpdxc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.22643, 4.8843, -63.8064)
+
+[node name="YAPADEPANNEAU" type="Node3D" parent="CSGBox3D"]
+
+[node name="Panneau saut" parent="CSGBox3D/YAPADEPANNEAU" instance=ExtResource("13_w7gwc")]
+transform = Transform3D(0.963989, 0, -0.265943, 0, 1, 0, 0.265943, 0, 0.963989, 1.67263, 0.5, 83.2017)
+
+[node name="Label3D" type="Label3D" parent="CSGBox3D/YAPADEPANNEAU/Panneau saut"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0.603256, 2.04832, -0.393532)
+modulate = Color(0, 0, 0, 1)
+text = "Espace pour sauter
+"
+font = ExtResource("9_wgqug")
+outline_size = 2
+
+[node name="Panneau2" parent="CSGBox3D/YAPADEPANNEAU" instance=ExtResource("13_w7gwc")]
+transform = Transform3D(0.963989, 0, -0.265943, 0, 1, 0, 0.265943, 0, 0.963989, 1.67263, 0.5, 126.062)
+
+[node name="Label3D" type="Label3D" parent="CSGBox3D/YAPADEPANNEAU/Panneau2"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0.603256, 2.04832, -0.393532)
+modulate = Color(0, 0, 0, 1)
+text = "Z,Q,S,D pour se déplacer
+bouger la souris pour 
+regarder autour"
+font = ExtResource("9_wgqug")
+outline_size = 2
+
+[node name="Panneau Tirer" parent="CSGBox3D/YAPADEPANNEAU" instance=ExtResource("13_w7gwc")]
+transform = Transform3D(0.963989, 0, -0.265943, 0, 1, 0, 0.265943, 0, 0.963989, 1.67263, 0.5, 28.4742)
+
+[node name="Label3D" type="Label3D" parent="CSGBox3D/YAPADEPANNEAU/Panneau Tirer"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0.603256, 2.04832, -0.393532)
+modulate = Color(0, 0, 0, 1)
+text = "Clic gauche pour tirer
+R pour recharger
+"
+font = ExtResource("9_wgqug")
+outline_size = 2
+
+[node name="Panneau Soin" parent="CSGBox3D/YAPADEPANNEAU" instance=ExtResource("13_w7gwc")]
+transform = Transform3D(0.84946, 0, -0.527653, 0, 1, 0, 0.527653, 0, 0.84946, 2.44846, 0.5, -12.3656)
+
+[node name="Label3D" type="Label3D" parent="CSGBox3D/YAPADEPANNEAU/Panneau Soin"]
+transform = Transform3D(1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, 1, 0.603249, 2.04832, -0.393532)
+modulate = Color(0, 0, 0, 1)
+text = "Kit de soin
+Régénère 10 points de vie
+"
+font = ExtResource("9_wgqug")
+outline_size = 2
+
+[node name="Panneau Ammo" parent="CSGBox3D/YAPADEPANNEAU" instance=ExtResource("13_w7gwc")]
+transform = Transform3D(0.811747, 0, 0.584009, 0, 1, 0, -0.584009, 0, 0.811747, -4.10017, 0.5, -11.3345)
+
+[node name="Label3D" type="Label3D" parent="CSGBox3D/YAPADEPANNEAU/Panneau Ammo"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0.603256, 2.04832, -0.393532)
+modulate = Color(0, 0, 0, 1)
+text = "Kit de munition
+Donne 12 munitions
+"
+font = ExtResource("9_wgqug")
+outline_size = 2
+
+[node name="Panneau gitgud" parent="CSGBox3D/YAPADEPANNEAU" instance=ExtResource("13_w7gwc")]
+transform = Transform3D(0.84946, 0, -0.527653, 0, 1, 0, 0.527653, 0, 0.84946, 2.44846, 0.5, -51.6949)
+
+[node name="Label3D" type="Label3D" parent="CSGBox3D/YAPADEPANNEAU/Panneau gitgud"]
+transform = Transform3D(1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, 1, 0.603249, 2.04832, -0.393532)
+modulate = Color(0, 0, 0, 1)
+text = "Apprenez à viser 
+maintenant
+"
+font = ExtResource("9_wgqug")
+outline_size = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ckuwf")
