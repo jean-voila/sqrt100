@@ -109,6 +109,9 @@ public partial class Player
                     bloodHit.GlobalTransform = new Transform3D(bloodHit.GlobalTransform.Basis, rayEnd);
                     bloodHit.LookAt(rayEnd + _shootRayCast.GetCollisionNormal() + new Vector3(0.01f, 0.01f, 0.01f), Vector3.Up);
                     bloodHit.GetNode<CpuParticles3D>("CPUParticles3D").Restart();
+                    Player player = (Player)hitObject;
+                    RpcId(player.PlayerId, nameof(TakeDamage), _strength * 2);
+                    // hitObject.EmitSignal("HitSignal", _strength*2);
                 }
                 else if (IsEnemyTouched && !((Enemy)hitObject).ImDead)
                 {
