@@ -3956,12 +3956,14 @@ sprite_frames = SubResource("28")
 
 [node name="CSGCylinder16" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.2537, -0.826625, -78.1415)
+use_collision = true
 radius = 3.0
 height = 27.027
 material = SubResource("22")
 
 [node name="CSGBox11" type="CSGBox3D" parent="."]
 transform = Transform3D(-0.999998, 0.00111651, -0.00170947, -4.09444e-09, 1.57637, 0.360486, 0.00183269, 0.60922, -0.932763, -94.3381, 1.0137, -46.9907)
+use_collision = true
 size = Vector3(8.6853, 1, 86.3411)
 material = SubResource("11")
 
