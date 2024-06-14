@@ -55,10 +55,12 @@ public partial class Player
     {
         if (IsDead)
         {
-            _usedCamera.QueueFree();
-            _pauseMenu.Visible = true;
             Input.MouseMode = Input.MouseModeEnum.Visible;
-            GetTree().Paused = true;
+            GetTree().ChangeSceneToFile("res://menus/menuPlayerMort.tscn");
+            // _usedCamera.QueueFree();
+            // _pauseMenu.Visible = true;
+            // Input.MouseMode = Input.MouseModeEnum.Visible;
+            // GetTree().Paused = true;
         }
     }
 }

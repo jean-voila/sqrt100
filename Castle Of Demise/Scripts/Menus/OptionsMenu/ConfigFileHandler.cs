@@ -13,7 +13,8 @@ public partial class ConfigFileHandler : Node
 	{
 		if (!FileAccess.FileExists(SETTINGS_FILE_PATH))
 		{
-			config.SetValue("FPS","fps",3);
+			config.SetValue("Diff", "diff",1);
+			config.SetValue("FPS","fps",1);
 			config.SetValue("Audio", "Master", 1.0);
 			config.SetValue("Audio", "Musique", 1.0);
 			config.SetValue("Audio", "SFX", 1.0);
@@ -31,6 +32,17 @@ public partial class ConfigFileHandler : Node
 		{
 			config.Load(SETTINGS_FILE_PATH);
 		}
+	}
+	public static void SaveDiffSetting(double value)
+	{
+		config.SetValue("Diff", "diff", value);
+		config.Save(SETTINGS_FILE_PATH);
+	}
+	public static int LoadDiffSettings()
+	{
+		config.Load(SETTINGS_FILE_PATH);
+		var res = config.GetValue("Diff","diff").AsInt32();
+		return res;
 	}
 	public static void SaveFpsSetting(double value)
 	{

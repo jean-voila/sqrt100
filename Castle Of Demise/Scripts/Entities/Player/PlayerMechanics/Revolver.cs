@@ -13,7 +13,7 @@ public partial class Player
     private RayCast3D _shootRayCast;
     private PackedScene _bulletHoleScene;
     private PackedScene _bloodHit;
-    private int _ammoAvailable;
+    public int _ammoAvailable;
     private int _ammoInMag;
     private int _ammoShooted;
     private int _strength;

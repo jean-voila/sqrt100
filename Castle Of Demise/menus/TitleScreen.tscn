@@ -136,6 +136,7 @@ grow_vertical = 2
 script = ExtResource("1")
 _sfxPlayer = NodePath("SFXPlayer")
 _musicPlayer = NodePath("MusicPlayer")
+metadata/_edit_horizontal_guides_ = [550.0]
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.154876, 0.154876, 0.154876, 1)
