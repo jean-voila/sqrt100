@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnk86spow543"]
+
+[ext_resource type="Texture2D" uid="uid://dtc7wjnag443v" path="res://Assets/Textures/imageonline-co-pixelated(2).png" id="1_wjl5p"]
+[ext_resource type="Texture2D" uid="uid://4id0pnmf22o8" path="res://Assets/Textures/imageonline-co-pixelated-planks.png" id="2_7rpk3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n0qea"]
+albedo_texture = ExtResource("1_wjl5p")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hs7j"]
+albedo_texture = ExtResource("2_7rpk3")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.613444, 0.570888, -0.496061)
+material_override = SubResource("StandardMaterial3D_n0qea")
+radius = 0.0574232
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.559326, 1, -0.467951)
+material_override = SubResource("StandardMaterial3D_4hs7j")
+size = Vector3(2.11865, 1, 0.0640986)

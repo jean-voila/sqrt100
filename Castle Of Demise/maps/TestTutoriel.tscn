@@ -22416,7 +22416,7 @@ font_size = 110
 [node name="Ennemies" type="Node3D" parent="CSGBox3D"]
 
 [node name="Bat" parent="CSGBox3D/Ennemies" groups=["ennemies"] instance=ExtResource("10_gpdxc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8843, 55.1042)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8843, 79.1725)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ckuwf")

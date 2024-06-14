@@ -411,9 +411,10 @@ height = 38.0
 material = SubResource("22")
 
 [node name="CSGCylinder13" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.2031, -6.46387, 93.3258)
-radius = 6.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.6841, -6.46387, 93.3602)
+radius = 6.30418
 height = 38.0
+sides = 12
 material = SubResource("22")
 
 [node name="CSGCylinder11" type="CSGCylinder3D" parent="CSGCombiner3D"]
