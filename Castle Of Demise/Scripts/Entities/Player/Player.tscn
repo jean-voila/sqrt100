@@ -535,14 +535,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.466729)
 visible = false
 mesh = SubResource("9")
 
-[node name="crossHair" type="TextureRect" parent="Head/Camera3D"]
-offset_left = 630.0
-offset_top = 350.0
-offset_right = 670.0
-offset_bottom = 390.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4")
-
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, 0, 0)
 target_position = Vector3(0, 0, -2000)
@@ -623,6 +615,14 @@ one_shot = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
 visible = false
+
+[node name="crossHair" type="TextureRect" parent="HUD"]
+offset_left = 630.0
+offset_top = 350.0
+offset_right = 670.0
+offset_bottom = 390.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4")
 
 [node name="Debug" parent="HUD" instance=ExtResource("2")]
 offset_right = -1280.0

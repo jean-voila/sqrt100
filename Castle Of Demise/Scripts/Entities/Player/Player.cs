@@ -7,6 +7,12 @@ namespace CastleOfDemise.mobs.Player;
 
 public partial class Player : CharacterBody3D
 {
+	[Signal]
+	public delegate void SwitchCinematicModeSignalEventHandler(bool value);
+	[Signal]
+	public delegate void SwitchLevitationModeSignalEventHandler(bool value);
+	
+	
 	[Export] private AudioStreamPlayer _sfxPlayer;
 	[Export] private Node3D _head;
 	[Export] private float _maxFov = 1.15f;
@@ -21,8 +27,9 @@ public partial class Player : CharacterBody3D
 	[Export] private float _revolverModelRotationAmount = -0.3f;
 	[Export] private CanvasLayer _pausecanvas;
 	[Export] private CanvasLayer _HUDCanvas;
-	
 
+	private bool _cinematicMode;
+	private bool _levitationMode;
 
 	public string PlayerName = "";
 	public int PlayerId = 0;
@@ -30,7 +37,6 @@ public partial class Player : CharacterBody3D
 	public bool IsServer = false;
 	private Vector2 _lastMouseMovement;
 	public static bool IsMultiplayer = false;
-	
 	
 	// cleaner synchronisation
 	private Vector3 _syncPos = new Vector3(0, 0, 0);  // position
@@ -40,6 +46,8 @@ public partial class Player : CharacterBody3D
 	
 	public override void _Ready()
 	{
+		SwitchCinematicModeSignal += SwitchCinematicMode;
+		SwitchLevitationModeSignal += SwitchLevitationMode;
 		AddToGroup("Player");
 		_shootInit();
 		_stepsInit();
@@ -97,6 +105,17 @@ public partial class Player : CharacterBody3D
 	}
 	public override void _PhysicsProcess(double d)
 	{
+
+		switch(_cinematicMode)
+		{
+			case true:
+				_HUDCanvas.Hide();
+				break;
+			case false:
+				_HUDCanvas.Show();
+				break;
+			
+		}
 
 		if (IsMultiplayer)
 		{
@@ -184,6 +203,16 @@ public partial class Player : CharacterBody3D
 	private void SetNetworkMaster(int newMaster)
 	{
 		// This method would be called on the peer with ID 1, changing the network master of the node
+	}
+
+	private void SwitchCinematicMode(bool _value)
+	{
+		_cinematicMode = _value;
+	}
+
+	private void SwitchLevitationMode(bool _value)
+	{
+		_levitationMode = _value;
 	}
 	
 	

@@ -5,9 +5,9 @@ using CastleOfDemise.mobs.Player;
 
 public partial class Zombie : Enemy
 {
-    protected override int Health { get; set; } = 60;
+    protected override int Health { get; set; } = 30;
     
-    protected override float Speed { get; set; } = 1f;
+    protected override float Speed { get; set; } = 1.6f;
     
     protected override int Damage { get; set; } = 15;
     

@@ -25,8 +25,10 @@
 [ext_resource type="PackedScene" uid="uid://xrhd6q53it2j" path="res://Scripts/Entities/Ennemies/Zombie/Zombie.tscn" id="19_ctnsx"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_t0ghe"]
-vertices = PackedVector3Array(-249.541, -1.95459, -250.467, -249.541, -1.95459, 248.533, 249.459, -1.95459, 248.533, 249.459, -1.95459, -250.467)
+vertices = PackedVector3Array(-65.4282, -1.95459, 51.0568, -65.4282, -1.95459, 248.557, 79.8218, -1.95459, 248.557, 79.8218, -1.95459, 51.0568)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+agent_height = 1.0
+agent_max_climb = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oanpm"]
 albedo_texture = ExtResource("4_o0qc2")
@@ -130,10 +132,10 @@ navigation_mesh = SubResource("NavigationMesh_t0ghe")
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0410442, -2.95459, -0.967209)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.22737, -2.95459, 149.795)
 material_override = ExtResource("7_q4brr")
 use_collision = true
-size = Vector3(500, 1, 500)
+size = Vector3(146.311, 1, 198.476)
 material = SubResource("StandardMaterial3D_oanpm")
 
 [node name="roads" type="Node3D" parent="NavigationRegion3D/CSGCombiner3D"]
@@ -4032,6 +4034,13 @@ shape = SubResource("BoxShape3D_wthfl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.481, 27.2853, 231.012)
 shape = SubResource("BoxShape3D_1iinf")
 
+[node name="StaticBody3D6" type="StaticBody3D" parent="mursinvisibles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.023, 0, -202.221)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="mursinvisibles/StaticBody3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.225, 27.2853, 229.294)
+shape = SubResource("BoxShape3D_1iinf")
+
 [node name="StaticBody3D3" type="StaticBody3D" parent="mursinvisibles"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="mursinvisibles/StaticBody3D3"]
@@ -4039,14 +4048,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.225, 27.2853, 229.294)
 shape = SubResource("BoxShape3D_1iinf")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="mursinvisibles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 139.262, 2.95459, 27.9718)
+transform = Transform3D(0.689683, 0, -0.724112, 0, 1, 0, 0.724112, 0, 0.689683, 161.598, 2.95459, 91.9833)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="mursinvisibles/StaticBody3D2"]
 transform = Transform3D(0.724076, 0, -0.689721, 0, 1, 0, 0.689721, 0, 0.724076, 50.5418, 22.6295, -29.05)
 shape = SubResource("BoxShape3D_fkmsh")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="mursinvisibles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.738, 2.95459, 82.0263)
+transform = Transform3D(0.707107, 1.60554e-24, 0.707107, 3.48787e-16, 1, -3.48787e-16, -0.707107, 4.93259e-16, 0.707107, -86.5616, 2.95459, 104.323)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="mursinvisibles/StaticBody3D"]
 transform = Transform3D(0.724076, 0, -0.689721, 0, 1, 0, 0.689721, 0, 0.724076, -96.7861, 24.8702, -85.6349)
@@ -4171,24 +4180,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.354, 9.94155, 129.66)
 
 [node name="Bat3" parent="EnnemisDehors" groups=["ennemies"] instance=ExtResource("17_b6lmc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.82007, 9.94155, 129.66)
-
-[node name="Zombie4" parent="EnnemisDehors" groups=["ennemies"] instance=ExtResource("19_ctnsx")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 12.2563, 3.00033, 105.335)
-
-[node name="Zombie5" parent="EnnemisDehors" groups=["ennemies"] instance=ExtResource("19_ctnsx")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 3.3239, 3.00033, 105.335)
-
-[node name="Zombie6" parent="EnnemisDehors" groups=["ennemies"] instance=ExtResource("19_ctnsx")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 18.3643, 3.00033, 105.335)
-
-[node name="Zombie7" parent="EnnemisDehors" groups=["ennemies"] instance=ExtResource("19_ctnsx")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 3.00033, 87.8574)
-
-[node name="Zombie8" parent="EnnemisDehors" groups=["ennemies"] instance=ExtResource("19_ctnsx")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -8.93237, 3.00033, 87.8574)
-
-[node name="Zombie9" parent="EnnemisDehors" groups=["ennemies"] instance=ExtResource("19_ctnsx")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 6.10799, 3.00033, 87.8574)
 
 [node name="Bat4" parent="EnnemisDehors" groups=["ennemies"] instance=ExtResource("17_b6lmc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5609, 9.94155, 129.66)
