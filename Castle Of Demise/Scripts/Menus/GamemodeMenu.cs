@@ -19,7 +19,7 @@ public partial class GamemodeMenu : Control
 
 	private void _singlePlayer()
 	{
-		GetTree().ChangeSceneToFile("res://maps/mpMap01.tscn");
+		GetTree().ChangeSceneToFile("res://maps/leidenstadt.tscn");
 	}
 
 	private void _multiplayerPressed()

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://citnbqb3htaxg" path="res://Assets/Textures/imageonline-co-pixelated(1).png" id="1_833s0"]
 [ext_resource type="Script" path="res://Scripts/maps/TestTutoriel.cs" id="1_fem7q"]
 [ext_resource type="Texture2D" uid="uid://cgg2wqugcv5de" path="res://Assets/Props/tree02.png" id="2_hdyt8"]
-[ext_resource type="FontFile" uid="uid://ckwr54kbv5l36" path="res://Assets/Fonts/good times rg.otf" id="2_lahyt"]
+[ext_resource type="FontFile" uid="uid://c6dt5gimeq7bo" path="res://Assets/Fonts/GODOFWAR.TTF" id="2_o51ai"]
 [ext_resource type="Texture2D" uid="uid://c0tm1u0k4kco" path="res://Assets/Props/tree01.png" id="3_f7eww"]
 [ext_resource type="PackedScene" uid="uid://djvcnnignduwe" path="res://Assets/Props/CR0SSR0ADS.tscn" id="4_fo8q0"]
 [ext_resource type="PackedScene" uid="uid://wlukug466k0o" path="res://Assets/Props/Ammo.tscn" id="5_ud77k"]
@@ -70,38 +70,43 @@ volumetric_fog_albedo = Color(0.781416, 0.503441, 0.132731, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_yan14"]
 size = Vector3(13.6641, 12.9536, 1)
 
-[node name="TestTutoriel" type="Node3D" node_paths=PackedStringArray("_musicPlayer", "_gameTitle", "_logoTimer", "_logoTitle", "_player")]
+[node name="TestTutoriel" type="Node3D" node_paths=PackedStringArray("_musicPlayer", "_gameTitle", "_logoTimer", "_logoTitle", "_toMenuTimer", "_player")]
 script = ExtResource("1_fem7q")
 _musicPlayer = NodePath("MusicPlayer")
 _gameTitle = NodePath("Cinematic/GameTitle")
 _logoTimer = NodePath("Cinematic/logoTimer")
 _logoTitle = NodePath("Cinematic/Logo Title")
+_toMenuTimer = NodePath("Cinematic/ToMenuTimer")
 _player = NodePath("CSGBox3D/Player")
 
 [node name="Cinematic" type="CanvasLayer" parent="."]
 
 [node name="GameTitle" type="Label" parent="Cinematic"]
 offset_right = 1280.0
-offset_bottom = 720.0
-theme_override_fonts/font = ExtResource("2_lahyt")
-theme_override_font_sizes/font_size = 72
+offset_bottom = 688.0
+theme_override_fonts/font = ExtResource("2_o51ai")
+theme_override_font_sizes/font_size = 84
 text = "Castle Of Demise"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="logoTimer" type="Timer" parent="Cinematic"]
-wait_time = 14.5
+wait_time = 15.26
 one_shot = true
 
 [node name="Logo Title" type="Label" parent="Cinematic"]
 offset_top = 202.0
 offset_right = 1280.0
-offset_bottom = 685.0
-theme_override_fonts/font = ExtResource("2_lahyt")
-theme_override_font_sizes/font_size = 26
+offset_bottom = 655.0
+theme_override_fonts/font = ExtResource("2_o51ai")
+theme_override_font_sizes/font_size = 30
 text = "by sqrt(100)"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ToMenuTimer" type="Timer" parent="Cinematic"]
+wait_time = 30.19
+one_shot = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.359997, -0.459408, 0.812002, 0, 0.870356, 0.492423, -0.932954, 0.177271, -0.313325, 0, 17.3932, 0)
@@ -22543,4 +22548,5 @@ bus = &"Musique"
 script = ExtResource("12_xr68a")
 
 [connection signal="timeout" from="Cinematic/logoTimer" to="." method="_on_logo_timer_timeout"]
+[connection signal="timeout" from="Cinematic/ToMenuTimer" to="." method="_on_to_menu_timer_timeout"]
 [connection signal="body_entered" from="WorldEnvironment/Area3D" to="." method="_on_area_3d_body_entered"]

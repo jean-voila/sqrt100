@@ -10,6 +10,7 @@ public partial class TestTutoriel : Node3D
 	[Export] private Label _gameTitle;
 	[Export] private Timer _logoTimer;
 	[Export] private Label _logoTitle;
+	[Export] private Timer _toMenuTimer;
 	
 	[Export] private CharacterBody3D _player;
 	// Called when the node enters the scene tree for the first time.
@@ -36,6 +37,7 @@ public partial class TestTutoriel : Node3D
 			_player.EmitSignal("SwitchCinematicModeSignal", true);
 			_player.EmitSignal("SwitchLevitationModeSignal", true);
 			_logoTimer.Start();
+			_toMenuTimer.Start();
 
 		}
 		
@@ -45,5 +47,12 @@ public partial class TestTutoriel : Node3D
 	{
 		_logoTitle.Show();
 	}
+
+	public void _on_to_menu_timer_timeout()
+	{
+		GetTree().ChangeSceneToFile("res://menus/TitleScreen.tscn");
+	}
+	
+	
 	
 }

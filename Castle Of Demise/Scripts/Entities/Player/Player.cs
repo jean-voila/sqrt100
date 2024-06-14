@@ -80,7 +80,7 @@ public partial class Player : CharacterBody3D
 			HandleMouseMovement(mouseInput);
 			_lastMouseMovement = mouseInput.Relative;
 		}
-		if (@event.IsActionPressed("mouse_left_click"))
+		if (@event.IsActionPressed("mouse_left_click") && !_cinematicMode)
 		{
 			switch (_ammoInMag)
 			{
@@ -95,7 +95,7 @@ public partial class Player : CharacterBody3D
 					break;
 			}
 		}
-		if (Input.IsActionJustPressed("key_escape"))
+		if (Input.IsActionJustPressed("key_escape") && !_cinematicMode)
 			Pause();
 		if (@event.IsActionPressed("key_r") && canReload())
 		{
