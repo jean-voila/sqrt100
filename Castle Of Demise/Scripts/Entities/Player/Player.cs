@@ -30,6 +30,8 @@ public partial class Player : CharacterBody3D
 	[Export] private float _revolverModelRotationAmount = -0.3f;
 	[Export] private CanvasLayer _pausecanvas;
 	[Export] private CanvasLayer _HUDCanvas;
+	[Export] private CanvasLayer _MultiplayerHUDCanvas;
+
 
 
 	private bool _cinematicMode;
@@ -65,11 +67,12 @@ public partial class Player : CharacterBody3D
 		{
 			_HUDCanvas.Show();
 			_pausecanvas.Show();
+			_MultiplayerHUDCanvas.Hide();
 		}
 		else
 		{
 			GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").SetMultiplayerAuthority(int.Parse(Name));
-
+			_MultiplayerHUDCanvas.Show();
 		}
 	}
 	
