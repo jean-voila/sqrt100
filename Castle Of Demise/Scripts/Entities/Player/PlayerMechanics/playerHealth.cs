@@ -61,11 +61,12 @@ public partial class Player
             if (IsServer)
             {
                 mpMap02.PlayerList[1].Teleport(new Vector3(7,14,2));
-                MultiplayerCode.HostScored();
+                Rpc(nameof(MultiplayerCode.HostScored));
             }
             else
             {
                 mpMap02.PlayerList[0].Teleport(new Vector3(7,14,2));
+                Rpc(nameof(MultiplayerCode.ClientScored));
             }
             
             GD.Print(Name + " is " + PlayerName);
