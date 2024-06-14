@@ -15,8 +15,8 @@ public partial class Player
 
     public void _playerHealthInit()
     {
-        PlayerHealth = 80;
         _maxHealth = 100;
+        PlayerHealth = _maxHealth;
     }
 
     public void SetHealthInc(int newH)
@@ -40,11 +40,13 @@ public partial class Player
             BloodHitEffectTimer.Start();
             CameraShake();
             _sfxPlayer.EmitSignal("PlaySFXSignal", "playerhit");
+            RpcId(this.PlayerId, nameof(UpdatePlayerInfo));
         }
         else
         {
             PlayerHealth -= var;
             IsDead = true;
+            RpcId(this.PlayerId, nameof(UpdatePlayerInfo));
         }
         HandleDeath();
     }
@@ -78,6 +80,7 @@ public partial class Player
                 // GD.Print(Name + " is " + PlayerName);
                 // GD.Print(PlayerHealth);
                 PlayerHealth = _maxHealth;
+                RpcId(this.PlayerId, nameof(UpdatePlayerInfo));
                 // GD.Print(PlayerHealth);
             }
             

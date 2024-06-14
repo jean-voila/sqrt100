@@ -23,9 +23,9 @@ public partial class mpMap02 : Node3D
 			current.IsServer = item.Value.IsServer;
 			current.Name = item.Value.PlayerId.ToString(); // techniquement inutile,
 			// mais ca permet de suivre une logique appréciable
-			current.Scale = new Vector3(2f, 2f, 2f);
 			PlayerList.Add(current);
 			AddChild(current);
+			current.GlobalScale(new Vector3(2, 2, 2));
 			foreach (var spawnPoint in GetTree().GetNodesInGroup("PlayerSpawnPoint"))
 			{
 				if (spawnPoint.Name == item.Key.ToString())
