@@ -79,7 +79,8 @@ public partial class Player
         return AmmoAvailable == 0 && _ammoInMag == 0;
     }
     
-    [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
+    // [Rpc(MultiplayerApi.RpcMode.Authority)]
+    [Rpc(CallLocal = true)]
     public void Shoot()
     {
         _ammoInMag--;
@@ -98,7 +99,6 @@ public partial class Player
             var hitObject = _shootRayCast.GetCollider() as Node;
             if (hitObject != null)
             {
-                
                 Node mobTouche = hitObject.GetParent<Node>();
                 IsEnemyTouched = mobTouche.IsInGroup("ennemies");
                 if (hitObject.IsInGroup("Player"))
