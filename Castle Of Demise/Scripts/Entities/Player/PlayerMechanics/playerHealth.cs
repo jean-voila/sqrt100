@@ -79,6 +79,7 @@ public partial class Player
                 // GD.Print(Name + " is " + PlayerName);
                 // GD.Print(PlayerHealth);
                 PlayerHealth = _maxHealth;
+                AmmoAvailable = 6;
                 RpcId(this.PlayerId, nameof(UpdatePlayerInfo));
                 // GD.Print(PlayerHealth);
 

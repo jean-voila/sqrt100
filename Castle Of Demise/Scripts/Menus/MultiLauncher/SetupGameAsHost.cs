@@ -15,8 +15,8 @@ public partial class SetupGameAsHost : Control
 	[Export] private Button _startGameButton;
 	[Export] private string _address = GetLocalIPAdress();
 
-	private int? _scoreToReachValue = null;
-	private int? _gameModeValue = null;
+	public static int? _scoreToReachValue = null;
+	public static int? _gameModeValue = null;
 	public static (int, int) Data = (0, 0);
 	
 	public override void _Ready()

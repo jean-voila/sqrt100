@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics;
 using CastleOfDemise.mobs.Player;
 using CastleOfDemise.Scripts.Menus.MultiLauncher;
 
@@ -58,9 +59,21 @@ public partial class MultiplayerHUD : CanvasLayer
 	{
 		if (Player.IsMultiplayer)
 		{
-			(_scoretoReachvalue, _gameModeValue) = SetupGameAsHost.Data;
+			_scoretoReachvalue = (int)SetupGameAsHost._scoreToReachValue;
+			_gameModeValue = (int)SetupGameAsHost._gameModeValue;
 			_scoreToReachText = _scoretoReachvalue.ToString();
 			GetNode<RichTextLabel>("%ScoreToReach").Text = _scoreToReachText;
+			
+			
+			GD.Print("");
+			GD.Print("===== RAPPORT =====");
+			GD.Print("score to reach: " + _scoretoReachvalue);
+			GD.Print("host score: " + _hostScore);
+			GD.Print("client score: " + _clientScore);
+
+			GD.Print("===== END OF =====");
+			GD.Print("");
+
 		}
 	}
 
