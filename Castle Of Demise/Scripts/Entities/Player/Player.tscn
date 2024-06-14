@@ -1,10 +1,11 @@
-[gd_scene load_steps=40 format=3 uid="uid://twx1vowmd4ni"]
+[gd_scene load_steps=41 format=3 uid="uid://twx1vowmd4ni"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/Player/Player.cs" id="1_y1gl0"]
 [ext_resource type="PackedScene" uid="uid://dikmlfsujgrqa" path="res://Scripts/Entities/Player/HUD.tscn" id="2"]
 [ext_resource type="Script" path="res://Scripts/Entities/Player/SFXPlayer.cs" id="2_0xmel"]
 [ext_resource type="Material" path="res://Assets/Mesh/Gray_Revolver02.material" id="3"]
 [ext_resource type="Texture2D" uid="uid://bhauv2kw8n7s" path="res://Assets/Textures/CrossHair.png" id="4"]
+[ext_resource type="Script" path="res://Scripts/GameMechanics/MultiplayerMechanics/MultiplayerHUD.cs" id="7_m4jl7"]
 [ext_resource type="Texture2D" uid="uid://dqqog0o0wl23t" path="res://Assets/Textures/HitMarker.png" id="9_mgmic"]
 [ext_resource type="Texture2D" uid="uid://cbisssun80dsd" path="res://Assets/Effects/BloodHitEffect.png" id="10_af6lm"]
 [ext_resource type="Texture2D" uid="uid://5m3d8xa00fju" path="res://Assets/Textures/HitMarkerKill.png" id="10_pawsq"]
@@ -483,7 +484,7 @@ bg_color = Color(0.54902, 0.054902, 0.054902, 0.545098)
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_sfxPlayer", "_head", "_usedCamera", "_animReload", "_revolverModel", "_pausecanvas", "_HUDCanvas", "BloodHitEffect", "BloodHitEffectTimer", "_floorRayCast", "_pauseMenu")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_sfxPlayer", "_head", "_usedCamera", "_animReload", "_revolverModel", "_pausecanvas", "_HUDCanvas", "_MultiplayerHUDCanvas", "BloodHitEffect", "BloodHitEffectTimer", "_floorRayCast", "_pauseMenu")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_y1gl0")
 _sfxPlayer = NodePath("SFXPlayer")
@@ -493,6 +494,7 @@ _animReload = NodePath("Head/Revolver/Reload")
 _revolverModel = NodePath("Head/Revolver")
 _pausecanvas = NodePath("CanvasLayer2")
 _HUDCanvas = NodePath("HUD")
+_MultiplayerHUDCanvas = NodePath("MultiplayerHUD")
 _accelerationSpeed = 10.0
 _decelerationSpeed = 10.0
 _maxSpeed = 10.0
@@ -613,6 +615,37 @@ omni_range = 3.99068
 wait_time = 0.1
 one_shot = true
 
+[node name="MultiplayerHUD" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("7_m4jl7")
+
+[node name="MultiplayerInfo" type="Node" parent="MultiplayerHUD"]
+unique_name_in_owner = true
+
+[node name="HostScore" type="RichTextLabel" parent="MultiplayerHUD/MultiplayerInfo"]
+unique_name_in_owner = true
+visible = false
+offset_left = 493.0
+offset_right = 533.0
+offset_bottom = 40.0
+text = "5"
+
+[node name="ScoreToReach" type="RichTextLabel" parent="MultiplayerHUD/MultiplayerInfo"]
+unique_name_in_owner = true
+visible = false
+offset_left = 530.0
+offset_right = 570.0
+offset_bottom = 40.0
+text = "100"
+
+[node name="ClientScore" type="RichTextLabel" parent="MultiplayerHUD/MultiplayerInfo"]
+unique_name_in_owner = true
+visible = false
+offset_left = 604.0
+offset_right = 644.0
+offset_bottom = 40.0
+text = "1"
+
 [node name="HUD" type="CanvasLayer" parent="."]
 visible = false
 
@@ -643,33 +676,6 @@ visible = false
 position = Vector2(640, 360)
 scale = Vector2(20, 20)
 texture = ExtResource("10_af6lm")
-
-[node name="MultiplayerInfo" type="Node" parent="HUD"]
-unique_name_in_owner = true
-
-[node name="YouScore" type="RichTextLabel" parent="HUD/MultiplayerInfo"]
-unique_name_in_owner = true
-visible = false
-offset_left = 493.0
-offset_right = 533.0
-offset_bottom = 40.0
-text = "5"
-
-[node name="ScoreToReach" type="RichTextLabel" parent="HUD/MultiplayerInfo"]
-unique_name_in_owner = true
-visible = false
-offset_left = 530.0
-offset_right = 570.0
-offset_bottom = 40.0
-text = "100"
-
-[node name="OpponentScore" type="RichTextLabel" parent="HUD/MultiplayerInfo"]
-unique_name_in_owner = true
-visible = false
-offset_left = 604.0
-offset_right = 644.0
-offset_bottom = 40.0
-text = "1"
 
 [node name="StepSoundsEffetcs" type="Node3D" parent="."]
 
