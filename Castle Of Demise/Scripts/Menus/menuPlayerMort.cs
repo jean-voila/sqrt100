@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using CastleOfDemise.Scripts.Menus;
 
 public partial class menuPlayerMort : Node2D
 {
@@ -16,5 +17,6 @@ public partial class menuPlayerMort : Node2D
 	public void _on_button_button_up()
 	{
 		GetTree().ChangeSceneToFile("res://menus/TitleScreen.tscn");
+		MultiplayerMenu.Peer = null;
 	}
 }
