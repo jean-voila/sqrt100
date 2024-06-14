@@ -6,8 +6,7 @@ using System.Linq;
 public partial class SFXPlayer : AudioStreamPlayer
 {
 	private const string SoundEffectsPath = "res://Assets/SoundEffects/";
-	private static int _generalVolumePercentage = 100;
-	private static bool _muted = false;
+
 	
 	[Signal]
 	public delegate bool PlaySFXSignalEventHandler(string soundType);
@@ -39,20 +38,6 @@ public partial class SFXPlayer : AudioStreamPlayer
 		return res;
 	}
 
-	private class SoundControl
-	{
-		public void ChangeVolume(int percentage)
-		{
-			_generalVolumePercentage = percentage;
-		}
-	
-		public void Mute(bool mute)
-		{
-			_muted = mute;
-		}
-	}
-
-
 	public bool PlaySFX(string soundType)
 	{
 		string path = AudioPathGetter(soundType);
@@ -66,6 +51,28 @@ public partial class SFXPlayer : AudioStreamPlayer
 		MaxPolyphony = 20;
 		PlaySFXSignal += PlaySFX;
 		
+	}
+
+	public void ChangeSoundEffectsVolume(float _volume)
+	{
+		AudioServer.SetBusVolumeDb(1, (float)LinearToDb(_volume));
+		
+	}
+	
+	public void ChangeMusicVolume(float _volume)
+	{
+		AudioServer.SetBusVolumeDb(2, (float)LinearToDb(_volume));
+		
+	}
+	
+	
+	public double LinearToDb(double linear) 
+	{
+		if (linear <= 0)
+		{
+			return -80; // -80 dB is typically the minimum dB level in many audio systems
+		}
+		return 20 * Math.Log10(linear);
 	}
 	
 	

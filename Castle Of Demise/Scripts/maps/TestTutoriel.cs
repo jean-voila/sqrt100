@@ -11,6 +11,7 @@ public partial class TestTutoriel : Node3D
 	[Export] private Timer _logoTimer;
 	[Export] private Label _logoTitle;
 	[Export] private Timer _toMenuTimer;
+	[Export] private AnimationPlayer _animPlayer;
 	
 	[Export] private CharacterBody3D _player;
 	// Called when the node enters the scene tree for the first time.
@@ -38,6 +39,7 @@ public partial class TestTutoriel : Node3D
 			_player.EmitSignal("SwitchLevitationModeSignal", true);
 			_logoTimer.Start();
 			_toMenuTimer.Start();
+			_animPlayer.Play("fade_in");
 
 		}
 		

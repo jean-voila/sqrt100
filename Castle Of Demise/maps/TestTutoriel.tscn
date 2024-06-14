@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dl3nt6mahqgxs"]
+[gd_scene load_steps=32 format=3 uid="uid://dl3nt6mahqgxs"]
 
 [ext_resource type="Texture2D" uid="uid://citnbqb3htaxg" path="res://Assets/Textures/imageonline-co-pixelated(1).png" id="1_833s0"]
 [ext_resource type="Script" path="res://Scripts/maps/TestTutoriel.cs" id="1_fem7q"]
@@ -17,6 +17,43 @@
 [ext_resource type="Script" path="res://Scripts/Entities/Player/SFXPlayer.cs" id="12_xr68a"]
 [ext_resource type="PackedScene" uid="uid://cnk86spow543" path="res://Assets/Mesh/panneau.tscn" id="13_w7gwc"]
 [ext_resource type="PackedScene" uid="uid://dflunlx5wbwt1" path="res://Assets/Mesh/muret.tscn" id="16_7x1yy"]
+
+[sub_resource type="Animation" id="Animation_2g34x"]
+resource_name = "fade_in"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_krbyd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_afxvr"]
+_data = {
+"RESET": SubResource("Animation_krbyd"),
+"fade_in": SubResource("Animation_2g34x")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2p0j6"]
 albedo_texture = ExtResource("1_833s0")
@@ -70,13 +107,14 @@ volumetric_fog_albedo = Color(0.781416, 0.503441, 0.132731, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_yan14"]
 size = Vector3(13.6641, 12.9536, 1)
 
-[node name="TestTutoriel" type="Node3D" node_paths=PackedStringArray("_musicPlayer", "_gameTitle", "_logoTimer", "_logoTitle", "_toMenuTimer", "_player")]
+[node name="TestTutoriel" type="Node3D" node_paths=PackedStringArray("_musicPlayer", "_gameTitle", "_logoTimer", "_logoTitle", "_toMenuTimer", "_animPlayer", "_player")]
 script = ExtResource("1_fem7q")
 _musicPlayer = NodePath("MusicPlayer")
 _gameTitle = NodePath("Cinematic/GameTitle")
 _logoTimer = NodePath("Cinematic/logoTimer")
 _logoTitle = NodePath("Cinematic/Logo Title")
 _toMenuTimer = NodePath("Cinematic/ToMenuTimer")
+_animPlayer = NodePath("Cinematic/GameTitle/AnimationPlayer")
 _player = NodePath("CSGBox3D/Player")
 
 [node name="Cinematic" type="CanvasLayer" parent="."]
@@ -90,8 +128,14 @@ text = "Castle Of Demise"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cinematic/GameTitle"]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_afxvr")
+}
+
 [node name="logoTimer" type="Timer" parent="Cinematic"]
-wait_time = 15.26
+wait_time = 15.16
 one_shot = true
 
 [node name="Logo Title" type="Label" parent="Cinematic"]
