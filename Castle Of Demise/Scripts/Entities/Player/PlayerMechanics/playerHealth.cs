@@ -11,6 +11,10 @@ public partial class Player
     
     public static int PlayerHealth;
     private int _maxHealth;
+    
+    
+    private static int clientScore = 0;
+    private static int serverScore = 0;
 
     public void _playerHealthInit()
     {
@@ -69,13 +73,17 @@ public partial class Player
                 if (IsServer)
                 {
                     mpMap02.PlayerList[1].Teleport(new Vector3(0,24,2));
-                    Rpc(nameof(HostScored));
+                    //GD.Print(clientScore + " serverkill");
+                    Rpc(nameof(UpdateServerScore));
+                    mpMap02.PlayerList[0].PlayerScore = serverScore;
+
                 }
                 else
                 {
                     mpMap02.PlayerList[0].Teleport(new Vector3(0,24,2));
-                    Rpc(nameof(ClientScored));
-
+                    //GD.Print(serverScore + " clientkill");
+                    Rpc(nameof(UpdateClientScore));
+                    mpMap02.PlayerList[1].PlayerScore = clientScore;
                 }
                 // GD.Print(Name + " is " + PlayerName);
                 // GD.Print(PlayerHealth);
@@ -89,18 +97,42 @@ public partial class Player
         }
     }
     
-    [Rpc(MultiplayerApi.RpcMode.AnyPeer)]
-    private static void HostScored()
+    [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
+    public void UpdateServerScore()
     {
-        mpMap02.PlayerList[0].PlayerScore++;
-        GD.Print("Host scored");
+        serverScore++;
+        mpMap02.PlayerList[0].PlayerScore = serverScore;
+        CheckWin();
+
     }
-    [Rpc(MultiplayerApi.RpcMode.AnyPeer)]
-
-    private static void ClientScored()
+   
+    
+    [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
+    public void UpdateClientScore()
     {
-        mpMap02.PlayerList[1].PlayerScore++;
-        GD.Print("Client scored");
+        clientScore++;
+        mpMap02.PlayerList[1].PlayerScore = clientScore;
 
+       CheckWin();
+    }
+    
+    
+
+    private  void CheckWin()
+    {
+        //GD.Print("checking win");
+        GD.Print(("condition 1 (serverwon)" + (mpMap02.PlayerList[0].PlayerScore >= mpMap02.ScoreToReachUltimate)));
+        GD.Print("condition 2 (clientwon)" + (mpMap02.PlayerList[1].PlayerScore >= mpMap02.ScoreToReachUltimate));
+        if (mpMap02.PlayerList[0].PlayerScore >= MultiplayerHUD.ScoretoReachValue)
+        {
+            menuPartieFinie.winnerName = "Hôte";
+            GetTree().ChangeSceneToFile("res://menus/menuPartieFinie.tscn");
+        }
+        else if (mpMap02.PlayerList[1].PlayerScore >= MultiplayerHUD.ScoretoReachValue)
+        {
+            menuPartieFinie.winnerName = "Client";
+            GetTree().ChangeSceneToFile("res://menus/menuPartieFinie.tscn");
+
+        }
     }
 }

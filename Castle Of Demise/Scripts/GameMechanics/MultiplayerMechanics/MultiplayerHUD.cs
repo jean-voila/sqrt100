@@ -12,7 +12,6 @@ public partial class MultiplayerHUD : CanvasLayer
 	private static int _gameModeValue = 0;
 
 	[Export] private  string _hostScoreText;
-	[Export] private  string _scoreToReachText;
 	[Export] private  string _clientScoreText;
 
 	public static int serverscore = 0;
@@ -24,22 +23,7 @@ public partial class MultiplayerHUD : CanvasLayer
 	
 	
 
-	[Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
-
-	private  void CheckWin()
-	{
-		if (mpMap02.PlayerList[0].PlayerScore >= ScoretoReachValue)
-		{
-			menuPartieFinie.winnerName = "Hôte";
-			GetTree().ChangeSceneToFile("res://Scripts/Menus/menuPartieFinie.cs");
-		}
-		else if (mpMap02.PlayerList[1].PlayerScore >= ScoretoReachValue)
-		{
-			menuPartieFinie.winnerName = "Client";
-			GetTree().ChangeSceneToFile("res://Scripts/Menus/menuPartieFinie.cs");
-
-		}
-	}
+	
         
         
         
@@ -82,8 +66,7 @@ public partial class MultiplayerHUD : CanvasLayer
 			_clientScoreText = mpMap02.PlayerList[1].PlayerScore.ToString();
 			
 			
-			_scoreToReachText = ScoretoReachValue.ToString();
-			GetNode<RichTextLabel>("%ScoreToReach").Text = _scoreToReachText;
+			GetNode<RichTextLabel>("%ScoreToReach").Text = ScoretoReachValue.ToString();
 			
 		}
 	}

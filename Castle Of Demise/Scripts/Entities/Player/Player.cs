@@ -75,6 +75,7 @@ public partial class Player : CharacterBody3D
 		{
 			GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").SetMultiplayerAuthority(int.Parse(Name));
 			_MultiplayerHUDCanvas.Show();
+
 		}
 	}
 	

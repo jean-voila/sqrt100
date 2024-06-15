@@ -17,5 +17,7 @@ public partial class IEnnemiesTrackable : Node3D
 	{
 		// GD.Print(player.GlobalTransform.Origin);
 		GetTree().CallGroup("ennemies","UpdateTargetLocation", player.GlobalTransform.Origin);
+		
+		
 	}
 }
