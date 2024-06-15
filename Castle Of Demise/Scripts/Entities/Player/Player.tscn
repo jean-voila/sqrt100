@@ -626,23 +626,21 @@ unique_name_in_owner = true
 
 [node name="HostScore" type="RichTextLabel" parent="MultiplayerHUD/MultiplayerInfo"]
 unique_name_in_owner = true
-offset_left = 446.0
-offset_right = 533.0
-offset_bottom = 60.0
+offset_left = 493.0
+offset_right = 593.0
+offset_bottom = 86.0
 
 [node name="ScoreToReach" type="RichTextLabel" parent="MultiplayerHUD/MultiplayerInfo"]
 unique_name_in_owner = true
-offset_left = 530.0
-offset_top = 1.0
-offset_right = 612.0
-offset_bottom = 70.0
+offset_left = 598.0
+offset_right = 690.0
+offset_bottom = 85.0
 
 [node name="ClientScore" type="RichTextLabel" parent="MultiplayerHUD/MultiplayerInfo"]
 unique_name_in_owner = true
-offset_left = 649.0
-offset_top = -1.0
-offset_right = 746.0
-offset_bottom = 60.0
+offset_left = 702.0
+offset_right = 795.0
+offset_bottom = 80.0
 
 [node name="HUD" type="CanvasLayer" parent="."]
 visible = false
@@ -708,8 +706,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -40.0
 offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Panneau" type="Panel" parent="CanvasLayer2/MenuPause"]
 layout_mode = 0
