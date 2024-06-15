@@ -69,14 +69,13 @@ public partial class Player
                 if (IsServer)
                 {
                     mpMap02.PlayerList[1].Teleport(new Vector3(0,24,2));
-                    Rpc(nameof(MultiplayerHUD.HostScored));
-
+                    Rpc(nameof(HostScored));
                 }
                 else
                 {
                     mpMap02.PlayerList[0].Teleport(new Vector3(0,24,2));
-                    Rpc(nameof(MultiplayerHUD.ClientScored));
-                    
+                    Rpc(nameof(ClientScored));
+
                 }
                 // GD.Print(Name + " is " + PlayerName);
                 // GD.Print(PlayerHealth);
@@ -88,5 +87,20 @@ public partial class Player
             }
             
         }
+    }
+    
+    [Rpc(MultiplayerApi.RpcMode.AnyPeer)]
+    private static void HostScored()
+    {
+        mpMap02.PlayerList[0].PlayerScore++;
+        GD.Print("Host scored");
+    }
+    [Rpc(MultiplayerApi.RpcMode.AnyPeer)]
+
+    private static void ClientScored()
+    {
+        mpMap02.PlayerList[1].PlayerScore++;
+        GD.Print("Client scored");
+
     }
 }

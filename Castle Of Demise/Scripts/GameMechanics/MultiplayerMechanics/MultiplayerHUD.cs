@@ -14,22 +14,15 @@ public partial class MultiplayerHUD : CanvasLayer
 	[Export] private  string _hostScoreText;
 	[Export] private  string _scoreToReachText;
 	[Export] private  string _clientScoreText;
+
+	public static int serverscore = 0;
 	
 	
-	[Rpc(MultiplayerApi.RpcMode.AnyPeer)]
-	public static void HostScored()
-	{
-		mpMap02.PlayerList[0].PlayerScore++;
-		GD.Print("Host scored");
-	}
-	[Rpc(MultiplayerApi.RpcMode.AnyPeer)]
+	
 
-	public static void ClientScored()
-	{
-		mpMap02.PlayerList[1].PlayerScore++;
-		GD.Print("Client scored");
-
-	}
+	
+	
+	
 
 	[Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
 
@@ -91,7 +84,7 @@ public partial class MultiplayerHUD : CanvasLayer
 			
 			_scoreToReachText = ScoretoReachValue.ToString();
 			GetNode<RichTextLabel>("%ScoreToReach").Text = _scoreToReachText;
-
+			
 		}
 	}
 }
