@@ -1,0 +1,77 @@
+---
+title: L'environnement de travail
+description: Découvrez les conditions de travail de l'entreprise sqrt(100), et comment nous avons mis en place un cadre de développement adapté à nos besoins.
+template: doc
+---
+
+### Les outils de développement
+1. **Godot Engine** : moteur de jeu open-source, utilisé pour le développement de Castle of Demise. [Pourquoi Godot ?](../pourquoi-godot/)
+2. **Git** : gestionnaire de versions, pour le suivi des modifications et la collaboration entre les membres de l'équipe.
+3. **Discord** : plateforme de communication, pour échanger en temps réel et organiser des réunions virtuelles.
+4. **Github** : plateforme de développement collaboratif, pour héberger le code source et faciliter la gestion des contributions. Nous avons également utilisé Github Desktop pour simplifier l'utilisation de Git, en y apportant une interface graphique facilitant la résolution de conflits nécéssitant des *merges* (fusions).
+5. **Rider** : environnement de développement intégré (IDE) pour C#, utilisé pour la programmation du jeu. Concu par JetBrains et utilisé lors de travaux pratiques à Epita.
+
+import { Steps } from '@astrojs/starlight/components';
+
+### Les méthodes de travail
+<Steps>
+
+1. Idée d'une fonctionnalité
+
+    **Message sur discord :** `"Le joueur doit pouvoir réapparaître après sa mort."`
+
+2. Réflexion sur l'implémentation
+    
+    **Réponse** `"Comment gérer le changement instantané de position du joueur ?"`
+
+3. Proposition de solutions
+    
+    **Nouveau commit sur Github :** Ajout de la méthode `Teleport(Vector3 _newPosition)` dans le code.
+    ```csharp title="Player.cs"
+
+    public void Teleport(Vector3 _newPosition)
+    {
+        Transform3D newTransform = Transform3D.Identity;
+        newTransform.Origin = _newPosition;
+        GlobalTransform = newTransform;
+    }
+    ```
+
+4. implémentation de la solution
+
+    **Nouveau commit sur Github :** Ajout de la méthode `HandleDeath()` dans le code.
+    ```csharp title="HandleDeath.cs"
+
+    private void HandleDeath()
+    {
+        // ...
+        mpMap02.PlayerList[1].Teleport(new Vector3(0,24,2));
+        // ...
+    }
+    ```
+
+5. Signalement de potentielles erreurs
+    
+    **Ouverture d'issue Github** `"Le joueur réapparaît dans le sol après sa mort."`
+
+6. Résolution des problèmes
+    
+     **Nouveau commit sur Github :** Correction de la méthode `Teleport(Vector3 _newPosition)` dans le code.
+    ```csharp ins="25" title="HandleDeath.cs"
+    
+    private void HandleDeath()
+    {
+        // ...
+        mpMap02.PlayerList[1].Teleport(new Vector3(0,25,2));
+        // ...
+    }
+    ```
+
+7. Validation de la solution 🎉
+    
+    **Fermeture de l'issue Github**.
+</Steps>
+
+:::note 
+Les étapes 5 et 6 peuvent être répétées plusieurs fois, jusqu'à ce que le problème soit résolu.
+:::

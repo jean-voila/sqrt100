@@ -484,7 +484,7 @@ bg_color = Color(0.54902, 0.054902, 0.054902, 0.545098)
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_sfxPlayer", "_head", "_usedCamera", "_animReload", "_revolverModel", "_pausecanvas", "_HUDCanvas", "_MultiplayerHUDCanvas", "BloodHitEffect", "BloodHitEffectTimer", "_floorRayCast", "_pauseMenu")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_sfxPlayer", "_head", "_usedCamera", "_animReload", "_revolverModel", "_pausecanvas", "_HUDCanvas", "_MultiplayerHUDCanvas", "_flashlight", "BloodHitEffect", "BloodHitEffectTimer", "_floorRayCast", "_pauseMenu")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_y1gl0")
 _sfxPlayer = NodePath("SFXPlayer")
@@ -495,6 +495,7 @@ _revolverModel = NodePath("Head/Revolver")
 _pausecanvas = NodePath("CanvasLayer2")
 _HUDCanvas = NodePath("HUD")
 _MultiplayerHUDCanvas = NodePath("MultiplayerHUD")
+_flashlight = NodePath("Head/Camera3D/SpotLight3D")
 _accelerationSpeed = 10.0
 _decelerationSpeed = 10.0
 _maxSpeed = 10.0
@@ -510,6 +511,7 @@ replication_config = SubResource("SceneReplicationConfig_jykpr")
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
 max_polyphony = 8
+bus = &"SFX"
 script = ExtResource("2_0xmel")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -683,7 +685,6 @@ target_position = Vector3(2.08165e-12, -1.6, 2.08165e-12)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 process_mode = 3
-visible = false
 
 [node name="MenuPause" type="Control" parent="CanvasLayer2"]
 process_mode = 3
@@ -746,9 +747,6 @@ text = "Music :"
 layout_mode = 2
 value = 100.0
 
-[node name="MusicToggle" type="CheckButton" parent="CanvasLayer2/MenuPause/Panneau/Elements/Music"]
-layout_mode = 2
-
 [node name="Separator2" type="VSeparator" parent="CanvasLayer2/MenuPause/Panneau/Elements"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("23")
@@ -763,9 +761,6 @@ text = "Sound Effets :"
 [node name="Slider" type="HSlider" parent="CanvasLayer2/MenuPause/Panneau/Elements/SoundEffects"]
 layout_mode = 2
 value = 100.0
-
-[node name="SEToggle" type="CheckButton" parent="CanvasLayer2/MenuPause/Panneau/Elements/SoundEffects"]
-layout_mode = 2
 
 [node name="Separator3" type="VSeparator" parent="CanvasLayer2/MenuPause/Panneau/Elements"]
 layout_mode = 2
@@ -807,9 +802,7 @@ theme_override_styles/separator = SubResource("23")
 [connection signal="timeout" from="HUD/BloodHitEffectTimer" to="." method="_on_blood_hit_effect_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer2/MenuPause/Panneau/Elements/PixelEffectToggle" to="." method="SwitchPixelShader"]
 [connection signal="value_changed" from="CanvasLayer2/MenuPause/Panneau/Elements/Music/HSlider" to="." method="ChangeMusicVolume"]
-[connection signal="toggled" from="CanvasLayer2/MenuPause/Panneau/Elements/Music/MusicToggle" to="." method="SwitchMusicPlayer"]
 [connection signal="value_changed" from="CanvasLayer2/MenuPause/Panneau/Elements/SoundEffects/Slider" to="." method="ChangeSoundEffectsVolume"]
-[connection signal="toggled" from="CanvasLayer2/MenuPause/Panneau/Elements/SoundEffects/SEToggle" to="." method="SwitchSEPlayer"]
 [connection signal="toggled" from="CanvasLayer2/MenuPause/Panneau/Elements/FullScToggle" to="." method="ToggleFullscreen"]
 [connection signal="pressed" from="CanvasLayer2/MenuPause/Panneau/Elements/Boutons/Resume" to="." method="UnPause"]
 [connection signal="pressed" from="CanvasLayer2/MenuPause/Panneau/Elements/Boutons/Exit" to="." method="QuitGame"]

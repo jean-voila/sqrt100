@@ -137,7 +137,8 @@ public partial class Player
     {
         if (_levitationMode)
         {
-            Velocity = new Vector3(0, 80*(float)d, -80*(float)d);
+            Velocity = new Vector3(0, 280*(float)d, -280*(float)d);
+            
             MoveAndSlide();
         }
         else if (_positionY < -25)

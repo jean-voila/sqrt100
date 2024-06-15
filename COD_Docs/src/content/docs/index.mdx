@@ -1,0 +1,36 @@
+---
+title: Bienvenue
+description: Documentation du jeu Castle Of Demise
+template: splash
+hero:
+  tagline: Entrez dans l'univers de CoD, un jeu de tir multijoueur retro à la première personne.
+  image:
+    file: ../../assets/sqrtLogo.png
+  actions:
+    - text: Documentation
+      link: /sqrt100/histoire-du-projet/entreprise/
+      icon: right-arrow
+      variant: primary
+    - text: Consulter le repository Git
+      link: https://github.com/jean-voila/sqrt100
+      icon: external
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Pour commencer
+
+<CardGrid stagger>
+	<Card title="Lire la documentation" icon="open-book">
+		Pour en apprendre plus sur l'univers du jeu, ainsi que sur son fonctionnement technique.
+	</Card>
+	<Card title="Jouer seul ou à plusieurs" icon="rocket">
+		Commencez votre partie (et vos affrontements) dès maintenant.
+	</Card>
+	<Card title="Contribuer au projet" icon="heart">
+		Quoi de mieux qu'un jeu **open-source** pour apprendre et s'amuser ? Participez au développement de *Caslte Of Demise* et développez vos compétences en C#.
+	</Card>
+	<Card title="Propulsé par Godot" icon="seti:godot">
+		Le plus célèbre des moteurs de jeu open-source.
+	</Card>
+</CardGrid>

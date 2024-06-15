@@ -31,6 +31,8 @@ public partial class Player : CharacterBody3D
 	[Export] private CanvasLayer _pausecanvas;
 	[Export] private CanvasLayer _HUDCanvas;
 	[Export] private CanvasLayer _MultiplayerHUDCanvas;
+	
+	[Export] private SpotLight3D _flashlight;
 
 
 
@@ -118,8 +120,6 @@ public partial class Player : CharacterBody3D
 			_HUDCanvas.Visible = !_cinematicMode;
 			_revolverModel.Visible = !_cinematicMode;
 		}
-
-
 		if (IsMultiplayer)
 		{
 			if (Multiplayer.MultiplayerPeer != null 
@@ -138,10 +138,7 @@ public partial class Player : CharacterBody3D
 				this._pausecanvas.Show();
 				this.CameraForFov.Current = true;
 
-
 				//SendMultiplayerHealthReport();
-				
-				
 				
 				// synchronisation of players
 				_syncPos = GlobalPosition;
@@ -159,7 +156,6 @@ public partial class Player : CharacterBody3D
 				GetTree().ChangeSceneToFile("res://menus/TitleScreen.tscn");
 			}
 		}
-		
 		else
 		{
 			HandleMouseMovementInputs((float)d);
@@ -170,8 +166,6 @@ public partial class Player : CharacterBody3D
 			CameraShakeProcess();
 			WeaponSway();
 		}
-		
-		
 	}
 
 	private void SendMultiplayerHealthReport()
@@ -181,7 +175,6 @@ public partial class Player : CharacterBody3D
 		GD.Print("health : " + PlayerHealth);
 		GD.Print("===== END OF =====");
 		GD.Print("");
-
 	}
 
 	private void SendMultiplayerAuthorityReport()
@@ -194,7 +187,6 @@ public partial class Player : CharacterBody3D
 		GD.Print("The Id is " + Multiplayer.GetUniqueId());
 		GD.Print("===== END OF =====");
 		GD.Print("");
-
 	}
 
 	public override void _EnterTree()
@@ -202,22 +194,26 @@ public partial class Player : CharacterBody3D
 		// RpcId(1, "SetnetworkMaster", PlayerId);
 	}
 
-
 	[Export]
 	private int _dummyExport; // Dummy exported variable to call the private method from the editor
 
 	private void SetNetworkMaster(int newMaster)
 	{
+		
 		// This method would be called on the peer with ID 1, changing the network master of the node
 	}
 
 	private void SwitchCinematicMode(bool _value)
 	{
+		
 		_cinematicMode = _value;
+		_flashlight.Visible = !_value;
+		
 	}
 
 	private void SwitchLevitationMode(bool _value)
 	{
+		
 		_levitationMode = _value;
 	}
 
