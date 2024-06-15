@@ -4,7 +4,7 @@ import starlight from '@astrojs/starlight';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://jean-voila.github.io',
-	base: 'sqrt100',
+	base: 'sqrt100/COD_Docs',
 	integrations: [
 		starlight({
 			customCss: ["./src/styles/main.css"],
