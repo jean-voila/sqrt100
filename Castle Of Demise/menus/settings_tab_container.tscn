@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ce66w6rq18eta"]
+[gd_scene load_steps=6 format=3 uid="uid://ce66w6rq18eta"]
 
 [ext_resource type="PackedScene" uid="uid://uaabxbajl4le" path="res://menus/hot_key_rebind_button.tscn" id="1_0q84g"]
 [ext_resource type="PackedScene" uid="uid://dkhsruwi460jq" path="res://menus/audio_slider_settings.tscn" id="2_66dlt"]
 [ext_resource type="PackedScene" uid="uid://dx3rhi4s4jf6o" path="res://menus/FPS_control_button.tscn" id="2_xymvk"]
-[ext_resource type="PackedScene" uid="uid://q835a8y6yjnn" path="res://menus/menu_de_difficulté.tscn" id="4_yold0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ti6un"]
 
@@ -166,44 +165,6 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_ti6un")
 layout_mode = 2
 
 [node name="HSeparator2" type="HSeparator" parent="TabContainer/Images par seconde/MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 10
-theme_override_styles/separator = SubResource("StyleBoxEmpty_6kjsr")
-
-[node name="Difficulté" type="TabBar" parent="TabContainer"]
-visible = false
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Difficulté"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 136.0
-offset_bottom = -136.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
-
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Difficulté/MarginContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Difficulté/MarginContainer/ScrollContainer"]
-layout_mode = 2
-theme_override_constants/separation = 65
-
-[node name="HSeparator" type="HSeparator" parent="TabContainer/Difficulté/MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 10
-theme_override_styles/separator = SubResource("StyleBoxEmpty_ti6un")
-
-[node name="difficultéLvl" parent="TabContainer/Difficulté/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("4_yold0")]
-layout_mode = 2
-
-[node name="HSeparator2" type="HSeparator" parent="TabContainer/Difficulté/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxEmpty_6kjsr")
