@@ -129,8 +129,11 @@ animations = [{
 script = ExtResource("1_8ttph")
 player = NodePath("Player")
 
+[node name="Ammo2" parent="." instance=ExtResource("18_gaor3")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 139.818)
+
 [node name="Player" parent="." instance=ExtResource("2_4juko")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.62382, -1.86688, 227.529)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.265404, 2.15837, 226.905)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_t0ghe")
@@ -290,11 +293,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6401, -2.82873, 147.898)
 [node name="Node3D5" parent="maisons" instance=ExtResource("12_au5my")]
 transform = Transform3D(-0.057146, 0, 0.998366, 0, 1, 0, -0.998366, 0, -0.057146, 55.9374, -2.68141, 117.257)
 
-[node name="Ammo" parent="maisons/Node3D5" instance=ExtResource("18_gaor3")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -3.46078, 2.73233, 2.54333)
-
 [node name="Area3D" parent="maisons/Node3D5" instance=ExtResource("16_1dnm1")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 3.50286, 2.84041, 2.69529)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 3.47648, 2.84041, 3.15617)
 
 [node name="Node3D" parent="maisons/Node3D5" instance=ExtResource("13_yynab")]
 transform = Transform3D(0.745, 0, -3.72529e-08, 0, 0.745, 0, 3.72529e-08, 0, 0.745, -3.64625, -0.49409, 2.469)
@@ -312,19 +312,22 @@ sprite_frames = SubResource("SpriteFrames_7t0v6")
 transform = Transform3D(3.99604, 0, -0.177825, 0, 4, 0, 0.177825, 0, 3.99604, 2.12959, 2.21213, -0.0786476)
 
 [node name="Zombie2" parent="maisons/Node3D5" groups=["ennemies"] instance=ExtResource("19_ctnsx")]
-transform = Transform3D(3.99604, 0, -0.177825, 0, 4, 0, 0.177825, 0, 3.99604, -1.61268, 2.21213, 0.0393028)
+transform = Transform3D(3.99605, 0, -0.177825, 0, 4, 0, 0.177825, 0, 3.99605, -1.61268, 2.21213, 0.0393028)
 
 [node name="Zombie3" parent="maisons/Node3D5" groups=["ennemies"] instance=ExtResource("19_ctnsx")]
 transform = Transform3D(3.99604, 0, -0.177825, 0, 4, 0, 0.177825, 0, 3.99604, 0.0584106, 2.21213, 2.90191)
 
+[node name="Ammo" parent="maisons/Node3D5" instance=ExtResource("18_gaor3")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -3.43136, 3.00422, 3.15823)
+
 [node name="Node3D3" parent="maisons" instance=ExtResource("12_au5my")]
 transform = Transform3D(-0.997116, 0, 0.0759012, 0, 1, 0, -0.0759012, 0, -0.997116, 55.7826, -2.67778, 87.9091)
 
+[node name="Ammo" parent="maisons/Node3D3" instance=ExtResource("18_gaor3")]
+transform = Transform3D(4.99999, 0, -3.27826e-07, 0, 5, 0, 3.27826e-07, 0, 4.99999, -3.11127, 3.00422, 3.01614)
+
 [node name="Bat" parent="maisons/Node3D3" groups=["ennemies"] instance=ExtResource("17_b6lmc")]
 transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0, 5.51907, 0)
-
-[node name="Ammo" parent="maisons/Node3D3" instance=ExtResource("18_gaor3")]
-transform = Transform3D(4.99999, 0, -5.36442e-07, 0, 5, 0, 5.36442e-07, 0, 4.99999, -0.990013, 2.94864, 1.74992)
 
 [node name="Node3D" parent="maisons/Node3D3" instance=ExtResource("13_yynab")]
 transform = Transform3D(0.745, 0, -2.98023e-08, 0, 0.745, 0, 2.98023e-08, 0, 0.745, -3.41129, -0.49409, 2.48245)
@@ -338,15 +341,14 @@ billboard = 2
 shaded = true
 sprite_frames = SubResource("SpriteFrames_7t0v6")
 
-[node name="Ammo2" parent="maisons/Node3D3" node_paths=PackedStringArray("_sfxPlayer") instance=ExtResource("18_gaor3")]
-transform = Transform3D(4.99999, 0, -5.36442e-07, 0, 5, 0, 5.36442e-07, 0, 4.99999, -3.00274, 2.94864, 1.90313)
-_sfxPlayer = NodePath("../Ammo/SFXPlayer")
-
 [node name="Zombie" parent="maisons/Node3D3" groups=["ennemies"] instance=ExtResource("19_ctnsx")]
 transform = Transform3D(4, 0, -1.19209e-07, 0, 4, 0, 1.19209e-07, 0, 4, 2.12514, 2.78911, -0.161766)
 
 [node name="Zombie2" parent="maisons/Node3D3" groups=["ennemies"] instance=ExtResource("19_ctnsx")]
 transform = Transform3D(4, 0, -1.49012e-07, 0, 4, 0, 1.49012e-07, 0, 4, -1.60818, 2.78911, 0.122429)
+
+[node name="Ammo2" parent="maisons/Node3D3" instance=ExtResource("18_gaor3")]
+transform = Transform3D(5, 0, -2.08616e-07, 0, 5, 0, 2.08616e-07, 0, 5, -0.739803, 3.00422, 3.02396)
 
 [node name="Node3D2" parent="maisons" instance=ExtResource("9_bojn0")]
 transform = Transform3D(-0.244817, 0, -0.96957, 0, 1, 0, 0.96957, 0, -0.244817, -32.6647, -2.71076, 94.8414)
@@ -387,6 +389,9 @@ transform = Transform3D(0.00938994, 0, 0.999955, 0, 1, 0, -0.999955, 0, 0.009389
 [node name="Node3D10" parent="maisons" instance=ExtResource("12_au5my")]
 transform = Transform3D(-6.99311e-05, 0, -1, 0, 1, 0, 1, 0, -6.99311e-05, -26.0444, -2.67778, 61.7656)
 
+[node name="Ammo" parent="maisons/Node3D10" instance=ExtResource("18_gaor3")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.0580368, 3.00422, 2.8044)
+
 [node name="Node3D" parent="maisons/Node3D10" instance=ExtResource("13_yynab")]
 transform = Transform3D(0.745, 0, -2.98023e-08, 0, 0.745, 0, 2.98023e-08, 0, 0.745, -3.41129, -0.49409, 2.48245)
 
@@ -401,18 +406,6 @@ sprite_frames = SubResource("SpriteFrames_7t0v6")
 
 [node name="Node3D3" parent="maisons/Node3D10" instance=ExtResource("13_yynab")]
 transform = Transform3D(0.745, 0, -2.9795e-08, 0, 0.745, 0, 2.9795e-08, 0, 0.745, 3.26929, -0.49409, 2.51358)
-
-[node name="Ammo2" parent="maisons/Node3D10" node_paths=PackedStringArray("_sfxPlayer") instance=ExtResource("18_gaor3")]
-transform = Transform3D(4.99999, 0, -5.36209e-07, 0, 5, 0, 5.36209e-07, 0, 4.99999, -0.118435, 2.94864, 2.56211)
-_sfxPlayer = NodePath("../../Node3D3/Ammo/SFXPlayer")
-
-[node name="Area3D" parent="maisons/Node3D10" node_paths=PackedStringArray("_sfxPlayer") instance=ExtResource("16_1dnm1")]
-transform = Transform3D(5, 0, 3.27826e-07, 0, 5, 0, -3.27826e-07, 0, 5, 3.5215, 2.84041, 2.51803)
-_sfxPlayer = NodePath("../../Node3D11/Area3D/AudioStreamPlayer")
-
-[node name="Area3D2" parent="maisons/Node3D10" node_paths=PackedStringArray("_sfxPlayer") instance=ExtResource("16_1dnm1")]
-transform = Transform3D(5, 0, 3.27826e-07, 0, 5, 0, -3.27826e-07, 0, 5, -2.93426, 2.84041, 2.51849)
-_sfxPlayer = NodePath("../../Node3D11/Area3D/AudioStreamPlayer")
 
 [node name="Bat" parent="maisons/Node3D10" groups=["ennemies"] instance=ExtResource("17_b6lmc")]
 transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0, 5.51907, 0)
@@ -431,6 +424,13 @@ transform = Transform3D(4, 0, -1.19209e-07, 0, 4, 0, 1.19209e-07, 0, 4, 2.12501,
 
 [node name="Zombie4" parent="maisons/Node3D10" groups=["ennemies"] instance=ExtResource("19_ctnsx")]
 transform = Transform3D(4, 0, -1.48895e-07, 0, 4, 0, 1.48895e-07, 0, 4, -1.60832, 2.20392, -1.71623)
+
+[node name="Area3D" parent="maisons/Node3D10" instance=ExtResource("16_1dnm1")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 3.48607, 2.84041, 3.08338)
+
+[node name="Area3D2" parent="maisons/Node3D10" node_paths=PackedStringArray("_sfxPlayer") instance=ExtResource("16_1dnm1")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -3.46208, 2.84041, 3.08387)
+_sfxPlayer = NodePath("../Area3D/AudioStreamPlayer")
 
 [node name="Node3D11" parent="maisons" instance=ExtResource("12_au5my")]
 transform = Transform3D(0.997593, 0, -0.0693562, 0, 1, 0, 0.0693562, 0, 0.997593, 43.5473, -2.67778, 147.183)
@@ -451,7 +451,7 @@ shaded = true
 sprite_frames = SubResource("SpriteFrames_7t0v6")
 
 [node name="Area3D2" parent="maisons/Node3D11" node_paths=PackedStringArray("_sfxPlayer") instance=ExtResource("16_1dnm1")]
-transform = Transform3D(5, 0, 3.27826e-07, 0, 5, 0, -3.27826e-07, 0, 5, -3.02959, 2.84041, 2.68013)
+transform = Transform3D(5, 0, 4.17233e-07, 0, 5, 0, -4.17233e-07, 0, 5, -3.0296, 2.84041, 2.68013)
 _sfxPlayer = NodePath("../Area3D/AudioStreamPlayer")
 
 [node name="Zombie" parent="maisons/Node3D11" groups=["ennemies"] instance=ExtResource("19_ctnsx")]
@@ -460,14 +460,18 @@ transform = Transform3D(4, 0, -1.19209e-07, 0, 4, 0, 1.19209e-07, 0, 4, 2.12514,
 [node name="Zombie2" parent="maisons/Node3D11" groups=["ennemies"] instance=ExtResource("19_ctnsx")]
 transform = Transform3D(4, 0, -1.49012e-07, 0, 4, 0, 1.49012e-07, 0, 4, -1.60818, 2.20009, 0.122452)
 
-[node name="Zombie3" parent="maisons/Node3D11" groups=["ennemies"] instance=ExtResource("19_ctnsx")]
-transform = Transform3D(4, 0, -1.19209e-07, 0, 4, 0, 1.19209e-07, 0, 4, 2.31178, 2.20009, 2.52284)
-
 [node name="Bat" parent="maisons/Node3D11" groups=["ennemies"] instance=ExtResource("17_b6lmc")]
 transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0, 5.51907, 0)
 
+[node name="Ammo" parent="maisons/Node3D11" node_paths=PackedStringArray("_sfxPlayer") instance=ExtResource("18_gaor3")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 45.4685, -1.74912, 149.548)
+_sfxPlayer = NodePath("")
+
 [node name="Node3D12" parent="maisons" instance=ExtResource("12_au5my")]
 transform = Transform3D(0.999991, 0, 0.00434571, 0, 1, 0, -0.00434571, 0, 0.999991, -24.2487, -2.67778, 147.737)
+
+[node name="Ammo2" parent="maisons/Node3D12" instance=ExtResource("18_gaor3")]
+transform = Transform3D(5, 0, -9.31323e-09, 0, 5, 0, 9.31323e-09, 0, 5, -0.694145, 3.23566, 3.08147)
 
 [node name="Node3D" parent="maisons/Node3D12" instance=ExtResource("13_yynab")]
 transform = Transform3D(0.745, 0, -2.98023e-08, 0, 0.745, 0, 2.98023e-08, 0, 0.745, -3.41129, -0.49409, 2.48245)
@@ -491,12 +495,8 @@ transform = Transform3D(4, 0, -1.19209e-07, 0, 4, 0, 1.19209e-07, 0, 4, 2.12514,
 transform = Transform3D(4, 0, -1.49012e-07, 0, 4, 0, 1.49012e-07, 0, 4, -1.60818, 2.20009, 0.122452)
 
 [node name="Ammo" parent="maisons/Node3D12" node_paths=PackedStringArray("_sfxPlayer") instance=ExtResource("18_gaor3")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -3.46078, 2.73233, 2.54333)
-_sfxPlayer = NodePath("../../Node3D5/Ammo/SFXPlayer")
-
-[node name="Ammo2" parent="maisons/Node3D12" node_paths=PackedStringArray("_sfxPlayer") instance=ExtResource("18_gaor3")]
-transform = Transform3D(5, 0, -1.86265e-09, 0, 5, 0, 1.86265e-09, 0, 5, -0.944122, 2.73233, 2.55424)
-_sfxPlayer = NodePath("../../Node3D5/Ammo/SFXPlayer")
+transform = Transform3D(5.00001, 0, -1.11759e-08, 0, 5, 0, 1.11759e-08, 0, 5.00001, -3.33593, 3.22217, 2.90981)
+_sfxPlayer = NodePath("")
 
 [node name="Puits" parent="." instance=ExtResource("17_oqo6g")]
 transform = Transform3D(0.00790631, 0, 0.999969, 0, 1, 0, -0.999969, 0, 0.00790631, 12.3935, -1.80908, 122)
