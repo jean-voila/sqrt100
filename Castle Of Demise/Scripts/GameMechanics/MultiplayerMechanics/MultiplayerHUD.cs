@@ -24,13 +24,15 @@ public partial class MultiplayerHUD : CanvasLayer
 	public static void HostScored()
 	{
 		_hostScore++;
-            
+		GD.Print("Host scored");
 	}
 	[Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
 
 	public static void ClientScored()
 	{
 		_clientScore++;
+		GD.Print("Client scored");
+
 	}
 
 	[Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
