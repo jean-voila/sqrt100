@@ -59,14 +59,15 @@ public partial class MultiplayerHUD : CanvasLayer
 	{
 		if (Player.IsMultiplayer)
 		{
-			GetNode<RichTextLabel>("%HostScore").Text = _hostScoreText;
-			GetNode<RichTextLabel>("%ClientScore").Text = _clientScoreText;
+			GetNode<RichTextLabel>("%HostScore").Text = "Hôte \n"+_hostScoreText;
+			GetNode<RichTextLabel>("%ClientScore").Text = "Client \n"+_clientScoreText;
 			
 			_hostScoreText = mpMap02.PlayerList[0].PlayerScore.ToString();
 			_clientScoreText = mpMap02.PlayerList[1].PlayerScore.ToString();
 			
 			
-			GetNode<RichTextLabel>("%ScoreToReach").Text = ScoretoReachValue.ToString();
+			GetNode<RichTextLabel>("%ScoreToReach").Text = "Objectif \n"+
+				ScoretoReachValue.ToString();
 			
 		}
 	}

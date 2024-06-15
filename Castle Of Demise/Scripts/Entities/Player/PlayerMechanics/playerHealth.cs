@@ -127,11 +127,13 @@ public partial class Player
         {
             menuPartieFinie.winnerName = "Hôte";
             GetTree().ChangeSceneToFile("res://menus/menuPartieFinie.tscn");
+            Multiplayer.MultiplayerPeer.Close();
         }
         else if (mpMap02.PlayerList[1].PlayerScore >= MultiplayerHUD.ScoretoReachValue)
         {
             menuPartieFinie.winnerName = "Client";
             GetTree().ChangeSceneToFile("res://menus/menuPartieFinie.tscn");
+            Multiplayer.MultiplayerPeer.Close();
 
         }
     }
