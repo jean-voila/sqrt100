@@ -129,8 +129,11 @@ animations = [{
 script = ExtResource("1_8ttph")
 player = NodePath("Player")
 
+[node name="Ammo2" parent="." instance=ExtResource("18_gaor3")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 139.818)
+
 [node name="Player" parent="." instance=ExtResource("2_4juko")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 12.0706, 2.15837, 123.155)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.265404, 2.15837, 226.905)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_t0ghe")
@@ -460,6 +463,10 @@ transform = Transform3D(4, 0, -1.49012e-07, 0, 4, 0, 1.49012e-07, 0, 4, -1.60818
 [node name="Bat" parent="maisons/Node3D11" groups=["ennemies"] instance=ExtResource("17_b6lmc")]
 transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0, 5.51907, 0)
 
+[node name="Ammo" parent="maisons/Node3D11" node_paths=PackedStringArray("_sfxPlayer") instance=ExtResource("18_gaor3")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 45.4685, -1.74912, 149.548)
+_sfxPlayer = NodePath("")
+
 [node name="Node3D12" parent="maisons" instance=ExtResource("12_au5my")]
 transform = Transform3D(0.999991, 0, 0.00434571, 0, 1, 0, -0.00434571, 0, 0.999991, -24.2487, -2.67778, 147.737)
 
@@ -489,7 +496,7 @@ transform = Transform3D(4, 0, -1.49012e-07, 0, 4, 0, 1.49012e-07, 0, 4, -1.60818
 
 [node name="Ammo" parent="maisons/Node3D12" node_paths=PackedStringArray("_sfxPlayer") instance=ExtResource("18_gaor3")]
 transform = Transform3D(5.00001, 0, -1.11759e-08, 0, 5, 0, 1.11759e-08, 0, 5.00001, -3.33593, 3.22217, 2.90981)
-_sfxPlayer = NodePath("../../../Ammo/SFXPlayer")
+_sfxPlayer = NodePath("")
 
 [node name="Puits" parent="." instance=ExtResource("17_oqo6g")]
 transform = Transform3D(0.00790631, 0, 0.999969, 0, 1, 0, -0.999969, 0, 0.00790631, 12.3935, -1.80908, 122)
@@ -4206,6 +4213,3 @@ transform = Transform3D(-0.0437415, 0, -0.999043, 0, 1, 0, 0.999043, 0, -0.04374
 
 [node name="Muret4" parent="Murets" instance=ExtResource("24_ksy5f")]
 transform = Transform3D(-0.0437415, 0, -0.999043, 0, 1, 0, 0.999043, 0, -0.0437415, 9.32017, -2.45459, 162.192)
-
-[node name="Ammo" parent="." instance=ExtResource("18_gaor3")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 45.4685, -1.74912, 149.548)
