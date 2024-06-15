@@ -15,11 +15,11 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: 'Histoire du projet',
-					autogenerate: { directory: '/sqrt100/histoire-du-projet' },
+					autogenerate: { directory: 'histoire-du-projet' },
 				},
 				{
 					label: 'Téléchargements',
-					autogenerate: { directory: '/sqrt100/telechargements' },
+					autogenerate: { directory: 'telechargements' },
 				},
 			],
 		}),
