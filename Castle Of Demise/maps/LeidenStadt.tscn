@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://biepd6okow1e8"]
+[gd_scene load_steps=43 format=3 uid="uid://biepd6okow1e8"]
 
 [ext_resource type="Script" path="res://Scripts/maps/IEnnemiesTrackable.cs" id="1_8ttph"]
 [ext_resource type="PackedScene" uid="uid://twx1vowmd4ni" path="res://Scripts/Entities/Player/Player.tscn" id="2_4juko"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://vcaxnd8q1gu1" path="res://Assets/Mesh/puits.tscn" id="17_oqo6g"]
 [ext_resource type="PackedScene" uid="uid://wlukug466k0o" path="res://Assets/Props/Ammo.tscn" id="18_gaor3"]
 [ext_resource type="PackedScene" uid="uid://xrhd6q53it2j" path="res://Scripts/Entities/Ennemies/Zombie/Zombie.tscn" id="19_ctnsx"]
+[ext_resource type="PackedScene" uid="uid://dflunlx5wbwt1" path="res://Assets/Mesh/muret.tscn" id="24_ksy5f"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_t0ghe"]
 vertices = PackedVector3Array(-65.4282, -1.95459, 51.0568, -65.4282, -1.95459, 248.557, 79.8218, -1.95459, 248.557, 79.8218, -1.95459, 51.0568)
@@ -4198,3 +4199,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.1395, 9.94155, 129.66)
 
 [node name="Bat9" parent="EnnemisDehors" groups=["ennemies"] instance=ExtResource("17_b6lmc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9655, 9.94155, 129.66)
+
+[node name="Murets" type="Node3D" parent="."]
+
+[node name="Muret" parent="Murets" instance=ExtResource("24_ksy5f")]
+transform = Transform3D(-0.0437415, 0, -0.999043, 0, 1, 0, 0.999043, 0, -0.0437415, -10.2862, -2.45459, 161.903)
+
+[node name="Muret2" parent="Murets" instance=ExtResource("24_ksy5f")]
+transform = Transform3D(-0.0437415, 0, -0.999043, 0, 1, 0, 0.999043, 0, -0.0437415, 1.87483, -2.45459, 161.903)
+
+[node name="Muret3" parent="Murets" instance=ExtResource("24_ksy5f")]
+transform = Transform3D(-0.0437415, 0, -0.999043, 0, 1, 0, 0.999043, 0, -0.0437415, -17.5512, -2.45459, 161.557)
+
+[node name="Muret4" parent="Murets" instance=ExtResource("24_ksy5f")]
+transform = Transform3D(-0.0437415, 0, -0.999043, 0, 1, 0, 0.999043, 0, -0.0437415, 9.32017, -2.45459, 162.192)
