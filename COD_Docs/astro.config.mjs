@@ -7,7 +7,7 @@ export default defineConfig({
 	base: 'sqrt100',
 	integrations: [
 		starlight({
-			customCss: ["./src/styles/main.css"],
+			customCss: ["/sqrt100/src/styles/main.css"],
 			title: 'Castle Of Demise',
 			social: {
 				github: 'https://github.com/jean-voila/sqrt100',
