@@ -8,29 +8,25 @@ public partial class MultiplayerHUD : CanvasLayer
 {
 	
 	
-	private static int _scoretoReachvalue = 0;
+	[Export] public static int ScoretoReachValue = -99;
 	private static int _gameModeValue = 0;
 
-	[Export] private string _hostScoreText;
-	[Export] private string _scoreToReachText;
-	[Export] private string _clientScoretext;
-
-        
-        
-	private static int _hostScore = 0;
-	private static int _clientScore = 0;
-
-	[Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
+	[Export] private  string _hostScoreText;
+	[Export] private  string _scoreToReachText;
+	[Export] private  string _clientScoreText;
+	
+	
+	[Rpc(MultiplayerApi.RpcMode.AnyPeer)]
 	public static void HostScored()
 	{
-		_hostScore++;
+		mpMap02.PlayerList[0].PlayerScore++;
 		GD.Print("Host scored");
 	}
-	[Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
+	[Rpc(MultiplayerApi.RpcMode.AnyPeer)]
 
 	public static void ClientScored()
 	{
-		_clientScore++;
+		mpMap02.PlayerList[1].PlayerScore++;
 		GD.Print("Client scored");
 
 	}
@@ -39,12 +35,12 @@ public partial class MultiplayerHUD : CanvasLayer
 
 	private  void CheckWin()
 	{
-		if (_hostScore >= _scoretoReachvalue)
+		if (mpMap02.PlayerList[0].PlayerScore >= ScoretoReachValue)
 		{
 			menuPartieFinie.winnerName = "Hôte";
 			GetTree().ChangeSceneToFile("res://Scripts/Menus/menuPartieFinie.cs");
 		}
-		else if (_clientScore >= _scoretoReachvalue)
+		else if (mpMap02.PlayerList[1].PlayerScore >= ScoretoReachValue)
 		{
 			menuPartieFinie.winnerName = "Client";
 			GetTree().ChangeSceneToFile("res://Scripts/Menus/menuPartieFinie.cs");
@@ -61,34 +57,41 @@ public partial class MultiplayerHUD : CanvasLayer
 	{
 		if (Player.IsMultiplayer)
 		{
-			_scoretoReachvalue = (int)SetupGameAsHost._scoreToReachValue;
-			_gameModeValue = (int)SetupGameAsHost._gameModeValue;
-			_scoreToReachText = _scoretoReachvalue.ToString();
-			GetNode<RichTextLabel>("%ScoreToReach").Text = _scoreToReachText;
+			// _gameModeValue = SetupGameAsHost._gameModeValue == 0 ? (int)SetupGameAsHost._gameModeValue : -1;
 			
 			
-			GD.Print("");
-			GD.Print("===== RAPPORT =====");
-			GD.Print("score to reach: " + _scoretoReachvalue);
-			GD.Print("host score: " + _hostScore);
-			GD.Print("client score: " + _clientScore);
-
-			GD.Print("===== END OF =====");
-			GD.Print("");
+			// SendMultiplayerStartGameReport();
 
 		}
 	}
 
+	private void SendMultiplayerStartGameReport()
+	{
+		GD.Print("");
+		GD.Print("===== RAPPORT =====");
+		GD.Print("score to reach: " + ScoretoReachValue);
+		GD.Print("host score: " + mpMap02.PlayerList[0].PlayerScore);
+		GD.Print("client score: " + mpMap02.PlayerList[1].PlayerScore);
+
+		GD.Print("===== END OF =====");
+		GD.Print("");
+	}  //pa toucher
+	
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 		if (Player.IsMultiplayer)
 		{
 			GetNode<RichTextLabel>("%HostScore").Text = _hostScoreText;
-			GetNode<RichTextLabel>("%ClientScore").Text = _clientScoretext;
+			GetNode<RichTextLabel>("%ClientScore").Text = _clientScoreText;
 			
-			_hostScoreText = _hostScore.ToString();
-			_clientScoretext = _clientScore.ToString();
+			_hostScoreText = mpMap02.PlayerList[0].PlayerScore.ToString();
+			_clientScoreText = mpMap02.PlayerList[1].PlayerScore.ToString();
+			
+			
+			_scoreToReachText = ScoretoReachValue.ToString();
+			GetNode<RichTextLabel>("%ScoreToReach").Text = _scoreToReachText;
+
 		}
 	}
 }

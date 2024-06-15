@@ -15,9 +15,8 @@ public partial class SetupGameAsHost : Control
 	[Export] private Button _startGameButton;
 	[Export] private string _address = GetLocalIPAdress();
 
-	public static int? _scoreToReachValue = null;
-	public static int? _gameModeValue = null;
-	public static (int, int) Data = (0, 0);
+	public static int _scoreToReachValue;
+	public static int _gameModeValue;
 	
 	public override void _Ready()
 	{
@@ -25,10 +24,9 @@ public partial class SetupGameAsHost : Control
 		_scoreToReach = GetNode<ItemList>("ScoreToReach");
 		_startGameButton = GetNode<Button>("StartGame");
 		GetNode<Label>("%HostCode").Text = CodeParser.IpToCode(_address);
-		Data = ((_scoreToReachValue??0), (_gameModeValue??0));
 	}
 
-	public static string GetLocalIPAdress()
+	private static string GetLocalIPAdress()
 	{
 		var host = Dns.GetHostEntry(Dns.GetHostName());
 		foreach (var ip in host.AddressList)
@@ -51,29 +49,20 @@ public partial class SetupGameAsHost : Control
 	private void _on_choose_game_mode_item_selected(int index)
 	{
 		GD.Print("Game mode: " + _chooseGameMode.GetItemText(index));
-		if (index != 0)
-		{
-			_gameModeValue = index;
-		}
-		else
-		{
-			_gameModeValue = null;
-		}
-		
-		
+		_gameModeValue = index;
 	}
 
 
 	private void _on_score_to_reach_item_selected(int index)
 	{
 		GD.Print("Score to reach: " + _scoreToReach.GetItemText(index));
-		if (index != 0)
+		if (index == 0)
 		{
-			_scoreToReachValue = int.Parse(_scoreToReach.GetItemText(index));
+			_scoreToReachValue = 0;
 		}
 		else
 		{
-			_scoreToReachValue = null;
+			_scoreToReachValue = _scoreToReach.GetItemText(index).ToInt();
 		}
 	}
 	
@@ -83,12 +72,16 @@ public partial class SetupGameAsHost : Control
 
 		var multiplayerMenu = (MultiplayerMenu)GetNode("%MultiplayerMenu");
 		multiplayerMenu.Rpc(nameof(multiplayerMenu.StartGame));
-		
+		MultiplayerHUD.ScoretoReachValue = _scoreToReachValue;
 	}
+	
+	
+	// this function will 
+	
 	
 	public override void _Process(double d)
 	{
-		if (_gameModeValue != null && _scoreToReachValue != null && GameManager.Players.Count == 2)
+		if (_gameModeValue != 0 && _scoreToReachValue != 0 && GameManager.Players.Count == 2)
 		{
 			_startGameButton.Disabled = false;
 		}

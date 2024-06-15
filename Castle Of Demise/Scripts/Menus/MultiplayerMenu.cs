@@ -33,10 +33,10 @@ namespace CastleOfDemise.Scripts.Menus
         
         private void ConnectedToServer()
         {
-            GD.Print("CONNECTED TO SERVER");
+            //GD.Print("CONNECTED TO SERVER");
             // Call SendPlayerInformation on the server
             RpcId(1, nameof(SendPlayerInformation), $"Client", Multiplayer.GetUniqueId(), false, false);
-            GD.Print("SENDING PLAYER INFORMATION...");
+            //GD.Print("SENDING PLAYER INFORMATION...");
             
             GD.Print("===================================");
             GD.Print("===================================");
@@ -75,7 +75,7 @@ namespace CastleOfDemise.Scripts.Menus
             Peer.CreateClient(_address, _port);
             Peer.Host.Compress(ENetConnection.CompressionMode.RangeCoder);
             Multiplayer.MultiplayerPeer = Peer;
-            GD.Print("JOINING GAME...");
+            //GD.Print("JOINING GAME...");
         }
         
         
@@ -96,7 +96,7 @@ namespace CastleOfDemise.Scripts.Menus
 
             Peer.Host.Compress(ENetConnection.CompressionMode.RangeCoder);
             Multiplayer.MultiplayerPeer = Peer;
-            GD.Print("WAITING FOR PLAYERS!");
+            //GD.Print("WAITING FOR PLAYERS!");
 
             var multiplayerMenu = GetNode<Control>("%MultiplayerMenu");
             if (multiplayerMenu == null)
@@ -117,12 +117,12 @@ namespace CastleOfDemise.Scripts.Menus
 
         private void _on_back_button_frommulti_button_up()
         {
-            GD.Print("_returnFromMultiplayerMenu method access found");
+            //GD.Print("_returnFromMultiplayerMenu method access found");
             Player.IsMultiplayer = false;
             if (Peer != null) Peer.Close();
             GetNode<Control>("%MultiplayerMenu").Hide();
             GetNode<Control>("%GamemodeMenu").Show();
-            GD.Print("Going from muntiplayerMenu to GamemodeMenu");
+            //GD.Print("Going from muntiplayerMenu to GamemodeMenu");
         }
 
         [Rpc(MultiplayerApi.RpcMode.AnyPeer)]
@@ -171,18 +171,18 @@ namespace CastleOfDemise.Scripts.Menus
             player.PlayerScore = 0;
             player.IsServer = isServer;
             GameManager.Players.Add((id == 1) ? 0 : 1, player);
-            GD.Print("After adding to the peers");
-            GD.Print(player.PlayerId + " " + player.PlayerName + " " + player.PlayerScore);
+            //GD.Print("After adding to the peers");
+            //GD.Print(player.PlayerId + " " + player.PlayerName + " " + player.PlayerScore);
         }
 
         [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
         public void StartGame()
         {
             GetTree().ChangeSceneToFile("res://maps/mpMap02.tscn");
-            GD.Print("SendPlayerInformation, server found...");
+            // GD.Print("SendPlayerInformation, server found...");
             //PrintPlayerList();
         }
-
+        
 
         private void PrintPlayerList()
         {

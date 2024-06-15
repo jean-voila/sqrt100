@@ -137,7 +137,9 @@ public partial class Player : CharacterBody3D
 				this._HUDCanvas.Show();
 				this._pausecanvas.Show();
 				this.CameraForFov.Current = true;
-
+				
+				
+				
 				//SendMultiplayerHealthReport();
 				
 				// synchronisation of players

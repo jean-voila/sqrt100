@@ -70,11 +70,13 @@ public partial class Player
                 {
                     mpMap02.PlayerList[1].Teleport(new Vector3(0,24,2));
                     Rpc(nameof(MultiplayerHUD.HostScored));
+
                 }
                 else
                 {
                     mpMap02.PlayerList[0].Teleport(new Vector3(0,24,2));
                     Rpc(nameof(MultiplayerHUD.ClientScored));
+                    
                 }
                 // GD.Print(Name + " is " + PlayerName);
                 // GD.Print(PlayerHealth);

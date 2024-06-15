@@ -9,6 +9,8 @@ public partial class mpMap02 : Node3D
 {
 	[Export] private PackedScene _multiplayerScene02;
 	public static readonly List<Player> PlayerList= new();
+	public static int ScoreToReachUltimate;
+	// private static int scoretoReachvalue = 0;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -21,7 +23,19 @@ public partial class mpMap02 : Node3D
 			current.PlayerId = item.Value.PlayerId;
 			current.PlayerScore = item.Value.PlayerScore;
 			current.IsServer = item.Value.IsServer;
-			current.Name = item.Value.PlayerId.ToString(); // techniquement inutile,
+			if (Multiplayer.GetUniqueId() == 1)
+			{
+				MultiplayerHUD.ScoretoReachValue = SetupGameAsHost._scoreToReachValue;
+				// GD.Print(ScoreToReachUltimate + "is the ultimate score to reach bigbadboy");
+				Rpc(nameof(SetScoreToReach), SetupGameAsHost._scoreToReachValue);
+				//GD.Print("call func");
+			}
+			else
+			{
+				//GD.Print("There is no scoretoreach value set bc client yk");
+				
+			}
+			current.Name = item.Value.PlayerId.ToString(); // techniquement inutile
 			// mais ca permet de suivre une logique appréciable
 			PlayerList.Add(current);
 			AddChild(current);
@@ -33,10 +47,22 @@ public partial class mpMap02 : Node3D
 					current.Teleport(((Node3D)spawnPoint).GlobalTransform.Origin);
 				}
 			}
+			
 		}
 		
 	}
 
+	[Rpc(MultiplayerApi.RpcMode.AnyPeer)]
+	private void SetScoreToReach(int score)
+	{
+		ScoreToReachUltimate = score;
+		MultiplayerHUD.ScoretoReachValue = score;
+		//GD.Print("function called");
+		//GD.Print("result: " + score + " , " + ScoreToReachUltimate + " , " + MultiplayerHUD.ScoretoReachValue);
+	}
+
+	
+	
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
