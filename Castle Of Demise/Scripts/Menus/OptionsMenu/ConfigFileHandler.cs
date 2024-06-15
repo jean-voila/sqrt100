@@ -33,17 +33,6 @@ public partial class ConfigFileHandler : Node
 			config.Load(SETTINGS_FILE_PATH);
 		}
 	}
-	public static void SaveDiffSetting(double value)
-	{
-		config.SetValue("Diff", "diff", value);
-		config.Save(SETTINGS_FILE_PATH);
-	}
-	public static int LoadDiffSettings()
-	{
-		config.Load(SETTINGS_FILE_PATH);
-		var res = config.GetValue("Diff","diff").AsInt32();
-		return res;
-	}
 	public static void SaveFpsSetting(double value)
 	{
 		config.SetValue("FPS", "fps", value);
