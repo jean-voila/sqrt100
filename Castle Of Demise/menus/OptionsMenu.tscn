@@ -1,36 +1,40 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://ob7f85r1o8sl"]
 
-[ext_resource path="res://Assets/Fonts/Roboto-Regular.ttf" type="FontFile" id=1]
-[ext_resource path="res://Scripts/OptionsMenu.cs" type="Script" id=3]
+[ext_resource type="FontFile" uid="uid://c6l4o3vn05yn8" path="res://Assets/Fonts/Roboto-Regular.ttf" id="1"]
 
-[sub_resource type="FontFile" id=8]
-size = 22
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 1 )
+[sub_resource type="FontFile" id="8"]
+fallbacks = Array[Font]([ExtResource("1")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="StyleBoxFlat" id=9]
-bg_color = Color( 0, 0, 0, 0.768627 )
+[sub_resource type="StyleBoxFlat" id="10"]
+bg_color = Color(0, 0, 0, 0.423529)
 
-[sub_resource type="StyleBoxFlat" id=10]
-bg_color = Color( 0, 0, 0, 0.423529 )
+[sub_resource type="StyleBoxFlat" id="9"]
+bg_color = Color(0, 0, 0, 0.768627)
 
 [node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-pivot_offset = Vector2( -24, 40 )
-script = ExtResource( 3 )
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(-24, 40)
 
 [node name="BackButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 448.0
 offset_top = 448.0
 offset_right = 832.0
 offset_bottom = 498.0
-theme_override_fonts/font = SubResource( 8 )
-theme_override_styles/hover = SubResource( 9 )
-theme_override_styles/normal = SubResource( 10 )
+theme_override_fonts/font = SubResource("8")
+theme_override_styles/normal = SubResource("10")
+theme_override_styles/hover = SubResource("9")
 text = "Retour"
 
 [connection signal="button_up" from="BackButton" to="." method="_back"]
