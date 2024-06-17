@@ -1,7 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://dk2u6d3w8t0cw"]
+[gd_scene load_steps=20 format=3 uid="uid://dk2u6d3w8t0cw"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/TitleScreen.cs" id="1"]
-[ext_resource type="FontFile" uid="uid://cnxno2loranng" path="res://Assets/Fonts/Roboto-Bold.ttf" id="2"]
 [ext_resource type="FontFile" uid="uid://c6l4o3vn05yn8" path="res://Assets/Fonts/Roboto-Regular.ttf" id="3"]
 [ext_resource type="Texture2D" uid="uid://dtb85jcya3ddu" path="res://Assets/Images/sqrt100.png" id="3_po43f"]
 [ext_resource type="Texture2D" uid="uid://s5p1sdslvodf" path="res://Assets/Images/BackgroundMenu.png" id="4"]
@@ -12,6 +11,7 @@
 [ext_resource type="StyleBox" uid="uid://b5bvit6wpb3ss" path="res://menus/StandardPressedButton.tres" id="11"]
 [ext_resource type="PackedScene" uid="uid://ce66w6rq18eta" path="res://menus/settings_tab_container.tscn" id="11_3gekp"]
 [ext_resource type="Script" path="res://Scripts/Menus/GamemodeMenu.cs" id="12"]
+[ext_resource type="FontFile" uid="uid://cfyr0ivl4k3ot" path="res://Assets/Fonts/Seagram tfb.ttf" id="12_slueb"]
 [ext_resource type="StyleBox" path="res://menus/StandardButtonFocused.tres" id="13"]
 [ext_resource type="Script" path="res://Scripts/Menus/MultiLauncher/SetupGameAsHost.cs" id="13_xtka4"]
 [ext_resource type="Script" path="res://Scripts/Entities/Player/SFXPlayer.cs" id="15_p1v4r"]
@@ -37,50 +37,7 @@ cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="FontFile" id="27"]
-fallbacks = Array[Font]([ExtResource("2")])
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/50/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/30/0 = Vector2(0, 0)
-cache/0/50/0/ascent = 0.0
-cache/0/50/0/descent = 0.0
-cache/0/50/0/underline_position = 0.0
-cache/0/50/0/underline_thickness = 0.0
-cache/0/50/0/scale = 1.0
-cache/0/50/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/50/0/kerning_overrides/50/0 = Vector2(0, 0)
-cache/0/50/0/kerning_overrides/30/0 = Vector2(0, 0)
-cache/0/30/0/ascent = 0.0
-cache/0/30/0/descent = 0.0
-cache/0/30/0/underline_position = 0.0
-cache/0/30/0/underline_thickness = 0.0
-cache/0/30/0/scale = 1.0
-cache/0/30/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/30/0/kerning_overrides/50/0 = Vector2(0, 0)
-cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
-
-[sub_resource type="FontFile" id="17"]
-fallbacks = Array[Font]([ExtResource("3")])
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-
-[sub_resource type="FontFile" id="14"]
-fallbacks = Array[Font]([ExtResource("3")])
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vmnb"]
 
 [sub_resource type="FontFile" id="11"]
 fallbacks = Array[Font]([ExtResource("3")])
@@ -90,35 +47,6 @@ cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-
-[sub_resource type="FontFile" id="18"]
-fallbacks = Array[Font]([ExtResource("3")])
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-
-[sub_resource type="FontFile" id="21"]
-fallbacks = Array[Font]([ExtResource("3")])
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-
-[sub_resource type="FontFile" id="22"]
-fallbacks = Array[Font]([ExtResource("3")])
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5vmnb"]
 
 [node name="Titlescreen" type="Control" node_paths=PackedStringArray("_sfxPlayer", "_musicPlayer")]
 layout_mode = 3
@@ -314,8 +242,11 @@ offset_bottom = 204.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 theme_override_colors/font_color = Color(0.929412, 0.929412, 0.929412, 0.694118)
-theme_override_fonts/font = SubResource("27")
+theme_override_fonts/font = ExtResource("12_slueb")
+theme_override_font_sizes/font_size = 35
 text = "Multijoueur"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ConnectionControl" type="Control" parent="MultiplayerMenu"]
 anchors_preset = 0
@@ -330,7 +261,7 @@ offset_top = 353.0
 offset_right = 611.0
 offset_bottom = 415.0
 size_flags_horizontal = 3
-theme_override_fonts/font = SubResource("17")
+theme_override_fonts/font = ExtResource("12_slueb")
 theme_override_styles/normal = ExtResource("5")
 theme_override_styles/hover = ExtResource("6")
 theme_override_styles/pressed = ExtResource("11")
@@ -344,7 +275,7 @@ offset_top = 353.0
 offset_right = 848.0
 offset_bottom = 414.0
 size_flags_horizontal = 3
-theme_override_fonts/font = SubResource("14")
+theme_override_fonts/font = ExtResource("12_slueb")
 theme_override_styles/normal = ExtResource("5")
 theme_override_styles/hover = ExtResource("6")
 theme_override_styles/pressed = ExtResource("11")
@@ -398,7 +329,7 @@ offset_left = 538.0
 offset_top = 472.0
 offset_right = 659.0
 offset_bottom = 522.0
-theme_override_fonts/font = SubResource("11")
+theme_override_fonts/font = ExtResource("12_slueb")
 theme_override_styles/normal = ExtResource("5")
 theme_override_styles/hover = ExtResource("6")
 theme_override_styles/pressed = ExtResource("11")
@@ -421,8 +352,11 @@ offset_bottom = 204.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 theme_override_colors/font_color = Color(0.929412, 0.929412, 0.929412, 0.694118)
-theme_override_fonts/font = SubResource("27")
+theme_override_fonts/font = ExtResource("12_slueb")
+theme_override_font_sizes/font_size = 30
 text = "Mode de jeu"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BackButton" type="Button" parent="GamemodeMenu"]
 layout_mode = 0
@@ -430,7 +364,7 @@ offset_left = 571.0
 offset_top = 520.0
 offset_right = 713.0
 offset_bottom = 577.0
-theme_override_fonts/font = SubResource("18")
+theme_override_fonts/font = ExtResource("12_slueb")
 theme_override_styles/normal = ExtResource("5")
 theme_override_styles/hover = ExtResource("6")
 theme_override_styles/pressed = ExtResource("11")
@@ -443,7 +377,7 @@ offset_top = 374.0
 offset_right = 840.0
 offset_bottom = 478.0
 size_flags_horizontal = 3
-theme_override_fonts/font = SubResource("21")
+theme_override_fonts/font = ExtResource("12_slueb")
 theme_override_styles/normal = ExtResource("5")
 theme_override_styles/hover = ExtResource("6")
 theme_override_styles/pressed = ExtResource("11")
@@ -456,7 +390,7 @@ offset_top = 246.0
 offset_right = 840.0
 offset_bottom = 350.0
 size_flags_horizontal = 3
-theme_override_fonts/font = SubResource("22")
+theme_override_fonts/font = ExtResource("12_slueb")
 theme_override_styles/normal = ExtResource("5")
 theme_override_styles/hover = ExtResource("6")
 theme_override_styles/pressed = ExtResource("11")

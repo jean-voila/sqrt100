@@ -43,13 +43,20 @@ public partial class Player
             BloodHitEffectTimer.Start();
             CameraShake();
             _sfxPlayer.EmitSignal("PlaySFXSignal", "playerhit");
-            RpcId(this.PlayerId, nameof(UpdatePlayerInfo));
+            if (IsMultiplayer)
+            {
+                RpcId(this.PlayerId, nameof(UpdatePlayerInfo));
+            }
         }
         else
         {
             PlayerHealth -= var;
             IsDead = true;
-            RpcId(this.PlayerId, nameof(UpdatePlayerInfo));
+            if (IsMultiplayer)
+            {
+                RpcId(this.PlayerId, nameof(UpdatePlayerInfo));
+
+            }
         }
         HandleDeath();
     }

@@ -9,6 +9,7 @@ public partial class IEnnemiesTrackable : Node3D
     
 	[Export] public CharacterBody3D player;
 	[Export] private Node3D _ennemiesNode;
+
 	
 	
 	public override void _Ready()
