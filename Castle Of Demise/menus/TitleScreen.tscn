@@ -546,7 +546,7 @@ offset_top = -30.0
 offset_right = 581.0
 offset_bottom = 152.0
 disabled = true
-text = "Lancher la partie"
+text = "Lancer la partie"
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"

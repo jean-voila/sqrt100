@@ -21,15 +21,14 @@ public partial class IEnnemiesTrackable : Node3D
 		// GD.Print(player.GlobalTransform.Origin);
 		GetTree().CallGroup("ennemies","UpdateTargetLocation", player.GlobalTransform.Origin);
 		HandleWin();
-		GD.Print(_ennemiesNode.GetChildCount()==0);
 
 	}
 
 	public void HandleWin()
 	{
-		if (_ennemiesNode.GetChildCount()==0)
+		if (GetTree().GetNodesInGroup("ennemies").Count==32)
 		{
-			GetTree().ChangeSceneToFile("res://menus/TitleScreen.tscn");
+			GetTree().ChangeSceneToFile("res://menus/menuSOLOWIN.tscn");
 		}
 	}
 }

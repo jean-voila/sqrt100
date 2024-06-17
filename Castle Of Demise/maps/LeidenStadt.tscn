@@ -130,9 +130,6 @@ script = ExtResource("1_8ttph")
 player = NodePath("Player")
 _ennemiesNode = NodePath("EnnemisDehors")
 
-[node name="Ammo2" parent="." instance=ExtResource("18_gaor3")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 139.818)
-
 [node name="Player" parent="." instance=ExtResource("2_4juko")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.265404, 2.15837, 226.905)
 
