@@ -125,11 +125,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="LeidenStadt" type="Node3D" node_paths=PackedStringArray("player", "_ennemiesNode", "_musicPlayer")]
+[node name="LeidenStadt" type="Node3D" node_paths=PackedStringArray("player", "_ennemiesNode")]
 script = ExtResource("1_8ttph")
 player = NodePath("Player")
 _ennemiesNode = NodePath("EnnemisDehors")
-_musicPlayer = NodePath("")
 
 [node name="Player" parent="." instance=ExtResource("2_4juko")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.265404, 2.15837, 226.905)
