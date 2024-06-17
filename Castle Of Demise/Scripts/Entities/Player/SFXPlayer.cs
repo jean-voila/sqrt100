@@ -32,7 +32,7 @@ public partial class SFXPlayer : AudioStreamPlayer
 		var rand = new Random();
 		return files[rand.Next(files.Length)];
 	}
-	private string AudioPathGetter(string folderName, string extension = ".wav")
+	private string AudioPathGetter(string folderName, string extension = ".import")
 	{
 		var res = SoundEffectsPath + folderName + "/" + RandomFilePath(ListFilesInDir(SoundEffectsPath + folderName + "/", extension));
 		return res;
@@ -40,7 +40,7 @@ public partial class SFXPlayer : AudioStreamPlayer
 
 	public bool PlaySFX(string soundType)
 	{
-		string path = AudioPathGetter(soundType);
+		string path = AudioPathGetter(soundType).Replace(".import", "");
 		Stream = GD.Load<AudioStream>(path);
 		Play();
 		return true;
